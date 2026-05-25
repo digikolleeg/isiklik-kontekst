@@ -1,92 +1,92 @@
-# Quality Rubric
+# Kvaliteedi rubriik
 
-Two checklists. Use them to answer "is this working?"
+Kaks kontrollnimekirja. Kasuta neid, et vastata küsimusele: "kas see asi üldse töötab?"
 
-- The **portfolio rubric** tells you whether your filled `portfolio/` files are pulling their weight.
-- The **wiki rubric** tells you whether your `wiki/` is healthy and worth querying.
+- **Portfoolio rubriik** ütleb sulle, kas sinu täidetud failid `portfolio/` kaustas on oma hinda väärt.
+- **Viki rubriik** ütleb sulle, kas sinu `wiki/` on terve ja väärib pärimist.
 
-Run through both after an initial build, then again at every quarterly review.
-
----
-
-## Portfolio Rubric
-
-Your portfolio is working if:
-
-### Identity and Voice
-
-- [ ] An agent given only `identity.md` can draft a Slack message in your voice that you'd send without editing.
-- [ ] A stranger who reads `identity.md` could describe what you actually do (not your title) in one sentence.
-- [ ] `communication-style.md` is specific enough that "write it in my voice" produces output you recognize — not generic professional prose. If you see "clear and concise" as a description of your style and nothing more concrete, the file isn't done.
-
-### Operational Reality
-
-- [ ] `role-and-responsibilities.md` matches how you actually spent last week, not how your job description reads.
-- [ ] `current-projects.md` references projects you'd mention in tomorrow's standup. If any listed project hasn't moved in six weeks, either update its status or remove it.
-- [ ] `team-and-relationships.md` includes everyone you've interacted with more than twice this month, and the "Context for Agents" notes would genuinely change how an agent talks to each person.
-
-### Decisions and Constraints
-
-- [ ] `preferences-and-constraints.md` contains at least three things you've ever had to correct an AI about more than once. (Those recurring corrections are exactly what the file is for.)
-- [ ] `goals-and-priorities.md` names at least one thing you are explicitly **not** prioritizing. A file with only goals and no anti-goals is half-done.
-- [ ] `decision-log.md` has two or more real decision examples (not abstract framings) detailed enough that an agent could match your reasoning pattern on a new call.
-
-### Density and Freshness
-
-- [ ] Each file is roughly one page. If any file is longer than two, it's probably sprawling — tighten it.
-- [ ] Every file's `last_reviewed` frontmatter is within the last 90 days.
-- [ ] Every file's `version` field has been bumped at least once since the initial draft (if you've never updated, you haven't reacted to reality yet).
-
-### Coverage
-
-- [ ] You can name a concrete task you'd hand to an agent today where the portfolio gives it enough context to produce a first draft without you briefing it further.
-- [ ] At least one agent bundle in `portfolio/bundles/` has been stitched and actually used. If none have, the portfolio is sitting unused — fix that first.
-
-**Scoring:** if fewer than 10 of these are checked, spend an hour on the weakest items before adding anything else. A half-done portfolio is a net negative — agents will confidently use it and produce things that sound almost-but-not-quite like you.
+Tee mõlemad läbi pärast esimest ülesseadmist ja edaspidi igal kvartaalsel ülevaatusel.
 
 ---
 
-## Wiki Rubric
+## Portfoolio rubriik
 
-Your wiki is healthy if:
+Sinu portfoolio töötab, kui:
 
-### Structure
+### Identiteet ja hääl
 
-- [ ] `index.md` lists every page currently in `wiki/`. If the index is out of date, your next operation should be a lint pass before anything else.
-- [ ] Every wiki page has frontmatter with a `type`, `created`, `updated`, `sources`, and `status`.
-- [ ] No concept, topic, or synthesis page cites only one source. Single-source themes live in Candidates, not in compiled pages.
-- [ ] Orphan pages (zero inbound links from other wiki pages) are under 10% of total pages. If higher, you either have disconnected work or your compile pass is skipping cross-references.
+- [ ] Agent, kellele on antud ainult `identity.md`, suudab sinu häälega mustandi kirjutada Slacki sõnumist, mille sa saadaksid teele ilma muutmata.
+- [ ] Võõras, kes loeb faili `identity.md`, suudaks ühe lausega kirjeldada, mida sa *tegelikult* teed (mitte su ametinimetust).
+- [ ] `communication-style.md` on piisavalt spetsiifiline, et käsk "kirjuta minu häälega" toodab teksti, mille sa ära tunned — mitte lihtsalt igavat professionaalset proosat. Kui su stiili kirjelduseks on "selge ja lühike" ja mitte midagi konkreetsemat, siis on fail poolik.
 
-### Content Quality
+### Operatiivne reaalsus
 
-- [ ] Every concept, topic, and synthesis page ends with a `## Prompts for the user` section with 2–5 essay-shaped questions. Missing this section on any such page is a lint-fix candidate.
-- [ ] No page contains emojis, TODO markers, or speculative helpers ("you might also want to…"). AI-written style constraints are respected.
-- [ ] Every claim in a wiki page either cites a source in `## Sources` or is explicitly flagged as the AI's extrapolation.
-- [ ] No page's `status` is silently stale. If a source it cites has been superseded by a newer source, the page is either updated or marked `status: stale` / `superseded`.
+- [ ] `role-and-responsibilities.md` vastab sellele, kuidas sa reaalselt oma eelmise nädala veetsid, mitte sellele, mis su ametijuhendis kirjas on.
+- [ ] `current-projects.md` viitab projektidele, mida sa mainiksid homsel standupil. Kui mõni nimekirjas olev projekt pole kuus nädalat liikunud, siis kas uuenda selle staatust või viska see üldse välja.
+- [ ] `team-and-relationships.md` sisaldab kõiki, kellega sa oled sel kuul rohkem kui kaks korda suhelnud, ja jaotis "Context for Agents" (Kontekst agentidele) reaalselt muudaks seda, kuidas agent iga inimesega räägib.
 
-### Operational Health
+### Otsused ja piirangud
 
-- [ ] Queries get answered in under three hops through the graph — you rarely need to read more than three pages to find an answer.
-- [ ] The Candidates section in `index.md` has fewer than 10 waiting items. If higher, either more sources are needed on those themes, or some candidates should be abandoned during lint.
-- [ ] No candidate has been waiting in the Candidates list for more than 90 days. Candidates waiting longer should be abandoned during the next lint pass.
-- [ ] `log.md` has at least one entry per week (of whatever type — ingest, compile, query, lint). If it's quiet for weeks, the wiki is slowly dying.
+- [ ] `preferences-and-constraints.md` sisaldab vähemalt kolme asja, mille osas oled pidanud AI-d rohkem kui korra parandama. (Need korduvad parandused ongi täpselt see, milleks see fail on mõeldud.)
+- [ ] `goals-and-priorities.md` nimetab vähemalt ühte asja, mida sa spetsiifiliselt **ei** prioriseeri. Fail, kus on ainult eesmärgid, aga puuduvad anti-eesmärgid, on ainult pooleldi valmis.
+- [ ] `decision-log.md` sisaldab kahte või enamat päris otsuse näidet (mitte mingit abstraktset raamistust), mis on lahti kirjutatud piisavalt detailselt, et agent suudaks uues olukorras sinu mõttekäiku kopeerida.
 
-### Bridge to Portfolio
+### Tihedus ja värskus
 
-- [ ] `wiki/self/` has at least one page. If it's empty, you've never ingested a journal or reflection — the wiki → portfolio drift bridge isn't being exercised.
-- [ ] At your last portfolio review, you reviewed any drift candidates surfaced by self-pages. If you haven't checked drift in more than a quarter, the bridge is silent but not working.
+- [ ] Iga fail on umbes üks lehekülg pikk. Kui mõni fail venib üle kahe lehe, on see ilmselt laiali valgunud — tõmba koomale.
+- [ ] Iga faili `last_reviewed` frontmatteri kuupäev jääb viimase 90 päeva sisse.
+- [ ] Iga faili `version` (versioon) väärtust on pärast esimest mustandit vähemalt korra tõstetud (kui sa pole kunagi midagi uuendanud, siis sa pole lihtsalt elumuutustele reageerinud).
 
-### At Small Scale (< 20 pages)
+### Katvus
 
-- [ ] You can walk through the whole wiki in under 15 minutes and not find anything obviously wrong. At this scale, quality is still fully legible — take advantage of that to fix issues before the scale makes it expensive.
+- [ ] Sa suudad nimetada ühe konkreetse tööotsa, mille saaksid agendile juba täna anda nii, et portfoolio annab talle esimese mustandi jaoks piisava konteksti ilma sinupoolse lisabriifita.
+- [ ] Vähemalt üks agentide bundle kaustast `portfolio/bundles/` on reaalselt kokku pandud ja ka kasutust leidnud. Kui ei ole, siis istub su portfoolio niisama — tee see esimesena korda.
 
-**Scoring:** if fewer than 10 items are checked, run a lint pass: *"Health-check the wiki — report issues grouped by type, then ask me which to fix."* The LLM will surface most of these automatically if asked.
+**Skoorimine:** kui vähem kui 10 nendest on linnukesega, kuluta üks tund kõige nõrgemate kohtade peale, enne kui midagi uut lisama hakkad. Poolik portfoolio toob rohkem kahju kui kasu — agendid kasutavad seda enesekindlalt ja toodavad teksti, mis kõlab "peaaegu, aga mitte päris" nagu sina.
 
 ---
 
-## How Often to Run This
+## Viki rubriik
 
-- **Portfolio rubric:** quarterly, or after any major life/work change (new job, new projects, major priority shift).
-- **Wiki rubric:** monthly, or after any compile pass that created more than five new pages.
+Sinu viki on hea tervise juures, kui:
 
-Write the date you ran the rubric and anything notable into `log.md` as a `## [YYYY-MM-DD] lint` entry. The log becomes the history of how the system evolved.
+### Struktuur
+
+- [ ] `index.md` loetleb iga lehe, mis hetkel kaustas `wiki/` on. Kui register on ajast maas, peaks sinu järgmine liigutus olema lint-läbikäik (korrastus) enne kui midagi muud teed.
+- [ ] Igal vikilehel on frontmatteris väljad `type`, `created`, `updated`, `sources` ja `status`.
+- [ ] Mitte ükski concept, topic ega synthesis leht ei viita ainult ühele allikale. Ühe allikaga teemad elavad kandidaatide nimekirjas (Candidates), mitte kokkupandud lehtedel.
+- [ ] Orb-lehti (orphan pages — lehed, kuhu teised vikilehed ei viita) on alla 10% kogu lehtedest. Kui neid on rohkem, siis on sul kas omavahel ühendamata töö jupid või su kompileerimise faas jätab ristviited vahele.
+
+### Sisu kvaliteet
+
+- [ ] Iga concept, topic ja synthesis leht lõpeb jaotisega `## Prompts for the user` (Küsimused kasutajale), kus on 2–5 esseelaadset küsimust. Kui mõnel sellisel lehel on see puudu, siis on see tugev kandidaat lintimise käigus parandamiseks.
+- [ ] Mitte ükski leht ei sisalda emotikone, TODO-märkereid ega oletuslikke abi-fraase ("sa võiksid ka tahta..."). AI-le antud stiilireegleid austatakse.
+- [ ] Iga vikilehel olev väide viitab allikale jaotises `## Sources` või on selgelt välja toodud kui AI enda järeldus.
+- [ ] Ühegi lehe `status` pole märkamatult vananenud. Kui viidatud allikas on asendatud uuemaga, on leht kas uuendatud või märgitakse `status: stale` / `superseded`.
+
+### Operatiivne tervis
+
+- [ ] Päringutele saab vastuse vähem kui kolme hüppega (hops) graafis — sul on harva vaja lugeda rohkem kui kolme lehte, et vastus leida.
+- [ ] Kandidaatide (Candidates) jaotises failis `index.md` on vähem kui 10 ootel asja. Kui neid on rohkem, on neile teemadele vaja kas uusi allikaid lisada või tuleks mõned kandidaadid lintimise käigus hüljata.
+- [ ] Ükski kandidaat pole ootel istunud kauem kui 90 päeva. Kauem oodanud kandidaadid tuleks järgmise lintimise käigus lihtsalt maha kanda.
+- [ ] `log.md` saab vähemalt ühe uue kande nädalas (olgu see siis ingest, compile, query või lint). Kui logi seisab nädalaid vaikselt, siis viki vaikselt sureb.
+
+### Sild portfooliosse
+
+- [ ] Kaustas `wiki/self/` on vähemalt üks leht. Kui see on tühi, pole sa kunagi sisse võtnud ühtegi päevikukirjet või refleksiooni — seega ei tehta viki → portfoolio sünkroonimise silda kordagi lahti.
+- [ ] Sa vaatasid oma viimasel portfoolio ülevaatusel üle kõik triivimise (drift) kandidaadid, mille self-lehed esile tõid. Kui sa pole triivi (drift) üle kvartali kontrollinud, on sild küll vait, aga enam ei tööta.
+
+### Väikesel skaalal (< 20 lehte)
+
+- [ ] Sa suudad kogu vikist 15 minutiga läbi jalutada ja ei leia midagi, mis oleks ilmselgelt katki. Selles mahus on kvaliteet veel täielikult hoomatav — kasuta seda ära ja paranda vead enne, kui maht suureks paisub ja parandamine läheb kalliks.
+
+**Skoorimine:** kui vähem kui 10 neist on linnukesega, lase lintimis-protsess üle: *"Health-check the wiki — report issues grouped by type, then ask me which to fix."* LLM toob suurema osa neist vigadest ise pinnale, kui seda paluda.
+
+---
+
+## Kui tihti seda läbi teha
+
+- **Portfoolio rubriik:** kord kvartalis või pärast iga suurt elu-/töömuutust (uus töö, uued projektid, suur prioriteetide vahetus).
+- **Viki rubriik:** kord kuus või pärast igat kompileerimist, mis lõi üle viie uue lehe.
+
+Kirjuta kuupäev, mil sa rubriigi läbi tegid, ja kõik märkimisväärne faili `log.md` uue `## [AAAA-KK-PP] lint` kandena. Logist saab ajalugu, mis näitab, kuidas su süsteem aja jooksul arenes.
