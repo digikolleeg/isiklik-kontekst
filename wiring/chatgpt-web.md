@@ -1,66 +1,66 @@
-# Wiring: ChatGPT Web
+# Kuidas ühendada: ChatGPT Web
 
-Three ways to give ChatGPT your portfolio, in increasing order of sophistication. Pick the one that matches how you actually use ChatGPT.
+Siin on kolm viisi, kuidas ChatGPT-le oma portfoolio ette sööta, lihtsamast keerulisemani. Vali see, mis sobib sellega, kuidas sa tegelikult ChatGPT-d kasutad.
 
-## 1. Custom Instructions (character-limited)
+## 1. Custom Instructions (tähemärgipiiranguga)
 
-ChatGPT's Custom Instructions are persistent across every conversation — they apply whether you're asking for code, writing, research, or anything else. The catch: there's a character limit (~1500 chars per box), which means you can only fit the most compressed version of your portfolio.
+ChatGPT Custom Instructions (kohandatud juhised) püsivad aktiivsena üle kõigi vestluste — vahet pole, kas küsid koodi, kirjutad teksti, teed taustauuringut või midagi muud. Konks on selles: seal on tähemärgipiirang (umbes 1500 tähemärki kasti kohta), mis tähendab, et sa saad sinna mahutada ainult kõige kokkupakituma versiooni oma portfooliost.
 
-**What to paste:**
+**Mida sisse kopeerida:**
 
-In the "What would you like ChatGPT to know about you?" box, paste a compressed summary drawn from:
+Lahtrisse "What would you like ChatGPT to know about you?" (Mida sa tahaksid, et ChatGPT sinu kohta teaks?) kopeeri kokkuvõte, mis sisaldab:
 
-- Your name, role, organization (from `identity.md`)
-- The "What I Do" paragraph (from `identity.md`)
-- The top three items from your "Things I Hate" list (from `preferences-and-constraints.md`)
-- Two or three "Signature Patterns" (from `communication-style.md`)
+- Sinu nime, rolli, organisatsiooni (failist `identity.md`).
+- "Mida ma teen" lõiku (failist `identity.md`).
+- Kolme kõige olulisemat asja "Asjad, mida ma vihkan" nimekirjast (failist `preferences-and-constraints.md`).
+- Paari-kolme "Käekirja mustrit" (failist `communication-style.md`).
 
-In the "How would you like ChatGPT to respond?" box, paste:
+Lahtrisse "How would you like ChatGPT to respond?" (Kuidas sa tahaksid, et ChatGPT vastaks?) kopeeri:
 
-- Your overall communication style (concise/direct/etc. from `communication-style.md`)
-- Your AI output preferences (from `preferences-and-constraints.md`)
-- One sentence: "Match my voice. Lead with the answer. No preamble, no closing summary."
+- Sinu üldine suhtlusstiil (konkreetne/otsekohene/jne failist `communication-style.md`).
+- Sinu eelistused AI väljundi osas (failist `preferences-and-constraints.md`).
+- Üks lause: "Match my voice. Lead with the answer. No preamble, no closing summary." (Kopeeri see julgelt inglise keeles, nii on kindlam, et ta saab aru.)
 
-If you run out of space, cut the "Things I Hate" list first — style guidance on how to respond matters more than a list of negatives.
+Kui ruum otsa saab, lõika esimesena välja "Asjad, mida ma vihkan" nimekiri — stiilijuhised selle kohta, kuidas vastata, on tähtsamad kui nimekiri negatiivsetest asjadest.
 
-## 2. Custom GPTs (full portfolio as knowledge files)
+## 2. Custom GPTs (täisportfoolio teadmusfailidena)
 
-Custom GPTs let you upload files as knowledge. This is the right move if you want a ChatGPT that knows you deeply and persistently.
+Custom GPT-d (kohandatud GPT-d) lubavad sul faile üles laadida kui teadmust (knowledge). See on õige lüke, kui tahad ChatGPT-d, mis tunneb sind süvitsi ja püsivalt.
 
-**Setup:**
+**Seadistamine:**
 
-1. Create a new Custom GPT (ChatGPT → Explore GPTs → Create).
-2. In the GPT's instructions, paste a stitched bundle from [`portfolio/bundles/`](../portfolio/bundles/) — or paste all ten portfolio files' content directly if the GPT is meant to be a general-purpose assistant.
-3. Upload your full portfolio folder as knowledge files. The GPT can retrieve from them on demand.
-4. In the GPT's instructions, tell it: "You have access to my personal context portfolio as knowledge files. Read the relevant file before answering any question where my role, preferences, or voice would shape the answer. Do not narrate that you're doing this."
+1. Loo uus Custom GPT (ChatGPT → Explore GPTs → Create).
+2. GPT juhistesse (instructions) kopeeri kokkuliimitud "bundle" kaustast [`portfolio/bundles/`](../portfolio/bundles/) — või kopeeri kõigi kümne portfooliofaili sisu otse, kui see GPT on mõeldud üldiseks assistendiks.
+3. Lae kogu oma portfoolio kaust üles teadmusfailidena (knowledge files). GPT saab neid sealt vajadusel pärida.
+4. GPT juhistesse kirjuta: "You have access to my personal context portfolio as knowledge files. Read the relevant file before answering any question where my role, preferences, or voice would shape the answer. Do not narrate that you're doing this."
 
-**Which Custom GPTs are worth building:**
+**Milliseid Custom GPT-sid tasub ehitada:**
 
-- One general "knows me" GPT with all ten files as knowledge.
-- One content-writer GPT using the [`portfolio/bundles/content-writer.md`](../portfolio/bundles/content-writer.md) bundle.
-- One outreach-drafter GPT using the [`portfolio/bundles/client-outreach.md`](../portfolio/bundles/client-outreach.md) bundle.
+- Üks üldine "tunneb mind" GPT, kus kõik kümme faili on teadmusena kaasas.
+- Üks sisulooja GPT, mis kasutab [`portfolio/bundles/content-writer.md`](../portfolio/bundles/content-writer.md) bundle'it.
+- Üks kirjade koostaja GPT, mis kasutab [`portfolio/bundles/client-outreach.md`](../portfolio/bundles/client-outreach.md) bundle'it.
 
-Custom GPTs are shareable, so if you're building for a team or client, this is the format where each person gets their own without you building infrastructure.
+Custom GPT-sid saab jagada, nii et kui sa ehitad süsteemi tiimile või kliendile, on see parim viis anda igale inimesele tema enda spetsiifiline assistent ilma, et sa peaksid mingit rasket infra arendama.
 
-## 3. Projects (file upload, no character limit on instructions)
+## 3. Projects (failide üleslaadimine, juhistel pole märgipiirangut)
 
-ChatGPT Projects are similar to Claude Projects — you attach files that persist across every conversation in the project, with no character limits on the project instructions.
+ChatGPT Projects on sarnane Claude Projects'ile — sa manustad failid, mis püsivad igas selle projekti raames peetud vestluses, ja projekti juhistel (project instructions) ei ole tähemärgipiiranguid.
 
-**Setup:**
+**Seadistamine:**
 
-1. Create a new Project in ChatGPT.
-2. In project instructions, paste a stitched bundle or the full portfolio content. Projects have generous instruction limits.
-3. Attach your portfolio files as project files.
-4. Every conversation you start inside the project has the portfolio as live context.
+1. Loo uus Project ChatGPT-s.
+2. Projekti juhistesse kopeeri kokkuliimitud bundle või kogu portfoolio sisu. Projektidel on helded piirangud juhiste pikkusele.
+3. Manusta oma portfooliofailid projekti failidena.
+4. Igal uuel vestlusel, mille sa selles projektis alustad, on sinu portfoolio elava kontekstina kaasas.
 
-**When Projects beat Custom GPTs:**
+**Millal Projects on parem kui Custom GPT-d:**
 
-- You want to iterate on instructions frequently.
-- You don't need to share the result with anyone else.
-- You want the option to start one-off conversations that don't inherit project context (just start them outside the project).
+- Kui tahad oma juhiseid tihti tuunida.
+- Kui sul pole vaja tulemust kellegi teisega jagada.
+- Kui sa tahad säilitada võimaluse alustada ühekordseid vestlusi, mis ei päri projekti konteksti (lihtsalt alusta need väljaspool projekti).
 
-## Tips Across All Three
+## Nõuanded kõigi kolme jaoks
 
-- **Update when the portfolio updates.** Stale context is invisible and silently degrades every conversation. When you run a quarterly portfolio review, re-upload the changed files.
-- **Don't paste all ten files into Custom Instructions.** The character limit forces compression. Match the format to the surface.
-- **Test with a diagnostic prompt.** After setup, ask: "Draft a two-sentence intro to a new prospect in my voice." If the output sounds like you without editing, the wiring works. If not, your `communication-style.md` content needs to be more specific — not the wiring.
+- **Uuenda, kui portfoolio uueneb.** Aegunud kontekst on nähtamatu ja teeb märkamatult iga vestluse kvaliteedi kehvemaks. Kui teed oma kvartaalset portfoolio ülevaatust, lae uuenenud failid uuesti üles.
+- **Ära kopeeri kõiki kümmet faili Custom Instructions lahtritesse.** Tähemärgipiirang sunnib sind sisu kokku pakkima. Kohanda formaat vastavalt platvormi võimalustele.
+- **Testi diagnostilise promptiga.** Pärast seadistamist küsi: "Draft a two-sentence intro to a new prospect in my voice." (Koosta uuele potentsiaalsele kliendile minu häälega kahelauseiline sissejuhatus). Kui see kõlab nagu sina, ilma et sa peaksid midagi muutma, siis ühendus toimib. Kui ei, siis on sinu `communication-style.md` sisu liiga ümmargune — asi pole "juhtmetes".
