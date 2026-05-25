@@ -1,38 +1,38 @@
-# Getting Started
+# Alustamine
 
-Two systems. Build them in order — portfolio first, then wiki.
+Kaks süsteemi. Ehita need järjekorras — portfoolio enne, wiki pärast.
 
 ---
 
-## Step 1: Build Your Portfolio
+## Samm 1: ehita oma portfoolio
 
-Your portfolio is the foundation. It tells the wiki who it's being built for.
+Portfoolio on vundament. See ütleb wikile, kelle jaoks teda ehitatakse.
 
-### Option A: Use the Web App
+### Variant A: kasuta veebirakendust
 
-A purpose-built interviewer agent handles the whole process.
+Spetsiaalselt loodud intervjueerija-agent viib kogu protsessi läbi.
 
-1. Go to [app URL].
-2. Sign in with your email (magic link, no password needed).
-3. The agent interviews you across all ten files in sequence.
-4. Download your complete portfolio as a zip when done.
-5. Drop the files into `portfolio/` in this repo.
+1. Mine [app URL] aadressile.
+2. Logi sisse oma emailiga (maagiline link, parooli pole vaja).
+3. Agent intervjueerib sind järjest läbi kõik kümme faili.
+4. Lae oma valmis portfoolio zip-failina alla.
+5. Kopeeri failid selle repo `portfolio/` kausta.
 
-The whole thing takes 30-60 minutes in one sitting. Most people spread it across a few sessions.
+Kogu asi võtab ühe istumisega 30–60 minutit. Enamus inimesi jagab selle paari korraga.
 
-### Option B: Do It Yourself
+### Variant B: tee ise
 
-1. Open any template file from `portfolio/templates/`.
-2. Paste the entire file to Claude or ChatGPT.
-3. Say "let's do this one."
-4. Your AI build partner reads the embedded interview protocol and starts asking questions.
-5. When it has enough, it drafts the file. Read it and correct what's wrong.
-6. Save the final version into `portfolio/` (or a subdirectory of your choosing).
-7. Repeat for the remaining templates.
+1. Ava ükskõik milline šabloon `portfolio/templates/` kaustast.
+2. Kleebi terve fail Claude'i või ChatGPT-sse.
+3. Ütle "alustame sellega".
+4. Su AI ehituspartner loeb sissekirjutatud intervjuu-protokolli ja hakkab küsima.
+5. Kui tal on piisavalt, koostab ta faili. Loe see üle ja paranda, mis on valesti.
+6. Salvesta lõplik versioon `portfolio/` kausta (või enda valitud alamkausta).
+7. Korda sama ülejäänud šabloonidega.
 
-**Recommended order:** Start with `identity.md` and `role-and-responsibilities.md` — everything else builds on those two.
+**Soovituslik järjekord:** alusta `identity.md` ja `role-and-responsibilities.md` failidega — kõik ülejäänu ehitub neile kahele.
 
-**Full sequence:**
+**Täielik järjestus:**
 1. `identity.md`
 2. `role-and-responsibilities.md`
 3. `current-projects.md`
@@ -44,50 +44,50 @@ The whole thing takes 30-60 minutes in one sitting. Most people spread it across
 9. `domain-knowledge.md`
 10. `decision-log.md`
 
-**Tips:**
-- Be specific, not aspirational. Your agents need ground truth, not how you wish you worked.
-- Don't skip the reaction pass. When your build partner drafts a file, read it and correct what it got wrong. That's where the real signal is.
-- Short is better than long. One page per file, not five. Dense context beats sprawling context.
+**Näpunäited:**
+- Ole konkreetne, mitte ihaldav. Su agentidele on vaja päris tõde, mitte kuidas sa sooviks, et töötaksid.
+- Ära jäta reaktsiooni-ringi vahele. Kui su ehituspartner faili koostab, loe see üle ja paranda, mis vale läks. Sealt tuleb päris signaal.
+- Lühem on parem kui pikem. Üks lehekülg faili kohta, mitte viis. Tihe kontekst töötab paremini kui laialivalguv.
 
 ---
 
-## Step 2: Set Up the Wiki
+## Samm 2: seadista wiki
 
-Open a new Claude Code session in this repo and say:
+Ava selles repos uus Claude Code sessioon ja ütle:
 
-> "Read CLAUDE.md, then read my portfolio files in portfolio/. You are my LLM wiki agent. Confirm you understand the ingest, query, and lint workflows, and tell me what you need to ingest the first source."
+> "Loe CLAUDE.md, siis loe minu portfoolio-failid kaustast portfolio/. Sa oled minu LLM wiki agent. Kinnita, et saad aru sissekande, päringu ja kontrolli töövoogudest, ning ütle, mida vajad esimese allika sissekandeks."
 
-Then drop your first source into `raw/` and say "ingest this."
+Seejärel pane oma esimene allikas `raw/` kausta ja ütle "tee sissekanne".
 
-That's it. The LLM reads the source, creates wiki pages, updates the index, and appends to the log. Drop in another source when you have one.
+Selles see ongi. LLM loeb allika, loob wiki-lehed, uuendab indeksi ja lisab logisse. Pane järgmine allikas peale, kui üks tuleb.
 
-**What makes a good first source:**
-- Something you've already read and found valuable
-- An article, transcript, meeting notes, or research paper
-- Text-based (PDFs work; images need the LLM to handle them separately)
+**Mis teeb hea esimese allika:**
+- Midagi, mida oled juba lugenud ja väärtuslikuks pidanud
+- Artikkel, transkriptsioon, koosolekumärkmed või uurimistöö
+- Tekstipõhine (PDF-id sobivad; piltide jaoks tuleb LLM-i eraldi appi võtta)
 
-**After the first ingest:** Open Obsidian on this folder. The graph view shows you what got created and how it connects.
-
----
-
-## Step 3: Wire It In
-
-The wiki and portfolio are most useful when they're accessible to your other AI tools — not just Claude Code sessions on this repo.
-
-See the `wiring/` directory for:
-- **`mcp-resource.md`** — expose both layers as MCP resources (most automated)
-- **`system-prompt-patterns.md`** — copy-paste patterns for Claude, ChatGPT, Gemini
-- **`claude-projects.md`** — use your portfolio in Claude Projects
-- **`api-layer.md`** — build an API layer if you want programmatic access
-
-Start with whichever tool you use most.
+**Pärast esimest sissekannet:** ava Obsidian sellel kaustal. Graafi-vaates näed, mis tekkis ja kuidas need omavahel seotud on.
 
 ---
 
-## Ongoing Maintenance
+## Samm 3: ühenda see kõik kokku
 
-**Portfolio:** Review quarterly or when something significant changes (new job, new projects, major priority shift). Ask Claude Code: "Help me update current-projects.md — here's what's changed."
+Wiki ja portfoolio on kõige kasulikumad siis, kui need on ligipääsetavad ka su teistele AI tööriistadele — mitte ainult Claude Code sessioonidele selles repos.
 
-**Wiki:** Add sources whenever you read something worth keeping. Run a lint pass monthly: "Health-check the wiki — look for contradictions, orphan pages, stale claims, and missing cross-references."
+Vaata `wiring/` kausta:
+- **`mcp-resource.md`** — too mõlemad kihid välja MCP ressurssidena (kõige automaatsem)
+- **`system-prompt-patterns.md`** — kopeeri-kleebi mustrid Claude'i, ChatGPT ja Gemini jaoks
+- **`claude-projects.md`** — kasuta oma portfooliot Claude Projects'is
+- **`api-layer.md`** — ehita API kiht, kui tahad programmilist juurdepääsu
 
-**Log:** Use `grep "^## \[" log.md | tail -10` to see recent activity.
+Alusta sellest tööriistast, mida kõige rohkem kasutad.
+
+---
+
+## Pidev hooldus
+
+**Portfoolio:** vaata kord kvartalis üle või siis, kui midagi olulist muutub (uus töö, uued projektid, suur prioriteedimuutus). Küsi Claude Code'lt: "Aita mul `current-projects.md` uuendada — siin on, mis on muutunud."
+
+**Wiki:** lisa allikaid alati, kui loed midagi, mis tasub säilitada. Tee kontrollkäik kord kuus: "Tee wikile tervisekontroll — otsi vastuolusid, orvuks jäänud lehti, vananenud väiteid ja puuduvaid ristviiteid."
+
+**Logi:** käivita `grep "^## \[" log.md | tail -10`, et näha viimast aktiivsust.
