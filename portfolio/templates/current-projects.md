@@ -1,45 +1,45 @@
 # Current Projects
 
-## What This File Is For
+## Mille jaoks see fail on
 
-This is the file that changes most often. It captures your active workstreams — what you're working on, where each thing stands, and what matters about each one. Agents use this to understand your current context so they can ask relevant questions, make useful suggestions, and avoid wasting your time on things that aren't active. Update this whenever projects start, finish, or shift priority.
-
----
-
-## Interview Protocol
-
-*Hand this entire file to your AI build partner and say "let's do this one." Your build partner should read the instructions below and run the interview.*
-
-**Instructions for the build partner:** You're helping the user create their current projects file. Start by getting the full list, then go through each project in sequence. Use what you already know from previous files to avoid redundant questions — if they mentioned projects during the role interview, reference them here.
-
-**Questions to ask:**
-
-1. What are you actively working on right now? List them out — project names or short descriptions, whatever comes naturally.
-2. [For each project, in sequence:] Tell me about [project]. What is it, where does it stand, and what does done look like?
-3. Who are you working with on [project]?
-4. If you had to rank these by priority right now, how would they stack up?
-5. Is anything stalled or blocked? What's the situation there?
-
-**When you have enough:** After you've covered each project the user named. Don't force a specific number — some people have three active projects, some have twelve.
-
-**After drafting:** Present the draft and ask the user to check the status and priority rankings especially. Those are the things most likely to be slightly off.
+See on fail, mis muutub kõige sagedamini. Püüab kinni su aktiivsed töövoolud — millega sa tegeled, kus iga asi seisab, ja mis on iga oma juures oluline. Agendid kasutavad seda, et mõista su praegust konteksti — et küsida asjakohaseid küsimusi, teha kasulikke ettepanekuid ja vältida sinu aja raiskamist mitteaktiivsete teemadega. Uuenda alati, kui projektid algavad, lõppevad või prioriteet muutub.
 
 ---
 
-## Output Structure
+## Intervjuu-protokoll
+
+*Anna see fail tervikuna oma AI ehituspartnerile ja ütle "alustame sellega". Su ehituspartner peaks lugema allolevad juhised ja viima intervjuu läbi.*
+
+**Juhised ehituspartnerile:** sa aitad kasutajal koostada tema current projects faili. Alusta täieliku nimekirja saamisega, seejärel liigu iga projekti juurde järjest. Kasuta seda, mida tead eelmistest failidest, et üleliigseid küsimusi vältida — kui kasutaja mainis projekte role-intervjuus, viita neile siin.
+
+**Küsimused:**
+
+1. Millega sa parasjagu aktiivselt tegeled? Loetle välja — projekti nimed või lühikirjeldused, mis loomulikult tuleb.
+2. [Iga projekti kohta, järjest:] Räägi [projektist]. Mis see on, kus see seisab, ja mis on lõpetatud välja näeb?
+3. Kellega sa [projekti] peal töötad?
+4. Kui pidaksid need praegu prioriteedi järgi reastama, kuidas need järjestuksid?
+5. Kas miski on seisma jäänud või blokeeritud? Mis on seal olukord?
+
+**Millal piisab:** kui oled iga kasutaja nimetatud projekti läbi käinud. Ära suru kindlat arvu — mõnel on kolm aktiivset projekti, mõnel kaksteist.
+
+**Pärast koostamist:** näita mustandit ja palu kasutajal kontrollida eriti staatust ja prioriteedijärjestust. Need on kõige tõenäolisemalt veidi paigast ära.
+
+---
+
+## Väljundi struktuur
 
 ```markdown
 # Current Projects
 
-[Repeat this block for each active project, ordered by priority.]
+[Korda seda plokki iga aktiivse projekti jaoks, prioriteedi järjekorras.]
 
-## [Project Name]
+## [Projekti nimi]
 
-**Description:** [One line — what this project is.]
-**Status:** [Early / In Progress / Wrapping Up / Stalled / On Hold]
-**My Role:** [What you specifically do on this project.]
-**Key Collaborators:** [Names and their roles on this project.]
-**What Done Looks Like:** [The concrete outcome that means this is finished.]
-**Priority:** [Relative to other projects — highest, high, medium, low.]
-**Notes:** [Anything else an agent should know — blockers, dependencies, upcoming deadlines.]
+**Kirjeldus:** [Üks rida — mis see projekt on.]
+**Staatus:** [Algfaasis / Töös / Lõpetamas / Seisma jäänud / Ootel]
+**Minu roll:** [Mida sa selle projekti peal konkreetselt teed.]
+**Olulised koostööpartnerid:** [Nimed ja nende rollid selles projektis.]
+**Mis on lõpetatud:** [Konkreetne tulemus, mis tähendab, et see on valmis.]
+**Prioriteet:** [Teiste projektide suhtes — kõrgeim, kõrge, keskmine, madal.]
+**Märkused:** [Kõik muu, mida agent peaks teadma — blokeerijad, sõltuvused, tulevad tähtajad.]
 ```
