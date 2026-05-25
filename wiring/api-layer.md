@@ -1,28 +1,28 @@
-# Wiring: Build an API Layer
+# Kuidas ühendada: Ehita API kiht
 
-## What This Is
+## Mis see on
 
-The most advanced wiring option. You build a simple API that serves your portfolio files, so any agent or application can request your context programmatically. This is for people who are building custom agents or applications that need to pull context on demand.
+Kõige arenenum ühendamise (wiring) valik. Sa ehitad lihtsa API, mis serveerib su portfoolio faile, nii et iga agent või rakendus saab sinu konteksti pärida otse koodist. See on mõeldud inimestele, kes ehitavad rätsepatööna valminud agente või rakendusi, millel on vaja konteksti käigu pealt (on demand) tõmmata.
 
-## When You Need This
+## Millal sul seda vaja läheb
 
-Most people don't. If you're using Claude Projects, MCP, or system prompt injection, those approaches are simpler and cover most use cases.
+Enamikul inimestel polegi vaja. Kui kasutad Claude Projects'it, MCP-d või süsteemiprompti süstimist (system prompt injection), siis need lähenemised on lihtsamad ja katavad suurema osa kasutusjuhtudest.
 
-Build an API layer when:
+Ehita API kiht siis, kui:
 
-- You have multiple custom-built agents (not just off-the-shelf tools) that all need your context
-- You want to serve different subsets of files to different agents based on what they request
-- You're building agents for other people and need a scalable way to serve individual context
-- You want your portfolio queryable — not just "give me the whole file" but "what are this person's current projects?"
+- Sul on mitu rätsepatööna valminud agenti (mitte lihtsalt valmis tööriistad karbist), mis kõik vajavad sinu konteksti.
+- Sa tahad serveerida erinevatele agentidele failidest erinevaid alamhulki, vastavalt sellele, mida nad küsivad.
+- Sa ehitad agente teistele inimestele ja vajad skaleeritavat viisi isikliku konteksti serveerimiseks.
+- Sa tahad, et su portfoolio oleks päritav (queryable) — mitte lihtsalt "anna mulle kogu fail", vaid "mis on selle inimese praegused projektid?".
 
-## Architecture
+## Arhitektuur
 
-The simplest version:
+Kõige lihtsam versioon:
 
-1. Store your portfolio files in a database or file system
-2. Build a lightweight API with endpoints for each file (or a single endpoint that accepts a file name parameter)
-3. Add basic authentication so your files aren't publicly accessible
-4. Your agents call the API at the start of their workflow to fetch the context they need
+1. Salvesta oma portfooliofailid andmebaasi või failisüsteemi.
+2. Ehita kergekaaluline API, kus igal failil on oma endpoint (või üks endpoint, mis võtab faili nime parameetrina).
+3. Lisa baastasemel autentimine, et su failid poleks avalikult kättesaadavad.
+4. Su agendid kutsuvad API-t oma töövoo alguses, et tõmmata neile vajalik kontekst.
 
 ```
 GET /api/portfolio/identity
@@ -31,26 +31,26 @@ GET /api/portfolio/communication-style
 GET /api/portfolio?files=identity,current-projects,team
 ```
 
-## A More Sophisticated Version
+## Keerulisem versioon
 
-If you want your portfolio to be queryable rather than just serving raw files:
+Kui tahad, et su portfoolio oleks päritav, mitte ei jagaks lihtsalt toorfaile:
 
-1. Store portfolio content in a structured database (not just flat files)
-2. Add a natural language query layer — "what are my active projects?" returns the relevant section from current-projects, not the whole file
-3. Add an update API so your agents can write back to the portfolio (an agent that notices you've started a new project can add it to current-projects)
+1. Salvesta portfoolio sisu struktureeritud andmebaasi (mitte lihtsalt lamedatesse failidesse).
+2. Lisa loomuliku keele päringukiht (natural language query layer) — küsimus "mis on mu aktiivsed projektid?" toob tagasi vastava lõigu current-projects failist, mitte kogu faili.
+3. Lisa uuendamise (update) API, et su agendid saaksid portfooliosse ka tagasi kirjutada (agent, mis märkab, et sa alustasid uut projekti, saab selle ise current-projects faili lisada).
 
-This starts to look like a personal knowledge graph. It's powerful but it's also a real engineering project. Don't build this until the simpler approaches aren't enough.
+See hakkab juba meenutama isiklikku teadmusgraafi (personal knowledge graph). See on võimas asi, aga see on juba päris tarkvaraarenduse projekt. Ära ehita seda enne, kui lihtsamatest lähenemistest enam ei piisa.
 
-## Implementation Notes
+## Märkused teostuse kohta
 
-- If you're using Supabase, store each file's content in a table with `user_id`, `file_name`, `content`, and `updated_at`. Simple, queryable, and you get row-level security for free.
-- If you're building with Claude Code, you can ask it to build this API for you. Hand it this document and your portfolio files and say "build me a simple API that serves these."
-- Authentication matters. Your portfolio contains personal and professional information. At minimum, use API key authentication. For production use, OAuth or JWT.
-- Version your files. When portfolio content changes, keep the previous version. This lets you track how your context evolves over time and roll back if an update was wrong.
+- Kui kasutad Supabase'i, salvesta iga faili sisu tabelisse, kus on `user_id`, `file_name`, `content` ja `updated_at`. Lihtne, päritav (queryable) ja sa saad reatasemel turvalisuse (row-level security) tasuta kaasa.
+- Kui sa ehitad asju Claude Code'iga, siis võid tal paluda see API sulle valmis ehitada. Anna talle see dokument ja su portfooliofailid ette ja ütle: "Ehita mulle lihtne API, mis neid faile serveerib."
+- Autentimine on oluline. Sinu portfoolio sisaldab isiklikku ja tööalast infot. Miinimumina kasuta API võtme autentimist. Kui lähed toodangusse (production), kasuta OAuth-i või JWT-d.
+- Versiooni oma faile. Kui portfoolio sisu muutub, hoia eelmine versioon alles. Nii saad jälgida, kuidas sinu kontekst ajas areneb, ja teha roll-back'i, kui mingi uuendus läks puusse.
 
-## Tips
+## Nõuanded
 
-- Start with flat file serving (option 1) and only add query capability when you have a real use case for it.
-- The API should return raw markdown by default. Let the consuming agent decide how to parse and use it.
-- Add a `GET /api/portfolio/summary` endpoint that returns just `identity.md` — the minimum viable context. Agents that need a lightweight context check can hit this instead of pulling multiple files.
-- If you're building agents that write back to the portfolio, be careful about conflicts. Two agents updating `current-projects.md` at the same time can create data loss. Use timestamps and conflict detection.
+- Alusta lamedate failide serveerimisega (valik 1) ja lisa päringute võimekus ainult siis, kui sul tekib selleks reaalne vajadus (use case).
+- Vaikimisi peaks API tagastama toore markdowni. Las agent, kes seda tarbib, otsustab, kuidas seda parsida ja kasutada.
+- Lisa `GET /api/portfolio/summary` endpoint, mis tagastab ainult `identity.md` faili — minimaalne töötav kontekst. Agendid, mis vajavad kiiret, kerget konteksti, saavad lüüa seda endpointi, selle asemel et mitu faili alla sikutada.
+- Kui sa ehitad agente, mis kirjutavad portfooliosse asju tagasi, ole konfliktide osas ettevaatlik. Kaks agenti, mis uuendavad `current-projects.md` faili samal ajal, võivad viia andmekaoni. Kasuta ajatempleid (timestamps) ja konfliktide tuvastamist.

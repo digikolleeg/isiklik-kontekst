@@ -1,0 +1,11 @@
+.DS_Store
+*.swp
+*~
+
+# Personal vault — never publish
+.private/
+
+# Editor-specific
+.idea/
+.vscode/
+*.iml

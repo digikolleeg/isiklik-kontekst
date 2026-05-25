@@ -1,40 +1,40 @@
-# Wiring: Connect Your Portfolio to OpenClaw Agents
+# Kuidas ühendada: Ühenda oma portfoolio OpenClaw agentidega
 
-## What This Does
+## Mida see teeb
 
-OpenClaw agents can read files from connected data sources. By connecting your portfolio to OpenClaw, every agent you build can access your context — your role, your projects, your communication style — and use it to produce better, more personalized output.
+OpenClaw agendid suudavad lugeda faile ühendatud andmeallikatest. Kui sa ühendad oma portfoolio OpenClaw'ga, saab iga sinu ehitatud agent ligipääsu sinu isiklikule kontekstile — sinu rollile, sinu projektidele, sinu suhtlusstiilile — ja suudab toota paremat, isikupärasemat tulemust.
 
-## How It Works
+## Kuidas see töötab
 
-OpenClaw agents access external data through skills and connected data sources. Your portfolio files can be made available as a data source that any agent can read from.
+OpenClaw agendid pääsevad välistele andmetele ligi läbi oskuste (skills) ja ühendatud andmeallikate. Sa saad teha oma portfooliofailid kättesaadavaks andmeallikana, kust iga agent lugeda saab.
 
-**Option 1: Local files**
+**Valik 1: Lokaalsed failid**
 
-If your OpenClaw instance runs locally and your portfolio is a folder on the same machine, point your agents at the directory. In your agent's configuration or SOUL.md, reference the portfolio location and instruct the agent to read relevant files at the start of its workflow.
+Kui su OpenClaw jookseb lokaalselt ja su portfoolio on lihtsalt kaust samas masinas, suuna oma agendid otse sinna kausta. Agendi konfiguratsioonis või SOUL.md failis viita portfoolio asukohale ja käsi agendil oma töövoo alguses lugeda sealt asjakohaseid faile.
 
-**Option 2: Via MCP**
+**Valik 2: Üle MCP**
 
-If you've already exposed your portfolio as an MCP resource (see `mcp-resource.md`), connect OpenClaw to that MCP server. Your agents access the portfolio through the MCP connection.
+Kui oled oma portfoolio juba MCP ressursina välja jaganud (vaata `mcp-resource.md`), ühenda OpenClaw selle MCP serveriga. Su agendid saavad portfooliole ligi läbi MCP ühenduse.
 
-**Option 3: Embedded in the agent**
+**Valik 3: Agendi sisse ehitatud (embedded)**
 
-For a quick approach, paste the relevant portfolio files directly into your agent's SOUL.md or system instructions. Less elegant but it works immediately. Best for agents that only need one or two files of context.
+Kiire ja räpane lahendus: kopeeri asjakohaste portfooliofailide sisu otse oma agendi SOUL.md faili või süsteemijuhistesse (system instructions). Vähem elegantne, aga töötab kohe. Sobib kõige paremini agentidele, mis vajavad ainult ühte-kahte failitäit konteksti.
 
-## Which Files for Which Agents
+## Millised failid millisele agendile
 
-**Morning briefing agent:** `identity.md`, `current-projects.md`, `goals-and-priorities.md` — so it knows what to prioritize in the briefing.
+**Hommikuse briifingu agent:** `identity.md`, `current-projects.md`, `goals-and-priorities.md` — et ta teaks, mida briifingus esikohale seada.
 
-**Meeting prep agent:** `team-and-relationships.md`, `current-projects.md` — so it knows who you're meeting with and what you're working on together.
+**Koosolekuks ettevalmistav agent:** `team-and-relationships.md`, `current-projects.md` — et ta teaks, kellega sa kohtud ja mille kallal te koos töötate.
 
-**Competitor monitor agent:** `identity.md`, `domain-knowledge.md` — so it knows your industry context and what matters to flag.
+**Konkurentide monitoorija agent:** `identity.md`, `domain-knowledge.md` — et ta tunneks sinu valdkonna konteksti ja teaks, millele punast lippu lehvitada.
 
-**Content production agent:** `communication-style.md`, `domain-knowledge.md` — so it writes in your voice and at your knowledge level.
+**Sisulooja agent:** `communication-style.md`, `domain-knowledge.md` — et ta kirjutaks sinu häälega ja sinu teadmiste tasemel.
 
-**Inbox triage agent:** `preferences-and-constraints.md`, `current-projects.md`, `team-and-relationships.md` — so it knows what's urgent, what's relevant, and who matters.
+**Postkasti triaaži agent:** `preferences-and-constraints.md`, `current-projects.md`, `team-and-relationships.md` — et ta teaks, mis põleb, mis on asjakohane ja millised inimesed loevad.
 
-## Tips
+## Nõuanded
 
-- Don't dump all ten files into every agent. Each file adds to the context the agent processes, and not all of it is relevant. Be selective.
-- Reference files by name in your agent's instructions: "Before producing the briefing, read `current-projects.md` for my active workstreams and prioritize accordingly."
-- When you update your portfolio files, every agent that reads them gets the updated context automatically (if using the file or MCP approach, not the embedded approach).
-- The portfolio is context, not instructions. Your agent's SOUL.md or system prompt still defines what the agent does. The portfolio defines who it's doing it for.
+- Ära kühvelda kõiki kümmet faili igale agendile sisse. Iga fail on lisakontekst, mida agent peab läbi seedima, ja kõik sellest ei ole asjakohane. Ole valiv.
+- Viita failidele nimepidi oma agendi juhistes: "Enne briifingu koostamist loe faili `current-projects.md`, et teada mu aktiivseid töövoogusid (workstreams), ja prioriseeri vastavalt."
+- Kui sa uuendad oma portfooliofaile, saavad kõik neid lugevad agendid automaatselt värske konteksti (kui kasutad faili- või MCP-lähenemist, mitte agendi sisse kopeerimist).
+- Portfoolio on kontekst, mitte juhised (instructions). Agendi SOUL.md või system prompt määrab endiselt, mida agent teeb. Portfoolio lihtsalt ütleb, kellele ta seda teeb.

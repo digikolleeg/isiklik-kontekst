@@ -1,53 +1,53 @@
 # Goals and Priorities
 
-## What This File Is For
+## Mille jaoks see fail on
 
-What you're optimizing for — this quarter, this year, and longer term. Agents use this to weight decisions and recommendations appropriately. An agent that knows you're prioritizing speed over polish right now will give you different advice than one that thinks you're optimizing for quality. This file also captures what you're deliberately NOT doing, which is just as important.
-
----
-
-## Interview Protocol
-
-*Hand this entire file to your AI build partner and say "let's do this one." Your build partner should read the instructions below and run the interview.*
-
-**Instructions for the build partner:** You're helping the user create their goals and priorities file. This is about what they're optimizing for, not their project list (that's a different file). Push for the difference between goals and projects if they start listing tasks. Use what you know from previous files to ask informed follow-ups.
-
-**Questions to ask:**
-
-1. What are you trying to accomplish in the next few months? Not your project list — your goals. What does success look like by the end of this quarter or this season?
-2. What about longer term — this year, or the next couple of years? What are you building toward?
-3. When you have to make a tradeoff — speed vs. quality, short-term vs. long-term, growth vs. stability — where do you generally land?
-4. What are you explicitly NOT prioritizing right now, even if it's important? What have you deliberately put on the back burner?
-5. If things go well over the next six months, what's different about your work or your life?
-
-**When you have enough:** After 4-5 questions.
-
-**After drafting:** Present the draft. Ask the user to check whether the tradeoff preferences feel accurate — those are the highest-leverage lines in this file because they directly affect how agents make recommendations.
+Mida sa hetkel optimeerid — sel kvartalil, sel aastal ja pikemas plaanis. Agendid kasutavad seda, et osata otsuseid ja soovitusi õigesti kaaluda. Agent, kes teab, et praegu on kiirus olulisem kui lihvitus, annab sulle teistsugust nõu kui agent, kes arvab, et optimeerid puhtale kvaliteedile. Samuti paneb see fail kirja, mida sa teadlikult EI TEE, ja see on täpselt sama oluline.
 
 ---
 
-## Output Structure
+## Intervjuu-protokoll
+
+*Anna see fail tervikuna oma AI ehituspartnerile ja ütle "alustame sellega". Su ehituspartner peaks lugema allolevad juhised ja viima läbi intervjuu.*
+
+**Juhised ehituspartnerile:** sa aitad kasutajal koostada tema goals and priorities faili. See keskendub sellele, millele ta optimeerib, mitte tema projektide nimekirjale (selleks on teine fail). Tõmba selge piir eesmärkide ja projektide vahele, kui kasutaja hakkab lihtsalt ülesandeid loetlema. Kasuta varasematest failidest õpitut, et küsida tabavamaid täpsustusi.
+
+**Küsimused:**
+
+1. Mida sa lähikuudel saavutada proovid? Mitte su projektide nimekiri — sinu eesmärgid. Milline näeb välja edukas tulemus selle kvartali või hooaja lõpus?
+2. Mis on pikem plaan — see aasta või paar järgmist? Mille poole sa rühid?
+3. Kui pead tegema kompromisse — kiirus vs kvaliteet, lühiajaline vs pikaajaline, kasv vs stabiilsus, siis kuhu sa tavaliselt maandud?
+4. Mida sa praegu teadlikult prioriteediks EI SEAKSKI, isegi kui see on oluline? Mille sa oled meelega ootele pannud?
+5. Kui järgmised kuus kuud lähevad hästi, mis on sinu töös või elus teistmoodi?
+
+**Millal piisab:** Pärast 4–5 küsimust.
+
+**Pärast koostamist:** Näita mustandit. Palu kasutajal üle kontrollida, kas kompromisside eelistused tunduvad õiged — need on selles failis kõige suurema mõjuga read, sest need dikteerivad otse, kuidas agendid sulle soovitusi hakkavad andma.
+
+---
+
+## Väljundi struktuur
 
 ```markdown
 # Goals and Priorities
 
-## Current Goals
+## Praegused eesmärgid
 
-[What you're trying to accomplish in the near term — this quarter or this season of work. Concrete outcomes, not aspirations.]
+[Mida sa lähiajal saavutada püüad — see kvartal või tööhooaeg. Konkreetsed tulemused, mitte lihtsalt unistused.]
 
-## Longer-Term Goals
+## Pikemaajalised eesmärgid
 
-[This year or the next few years. What you're building toward. Where you want to be.]
+[See aasta või lähiaastad. Mille suunas sa ehitad. Kuhu sa jõuda tahad.]
 
-## How I Think About Tradeoffs
+## Kuidas ma kompromisse näen
 
-[Your default positions on common tradeoffs — speed vs. quality, growth vs. stability, short-term vs. long-term, breadth vs. depth. Where you tend to land when forced to choose.]
+[Su vaikimisi positsioonid tüüpiliste kompromisside puhul — kiirus vs kvaliteet, kasv vs stabiilsus, lühiajaline vs pikaajaline, laius vs sügavus. Kuhu sa kaldud, kui pead valima.]
 
-## What I'm NOT Prioritizing
+## Mis EI OLE praegu prioriteet
 
-[Things that are important but deliberately on the back burner. Things you've decided not to do right now so agents don't keep suggesting them.]
+[Asjad, mis on tähtsad, aga teadlikult ootele pandud. Asjad, millega oled otsustanud praegu mitte tegeleda, et agendid ei käiks sulle nendega pinda.]
 
-## What Success Looks Like
+## Milline näeb välja edu
 
-[If things go well in the next six months, what's different? Paint the picture so agents understand what you're working toward.]
+[Kui järgmised kuus kuud lähevad hästi, mis siis muutub? Maali pilt, et agendid saaksid aru, mille nimel sa töötad.]
 ```

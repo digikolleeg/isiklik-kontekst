@@ -1,53 +1,53 @@
 # Domain Knowledge
 
-## What This File Is For
+## Mille jaoks see fail on
 
-What you know that a general-purpose AI doesn't. This file prevents agents from over-explaining things you already understand deeply and helps them avoid missing industry-specific context that shapes your work. It also captures areas where you're a beginner — so agents know when to explain more, not less.
-
----
-
-## Interview Protocol
-
-*Hand this entire file to your AI build partner and say "let's do this one." Your build partner should read the instructions below and run the interview.*
-
-**Instructions for the build partner:** You're helping the user create their domain knowledge file. This is about calibrating the right level of explanation — what they know cold, what they know enough to be dangerous, and what they'd want spelled out. Use what you've learned from previous files to ask informed questions about their domain.
-
-**Questions to ask:**
-
-1. What are your areas of genuine expertise — the things you know deeply enough to teach someone?
-2. What's the jargon of your world? The terms you use every day that a general-purpose AI might over-explain or get wrong?
-3. Is there industry context that an outsider wouldn't know but that shapes everything in your work? Regulations, market dynamics, cultural norms in your field?
-4. Are there specific frameworks or mental models you use regularly to think through problems?
-5. Flip side — are there areas where you're a beginner and you'd actually want an AI to explain things more, not less?
-
-**When you have enough:** After 4-5 questions.
-
-**After drafting:** Present the draft. Ask the user if the expertise levels feel right — it's easy to overstate what you know or forget to mention an area where you'd appreciate more explanation.
+Mida sina tead, aga üldine AI ei tea. See fail hoiab ära selle, et agendid hakkaksid sulle seletama asju, mida sa juba sügavalt mõistad, ja aitab neil su tööd kujundavast valdkonnaspetsiifilisest kontekstist mitte väga mööda panna. Samuti paneb see kirja alad, kus sa oled algaja — et agendid teaksid, millal tuleb seletada rohkem, mitte vähem.
 
 ---
 
-## Output Structure
+## Intervjuu-protokoll
+
+*Anna see fail tervikuna oma AI ehituspartnerile ja ütle "alustame sellega". Su ehituspartner peaks lugema allolevad juhised ja viima läbi intervjuu.*
+
+**Juhised ehituspartnerile:** sa aitad kasutajal koostada tema domain knowledge faili. See käib õige selgitustaseme kalibreerimise kohta — mida ta teab läbi ja lõhki, mida ta teab piisavalt, et olla ohtlik, ja mida ta tahaks, et talle puust ja punaseks ette tehtaks. Kasuta seda, mida sa juba eelmistest failidest õppinud oled, et esitada tema valdkonna kohta teadlikumaid küsimusi.
+
+**Küsimused:**
+
+1. Mis on sinu tõelised ekspertteadmised — asjad, mida sa tead piisavalt sügavalt, et võiksid neid kellelegi teisele õpetada?
+2. Mis on sinu maailma žargoon? Terminid, mida sa iga päev kasutad ja mida üldine AI kipuks üle seletama või millest ta üldse valesti aru saaks?
+3. Kas su valdkonnas on mingi kontekst, mida kõrvaltvaataja ei teaks, aga mis kujundab kõike, mida sa teed? Regulatsioonid, turudünaamika, sinu ala kultuurinormid?
+4. Kas sul on kindlaid raamistikke või mõttemudeleid (mental models), mida sa pidevalt kasutad probleemide lahendamisel?
+5. Teistpidi — kas on valdkondi, kus sa oled algaja ja kus sa päriselt tahaksid, et AI seletaks asju lahti rohkem, mitte vähem?
+
+**Millal piisab:** Pärast 4–5 küsimust.
+
+**Pärast koostamist:** Näita mustandit. Küsi kasutajalt, kas teadmiste tase tundub õige — on väga lihtne oma teadmisi üle hinnata või unustada mainimata valdkond, kus sa tegelikult tahaksid rohkem lahtiseletamist.
+
+---
+
+## Väljundi struktuur
 
 ```markdown
 # Domain Knowledge
 
-## Areas of Expertise
+## Ekspertteadmised
 
-[Fields, industries, disciplines you know deeply. The things where you don't need background explained — you need the AI to operate at your level.]
+[Valdkonnad, tööstusharud, distsipliinid, mida sa tunned süvitsi. Asjad, kus sa ei vaja tausta lahtiseletamist — sa vajad, et AI opereeriks sinu tasemel.]
 
-## Key Terminology
+## Põhiterminoloogia
 
-[The jargon you use without needing definitions. Industry terms, acronyms, concepts that an AI should use naturally rather than defining or avoiding.]
+[Žargoon, mida sa kasutad ilma, et vajaksid definitsioone. Valdkonna terminid, lühendid, kontseptsioonid, mida AI peaks kasutama loomulikult, mitte hakkama neid defineerima või vältima.]
 
-## Industry Context
+## Valdkonna kontekst
 
-[Things an outsider wouldn't know that shape your work — regulatory environment, market dynamics, cultural norms, historical context. The background that makes your field different from how a generalist would imagine it.]
+[Asjad, mida kõrvaltvaataja ei teaks, aga mis kujundavad sinu tööd — regulatiivne keskkond, turudünaamika, kultuurinormid, ajalooline taust. See taustsüsteem, mis teeb sinu valdkonna teistsuguseks sellest, kuidas mingi generalist seda ette kujutaks.]
 
-## Frameworks and Mental Models
+## Raamistikud ja mõttemudelid
 
-[Specific frameworks or thinking tools you use regularly. How you approach problems, organize information, or make sense of complex situations.]
+[Konkreetsed raamistikud või mõttetööriistad, mida sa regulaarselt kasutad. Kuidas sa lähened probleemidele, organiseerid infot või mõtestad keerulisi olukordi.]
 
-## Where I'm a Beginner
+## Kus ma olen algaja
 
-[Areas where you'd want more explanation, not less. Topics where you're learning and want an AI to teach rather than assume knowledge.]
+[Valdkonnad, kus sa tahad pikemat selgitust, mitte lühemat. Teemad, kus sa alles õpid ja tahad, et AI pigem õpetaks, mitte ei eeldaks, et sa juba tead.]
 ```

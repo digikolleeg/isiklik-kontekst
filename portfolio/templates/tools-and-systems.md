@@ -1,53 +1,53 @@
 # Tools and Systems
 
-## What This File Is For
+## Mille jaoks see fail on
 
-What you use, how it's set up, and what connects to what. Agents use this to suggest workflows that fit your actual stack, avoid recommending tools you've already rejected, and understand where your data lives. If an agent is going to help you build something, it needs to know what it's building on top of.
-
----
-
-## Interview Protocol
-
-*Hand this entire file to your AI build partner and say "let's do this one." Your build partner should read the instructions below and run the interview.*
-
-**Instructions for the build partner:** You're helping the user create their tools and systems file. This should be a practical inventory of their working environment, not an exhaustive list of every app on their phone. Focus on the tools that shape how they work day to day.
-
-**Questions to ask:**
-
-1. What tools and platforms do you use every day? Walk me through your core stack.
-2. How is your setup customized? Any specific configurations, integrations, or workflows that an agent should know about?
-3. Where does your important data live — docs, spreadsheets, databases, specific platforms?
-4. Are there tools you're currently evaluating or planning to start using?
-5. Anything you've tried and deliberately stopped using? What didn't work?
-
-**When you have enough:** After 4-5 questions. Keep it practical.
-
-**After drafting:** Present the draft. Ask the user if anything important is missing from the daily tools — people often forget to mention things they use so habitually they don't think of them as tools.
+Mida sa kasutad, kuidas see on seadistatud ja mis millega ühenduses on. Agendid kasutavad seda, et soovitada töövooge, mis su päris tööriistakomplekti sobivad, vältida juba kõrvale jäetud tööriistade soovitamist ja mõista, kus su andmed elavad. Kui agent hakkab sind aitama midagi ehitada, peab ta teadma, mille peale ta ehitab.
 
 ---
 
-## Output Structure
+## Intervjuu-protokoll
+
+*Anna see fail tervikuna oma AI ehituspartnerile ja ütle "alustame sellega". Su ehituspartner peaks lugema allolevad juhised ja viima läbi intervjuu.*
+
+**Juhised ehituspartnerile:** sa aitad kasutajal koostada tema tools and systems faili. See peab olema praktiline ülevaade tema töökeskkonnast, mitte ammendav nimekiri igast telefoni rakendusest. Keskendu tööriistadele, mis kujundavad, kuidas ta päevast päeva töötab.
+
+**Küsimused:**
+
+1. Milliseid tööriistu ja platvorme sa iga päev kasutad? Käi läbi oma põhi-stack.
+2. Kuidas su seadistus on kohandatud? On konkreetseid konfiguratsioone, integratsioone või töövooge, mida agent peaks teadma?
+3. Kus su oluline andmestik elab — dokumendid, tabelid, andmebaasid, konkreetsed platvormid?
+4. On tööriistu, mida sa parasjagu hindad või plaanid kasutusele võtta?
+5. On midagi, mida sa oled proovinud ja teadlikult kõrvale jätnud? Mis ei töötanud?
+
+**Millal piisab:** pärast 4–5 küsimust. Hoia praktiline.
+
+**Pärast koostamist:** näita mustandit. Küsi kasutajalt, kas igapäeva tööriistade nimekirjast on midagi olulist puudu — inimesed unustavad sageli mainida asju, mida nad nii harjumuspäraselt kasutavad, et ei mõtle neist enam kui tööriistadest.
+
+---
+
+## Väljundi struktuur
 
 ```markdown
 # Tools and Systems
 
-## Daily Tools
+## Igapäeva tööriistad
 
-[The tools and platforms you use every day. For each: what it is, what you use it for, and any notable configuration.]
+[Tööriistad ja platvormid, mida sa iga päev kasutad. Igaühe kohta: mis see on, milleks sa seda kasutad ja igasugune märkimisväärne konfiguratsioon.]
 
-## Data Sources
+## Andme-allikad
 
-[Where your important data lives — documents, spreadsheets, databases, cloud storage, specific platforms. What lives where.]
+[Kus su oluline andmestik elab — dokumendid, tabelid, andmebaasid, pilvesalvestus, konkreetsed platvormid. Mis kus elab.]
 
-## Integrations and Connections
+## Integratsioonid ja ühendused
 
-[How your tools connect to each other. Automations, integrations, data flows between systems.]
+[Kuidas su tööriistad omavahel ühenduses on. Automatiseeringud, integratsioonid, andmevood süsteemide vahel.]
 
-## Evaluating or Planning to Adopt
+## Hindamisel või kasutusele võtmas
 
-[Tools you're looking at or planning to start using. What problem they'd solve.]
+[Tööriistad, mida sa vaatled või plaanid kasutama hakata. Mis probleemi need lahendaksid.]
 
-## Tried and Rejected
+## Proovitud ja kõrvale jäetud
 
-[Tools you've deliberately stopped using and why. Saves agents from recommending things you've already ruled out.]
+[Tööriistad, mida sa oled teadlikult kõrvale jätnud, ja miks. Säästab agente sellest, et nad soovitaksid asju, mille sa juba välja arvasid.]
 ```

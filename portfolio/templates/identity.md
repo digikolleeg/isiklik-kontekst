@@ -1,44 +1,44 @@
 # Identity
 
-## What This File Is For
+## Mille jaoks see fail on
 
-This is the minimum viable context file. If an agent could only read one file about you, this is it. It tells any AI system who you are, what you do, and what you're known for — enough to have a useful first interaction without reading anything else.
-
----
-
-## Interview Protocol
-
-*Hand this entire file to your AI build partner and say "let's do this one." Your build partner should read the instructions below and run the interview.*
-
-**Instructions for the build partner:** You're helping the user create their identity file — a short, dense context document that captures who they are. Ask the following questions one at a time. Don't ask them all at once. When you have enough to draft, stop asking and draft the file using the output structure below.
-
-**Questions to ask:**
-
-1. What's your name and what's your current role or title?
-2. What organization or company are you with, if any?
-3. If you had to explain what you actually do to someone at a dinner party — not your title, but what you actually spend your time on — what would you say?
-4. What do people come to you for? What's the thing where someone says "you should talk to [your name] about that"?
-
-**When you have enough:** After 3-4 questions. This file should be short — a few lines of facts and one solid paragraph. Don't pad it.
-
-**After drafting:** Present the draft and ask the user to identify anything that doesn't sound right or feels off. Revise based on their feedback.
+See on minimaalne, kuid piisav kontekstifail. Kui agent saaks sinu kohta lugeda ainult ühte faili, oleks see see. Ütleb igale AI süsteemile, kes sa oled, mida sa teed ja mille poolest sind teatakse — piisav, et alustada kasulikku esimest vestlust ilma midagi muud lugemata.
 
 ---
 
-## Output Structure
+## Intervjuu-protokoll
+
+*Anna see fail tervikuna oma AI ehituspartnerile ja ütle "alustame sellega". Su ehituspartner peaks lugema allolevad juhised ja viima läbi intervjuu.*
+
+**Juhised ehituspartnerile:** sa aitad kasutajal koostada tema identity-faili — lühike, tihe kontekstidokument, mis võtab kokku, kes ta on. Esita allolevad küsimused ükshaaval. Ära küsi kõiki korraga. Kui sul on koostamiseks piisavalt, lõpeta küsimine ja koosta fail allpool toodud väljundi struktuuri järgi.
+
+**Küsimused:**
+
+1. Mis su nimi ja praegune roll või ametinimetus on?
+2. Millises ettevõttes või organisatsioonis sa oled, kui üldse?
+3. Kui peaksid sõbrale õhtusöögil seletama, mida sa tegelikult teed — mitte ametinimetust, vaid millele sa oma aja päriselt kulutad — mis sa ütleksid?
+4. Mille pärast inimesed sinu juurde tulevad? Mis on see asi, kus keegi ütleb "selle koha pealt küsi [sinu nimi] käest"?
+
+**Millal piisab:** pärast 3–4 küsimust. See fail peab olema lühike — paar rida fakte ja üks tugev lõik. Ära paksenda.
+
+**Pärast koostamist:** näita mustandit ja palu kasutajal välja tuua kõik, mis ei kõla õigesti või tundub vale. Paranda tema tagasiside põhjal.
+
+---
+
+## Väljundi struktuur
 
 ```markdown
 # Identity
 
-**Name:** [Full name]
-**Role:** [Current title or role]
-**Organization:** [Company, team, or "Independent"]
+**Nimi:** [Täisnimi]
+**Roll:** [Praegune ametinimetus või roll]
+**Organisatsioon:** [Ettevõte, tiim või "Iseseisev"]
 
-## What I Do
+## Mida ma teen
 
-[One paragraph — plain language, not a job description. What you actually spend your time on, explained so a smart stranger would get it.]
+[Üks lõik — lihtsas keeles, mitte ametijuhend. Millele sa oma aja päriselt kulutad, seletatud nii, et tark võõras saab aru.]
 
-## What I'm Known For
+## Mille poolest olen tuntud
 
-[1-3 sentences. What people come to you for. Your signature skill, perspective, or domain.]
+[1–3 lauset. Mille pärast inimesed sinu juurde tulevad. Su tunnusoskus, vaatenurk või valdkond.]
 ```

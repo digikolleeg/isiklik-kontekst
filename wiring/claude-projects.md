@@ -1,40 +1,40 @@
-# Wiring: Use Your Portfolio in Claude Projects
+# Kuidas ühendada: Kasuta oma portfooliot Claude Projects'is
 
-## What This Does
+## Mida see teeb
 
-Claude Projects let you attach files that persist across every conversation in that project. By adding your portfolio files to a project, every conversation in that project starts with Claude already knowing who you are, how you work, and what you're working on.
+Claude Projects lubab sul manustada faile, mis püsivad üle kõigi selles projektis peetavate vestluste. Kui sa lisad oma portfooliofailid projekti, siis algab iga vestlus nii, et Claude teab juba, kes sa oled, kuidas sa töötad ja mille kallal sa töötad.
 
-This is the simplest wiring option — no setup, no servers, no configuration. Just upload files.
+See on kõige lihtsam viis asju käima saada — ei mingit seadistamist, servereid ega konfigureerimist. Lihtsalt lae failid üles.
 
-## How It Works
+## Kuidas see töötab
 
-1. Create a new Claude Project (or open an existing one)
-2. Add your portfolio files to the project's knowledge base
-3. Every conversation in that project now has access to your full context
+1. Loo uus Claude Project (või ava olemasolev).
+2. Lisa oma portfooliofailid projekti teadmusbaasi (knowledge base).
+3. Nüüd on igal selles projektis toimuval vestlusel ligipääs sinu täielikule kontekstile.
 
-## Which Files to Add
+## Milliseid faile lisada
 
-You don't have to add all ten. Match the files to the project's purpose:
+Sa ei pea lisama kõiki kümmet. Vali failid vastavalt projekti eesmärgile:
 
-**For a general work assistant project:** `identity.md`, `role-and-responsibilities.md`, `current-projects.md`, `communication-style.md`, `preferences-and-constraints.md`
+**Üldise tööassistendi projekti jaoks:** `identity.md`, `role-and-responsibilities.md`, `current-projects.md`, `communication-style.md`, `preferences-and-constraints.md`
 
-**For a meeting prep project:** `identity.md`, `team-and-relationships.md`, `current-projects.md`
+**Kohtumisteks ettevalmistamise projekti jaoks:** `identity.md`, `team-and-relationships.md`, `current-projects.md`
 
-**For a writing project:** `identity.md`, `communication-style.md`, `domain-knowledge.md`
+**Kirjutamisprojekti jaoks:** `identity.md`, `communication-style.md`, `domain-knowledge.md`
 
-**For a strategic planning project:** `identity.md`, `goals-and-priorities.md`, `current-projects.md`, `decision-log.md`
+**Strateegilise planeerimise projekti jaoks:** `identity.md`, `goals-and-priorities.md`, `current-projects.md`, `decision-log.md`
 
-**For a "knows everything about me" project:** All ten files.
+**"Teab minu kohta kõike" projekti jaoks:** Kõik kümme faili.
 
-## Tips
+## Nõuanded
 
-- Claude Projects have a knowledge base size limit. All ten portfolio files should be well within it, but if you're adding other documents too, prioritize the most relevant portfolio files.
-- Add a project instruction that says something like: "You have access to my personal context portfolio. Use it to inform your responses but don't reference it explicitly unless I ask. Just know me." This keeps the context active without Claude narrating what it knows.
-- When you update a portfolio file (projects change, priorities shift), update the version in your Claude Project too. Stale context is worse than no context.
-- You can use different subsets of files for different projects. Your writing assistant doesn't need your decision log. Your strategic advisor doesn't need your tools inventory.
+- Claude Projects'il on teadmusbaasi mahupiirang. Kõik kümme faili peaksid sinna ilusti ära mahtuma, aga kui laed üles ka muid dokumente, prioriseeri kõige olulisemaid portfooliofaile.
+- Lisa projekti juhistesse midagi sellist: "Sul on ligipääs minu isikliku konteksti portfooliole. Kasuta seda oma vastuste kujundamisel, aga ära viita sellele otse, kui ma just ei palu. Lihtsalt tunne mind." See hoiab konteksti aktiivsena, ilma et Claude pidevalt seletaks, mida ta teab.
+- Kui sa uuendad mingit portfooliofaili (projektid muutuvad, prioriteedid nihkuvad), siis uuenda seda faili ka oma Claude Project'is. Aegunud kontekst on hullem kui puuduv kontekst.
+- Sa võid erinevate projektide jaoks kasutada erinevaid failide komplekte. Sinu kirjutamisassistent ei vaja sinu otsuste logi. Sinu strateegiline nõuandja ei vaja su tööriistade nimekirja.
 
-## Limitations
+## Piirangud
 
-- Files in Claude Projects are static uploads. If you want automatic updates when your portfolio changes, use the MCP approach instead.
-- Each Claude Project is separate. If you have five projects, you'd need to add your files to each one individually.
-- This only works with Claude. For other AI tools, see the other wiring guides.
+- Claude Projects'is olevad failid on staatilised üleslaadimised. Kui tahad automaatseid uuendusi portfoolio muutumisel, kasuta hoopis MCP lähenemist.
+- Iga Claude Project on eraldi. Kui sul on viis projekti, pead sa failid igasse ühte eraldi lisama.
+- See töötab ainult Claude'iga. Teiste AI-tööriistade jaoks vaata teisi "Kuidas ühendada" juhendeid.
