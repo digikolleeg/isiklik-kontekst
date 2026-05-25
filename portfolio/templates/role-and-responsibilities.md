@@ -1,58 +1,58 @@
 # Role and Responsibilities
 
-## What This File Is For
+## Mille jaoks see fail on
 
-This is an operational description of your work — what your weeks actually look like, what you're accountable for, what you produce. Agents use this to understand the rhythm and shape of your job so they can help with the right things at the right times. It's not a job description. It's a field guide to how you actually spend your days.
-
----
-
-## Interview Protocol
-
-*Hand this entire file to your AI build partner and say "let's do this one." Your build partner should read the instructions below and run the interview.*
-
-**Instructions for the build partner:** You're helping the user create their role and responsibilities file. This should capture the operational reality of their work, not the idealized version. Ask the following questions one at a time. Use what you already know from the identity file (if completed) to skip redundant questions and ask better follow-ups.
-
-**Questions to ask:**
-
-1. Walk me through a typical week. What are the recurring things that happen every week without fail?
-2. What are you directly accountable for — what are the things where if they don't happen, it's on you?
-3. What decisions do you make regularly? Not the big strategic ones — the routine ones that come up every week.
-4. What do you produce? Reports, analyses, plans, code, presentations — what are the actual outputs of your work?
-5. Who do you report to? Who reports to you, if anyone?
-6. Are there monthly or quarterly rhythms that shape your work — planning cycles, reviews, board meetings, anything like that?
-
-**When you have enough:** After 4-6 questions. This file is medium length. Capture the operational reality, not every edge case.
-
-**After drafting:** Present the draft and ask the user to identify anything that doesn't sound right. Pay particular attention to whether the cadences and rhythms are accurate — people often forget recurring obligations until they see them missing.
+See on operatiivne kirjeldus sinu tööst — kuidas su nädalad päriselt välja näevad, mille eest sa vastutad, mida sa toodad. Agendid kasutavad seda, et mõista su töö rütmi ja kuju, nii et nad oskaksid õigetel hetkedel õigete asjadega aidata. See pole ametijuhend. See on välipraktiline kirjeldus sellest, kuidas sa oma päevi päriselt veedad.
 
 ---
 
-## Output Structure
+## Intervjuu-protokoll
+
+*Anna see fail tervikuna oma AI ehituspartnerile ja ütle "alustame sellega". Su ehituspartner peaks lugema allolevad juhised ja viima intervjuu läbi.*
+
+**Juhised ehituspartnerile:** sa aitad kasutajal koostada tema role and responsibilities faili. See peaks tabama töö operatiivset reaalsust, mitte ideaalseid versioone. Esita küsimused üks korraga. Kasuta seda, mida sa juba identity-failist tead (kui see on täidetud), et üleliigseid küsimusi vältida ja paremaid täpsustavaid küsimusi esitada.
+
+**Küsimused:**
+
+1. Kirjelda tüüpilist nädalat. Mis on need korduvad asjad, mis juhtuvad iga nädal ilma erandita?
+2. Mille eest sa otseselt vastutad — mis on need asjad, kus kui need ei juhtu, on see sinu peal?
+3. Milliseid otsuseid sa regulaarselt teed? Mitte suuri strateegilisi — neid igapäevaseid, mis iga nädal ette tulevad.
+4. Mida sa toodad? Raporteid, analüüse, plaane, koodi, esitlusi — mis on su töö päriselt väljundid?
+5. Kellele sa allud? Kes allub sulle, kui keegi?
+6. Kas on igakuiseid või kvartali rütme, mis sinu tööd kujundavad — planeerimistsükleid, ülevaateid, nõukogu koosolekuid, midagi sellist?
+
+**Millal piisab:** pärast 4–6 küsimust. See fail on keskmise pikkusega. Püüa kinni operatiivne reaalsus, mitte iga erijuhtum.
+
+**Pärast koostamist:** näita mustandit ja palu kasutajal välja tuua, mis ei kõla õigesti. Pööra eriti tähelepanu, kas rütmid ja tsüklid on täpsed — inimesed unustavad sageli korduvad kohustused, kuni näevad neid puudu.
+
+---
+
+## Väljundi struktuur
 
 ```markdown
 # Role and Responsibilities
 
-## Core Responsibilities
+## Põhivastutused
 
-[What you're accountable for — the things that are unambiguously on you.]
+[Mille eest sa vastutad — asjad, mis on üheselt sinu peal.]
 
-## Weekly Cadence
+## Nädala rütm
 
-[Recurring meetings, check-ins, deadlines, rituals. The skeleton of a typical week.]
+[Korduvad koosolekud, sisseelud, tähtajad, rituaalid. Tüüpilise nädala skelett.]
 
-## Monthly / Quarterly Rhythms
+## Kuu / kvartali rütmid
 
-[Planning cycles, reviews, reporting periods, seasonal patterns. The bigger loops.]
+[Planeerimistsüklid, ülevaated, aruandlusperioodid, sesoonsed mustrid. Suuremad silmused.]
 
-## Key Decisions
+## Olulised otsused
 
-[The decisions you make regularly — what comes across your desk that requires your judgment.]
+[Otsused, mida sa regulaarselt teed — mis sinu laualt läbi käib ja vajab sinu otsustusvõimet.]
 
-## What I Produce
+## Mida ma toodan
 
-[Your outputs — deliverables, artifacts, reports, plans, code, whatever you create as part of your work.]
+[Su väljundid — tulemused, artefaktid, raportid, plaanid, kood, mida iganes sa oma töö raames loob.]
 
-## Reporting Structure
+## Aruandluse struktuur
 
-[Who you report to, who reports to you. Keep it simple — names and roles.]
+[Kellele sa allud, kes allub sulle. Hoia lihtne — nimed ja rollid.]
 ```
