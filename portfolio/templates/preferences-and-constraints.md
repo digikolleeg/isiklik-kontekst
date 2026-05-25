@@ -1,53 +1,53 @@
 # Preferences and Constraints
 
-## What This File Is For
+## Mille jaoks see fail on
 
-The "always do this / never do that" file. Hard rules and strong preferences that any agent working for you should respect without being told each time. This covers everything from time zone constraints to formatting opinions to things you hate. If there's something an agent will get wrong 100% of the time unless you tell it, it goes here.
-
----
-
-## Interview Protocol
-
-*Hand this entire file to your AI build partner and say "let's do this one." Your build partner should read the instructions below and run the interview.*
-
-**Instructions for the build partner:** You're helping the user create their preferences and constraints file. This should feel like a set of clear rules, not a personality profile. Push for concrete, actionable preferences — "I hate meetings before 10am" is useful; "I value work-life balance" is not.
-
-**Questions to ask:**
-
-1. Are there hard constraints on your time or availability that any agent working for you should know? Time zones, hours you don't work, days that are off limits?
-2. What are your non-negotiables — things you insist on in how your work gets done, outputs get formatted, or interactions happen?
-3. What do you hate? Meetings that should be emails, specific jargon, output formats that annoy you — anything where your reaction is strong.
-4. Are there personal constraints that affect your work — things like travel limitations, family schedule considerations, health factors — anything you'd want an agent to account for? Only share what you're comfortable with.
-5. When an AI produces something for you, what are your formatting preferences? Length, structure, level of detail, tone?
-
-**When you have enough:** After 4-5 questions.
-
-**After drafting:** Present the draft. Ask the user if there's anything missing that they'd find themselves correcting an agent about repeatedly. Those recurring corrections are exactly what this file is for.
+"Alati tee nii / ära kunagi tee nii" fail. Kõvad reeglid ja tugevad eelistused, mida iga sinu heaks töötav agent peaks austama ilma, et talle seda iga kord eraldi ütleksid. See katab kõike alates ajavööndi piirangutest ja vormistuse arvamustest kuni asjadeni, mida sa lausa vihkad. Kui on midagi, millega agent paneb sajaprotsendiliselt puusse, kui sa talle seda ette ei ütle, siis see käib siia.
 
 ---
 
-## Output Structure
+## Intervjuu-protokoll
+
+*Anna see fail tervikuna oma AI ehituspartnerile ja ütle "alustame sellega". Su ehituspartner peaks lugema allolevad juhised ja viima läbi intervjuu.*
+
+**Juhised ehituspartnerile:** sa aitad kasutajal koostada tema preferences and constraints faili. See peaks tunduma nagu selge reeglistik, mitte mingi isiksuseprofiil. Nõua konkreetseid, rakendatavaid eelistusi — "ma vihkan koosolekuid enne kella kümmet" on kasulik; "ma hindan töö ja eraelu tasakaalu" on kasutu.
+
+**Küsimused:**
+
+1. Kas su ajas või kättesaadavuses on kõvasid piiranguid, mida iga agent peaks teadma? Ajavööndid, tunnid, mil sa ei tööta, päevad, mis on absoluutselt kinni?
+2. Milles sa kompromisse ei tee — asjad, mida sa kategooriliselt nõuad selles osas, kuidas töö tehtud saab, kuidas väljundid on vormistatud või kuidas suhtlus käib?
+3. Mida sa vihkad? Koosolekud, mis oleks võinud olla e-kirjad, mingi konkreetne žargoon, väljundi formaadid, mis sind ärritavad — kõik asjad, mille suhtes sul on tugev reaktsioon.
+4. Kas sul on isiklikke piiranguid, mis mõjutavad su tööd — näiteks reisimise piirangud, pere graafikust tulenevad asjaolud, tervisemured ja kõik muu mida sa tahad, et agent arvesse võtaks? Jaga ainult seda, mida sa ise tahad jagada.
+5. Kui AI sulle midagi toodab, siis millised on su vormistuse eelistused? Pikkus, struktuur, detailsusaste, toon?
+
+**Millal piisab:** Pärast 4–5 küsimust.
+
+**Pärast koostamist:** Näita mustandit. Küsi kasutajalt, kas on midagi puudu, mida ta avastaks end agentidele pidevalt meelde tuletamas. Need korduvad parandused ongi täpselt see kraam, mille jaoks see fail olemas on.
+
+---
+
+## Väljundi struktuur
 
 ```markdown
 # Preferences and Constraints
 
-## Hard Constraints
+## Kõvad piirangud
 
-[Non-negotiable boundaries — time zones, availability windows, scheduling rules, things that are off limits. These are rules, not preferences.]
+[Piirid, kus kompromisse ei tehta — ajavööndid, kättesaadavuse aknad, planeerimise reeglid, asjad, mis on välistatud. Need on reeglid, mitte lihtsalt eelistused.]
 
-## Strong Preferences
+## Tugevad eelistused
 
-[Things you insist on but could theoretically flex on. Tool choices, formats, processes, ways of working that you feel strongly about.]
+[Asjad, mida sa kindlalt nõuad, aga milles saaksid teoreetiliselt järele anda. Tööriistade valik, formaadid, protsessid, tööviisid, mille suhtes sul on väga selge arvamus.]
 
-## Things I Hate
+## Mida ma vihkan
 
-[Specific things that bother you — meeting formats, communication patterns, jargon, AI output patterns. The stuff where your reaction is visceral.]
+[Konkreetsed asjad, mis käivad närvidele — koosolekute formaadid, suhtlusmustrid, kantseliit, AI väljundite maneerid. Värk, mis ajab harja punaseks.]
 
-## Personal Constraints
+## Isiklikud piirangud
 
-[Anything about your personal life that affects your work and that you want agents to account for — family schedule, health considerations, location, travel restrictions. Only what you choose to share.]
+[Kõik sinu isikliku eluga seonduv, mis mõjutab su tööd ja mida agendid peaksid arvestama — pere graafik, tervisemured, asukoht, reisipiirangud. Ainult see, mida ise soovid jagada.]
 
-## AI Output Preferences
+## AI väljundi eelistused
 
-[How you want AI-generated content formatted and delivered. Length, structure, level of detail, tone, formatting conventions.]
+[Kuidas sa tahad, et AI toodetud sisu oleks vormistatud ja esitatud. Pikkus, struktuur, detailsusaste, toon, vormistuse tavad.]
 ```
