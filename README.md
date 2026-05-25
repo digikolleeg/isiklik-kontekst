@@ -27,7 +27,7 @@ Kümme markdown-faili, mis koos moodustavad kaasaskantava, AI-loetava käsiraama
 | `goals-and-priorities.md` | Mille poole sa püüdled ja mida sa teadlikult ignoreerid |
 | `preferences-and-constraints.md` | Kõvad reeglid, tugevad arvamused, asjad, mida iga agent peab arvestama |
 | `domain-knowledge.md` | Mida sa tead, mida üldine AI ei tea |
-| `decision-log.md` | Kuidas sa otsuseid teed, päriste näidetega |
+| `decision-log.md` | Kuidas sa otsuseid teed, päris näidetega |
 
 **Uuendamise sagedus:** kord kvartalis või kui midagi olulist muutub.
 **Kuidas seda ehitada:** vaata `portfolio/` — seal on šabloonid, näited ja kogu intervjuu-protokoll.
@@ -36,17 +36,17 @@ Kümme markdown-faili, mis koos moodustavad kaasaskantava, AI-loetava käsiraama
 
 ## Kiht 2: Wiki — mida sa tead
 
-Kumuleeruv teadmiste baas, mida hoiab täielikult LLM. Sa paned tooresallikad (artiklid, transkriptsioonid, koosolekumärkmed, PDF-id) `raw/` kausta. LLM loeb need, loob struktureeritud wiki-lehed `wiki/` kausta ja ehitab automaatselt mõistete vahel seosed. Teadmine kasvab. Ristviited on juba olemas, kui sul neid vaja läheb. Midagi ei tuletata iga päringu peale nullist uuesti.
+Kasvav teadmiste baas, mida hoiab ajakohasena LLM. Võid lisada toorallikaid (artiklid, transkriptsioonid, koosolekumärkmed, PDF-id) `raw/` kausta. LLM loeb need, loob struktureeritud wiki-lehed `wiki/` kausta ja ehitab automaatselt mõistete vahel seosed. Teadmine kasvab. Ristviited on olemas enne, kui sul neid vaja läheb. Midagi ei tehta iga päringu juures nullist uuesti.
 
 ```
-raw/    ← pane allikad siia (muutmatud — LLM loeb, ei kirjuta kunagi)
+raw/    ← pane allikad siia (muutmatud — LLM loeb, aga ei kirjuta kunagi)
 wiki/   ← LLM-i loodud lehed (mõisted, teemad, sünteesid)
 index.md  ← kõigi wiki-lehtede kataloog, uuendatud iga sissekande peale
-log.md    ← jätkuv kirje sissekannetest, päringutest ja kontrollkäikudest
+log.md    ← jätkuv logi sissekannetest ja päringutest
 ```
 
 **Uuendamise sagedus:** pidev — iga kord kui sul on allikas, mida tasub säilitada.
-**Kuidas see töötab:** vaata `CLAUDE.md` — sealt leiad sissekande, päringu ja kontrollkäigu töövood.
+**Kuidas see töötab:** vaata `CLAUDE.md` — sealt leiad sissekande, päringu ja kontroll töövood.
 
 ---
 
@@ -54,7 +54,6 @@ log.md    ← jätkuv kirje sissekannetest, päringutest ja kontrollkäikudest
 
 Portfoolio on identiteedi kiht. Wiki on teadmiste kiht. Koos annavad nad igale AI tööriistale täieliku konteksti: kellega ta töötab *ja* mida see inimene on kogunud.
 
-Praktikas: LLM, kes wikit hooldab, juba teab sinu portfooliost, kelle jaoks ta seda ehitab — su valdkond, su eesmärgid, su kirjutamise stiil. Wiki "minu kohta" uurimine (päevikukanded, retrospektiivid, eesmärkide üle mõtisklemine) saab portfooliosse tagasi voolata, näiteks `current-projects.md` või `goals-and-priorities.md` faili. Need on eraldi süsteemid, kuid toidavad teineteist.
 
 ---
 
@@ -64,7 +63,7 @@ Praktikas: LLM, kes wikit hooldab, juba teab sinu portfooliost, kelle jaoks ta s
 /
 ├── README.md
 ├── GETTING-STARTED.md
-├── CLAUDE.md               ← juhib mõlemat kihti (loe see)
+├── CLAUDE.md               ← juhib mõlemat kihti (loe seda)
 ├── index.md                ← wiki indeks (LLM-i hooldatud)
 ├── log.md                  ← wiki logi (LLM-i hooldatud)
 ├── raw/                    ← pane allikad siia
@@ -80,11 +79,11 @@ Praktikas: LLM, kes wikit hooldab, juba teab sinu portfooliost, kelle jaoks ta s
 
 ## Disainipõhimõtted
 
-**Markdown ennekõike.** Iga AI süsteem maailmas oskab markdown'i lugeda. Pole andmebaase, pole embeddings-infrat, pole kinniseid formaate. Failid, mis on loetavad nii inimesele kui masinale.
+**Markdown ennekõike.** Iga AI süsteem maailmas oskab markdown'i lugeda. Pole andmebaase, pole embedding mudeleid, infrat ega kinniseid formaate. Failid, mis on loetavad nii inimesele kui masinale.
 
-**LLM kirjutab, inimene kureerib.** Wiki hooldamise koorem — ristviidete uuendamine, kokkuvõtete värskena hoidmine, vastuolude märkamine — on täielikult LLM-i töö. Sinu töö on allikate leidmine, suunamine ja heade küsimuste esitamine.
+**LLM kirjutab, inimene haldab.** Wiki hooldamise koorem — ristviidete uuendamine, kokkuvõtete värskena hoidmine, vastuolude märkamine — on täielikult LLM-i töö. Sinu töö on allikate leidmine, suunamine ja heade küsimuste esitamine.
 
-**Kaasaskantav igal pool.** Töötab Claude Code'iga, Claude Projects'iga, ChatGPT-ga, igasuguse tööriistaga, mis faile loeb. Ühegi tootja külge kinni jäänud.
+**Kaasaskantav igal pool.** Töötab Claude Code'iga, Claude Projects'iga, ChatGPT-ga, Geminiga igasuguse tööriistaga, mis faile loeb. Sa pole lukus ühegi tootja küljes.
 
 **Modulaarne.** Portfoolio ja wiki on iseseisvad süsteemid. Kasuta ühte, kasuta mõlemaid, ühenda need. Vali, mis sulle sobib.
 
