@@ -2,15 +2,15 @@
 
 ## Mille jaoks see fail on
 
-See on minimaalne, kuid piisav kontekstifail. Kui agent saaks sinu kohta lugeda ainult ühte faili, oleks see see. Ütleb igale AI süsteemile, kes sa oled, mida sa teed ja mille poolest oled tuntud — piisav, et alustada kasulikku esimest vestlust ilma midagi muud lugemata.
+See on minimaalne, kuid piisav kontekstifail. Kui agent saaks sinu kohta lugeda ainult ühte faili, oleks see see. Ütleb igale AI süsteemile, kes sa oled, mida sa teed ja mille poolest sind teatakse — piisav, et alustada kasulikku esimest vestlust ilma midagi muud lugemata.
 
 ---
 
 ## Intervjuu-protokoll
 
-*Anna see fail tervikuna oma AI ehituspartnerile ja ütle "alustame sellega". Su ehituspartner peaks lugema allolevad juhised ja viima intervjuu läbi.*
+*Anna see fail tervikuna oma AI ehituspartnerile ja ütle "alustame sellega". Su ehituspartner peaks lugema allolevad juhised ja viima läbi intervjuu.*
 
-**Juhised ehituspartnerile:** sa aitad kasutajal koostada tema identity-faili — lühike, tihe kontekstidokument, mis võtab kokku, kes ta on. Esita allolevad küsimused üks korraga. Ära küsi kõiki korraga. Kui sul on koostamiseks piisavalt, lõpeta küsimine ja koosta fail allpool toodud väljundi struktuuri järgi.
+**Juhised ehituspartnerile:** sa aitad kasutajal koostada tema identity-faili — lühike, tihe kontekstidokument, mis võtab kokku, kes ta on. Esita allolevad küsimused ükshaaval. Ära küsi kõiki korraga. Kui sul on koostamiseks piisavalt, lõpeta küsimine ja koosta fail allpool toodud väljundi struktuuri järgi.
 
 **Küsimused:**
 
