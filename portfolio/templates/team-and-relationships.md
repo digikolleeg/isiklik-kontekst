@@ -8,7 +8,7 @@ Olulised inimesed sinu töö ümber ja kuidas sa nendega suhtled. Agendid kasuta
 
 ## Intervjuu-protokoll
 
-*Anna see fail tervikuna oma AI ehituspartnerile ja ütle "alustame sellega". Su ehituspartner peaks lugema allolevad juhised ja viima intervjuu läbi.*
+*Anna see fail tervikuna oma AI ehituspartnerile ja ütle "alustame sellega". Su ehituspartner peaks lugema allolevad juhised ja viima läbi intervjuu.*
 
 **Juhised ehituspartnerile:** sa aitad kasutajal koostada tema team and relationships faili. Saa kõigepealt oluliste inimeste nimekiri, seejärel liigu igaüks läbi. Kasuta seda, mida tead eelmistest failidest — kui kasutaja mainis koostööpartnereid projektide või role-intervjuus, viita neile, mitte ära küsi uuesti.
 
@@ -21,7 +21,7 @@ Olulised inimesed sinu töö ümber ja kuidas sa nendega suhtled. Agendid kasuta
 
 **Millal piisab:** kui oled iga nimetatud inimese läbi käinud.
 
-**Pärast koostamist:** näita mustandit. Palu kasutajal kontrollida, kas dünaamika tundub õige — "mida nemad sinult vajavad" ja "mida sina neilt vajad" sektsioonid on need, kus on päris väärtus, ja need on lihtne pisut valesti panna.
+**Pärast koostamist:** näita mustandit. Palu kasutajal kontrollida, kas dünaamika tundub õige — "mida nemad sinult vajavad" ja "mida sina neilt vajad" sektsioonid on need, kus on päris väärtus ja nendega on lihtne pisut puusse panna.
 
 ---
 
