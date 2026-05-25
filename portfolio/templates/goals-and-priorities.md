@@ -2,7 +2,7 @@
 
 ## Mille jaoks see fail on
 
-Millele sa hetkel optimeerid — sel kvartalil, sel aastal ja pikemas plaanis. Agendid kasutavad seda, et osata otsuseid ja soovitusi õigesti kaaluda. Agent, kes teab, et praegu on kiirus olulisem kui lihvitus, annab sulle teistsugust nõu kui agent, kes arvab, et optimeerid puhtale kvaliteedile. Samuti paneb see fail kirja, mida sa teadlikult EI TEE, ja see on täpselt sama oluline.
+Mida sa hetkel optimeerid — sel kvartalil, sel aastal ja pikemas plaanis. Agendid kasutavad seda, et osata otsuseid ja soovitusi õigesti kaaluda. Agent, kes teab, et praegu on kiirus olulisem kui lihvitus, annab sulle teistsugust nõu kui agent, kes arvab, et optimeerid puhtale kvaliteedile. Samuti paneb see fail kirja, mida sa teadlikult EI TEE, ja see on täpselt sama oluline.
 
 ---
 
@@ -16,7 +16,7 @@ Millele sa hetkel optimeerid — sel kvartalil, sel aastal ja pikemas plaanis. A
 
 1. Mida sa lähikuudel saavutada proovid? Mitte su projektide nimekiri — sinu eesmärgid. Milline näeb välja edukas tulemus selle kvartali või hooaja lõpus?
 2. Mis on pikem plaan — see aasta või paar järgmist? Mille poole sa rühid?
-3. Kui pead tegema kompromisse — kiirus vs kvaliteet, lühiajaline vs pikaajaline, kasv vs stabiilsus —, kuhu sa tavaliselt maandud?
+3. Kui pead tegema kompromisse — kiirus vs kvaliteet, lühiajaline vs pikaajaline, kasv vs stabiilsus, siis kuhu sa tavaliselt maandud?
 4. Mida sa praegu teadlikult prioriteediks EI SEAKSKI, isegi kui see on oluline? Mille sa oled meelega ootele pannud?
 5. Kui järgmised kuus kuud lähevad hästi, mis on sinu töös või elus teistmoodi?
 
