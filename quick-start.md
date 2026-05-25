@@ -2,20 +2,60 @@
 
 Selles juhendis annad Claude'ile konteksti oma ettevõtte ja hääle kohta ning paned ta kirjutama esimese kontaktivõtu emaili konkreetsele potentsiaalsele kliendile. Lõpptulemus: kolm täidetud markdown-faili sinu kohta + Claude Desktopis töötav Project, mis kirjutab sinu häälega.
 
-Ajakulu: 45–60 minutit. 
-Vaja: Claude Desktop installitud ja üks päris sihtklient.
+Ajakulu: 45–60 minutit.
+Vaja: üks päris sihtklient meeles + üks teedest allpool.
 
 ---
 
-## 1. Samm — Lae Claude'i intervjueerija (~35 min)
+## Vali oma tee
 
-Ava Claude Desktop (või claude.ai veebis, kui Desktop pole veel paigaldatud). Alusta uut vestlust. Kopeeri allolev tekst ja kleebi see esimese sõnumina. Seejärel kirjuta: *"Alustame intervjuud."*
+**Tee A — Agentne (soovitatav):** Claude Desktop + Konteksti-looja Skill + filesystem Connector. Skill viib intervjuu läbi ja **kirjutab failid otse sinu kausta**. Sa lihtsalt vastad küsimustele ja vaatad, kuidas failid tekivad. Vajalik: Claude Pro/Max plaan + Claude Desktop installitud.
 
-Claude küsib sinult järgemööda küsimusi kolme faili kohta: kes sa oled, kuidas sa kirjutad, ja mida sa parasjagu teed. Kui mingi fail on valmis, salvesta see endale arvutisse (vt 2. samm).
+**Tee B — Manuaalne:** mis tahes AI chat (Claude.ai, ChatGPT vms). Sa kopeerid intervjuu-prompti, vastad küsimustele ja **kopeerid failide sisu ise enda kausta**. Töötab tasuta plaaniga. Aeglasem, aga universaalne.
+
+Mõlemad teed annavad sama lõpptulemuse: kolm täidetud faili sinu vault-kaustas + Claude Desktop Project, mis kirjutab sinu hääles. Samm 3 ja edasi on mõlema tee puhul sama.
 
 ---
 
-### Intervjueerija süsteemiprompt — kopeeri kogu allolev plokk
+## Tee A — Agentne (Konteksti-looja Skill)
+
+### A1. Seadista Connector (~3 min)
+
+1. Loo arvutis kaust, kus su vault hakkab elama. Soovitus: `~/isiklik-kontekst/portfolio/`. Saad kasutada ka olemasolevat kausta või selle repo `portfolio/` kausta.
+2. Ava Claude Desktop → Settings → Connectors → Add filesystem connector → vali ülaltoodud kaust.
+3. Kontroll: küsi Claude'ilt "Kas sa näed minu vault-kausta?". Ta peaks nimetama kausta tee.
+
+Kui Connector seadistus jääb hätta, vaata `wiring/mcp-resource.md` või liigu üle Teele B.
+
+### A2. Installeeri Konteksti-looja Skill (~1 min)
+
+1. Klooni või lae alla see repo (`digikolleeg/isiklik-kontekst`).
+2. Claude Desktop → Settings → Skills → Add skill → vali kaust `skills/konteksti-looja/`.
+3. Kontroll: uues vestluses ütle "Mis Skill-id mul installitud on?". Konteksti-looja peaks loendis olema.
+
+### A3. Käivita intervjuu (~30 min)
+
+Ava uus Claude Desktop vestlus ja ütle:
+
+> *"Alustame intervjuud."*
+
+Skill küsib sinult järjest küsimusi kolme faili kohta (identity, communication-style, current-projects). Kui üks fail on valmis, näitab Skill mustandi ja kirjutab faili **otse sinu vault-kausta**. Sa näed Finder'is või Obsidian'is, kuidas failid tekivad.
+
+Kui Connector jooksis kokku või kirjutamine ei tööta, langeb Skill tagasi koopia-kleebi režiimi (näitab faili sisu vestluses, sa salvestad ise). See on disainitud nii, et asi alati lõpule jõuab.
+
+**Liigu otse 3. sammu juurde.**
+
+---
+
+## Tee B — Manuaalne (kopeeri-kleebi)
+
+### B1. Lae Claude'i intervjueerija (~35 min)
+
+Ava Claude Desktop (või claude.ai veebis). Alusta uut vestlust. Kopeeri allolev tekst ja kleebi see esimese sõnumina. Seejärel kirjuta: *"Alustame intervjuud."*
+
+Claude küsib sinult järgemööda küsimusi kolme faili kohta: kes sa oled, kuidas sa kirjutad ja mida sa parasjagu teed. Kui mingi fail on valmis, salvesta see endale arvutisse (vt B2).
+
+#### Intervjueerija süsteemiprompt — kopeeri kogu allolev plokk
 
 ```
 Sa oled isikliku konteksti-portfoolio intervjueerija. Su ülesanne on küsitleda kasutajat ja koostada talle kolm markdown-faili — identity.md, communication-style.md ja current-projects.md — mis kirjeldavad kes ta on, kuidas ta kirjutab ja kelle heaks ta parasjagu töötab.
@@ -82,11 +122,9 @@ Kui kasutaja on katnud kõik tema mainitud projektid (eriti müügi sihtkliendi 
 Kui kõik kolm faili on valmis ja kasutaja on need heaks kiitnud, ütle: "Meil on nüüd kolm faili. Salvestame need arvutisse failinimedega identity.md, communication-style.md ja current-projects.md. Järgmise sammu kohta on juhendis (Samm 2 ja edasi)."
 ```
 
----
+### B2. Salvesta failid käsitsi (~2 min)
 
-## 2. Samm — Salvesta failid (~2 min)
-
-Kui Claude on iga faili koostanud ja sa oled heaks kiitnud, salvesta see oma arvutisse. Loo kuhugi kaust (näiteks `~/minu-eri-kontekst/` või kui kloonisid selle repo, siis `portfolio/` repo sees) ja kopeeri kolm faili sinna:
+Kui Claude on iga faili koostanud ja sa oled heaks kiitnud, kopeeri faili sisu ja salvesta oma arvutisse. Loo kuhugi kaust (näiteks `~/isiklik-kontekst/portfolio/` või kui kloonisid selle repo, siis `portfolio/` repo sees) ja salvesta kolm faili sinna:
 
 - `identity.md`
 - `communication-style.md`
@@ -94,11 +132,11 @@ Kui Claude on iga faili koostanud ja sa oled heaks kiitnud, salvesta see oma arv
 
 ---
 
-## 3. Samm — Pane Claude Desktopis kokku (~5 min)
+## 3. Samm — Pane Claude Desktopis kokku (~5 min) — mõlemad teed
 
 1. Ava Claude Desktop.
 2. Loo uus Project — nimeta see näiteks "Minu äri" või "Minu müügiassistent".
-3. Lisa Projecti juurde fail-juurdepääs (`+ Add files` või kausta lisamine) ja vali eelmises sammus loodud kaust. Claude saab nüüd igas Projecti vestluses kontekstina sinu kolme faili.
+3. Lisa Projecti juurde fail-juurdepääs (`+ Add files` või kausta lisamine) ja vali eelmistes sammudes loodud kaust. Claude saab nüüd igas Projecti vestluses kontekstina sinu kolme faili.
 4. Lisa Projecti custom instructions sektsiooni järgmine tekst:
 
 ```
@@ -110,7 +148,7 @@ Kui kasutaja küsib müügisõnumit, järgi seda voogu:
 3. Koosta lühike, otsekohene email (8–12 lauset) sihtkliendi keeles ja kasutaja hääles. Järgi rangelt communication-style.md reegleid.
 4. Pärast emaili too välja 1–2 lauset selle kohta, miks tegid teatud valikuid (sõnastus, struktuur, kõnetlemise viis), et kasutaja saaks iteratsiooni teha.
 
-Eesti keelt kirjutades väldi: "siiralt", "tõepoolest", "tõsi ta on", "jagaks hea meelega", "oleks suurepärane", "rõõmuga", kantseliiti ja inglise keelest tõlgitud kõlavaid fraase. Kirjuta otse ja ärilikult. Vali register (sina/Teie) sihtkliendi ja konteksti järgi — kahtluse korral kasutaja communication-style.md järgi.
+Eesti keelt kirjutades väldi: estonglishit ja inglise keelest tõlgitud kõlavaid fraase. Kirjuta otse ja ärilikult. Vali register (sina/Teie) sihtkliendi ja konteksti järgi — kahtluse korral kasutaja communication-style.md järgi.
 
 Kui sa pole milleski kindel (näiteks sihtkliendi tausta osas), küsi enne kirjutamist, ära paku.
 ```
@@ -119,7 +157,7 @@ Kui sa pole milleski kindel (näiteks sihtkliendi tausta osas), küsi enne kirju
 
 ---
 
-## 4. Samm — Esimene müügiemail (~10 min)
+## 4. Samm — Esimene müügiemail (~10 min) — mõlemad teed
 
 Ava Projecti vestlus. Kirjuta:
 
@@ -139,6 +177,10 @@ Kolm artefakti, üks kontekst.
 
 ## Mis edasi
 
-Sa täitsid kolm faili kümnest. Kui tahad süsteemi laiendada — kogu töövoog, otsuste log, eelistused, tiimi info — vaata `portfolio/templates/` ülejäänud seitset faili. Iga sisaldab oma fookustatud intervjuud, mille saad samamoodi Claude'i kaudu täita. Samuti tasub heita pilk `CLAUDE.md` faili, mis kirjeldab kogu süsteemi: portfoolio + wiki (sinu kogutud teadmised + allikad).
+Sa täitsid kolm faili kümnest. Kui tahad süsteemi laiendada — kogu töövoog, otsuste log, eelistused, tiimi info — vaata `portfolio/templates/` ülejäänud seitset faili.
 
-Kui jõuad järgmise faili täitmise faasini, ütle Claude'ile: "Aitame veel ühe faili täita — võtame ette `goals-and-priorities.md`" (või mis iganes järgmiseks valid). Süsteem on mõeldud kasvama.
+**Tee A:** ütle Konteksti-looja Skill'ile: "Täida veel üks fail — `goals-and-priorities.md`" (või mis iganes valid). Skill teab juba su konteksti eelmistest failidest.
+
+**Tee B:** ava järgmine šabloon `portfolio/templates/` kaustast, kleebi see chati ja ütle "alustame sellega". Iga šabloon sisaldab oma fookustatud intervjuud.
+
+Samuti tasub heita pilk `CLAUDE.md` faili, mis kirjeldab kogu süsteemi: portfoolio + wiki (sinu kogutud teadmised + allikad). Süsteem on mõeldud kasvama.

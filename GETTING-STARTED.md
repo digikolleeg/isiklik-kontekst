@@ -8,13 +8,32 @@ Kaks süsteemi. Ehita need järjekorras — portfoolio enne, wiki pärast.
 
 Portfoolio on vundament. See ütleb wikile, kelle jaoks teda ehitatakse.
 
+Sa saad portfoolio ehitada **kahel teel**. Mõlemad annavad sama lõpptulemuse: täidetud markdown-failid kaustas `portfolio/`.
+
+### Tee A — Agentne (Claude Desktop + Konteksti-looja Skill)
+
+Soovituslik, kui sul on Claude Pro/Max ja Claude Desktop. Skill viib intervjuu läbi ja **kirjutab failid otse sinu vault-kausta** läbi filesystem Connector'i. Sa lihtsalt vastad küsimustele.
+
+1. Seadista Claude Desktopis filesystem Connector, mis viitab sinu vault-kaustale (näiteks `portfolio/` selles repos või `~/isiklik-kontekst/portfolio/`). Detailne juhend: `wiring/mcp-resource.md`.
+2. Installeeri Konteksti-looja Skill: Claude Desktop → Settings → Skills → Add → vali `skills/konteksti-looja/` selles repos.
+3. Uues vestluses ütle "alustame intervjuud" (või "täida `identity.md`" konkreetse faili jaoks).
+4. Skill küsib küsimusi, näitab mustandit ja salvestab faili otse kausta. Korda iga šablooni jaoks.
+
+Kui Connector või Skill ei toimi, langeb Skill ise tagasi Tee B režiimi.
+
+### Tee B — Manuaalne (mis tahes AI chat)
+
+Töötab kõigi tasuta plaanidega — Claude.ai, ChatGPT, Gemini, ükskõik mis. Aeglasem, aga universaalne.
+
 1. Ava ükskõik milline šabloon `portfolio/templates/` kaustast.
 2. Kleebi terve fail Claude'i või ChatGPT-sse.
 3. Ütle "alustame sellega".
 4. Su AI ehituspartner loeb sissekirjutatud intervjuu-protokolli ja hakkab küsima.
 5. Kui tal on piisavalt infot, siis ta koostab faili. Loe see üle ja paranda, mis on valesti.
-6. Salvesta lõplik versioon `portfolio/` kausta (või enda valitud alamkausta).
+6. Kopeeri faili sisu vestlusest ja salvesta käsitsi `portfolio/` kausta (või enda valitud alamkausta).
 7. Korda sama ülejäänud šabloonidega.
+
+### Mõlema tee jaoks
 
 **Soovituslik järjekord:** alusta `identity.md` ja `role-and-responsibilities.md` failidega — kõik ülejäänu ehitub neile kahele.
 
@@ -45,7 +64,7 @@ Ava selles repos uus Claude Code sessioon ja ütle:
 
 Seejärel pane oma esimene allikas `raw/` kausta ja ütle "tee sissekanne".
 
-LLM loeb allikat, loob wiki-lehed, uuendab indeksi ja lisab logisse. Seejärel lisa järgmine allikas
+LLM loeb allikat, loob wiki-lehed, uuendab indeksi ja lisab logisse. Seejärel lisa järgmine allikas.
 
 **Mis teeb hea esimese allika:**
 - Midagi, mida oled juba lugenud ja väärtuslikuks pidanud
@@ -72,7 +91,10 @@ Alusta sellest tööriistast, mida kõige rohkem kasutad.
 
 ## Pidev hooldus
 
-**Portfoolio:** vaata kord kvartalis üle või siis, kui midagi olulist muutub (uus töö, uued projektid, suur prioriteedimuutus). Küsi Claude Code'lt: "Aita mul `current-projects.md` uuendada — siin on, mis on muutunud."
+**Portfoolio:** vaata kord kvartalis üle või siis, kui midagi olulist muutub (uus töö, uued projektid, suur prioriteedimuutus).
+
+- **Tee A:** ütle Konteksti-looja Skill'ile: "Uuendame `current-projects.md` — siin on, mis on muutunud."
+- **Tee B:** ava fail ise, vaata üle, küsi Claude'ilt parandussoovitusi.
 
 **Wiki:** lisa allikaid alati, kui loed midagi, mis tasub säilitada. Tee kontrollkäik kord kuus: "Tee wikile tervisekontroll — otsi vastuolusid, orvuks jäänud lehti, vananenud väiteid ja puuduvaid ristviiteid."
 
