@@ -1,37 +1,37 @@
-# Wiki Index
+# Viki register
 
-*Maintained by the LLM. Updated on every ingest. Read this first when answering queries.*
+*Seda haldab LLM. Uuendatakse igal sissevõtul (ingest). Loe seda esimesena, kui hakkad päringutele vastama.*
 
-## Entities
+## Olemid (Entities)
 
-*(People, organizations, products — each gets its own page)*
+*(Inimesed, organisatsioonid, tooted — igaühel on oma leht)*
 
-| Page | Summary | Sources |
+| Leht | Kokkuvõte | Allikad |
 |------|---------|---------|
 
-## Concepts
+## Kontseptsioonid (Concepts)
 
-*(Ideas, frameworks, mental models, recurring themes)*
+*(Ideed, raamistikud, mõttemudelid, korduvad teemad)*
 
-| Page | Summary | Sources |
+| Leht | Kokkuvõte | Allikad |
 |------|---------|---------|
 
-## Topics
+## Teemad (Topics)
 
-*(Broader subject areas grouping related concepts and entities)*
+*(Laiemad teemavaldkonnad, mis koondavad seotud kontseptsioone ja olemeid)*
 
-| Page | Summary | Sources |
+| Leht | Kokkuvõte | Allikad |
 |------|---------|---------|
 
-## Sources
+## Allikad (Sources)
 
-*(One entry per ingested source in raw/)*
+*(Üks rida iga kaustast raw/ sisse võetud allika kohta)*
 
-| File | Title | Date Ingested | Pages Created/Updated |
+| Fail | Pealkiri | Sisse võetud | Lehti loodud/uuendatud |
 |------|-------|--------------|----------------------|
 
 ---
 
-*Last updated: —*
-*Total wiki pages: 0*
-*Total sources ingested: 0*
+*Viimati uuendatud: —*
+*Vikilehti kokku: 0*
+*Allikaid sisse võetud: 0*
