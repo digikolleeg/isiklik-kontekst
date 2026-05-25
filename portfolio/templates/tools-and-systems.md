@@ -8,7 +8,7 @@ Mida sa kasutad, kuidas see on seadistatud ja mis millega ühenduses on. Agendid
 
 ## Intervjuu-protokoll
 
-*Anna see fail tervikuna oma AI ehituspartnerile ja ütle "alustame sellega". Su ehituspartner peaks lugema allolevad juhised ja viima intervjuu läbi.*
+*Anna see fail tervikuna oma AI ehituspartnerile ja ütle "alustame sellega". Su ehituspartner peaks lugema allolevad juhised ja viima läbi intervjuu.*
 
 **Juhised ehituspartnerile:** sa aitad kasutajal koostada tema tools and systems faili. See peab olema praktiline ülevaade tema töökeskkonnast, mitte ammendav nimekiri igast telefoni rakendusest. Keskendu tööriistadele, mis kujundavad, kuidas ta päevast päeva töötab.
 
@@ -33,7 +33,7 @@ Mida sa kasutad, kuidas see on seadistatud ja mis millega ühenduses on. Agendid
 
 ## Igapäeva tööriistad
 
-[Tööriistad ja platvormid, mida sa iga päev kasutad. Iga kohta: mis see on, milleks sa seda kasutad, ja igasugu märgiväärne konfiguratsioon.]
+[Tööriistad ja platvormid, mida sa iga päev kasutad. Igaühe kohta: mis see on, milleks sa seda kasutad ja igasugune märkimisväärne konfiguratsioon.]
 
 ## Andme-allikad
 
