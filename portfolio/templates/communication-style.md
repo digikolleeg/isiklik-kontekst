@@ -1,58 +1,58 @@
 # Communication Style
 
-## What This File Is For
+## Mille jaoks see fail on
 
-How you communicate — so that any agent producing content on your behalf sounds like you, not like a generic AI. This is the file that determines whether a draft email makes you think "that's pretty close" or "I would never say it that way." Precision matters here more than anywhere else in the portfolio. A vague communication style file is useless.
-
----
-
-## Interview Protocol
-
-*Hand this entire file to your AI build partner and say "let's do this one." Your build partner should read the instructions below and run the interview.*
-
-**Instructions for the build partner:** You're helping the user create their communication style file. This is the hardest file to produce well because people are bad at describing their own communication style in the abstract. Push for specifics. If they give you generalities like "I'm pretty casual," follow up with "what does casual look like — give me an example of something you'd actually write." Concrete details are everything here.
-
-**Questions to ask:**
-
-1. When you write an email or a message, are you generally brief and to the point, or do you tend to give more context and detail?
-2. How formal is your writing at work? Does it shift depending on who you're writing to?
-3. What bothers you when you read something that was written for you or on your behalf? What makes you think "that doesn't sound like me"?
-4. Are there specific words, phrases, or patterns you know you use a lot? Things people would recognize as your voice?
-5. Are there words or phrases you actively avoid? Things that sound fake or corporate or just not you?
-6. How do you typically structure an email — do you lead with the ask, give background first, use bullet points, write in paragraphs?
-
-**When you have enough:** After 5-6 questions. If the answers are vague, keep pushing for specifics before drafting. A generic file here means every agent producing content for this person will sound wrong.
-
-**After drafting:** Present the draft. This is the file where the reaction pass matters most — ask the user to read each description and say whether it actually matches how they write, or whether it's aspirational.
+Kuidas sa suhtled — et iga agent, kes sinu nimel midagi kirjutab, kõlaks nagu sina, mitte nagu mingi suvaline AI. See on fail, mis määrab, kas valminud mustand paneb sind mõtlema "päris hea" või hoopis "ma ei ütleks seda elusees nii". Konkreetsus on siin tähtsam kui kusagil mujal su portfoolios. Ümmargune communication style fail on kasutu.
 
 ---
 
-## Output Structure
+## Intervjuu-protokoll
+
+*Anna see fail tervikuna oma AI ehituspartnerile ja ütle "alustame sellega". Su ehituspartner peaks lugema allolevad juhised ja viima läbi intervjuu.*
+
+**Juhised ehituspartnerile:** sa aitad kasutajal koostada tema communication style faili. See on kõige keerulisem fail, mida hästi teha, sest inimesed ei oska oma kirjutamisstiili abstraktselt kirjeldada. Nõua konkreetsust. Kui nad viskavad õhku üldsõnalise "olen üsna vaba", siis uuri edasi "milline see vaba välja näeb — anna mõni näide sellest, mida sa päriselt kirjutaksid". Üksikasjad on siin kõige tähtsamad.
+
+**Küsimused:**
+
+1. Kui sa kirjutad e-kirja või sõnumi, siis kas oled pigem lühike ja konkreetne, või annad ka laiemat tausta ja detaile?
+2. Kui formaalne su töine kirjavahetus on? Kas see muutub sõltuvalt sellest, kellele sa kirjutad?
+3. Mis sind häirib, kui loed midagi, mis on sinu nimel või sinu eest kirjutatud? Mis paneb mõtlema, et "see ei kõla nagu mina"?
+4. Kas sul on kindlaid sõnu, fraase või mustreid, mida tead, et sa palju kasutad? Asju, millest teised su kohe ära tunneksid?
+5. Kas on sõnu või väljendeid, mida sa teadlikult väldid? Asju, mis kõlavad võltsilt, on puhas kantseliit või lihtsalt pole sina?
+6. Kuidas sa tavaliselt e-kirja üles ehitad — alustad kohe palvest, annad enne tausta, kasutad punktikirja (bullet points), või kirjutad pikkade lõikudena?
+
+**Millal piisab:** Pärast 5–6 küsimust. Kui vastused on hägused, pressi detaile välja enne, kui mustandi teed. Ümmarguse faili puhul hakkab iga agent, kes selle inimese nimel kirjutab, puusse panema.
+
+**Pärast koostamist:** Näita mustandit. See on fail, kus reaktsioon on kõige olulisem — palu kasutajal iga kirjeldus läbi lugeda ja öelda, kas see vastab ka tegelikult sellele, kuidas ta kirjutab, või on see lihtsalt unistus.
+
+---
+
+## Väljundi struktuur
 
 ```markdown
 # Communication Style
 
-## Overall Style
+## Üldine stiil
 
-[How you communicate in general — concise or detailed, formal or casual, direct or diplomatic. The baseline.]
+[Kuidas sa üldiselt suhtled — kas lühidalt või põhjalikult, ametlikult või vabalt, otsekoheselt või diplomaatiliselt. N-ö baastase.]
 
-## Writing Tendencies
+## Kirjutamise eripärad
 
-[Sentence length, vocabulary level, use of jargon, tone. The specific texture of how you write.]
+[Lausepikkus, sõnavara keerukus, erialaterminite (žargooni) kasutamine, toon. See konkreetne tekstuur, kuidas sa kirjutad.]
 
-## Formatting Preferences
+## Vormistuse eelistused
 
-[How you structure emails, docs, and messages. Bullet points or paragraphs, headers or no headers, short or long.]
+[Kuidas sa ehitad üles e-kirju, dokumente ja sõnumeid. Punktikiri või lõigud, pealkirjadega või ilma, lühikesed või pikad.]
 
-## What I Dislike
+## Mida ma väldin
 
-[AI-sounding phrases, corporate jargon, specific patterns that bother you. The things that make you rewrite a draft from scratch.]
+[AI-nägu fraasid, kantseliit ja spetsiifilised mustrid, mis sind ärritavad. Asjad, mille pärast sa kirjutad mustandi nullist uuesti.]
 
-## By Context
+## Konteksti järgi
 
-[How your style shifts by audience — writing to your boss vs. your team vs. a client vs. a stranger. If it doesn't shift much, say so.]
+[Kuidas su stiil sõltuvalt kuulajaskonnast muutub — ülemusele vs oma tiimile vs kliendile vs võõrale kirjutades. Kui see väga ei muutu, siis maini ka seda.]
 
-## Signature Patterns
+## Sinu signatuurid
 
-[Words, phrases, or habits that are distinctly yours. Things people would recognize. Also words or phrases you never use.]
+[Sõnad, fraasid või harjumused, mis on selgelt sinu omad. Asjad, millest inimesed sind ära tunneksid. Samuti sõnad või väljendid, mida sa mitte kunagi ei kasuta.]
 ```
