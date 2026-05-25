@@ -1,58 +1,58 @@
 # Agent Bundles
 
-Pre-composed context packs, ready to paste into any agent's system prompt or custom-instructions field.
+Eelnevalt kokku pandud kontekstipakid, mis on valmis kleepimiseks mis tahes agendi system prompti või custom-instructions lahtrisse.
 
-Each bundle is a single markdown file combining:
+Iga bundle on üks markdown-fail, mis koosneb kolmest osast:
 
-1. **A preamble** — purpose-built instructions that tell the agent what role it's playing and how to use the context that follows.
-2. **Placeholder blocks** — clearly marked sections like `[[IDENTITY]]` where you paste content from your filled portfolio files.
-3. **Composition notes** — which portfolio files feed which block, and why.
+1. **Sissejuhatus (Preamble)** — spetsiaalselt kirjutatud juhised, mis ütlevad agendile, mis rolli ta täidab ja kuidas ta peab järgnevat konteksti kasutama.
+2. **Kohatäitjad (Placeholder blocks)** — selgelt märgistatud plokid nagu `[[IDENTITY]]`, kuhu sa kleebid sisu oma täidetud portfooliofailidest.
+3. **Koostamise märkused** — millised portfooliofailid toidavad millist plokki ja miks.
 
-Bundles are the missing link between "I have portfolio files" and "I have a working agent." They work without any tooling: paste into a Custom GPT, a Claude Project, a Gemini Gem, or the system-prompt field of whatever agent framework you're using.
+Bundle'id on puuduv lüli "mul on portfooliofailid" ja "mul on päriselt töötav agent" vahel. Need töötavad ilma igasuguse lisatööriistata: kleebi see Custom GPT-sse, Claude Projecti, Gemini Gemi või mis iganes agendiraamistiku süsteemiprompti lahtrisse, mida sa kasutad.
 
 ---
 
-## What Ships
+## Mis kaasas on
 
-| Bundle | Composed from | For |
+| Bundle | Millest koosneb | Kellele mõeldud |
 |--------|---------------|-----|
-| [`content-writer.md`](content-writer.md) | `identity.md` + `communication-style.md` + `domain-knowledge.md` | Agents writing blog posts, LinkedIn content, newsletters, marketing copy in your voice. |
-| [`client-outreach.md`](client-outreach.md) | `identity.md` + `communication-style.md` + `team-and-relationships.md` | Agents drafting cold emails, follow-ups, proposals, and replies to prospects. |
-| [`client-research.md`](client-research.md) | `identity.md` + `current-projects.md` + `domain-knowledge.md` | Agents researching prospects, competitors, industry context, and relevant background for an upcoming conversation. |
+| [`content-writer.md`](content-writer.md) | `identity.md` + `communication-style.md` + `domain-knowledge.md` | Agendid, mis kirjutavad sinu häälega blogipostitusi, LinkedIni sisu, uudiskirju ja turundustekste. |
+| [`client-outreach.md`](client-outreach.md) | `identity.md` + `communication-style.md` + `team-and-relationships.md` | Agendid, mis koostavad külmi e-kirju, järelkajastusi (follow-up'e), pakkumisi ja vastuseid potentsiaalsetele klientidele. |
+| [`client-research.md`](client-research.md) | `identity.md` + `current-projects.md` + `domain-knowledge.md` | Agendid, mis teevad enne olulist vestlust taustakontrolli — uurivad potentsiaalseid kliente, konkurente, valdkonna konteksti. |
 
 ---
 
-## How to Use a Bundle
+## Kuidas Bundle'it kasutada
 
-1. Open the bundle file you want.
-2. Open your filled portfolio files in another window.
-3. For each placeholder block (e.g. `[[IDENTITY]]`), paste the entire body of the matching portfolio file into that block.
-4. Copy the resulting, stitched markdown into the agent's system prompt / custom instructions field.
-5. Done. The agent now starts every conversation grounded in your voice, your constraints, and your context.
+1. Ava soovitud bundle'i fail.
+2. Ava teises aknas oma täidetud portfooliofailid.
+3. Kleebi iga kohatäitja ploki juurde (nt `[[IDENTITY]]`) vastava portfooliofaili kogu sisu.
+4. Kopeeri see terviklik, kokku nõelutud markdown agendi system prompti / custom instructions lahtrisse.
+5. Valmis. Nüüd alustab agent iga vestlust tugevalt ankurdatuna sinu häälde, piirangutesse ja konteksti.
 
-**Tip:** If the agent's context budget is tight, trim the pasted portfolio content to the most relevant sections. Bundles are composable — customize the preamble and the mix for your use case.
-
----
-
-## Composing Your Own Bundles
-
-The three bundles shipped here are starting points, not a closed set. When you find yourself briefing an agent for the same kind of task repeatedly, that's a bundle waiting to be written.
-
-Composition rules of thumb:
-
-- **Always include `identity.md`.** Every agent needs to know who it's working for.
-- **Keep bundles single-purpose.** A bundle that tries to do everything ends up doing nothing well.
-- **Three portfolio files is usually the right size.** More and the agent's context budget suffers; fewer and the agent misses judgment-calls it could have made.
-- **Preamble over context.** A tight, specific preamble does more work than another pasted portfolio file.
-
-Write new bundles as markdown files in this directory, following the same shape: preamble, placeholder blocks, composition notes.
+**Nipp:** Kui agendi konteksti eelarve on piiratud (context budget is tight), kärbi kleebitud portfoolio sisu ainult kõige asjakohasemate osadeni. Bundle'id on kokkupandavad (composable) — kohanda sissejuhatust ja sisu oma konkreetse kasutusjuhu järgi.
 
 ---
 
-## Keeping Bundles in Sync
+## Oma Bundle'ite loomine
 
-Bundles embed portfolio content by reference (you paste in the content). When you update a portfolio file during a quarterly review, re-stitch any bundles that reference that file. Otherwise the agent is working from stale context.
+Need kolm kaasasolevat bundle'it on lähtepunktid, mitte lõplik nimekiri. Kui leiad end agendile pidevalt sama tüüpi ülesande jaoks samu juhiseid andmas, siis seal ongi peidus uus bundle, mis ootab kirja panemist.
 
-The log convention is simple: when you update a portfolio file, list the affected bundles in the `log.md` entry for that update, so you know what to re-stitch.
+Rusikareeglid koostamisel:
 
-Phase 2 will ship an MCP tool (`get_bundle(agent_type)`) that performs the stitching at runtime and removes this maintenance burden. Until then, the stitch is manual — but fast, because the bundles are short.
+- **Kaasa alati `identity.md`.** Iga agent peab teadma, kelle heaks ta töötab.
+- **Hoia bundle'id ühele asjale keskendatuna.** Bundle, mis püüab teha kõike, ei tee lõpuks mitte midagi hästi.
+- **Kolm portfooliofaili on tavaliselt õige maht.** Rohkem ja agendi konteksti eelarve hakkab kannatama; vähem ja agent ei suuda teha õigeid otsuseid, mida ta muidu võinuks teha.
+- **Sissejuhatus kaalub konteksti üles.** Konkreetne ja täpne sissejuhatus teeb tihti rohkem tööd kui veel üks juurde kleebitud portfooliofail.
+
+Kirjuta uued bundle'id markdown-failidena siia kausta, järgides sama struktuuri: sissejuhatus, kohatäitjad, koostamise märkused.
+
+---
+
+## Bundle'ite sünkroonis hoidmine
+
+Bundle'id põimivad endasse portfoolio sisu viitena (sa kleebid sisu sisse). Kui sa uuendad mingit portfooliofaili, näiteks oma kvartaalse ülevaatuse käigus, siis pead uuesti kokku nõeluma kõik bundle'id, mis seda faili kasutavad. Vastasel juhul töötab agent aegunud kontekstiga.
+
+Logimise tava on lihtne: kui uuendad portfooliofaili, pane `log.md` kirja, milliseid bundle'eid see muudatus mõjutas, et saaksid aru, mis vajab uuendamist.
+
+Teises faasis toome välja MCP tööriista (`get_bundle(agent_type)`) mis teeb selle kokkupaneku automaatselt jooksvalt (at runtime) ja võtab selle hoolduskoorma sinu õlult ära. Kuni sinnamaani tuleb asju käsitsi kokku kleepida — aga see on kiire, sest bundle'id on lühikesed.
