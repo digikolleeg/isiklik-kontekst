@@ -1,66 +1,66 @@
 # Decision Log
 
-## What This File Is For
+## Mille jaoks see fail on
 
-How you make decisions, with real examples. This is the most underrated file in the portfolio. When an agent is helping you think through a new decision, knowing how you've decided things before is enormously valuable — it can match your reasoning style, surface the right kind of information, and avoid suggesting approaches that don't fit how your mind works.
-
----
-
-## Interview Protocol
-
-*Hand this entire file to your AI build partner and say "let's do this one." Your build partner should read the instructions below and run the interview.*
-
-**Instructions for the build partner:** You're helping the user create their decision log. The examples are the most important part — push for specifics on at least two real decisions. Abstract descriptions of decision-making style are less useful than concrete stories about actual decisions and how they were made.
-
-**Questions to ask:**
-
-1. How do you generally make decisions? Are you the type to analyze everything, go with your gut, talk it through with people, sleep on it?
-2. What information do you want before you make a call? What makes you feel ready to decide?
-3. Tell me about a significant decision you've made recently — could be work, could be personal. What was it and how did you think it through?
-4. Can you give me another example — ideally a different kind of decision?
-5. How do you handle situations where you don't have enough information but still need to decide?
-6. Is there a decision you're currently sitting with or working through?
-
-**When you have enough:** After 4-5 questions. The examples are the most important part — make sure you have specifics on at least two real decisions before drafting.
-
-**After drafting:** Present the draft. Ask the user if the decision examples accurately capture their reasoning process — not just the outcome, but how they actually thought through it.
+Kuidas sa otsuseid teed, koos päris näidetega. See on portfoolios kõige alahinnatum fail. Kui agent aitab sul mõnda uut otsust läbi mõelda, on talle tohutult kasulik teada, kuidas sa oled asju varem otsustanud — ta suudab sobituda sinu arutlemisstiiliga, tuua lauale õiget tüüpi infot ja hoiduda pakkumast lähenemisi, mis lihtsalt ei sobi sellega, kuidas sinu aju töötab.
 
 ---
 
-## Output Structure
+## Intervjuu-protokoll
+
+*Anna see fail tervikuna oma AI ehituspartnerile ja ütle "alustame sellega". Su ehituspartner peaks lugema allolevad juhised ja viima läbi intervjuu.*
+
+**Juhised ehituspartnerile:** sa aitad kasutajal koostada tema decision log faili. Näited on siin kõige tähtsam osa — nõua konkreetseid detaile vähemalt kahe päriselt tehtud otsuse kohta. Abstraktsed kirjeldused otsustusstiilist on kordades vähem kasulikud kui konkreetsed lood tegelikest otsustest ja sellest, kuidas need sündisid.
+
+**Küsimused:**
+
+1. Kuidas sa üldiselt otsuseid teed? Kas sa oled tüüp, kes analüüsib kõike, usaldab kõhutunnet, räägib asjad inimestega läbi, magab öö mõttes ja teeb otsuse hommikul?
+2. Millist infot sa tahad, enne kui otsuse lukku lööd? Mis tekitab sinus tunde, et oled valmis otsustama?
+3. Räägi mulle ühest olulisest otsusest, mille sa hiljuti tegid — võib olla tööalane, võib olla isiklik. Mis see oli ja kuidas sa selle enda jaoks läbi mõtlesid?
+4. Kas sa saad tuua veel ühe näite — ideaalis teist tüüpi otsusest?
+5. Kuidas sa tuled toime olukordadega, kus sul ei ole piisavalt infot, aga pead siiski otsustama?
+6. Kas sul on hetkel laual mõni otsus, millega sa parajasti pead murrad?
+
+**Millal piisab:** Pärast 4–5 küsimust. Näited on kõige tähtsamad — hoolitse selle eest, et sul oleks enne mustandi tegemist konkreetsed detailid vähemalt kahe tegeliku otsuse kohta.
+
+**Pärast koostamist:** Näita mustandit. Küsi kasutajalt, kas otsuste näited tabavad täpselt tema arutluskäiku — mitte ainult tulemust, vaid seda, kuidas ta asja päriselt läbi mõtles.
+
+---
+
+## Väljundi struktuur
 
 ```markdown
 # Decision Log
 
-## How I Make Decisions
+## Kuidas ma otsuseid teen
 
-[Your general approach — analytical, intuitive, consultative, deliberate, fast. How you typically work through important choices.]
+[Sinu üldine lähenemine — analüütiline, intuitiivne, konsulteeriv, kaalutlev, kiire. Kuidas sa tavaliselt olulisi valikuid läbi töötad.]
 
-## What I Need Before Deciding
+## Mida ma vajan enne otsustamist
 
-[The information, inputs, or conditions that make you feel ready to make a call. What you look for before committing.]
+[Info, sisendid või tingimused, mis tekitavad sinus valmisoleku otsus lukku lüüa. Mida sa otsid, enne kui end seod.]
 
-## Recent Decisions
+## Hiljutised otsused
 
-[2-3 real examples of significant decisions you've made. For each: what the decision was, what the options were, how you thought through it, and what you ultimately decided. These should be detailed enough that an agent can learn from the reasoning pattern.]
+[2-3 päris näidet olulistest otsustest, mis sa teinud oled. Igaühe kohta: mis oli otsus, mis olid valikud, kuidas sa selle läbi mõtlesid, ja mida sa lõpuks otsustasid. Need peaksid olema piisavalt detailsed, et agent saaks sellest arutlusmustrist midagi õppida.]
 
-### [Decision 1 Title]
+### [1. Otsuse pealkiri]
 
-[What it was, what the options were, how you thought through it, what you decided.]
+[Mis see oli, mis olid valikud, kuidas sa asja läbi mõtlesid, mida sa otsustasid.]
 
-### [Decision 2 Title]
+### [2. Otsuse pealkiri]
 
-[What it was, what the options were, how you thought through it, what you decided.]
+[Mis see oli, mis olid valikud, kuidas sa asja läbi mõtlesid, mida sa otsustasid.]
 
-## How I Handle Uncertainty
+## Kuidas ma tulen toime määramatusega
 
-[What you do when you don't have enough information but still need to decide. Your relationship with incomplete information and ambiguity.]
+[Mida sa teed, kui sul pole piisavalt infot, aga sa pead siiski otsustama. Sinu suhe puuduliku info ja ebaselgusega.]
 
-## Who I Consult
+## Kellega ma konsulteerin
 
-[The people you talk to before big decisions and what you look for from them. Do you want validation, challenge, information, or something else?]
+[Inimesed, kellega sa räägid enne suuri otsuseid, ja mida sa neilt ootad. Kas sa otsid kinnitust, vastuvaidlemist, infot või midagi muud?]
 
-## Current Open Decisions
+## Praegu lahtised otsused
 
-[Anything you're currently working through. Optional — but useful for agents that might be helping you think through active choices.]
+[Kõik asjad, millega sa hetkel pead murrad. Vabatahtlik — aga kasulik agentidele, kes võiksid aidata sul aktiivseid valikuid läbi mõelda.]
 ```
