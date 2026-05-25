@@ -8,25 +8,11 @@ Kaks süsteemi. Ehita need järjekorras — portfoolio enne, wiki pärast.
 
 Portfoolio on vundament. See ütleb wikile, kelle jaoks teda ehitatakse.
 
-### Variant A: kasuta veebirakendust
-
-Spetsiaalselt loodud intervjueerija-agent viib kogu protsessi läbi.
-
-1. Mine [app URL] aadressile.
-2. Logi sisse oma emailiga (maagiline link, parooli pole vaja).
-3. Agent intervjueerib sind järjest läbi kõik kümme faili.
-4. Lae oma valmis portfoolio zip-failina alla.
-5. Kopeeri failid selle repo `portfolio/` kausta.
-
-Kogu asi võtab ühe istumisega 30–60 minutit. Enamus inimesi jagab selle paari korraga.
-
-### Variant B: tee ise
-
 1. Ava ükskõik milline šabloon `portfolio/templates/` kaustast.
 2. Kleebi terve fail Claude'i või ChatGPT-sse.
 3. Ütle "alustame sellega".
 4. Su AI ehituspartner loeb sissekirjutatud intervjuu-protokolli ja hakkab küsima.
-5. Kui tal on piisavalt, koostab ta faili. Loe see üle ja paranda, mis on valesti.
+5. Kui tal on piisavalt infot, siis ta koostab faili. Loe see üle ja paranda, mis on valesti.
 6. Salvesta lõplik versioon `portfolio/` kausta (või enda valitud alamkausta).
 7. Korda sama ülejäänud šabloonidega.
 
@@ -46,8 +32,8 @@ Kogu asi võtab ühe istumisega 30–60 minutit. Enamus inimesi jagab selle paar
 
 **Näpunäited:**
 - Ole konkreetne, mitte ihaldav. Su agentidele on vaja päris tõde, mitte kuidas sa sooviks, et töötaksid.
-- Ära jäta reaktsiooni-ringi vahele. Kui su ehituspartner faili koostab, loe see üle ja paranda, mis vale läks. Sealt tuleb päris signaal.
-- Lühem on parem kui pikem. Üks lehekülg faili kohta, mitte viis. Tihe kontekst töötab paremini kui laialivalguv.
+- Ära unusta parandada. Kui su ehituspartner faili koostab, loe see üle ja paranda, mis on valesti. Sealt tuleb see päris signaal.
+- Lühem on parem kui pikem. Üks või kaks lehekülge faili kohta, mitte viis. Tihe kontekst töötab paremini kui laialivalguv.
 
 ---
 
@@ -59,20 +45,20 @@ Ava selles repos uus Claude Code sessioon ja ütle:
 
 Seejärel pane oma esimene allikas `raw/` kausta ja ütle "tee sissekanne".
 
-Selles see ongi. LLM loeb allika, loob wiki-lehed, uuendab indeksi ja lisab logisse. Pane järgmine allikas peale, kui üks tuleb.
+LLM loeb allikat, loob wiki-lehed, uuendab indeksi ja lisab logisse. Seejärel lisa järgmine allikas
 
 **Mis teeb hea esimese allika:**
 - Midagi, mida oled juba lugenud ja väärtuslikuks pidanud
 - Artikkel, transkriptsioon, koosolekumärkmed või uurimistöö
-- Tekstipõhine (PDF-id sobivad; piltide jaoks tuleb LLM-i eraldi appi võtta)
+- Tekstipõhine (PDF-id sobivad; piltide jaoks eraldi LLM appi võtta)
 
-**Pärast esimest sissekannet:** ava Obsidian sellel kaustal. Graafi-vaates näed, mis tekkis ja kuidas need omavahel seotud on.
+**Pärast esimest sissekannet:** ava Obsidian selles kaustal. Graafikut vaates näed, mis info tekkis ja kuidas need omavahel seotud on.
 
 ---
 
 ## Samm 3: ühenda see kõik kokku
 
-Wiki ja portfoolio on kõige kasulikumad siis, kui need on ligipääsetavad ka su teistele AI tööriistadele — mitte ainult Claude Code sessioonidele selles repos.
+Wiki ja portfoolio on kõige kasulikumad siis, kui need on ligipääsetavad ka teistele AI tööriistadele — mitte ainult Claude Code sessioonidele selles repos.
 
 Vaata `wiring/` kausta:
 - **`mcp-resource.md`** — too mõlemad kihid välja MCP ressurssidena (kõige automaatsem)
