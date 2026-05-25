@@ -1,25 +1,25 @@
-# Wiring: System Prompt Patterns
+# Kuidas ühendada: Süsteemiprompti mustrid (System Prompt Patterns)
 
-## What This Is
+## Mis see on
 
-Copy-paste patterns for injecting your portfolio context into any AI tool's system prompt or custom instructions. This is the lowest-tech, most universal wiring approach — it works with Claude, ChatGPT, Gemini, or anything else that lets you set a system prompt.
+Copy-paste mustrid, mille abil saad süstida oma portfoolio konteksti mistahes AI tööriista süsteemiprompti (system prompt) või kohandatud juhistesse (custom instructions). See on kõige lihtsam, "low-tech" ja universaalsem ühendamise (wiring) viis — see töötab nii Claude'i, ChatGPT, Gemini kui ka ükskõik mille muuga, mis laseb sul süsteemiprompti seadistada.
 
-## The Basic Pattern
+## Baasmuster
 
-Paste the relevant portfolio content into your system prompt, wrapped in a clear marker:
+Kopeeri asjakohane portfoolio sisu oma süsteemiprompti ja mähi see selgete markerite vahele:
 
 ```
 <user_context>
-[paste your identity.md content here]
-[paste any other relevant files here]
+[kleebi oma identity.md sisu siia]
+[kleebi muud asjakohased failid siia]
 </user_context>
 
 You have context about the user above. Use it to inform your responses — their role, their projects, their communication style, their preferences. Don't reference this context explicitly unless asked. Just know them.
 ```
 
-## Patterns by Use Case
+## Mustrid kasutusjuhtude kaupa
 
-### General Work Assistant
+### Üldine tööassistent
 
 ```
 <user_context>
@@ -32,7 +32,7 @@ You have context about the user above. Use it to inform your responses — their
 You are a work assistant for the person described above. Match their communication style in your responses. Respect their stated preferences and constraints. When making suggestions, consider their current role and responsibilities.
 ```
 
-### Writing Assistant
+### Kirjutamisassistent
 
 ```
 <user_context>
@@ -44,7 +44,7 @@ You are a work assistant for the person described above. Match their communicati
 You are a writing assistant. Your job is to produce drafts that sound like the person described above — their vocabulary, their sentence structure, their tone. Use their domain knowledge to calibrate the level of explanation. Avoid every word and pattern they've listed under "what I dislike." When in doubt, be more concise rather than more thorough.
 ```
 
-### Meeting Prep
+### Koosolekuks ettevalmistus
 
 ```
 <user_context>
@@ -56,7 +56,7 @@ You are a writing assistant. Your job is to produce drafts that sound like the p
 You help prepare for meetings. When given a meeting topic and attendees, use the team context above to understand the relationships and dynamics, and use the project context to identify relevant workstreams. Produce a brief prep document with: key topics to cover, potential questions to expect, and any context from the relationship notes that's relevant.
 ```
 
-### Strategic Advisor
+### Strateegiline nõuandja
 
 ```
 <user_context>
@@ -69,10 +69,10 @@ You help prepare for meetings. When given a meeting topic and attendees, use the
 You are a strategic thinking partner. Use the goals and priorities context to understand what the person is optimizing for. Use the decision log to understand how they think through decisions — match their reasoning style. When presenting options, frame tradeoffs the way they think about tradeoffs (see their stated preferences). Be direct and concise.
 ```
 
-## Tips
+## Nõuanded
 
-- Don't paste all ten files into a system prompt. Most tools have context limits, and irrelevant context dilutes the useful context. Pick 2-4 files that match the use case.
-- The instruction paragraph after the context block matters as much as the context itself. Tell the AI specifically how to use the context — don't assume it'll figure it out.
-- For tools with character limits on custom instructions (like ChatGPT's custom instructions), use only `identity.md` and `communication-style.md`. Those two cover the highest-value context in the smallest space.
-- Test by asking the AI to do something it would normally get wrong without context — like drafting an email in your style or prepping for a meeting with a specific person. If the output is better, the wiring is working.
-- Update the pasted content when your portfolio files change. Stale context in a system prompt is invisible and will quietly degrade output quality.
+- Ära kleebi kõiki kümmet faili süsteemiprompti. Enamikul tööriistadel on kontekstipiirangud ja ebaoluline kontekst lahjendab kasuliku konteksti mõju. Vali 2-4 faili, mis vastavad konkreetsele kasutusjuhule.
+- Juhiste lõik kontekstiploki järel on sama oluline kui kontekst ise. Ütle AI-le spetsiifiliselt, kuidas seda konteksti kasutada — ära eelda, et ta ise ära arvab.
+- Kui kasutad tööriistu, kus on kohandatud juhistele tähemärgipiirangud (nagu ChatGPT Custom Instructions), kasuta ainult faile `identity.md` ja `communication-style.md`. Need kaks katavad kõige suurema väärtusega konteksti kõige väiksemas mahus.
+- Testi süsteemi nii: palu AI-l teha midagi, millega ta tavaliselt ilma kontekstita puusse paneks — näiteks kirjutada e-kiri sinu stiilis või valmistuda kohtumiseks väga konkreetse inimesega. Kui tulemus on parem, siis ühendus (wiring) toimib.
+- Kui su portfooliofailid muutuvad, uuenda ka kleebitud sisu. Aegunud kontekst süsteemipromptis on nähtamatu, aga tõmbab vaikselt ja kindlalt väljundi kvaliteedi alla.
