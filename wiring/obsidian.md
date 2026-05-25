@@ -1,24 +1,24 @@
-# Wiring: Obsidian
+# Kuidas ühendada: Obsidian
 
-Obsidian is the best environment for living inside this repo day to day. It's markdown-native, the graph view lights up as your wiki grows, and Dataview turns the frontmatter conventions into real queries.
+Obsidian on parim keskkond, kus selles repos igapäevaselt elada. See on markdown-natiivne, graafivaade (graph view) lööb särama, kui su viki kasvab, ja Dataview muudab päiste (frontmatter) reeglid reaalseteks päringuteks.
 
-## Open the Repo as a Vault
+## Ava repo kui Vault (hoidla)
 
-1. Obsidian → File → Open folder as vault → pick this repo's root.
-2. Let Obsidian index the folder. Wiki links (`[[wiki/.examples/concepts/foo]]`) will resolve; internal links become navigable.
-3. Open the graph view (left sidebar → graph icon, or `Ctrl/Cmd-G`). You'll see your wiki as a connected graph once you start compiling pages.
+1. Obsidian → File → Open folder as vault → vali selle repo juurkaust.
+2. Lase Obsidianil kaust indekseerida. Vikilingid (`[[wiki/.examples/concepts/foo]]`) hakkavad tööle; siselingid muutuvad klõpsatavaks.
+3. Ava graafivaade (vasak külgriba → graafi ikoon või `Ctrl/Cmd-G`). Niipea kui hakkad lehti kompileerima, näed oma vikit ühendatud võrgustikuna.
 
-## Graph View
+## Graafivaade
 
-- **At 0 wiki pages:** graph is empty. This is correct.
-- **At 10 pages (run the `.examples/` walkthrough):** you should see a small connected cluster. Concepts link to topics, sources link to concepts, entities pull toward the concepts that cite them.
-- **At 50+ pages:** filter the graph to hide `portfolio/`, `raw/`, and `templates/` so only the wiki layer is visible. This is where the graph starts earning its keep.
+- **0 vikilehte:** graaf on tühi. Nii peabki.
+- **10 lehte (kui teed läbi `.examples/` harjutuse):** peaksid nägema väikest ühendatud kobarat. Kontseptsioonid viitavad teemadele, allikad viitavad kontseptsioonidele ja olemid (entities) tõmbuvad kontseptsioonide poole, mis neile viitavad.
+- **50+ lehte:** filtreeri graafi, et peita `portfolio/`, `raw/` ja `templates/`, nii et näha jääb ainult vikikiht. Siin hakkab graaf oma hinda õigustama.
 
-## Dataview Queries (from Frontmatter)
+## Dataview päringud (frontmatteri pealt)
 
-The frontmatter conventions in `CLAUDE.md` are Dataview-friendly. Install the Dataview community plugin to unlock queries like:
+Failis `CLAUDE.md` toodud frontmatteri reeglid on Dataview-sõbralikud. Paigalda Dataview community plugin ja saad teha selliseid päringuid:
 
-**Find all concept pages with only one source (lint candidates):**
+**Leia kõik ainult ühe allikaga kontseptsioonilehed (koristuskandidaadid):**
 
 ```dataview
 LIST
@@ -26,7 +26,7 @@ FROM "wiki"
 WHERE type = "concept" AND length(sources) < 2
 ```
 
-**Find portfolio files not reviewed in 90 days:**
+**Leia portfooliofailid, mida pole 90 päeva üle vaadatud:**
 
 ```dataview
 LIST
@@ -34,7 +34,7 @@ FROM "portfolio"
 WHERE last_reviewed < date(today) - dur(90 days)
 ```
 
-**List stale or superseded wiki pages:**
+**Kuva aegunud (stale) või uuega asendatud (superseded) vikilehed:**
 
 ```dataview
 TABLE status, updated
@@ -43,34 +43,34 @@ WHERE status = "stale" OR status = "superseded"
 SORT updated DESC
 ```
 
-Drop these into a dashboard note (e.g., `wiki-health.md`) and pin it — it becomes a live lint view without running a full lint pass.
+Viska need kuhugi töölaua-märkmikusse (nt `wiki-health.md`) ja pinn'i see ära — sellest saab reaalajas tervisekontrolli vaade, ilma et peaksid tervet lintimise tsüklit läbi tegema.
 
 ## Obsidian Web Clipper → `raw/`
 
-The official Obsidian Web Clipper extension can clip articles straight into a folder. Configure it to save into `raw/` — articles land as markdown, ready for the next ingest pass. This is the cheapest capture path for the wiki layer. Lower the friction of sources landing and the wiki compounds faster.
+Ametlik Obsidian Web Clipper laiendus suudab artikleid otse õigesse kausta lõigata. Seadista ta nii, et asjad lendaksid otse `raw/` kausta — artiklid maanduvad seal markdownina, valmis järgmiseks ingest'i tsükliks. See on vikikihi jaoks kõige odavam ja lühem sissevõtutee. Mida madalam on allikate lisamise hõõrdumine, seda kiiremini viki kasvab.
 
-## Hotkey for Image Downloads
+## Kiirklahv piltide allalaadimiseks
 
-If you clip or paste content with images, set a hotkey for "Download all images" (either a plugin or a built-in depending on your Obsidian version). Images saved locally survive link rot; pasted-as-URLs don't.
+Kui lõikad või kleebid sisu koos piltidega, seadista kiirklahv (hotkey) valikule "Download all images" (olenevalt Obsidiani versioonist on see kas plugin või sisse ehitatud). Lokaalselt salvestatud pildid elavad linkide kõdunemise (link rot) üle, URL-idena kleebitud pildid aga mitte.
 
-## Cross-Machine Sync via Google Drive / iCloud
+## Sünkroniseerimine üle seadmete (Google Drive / iCloud)
 
-If you want the same vault on multiple machines without Obsidian Sync, put the repo folder inside Google Drive, iCloud, or Dropbox. Every machine opens the folder as the same vault, and edits propagate through the cloud provider.
+Kui tahad sama vault'i mitmes masinas ilma Obsidian Synci eest maksmata, pane see repo Google Drive'i, iCloudi või Dropboxi. Iga masin avab kausta kui sama vault'i ja muudatused jooksevad pilve kaudu laiali.
 
-Caveats:
+Tähelepanu!
 
-- Sync conflicts can happen if you edit on two machines simultaneously. Obsidian handles this gracefully in most cases; heavy users should consider Obsidian Sync as a cleaner solution.
-- Symlinks are fragile across cloud-sync tools. Keep the vault root inside the sync folder, not a symlink to it.
+- Sünkroniseerimise konfliktid on kerged tulema, kui muudad asju kahes masinas samal ajal. Obsidian saab sellega enamasti kenasti hakkama, aga hardcore kasutajad peaksid puhtama lahendusena kaaluma siiski Obsidian Synci.
+- Symlink'id (sümbollingid) lähevad pilvesüncis kergelt katki. Hoia vault'i juurkausta füüsiliselt sünc-kaustas, mitte ära tee sinna symlink'i.
 
-## Useful Plugins
+## Kasulikud pluginad
 
-- **Dataview** — frontmatter queries (see above).
-- **Obsidian Web Clipper** — source capture.
-- **Templater** — for auto-filling the frontmatter block on new wiki / portfolio files (optional, but speeds things up).
-- **Text Generator** or **Claude/ChatGPT plugins** — if you want to run ingest / compile / query operations without leaving Obsidian.
+- **Dataview** — frontmatteri päringud (vt ülevalt).
+- **Obsidian Web Clipper** — allikate püüdmine.
+- **Templater** — et uutel viki-/portfooliofailidel frontmatteri plokk automaatselt ära täita (pole kohustuslik, aga teeb asja kiiremaks).
+- **Text Generator** või **Claude/ChatGPT pluginad** — juhuks, kui tahad ingest / compile / query operatsioone teha otse Obsidianis, ilma kuskile mujale minemata.
 
-## Workflow Notes
+## Töövoolised märkmed
 
-- Keep `CLAUDE.md` pinned in a tab. Reference it when you or an AI agent is running an operation in this vault.
-- `log.md` is append-only. Don't let Obsidian's auto-formatting rearrange it.
-- If you share this vault with a team (unusual for a personal context repo, but possible), use `.private/` (Phase 2) for anything sensitive. Don't rely on "I'll just not open that file around others."
+- Hoia `CLAUDE.md` koguaeg ühes tabis pinned (kinnitatud). Viska sellele pilk peale, kui sina või mõni AI agent hakkab siin vault'is asjatama.
+- `log.md` on ainult lisamiseks (append-only). Ära lase Obsidiani auto-formatil seda ringi tõsta.
+- Kui jagad seda vault'i terve tiimiga (isikliku konteksti repo puhul ebatavaline, aga võimalik), kasuta millegi tundliku jaoks kausta `.private/` (Faas 2). Ära looda sellele, et "ma lihtsalt ei ava seda faili, kui teised näevad."
