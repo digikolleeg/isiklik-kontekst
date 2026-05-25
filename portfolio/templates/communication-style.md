@@ -2,7 +2,7 @@
 
 ## Mille jaoks see fail on
 
-Kuidas sa suhtled — et iga agent, kes sinu nimel midagi kirjutab, kõlaks nagu sina, mitte nagu mingi suvaline AI. See on fail, mis määrab, kas valminud mustand paneb sind mõtlema "päris hea" või hoopis "ma ei ütleks seda elusees nii". Konkreetsus on siin tähtsam kui kusagil mujal su portfoolios. Ümmargune communication style fail on kasutu.
+Kuidas sa suhtled — et iga agent, kes sinu nimel midagi kirjutab, kõlaks nagu sina, mitte nagu mingi suvaline AI. See on fail, mis määrab, kas valminud mustand paneb sind mõtlema "päris hea" või hoopis "ma ei ütleks seda elu sees nii". Konkreetsus on siin tähtsam kui kusagil mujal su portfoolios. Ümmargune communication style fail on kasutu.
 
 ---
 
@@ -20,6 +20,7 @@ Kuidas sa suhtled — et iga agent, kes sinu nimel midagi kirjutab, kõlaks nagu
 4. Kas sul on kindlaid sõnu, fraase või mustreid, mida tead, et sa palju kasutad? Asju, millest teised su kohe ära tunneksid?
 5. Kas on sõnu või väljendeid, mida sa teadlikult väldid? Asju, mis kõlavad võltsilt, on puhas kantseliit või lihtsalt pole sina?
 6. Kuidas sa tavaliselt e-kirja üles ehitad — alustad kohe palvest, annad enne tausta, kasutad punktikirja (bullet points), või kirjutad pikkade lõikudena?
+7. Kas sul on stiilinäiteid oma kirjutamise kohta? Müügi emailid, sotsiaalsed postitused, artiklid või blogi.
 
 **Millal piisab:** Pärast 5–6 küsimust. Kui vastused on hägused, pressi detaile välja enne, kui mustandi teed. Ümmarguse faili puhul hakkab iga agent, kes selle inimese nimel kirjutab, puusse panema.
 
