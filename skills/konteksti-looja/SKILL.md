@@ -352,4 +352,6 @@ Kui kasutaja on viimase faili (10/10) heaks kiitnud:
 
 Kui kasutaja oli töötoa-režiimis ja kolm faili on valmis:
 
-> "Sul on kolm põhi-faili: identity, communication-style ja current-projects. Need on juba piisavad esimese müügiassistendi käima panemiseks (vt `quick-start.md` samm 3). Kui tahad süsteemi laiendada, lihtsalt ütle 'täidame ülejäänud failid' — ülejäänud seitse võtavad omas tempos lisaks ~60 minutit."
+> "Sul on kolm põhi-faili: identity, communication-style ja current-projects. Need on juba piisavad esimese müügiassistendi käima panemiseks (vt `quick-start.md` samm 3). Kui tahad süsteemi laiendada, lihtsalt ütle 'täidame ülejäänud failid' — ülejäänud seitse võtavad omas tempos lisaks ~60 minutit.
+>
+> Pidulik töötoa-osa läbi. Kodus võid kõik visata mis sul on, mitte enam kontekstis tagasi hoida."
