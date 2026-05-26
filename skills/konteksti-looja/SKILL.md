@@ -204,9 +204,9 @@ Kui materjalides oli **ainult turunduslik tekst** (veebileht, deck, brand-doc):
 
 Käivitub kui kasutaja ütleb "alustame intervjuud" + valib faili, või "täida [failinimi]".
 
-**Kui kasutaja täidab 3+ faili korraga** (näiteks `alustame intervjuud` → mitu faili menüüst, või `täida ülejäänud failid`), **alusta materjalide impordiga** — vt "Materjalide import" jaotist üleval. Kasuta täieliku režiimi materjalide kutset. Pärast importi liigu kalibratsiooni-küsimustele (vt allpool), seejärel mustandid ja salvestamine.
+**Kui kasutaja täidab 3+ faili korraga** (näiteks `alustame intervjuud` → mitu faili menüüst, või `täida ülejäänud failid`), **alusta materjalide impordiga** — vt "Materjalide import" jaotist üleval. Kasuta täieliku režiimi materjalide kutset. Pärast importi käi iga faili kohta läbi tavaline per-faili küsimuste voor (vt allpool), **küsi-või-kinnita reegliga** (Materjalide import §6) — kui materjalist tuli vastus, kinnita ekstrakt; muidu küsi originaalne küsimus. Iga faili lõpus esita personaliseeritud **anchor-küsimus** (vt allpool 10-anchor loend) deepening-küsimusena. Pärast kõiki faile mustandid ja salvestamine.
 
-**Üksiku faili korral** (`täida [failinimi]`) jäta materjalide import vahele ja liigu otse intervjuule.
+**Üksiku faili korral** (`täida [failinimi]`) jäta materjalide import vahele ja liigu otse intervjuule — anchor on sel juhul vabatahtlik.
 
 **Voog igale failile:**
 
@@ -243,9 +243,9 @@ Need on lühikesed versioonid template'idesse sisse kirjutatud küsimustest. Kas
 
 ---
 
-### Täieliku režiimi kalibratsiooni-küsimused
+### Täieliku režiimi anchor-küsimused (per-faili deepening)
 
-Üks anchor-küsimus iga faili kohta. Esita ükshaaval pärast läbipaistvat kokkuvõtet. Küsi-või-kinnita reegel kehtib — kui materjal juba katab anchor'i territooriumi, kinnita ekstrakt asemel otsese küsimuse esitamise.
+Üks anchor-küsimus iga faili lõpus, **pärast** selle faili per-faili küsimuste vooru (mitte selle asemel). Anchor on deepening-küsimus, mis küsib midagi, mida materjalid struktuurselt ei näita. **Personaliseerimine kohustuslik** — vt "Materjalide import" §8: iga anchor PEAB viitama ekstraktist või eelnevatest vastustest tulnud kontekstile.
 
 **1. identity.md:**
 > *"Mida sa lisaks või ütleksid teisiti, kui sõbrale õhtusöögil seletad? Pitch on tavaliselt poleeritud — pärisversioon on tihti teine."*
