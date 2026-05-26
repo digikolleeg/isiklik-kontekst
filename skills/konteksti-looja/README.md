@@ -27,14 +27,14 @@ Detailne MCP/Connector seadistus: vt repo juurest `wiring/mcp-resource.md`.
 | Mida sa ütled | Mida Skill teeb |
 |---|---|
 | `alustame intervjuud` | Näitab failide menüüd, küsib mida täita |
-| `töötoa intervjuu` | **Töötoa režiim:** 3 faili (identity + communication-style + current-projects) ühe vooga, ~30 min |
+| `töötoa intervjuu` | **Töötoa režiim:** 3 faili (identity + communication-style + current-projects) ühe vooga, ~20 min. Skill küsib esmalt olemasolevad materjalid sisse visata. |
 | `täida current-projects.md` | Üks fail, täielik intervjuu |
 | `uuendame goals-and-priorities.md` | Olemasoleva faili uuendamine (loeb vana, küsib mis muutus) |
 | `täida ülejäänud failid` | Liigub järjest läbi puuduvate failide |
 
 ## Töötoa-režiim
 
-Lühem intervjuu, mille eesmärk on saada **kolm faili 30 minutiga** — piisavalt, et müügiassistent käima panna. Kasutatakse Digikolleeg inkubaator-töötubades. Ülejäänud 7 faili saab täita hiljem.
+Lühem intervjuu, mille eesmärk on saada **kolm faili ~20 minutiga** — piisavalt, et müügiassistent käima panna. Kasutatakse Digikolleeg inkubaator-töötubades. Skill küsib esmalt olemasolevad materjalid sisse visata (pitch, veebileht, paar postitust vms), seejärel esitab kolm kalibratsiooni-küsimust ja koostab failid. Ülejäänud 7 faili saab täita hiljem.
 
 ## Mis edasi
 
