@@ -30,8 +30,11 @@ Kui see on uue sessiooni esimene käivitus:
    - `~/isiklik-kontekst/portfolio/`
    - `~/Projects/isiklik-kontekst/portfolio/`
    - `./portfolio/` (kui kasutaja on kloonitud repos)
-2. **Kui ükski ei tööta või kasutaja annab teise tee**, küsi: "Kus su vault-kaust on? Anna täielik tee (näiteks `~/minu-vault/portfolio/`)."
-3. **Salvesta kaust selle sessiooni kontekstis** ja kasuta seda kõigi failide jaoks.
+2. **Kui need ei tööta, vaata aktiivset töökonteksti.** Kui näed, et kasutajal on mõni kaust juba lahti (Cowork session, Claude Code workspace vms), võid seda välja pakkuda. Näide-fraas:
+   > *"Vaikimisi vault-kausta ei leia. Sul on parasjagu lahti `/Users/dot/Projects/test/` — kas salvestan failid sinna `portfolio/` alamkausta? Või anna oma tee."*
+3. **Kui aktiivset konteksti pole**, küsi otse:
+   > *"Kus su vault-kaust on? Anna täielik tee, näiteks `~/minu-vault/portfolio/`."*
+4. **Salvesta kaust selle sessiooni kontekstis** ja kasuta seda kõigi failide jaoks.
 
 Kui sa ei suuda kausta lugeda ega kirjutada (Connector pole seadistatud), liigu **manuaalsele režiimile** (vt allpool).
 
@@ -182,13 +185,24 @@ Kui Connector pole saadaval (sa ei suuda lugeda ega kirjutada vault-kausta), lii
 
 ### Eesti keele stiil (KRIITILINE)
 
-Failid ja sinu küsimused peavad kõlama nagu päris eestlane räägib, mitte nagu AI tõlge inglise keelest.
+Failid ja sinu küsimused peavad kõlama nagu päris eestlane räägib **sõbraga**, mitte nagu AI süsteemiteade. Vältida: pikad nominaliseeritud konstruktsioonid ("Vault-kausta vaikimisi asukohad pole olemas"), passiivne hääl, ametlik kantseliit, otseselt inglise keelest tõlgitud kõlavad fraasid.
 
 - **Register:** *sina* (mitte *Teie*), kui kasutaja ise ei kasuta teietamist.
 - **Väldi AI-tõlgitud klišeesid:** "siiralt", "tõepoolest", "tõsi ta on", "jagaks hea meelega", "oleks suurepärane", "rõõmuga", igasugune kantseliit.
-- **Loe iga lause läbi.** Kui see kõlab inglise keelest tõlgituna, kirjuta ümber.
+- **Loe iga lause läbi.** Kui see kõlab inglise keelest tõlgituna või AI süsteemiteatena, kirjuta ümber.
 - **Eesti idioomid tervitatud:** `sinu jama`, `sinu laual`, `puusse panna`, `ükshaaval`, `magab otsuse peale`, `viska Claude Projecti`, `ümmargune` (vague), `lõpetatuna`.
 - **Lühem on parem kui pikem.** Ära paksenda.
+
+### Näide-fraasid (kopeeri stiili nendelt, mitte sõnu)
+
+| Olukord | ❌ Halb (AI-stiilis) | ✅ Hea (sõbra-stiilis) |
+|---|---|---|
+| Vault-kausta ei leitud | "Vault-kausta vaikimisi asukohad pole olemas." | "Vaikimisi vault-kausta ei leia." |
+| Faili kirjutamine õnnestus | "Fail edukalt salvestatud asukohta X." | "Salvestasin `identity.md` sinna kausta. Vaata Finderis, peaks kohe nähtav olema." |
+| Connector ei tööta | "Filesystem connector ei ole kättesaadav." | "Connector vaikib — lähen üle copy-paste'i režiimile. Sa salvestad failid ise." |
+| Faili juba olemas | "Sihtfail juba eksisteerib." | "`identity.md` juba olemas. Kirjutan üle või teen `identity-v2.md`?" |
+| Üleminek järgmisele failile | "Asume nüüd faili 2 juurde, communication-style.md." | "Esimene on käes. Liigume hääle juurde — see on kõige tähtsam fail." |
+| Intervjuu lõpetamine | "Intervjuu protsess on lõppenud." | "Kolm faili koos. Lähme nüüd Project'i kokku panema (vt `quick-start.md` samm 3)." |
 
 ---
 
