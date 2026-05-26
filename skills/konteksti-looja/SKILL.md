@@ -135,7 +135,7 @@ Millise faili tahad täita?
 >
 > - *Identiteet + projektid: pitch, veebileht, ettevõtte tutvustus, enda tutvustus ja/või cv*
 > - *Hääletoon: linkedin/instagram/twitter postitused, müügimeilid, isiklikud Slack/email sõnumid, blogi, artiklid jne.*
-> - *Tööriistad + protsess: kanalid kus töötad, erinevad äpid mida kasutad, kui sul on mõni 'kuidas ma töötan' dokument, saada see ka*
+> - *Tööriistad + protsess: kanalid kus töötad, erinevad äpid mida kasutad, kui sul on mõni SOP (standard operating procedure) või 'kuidas ma töötan' dokument, saada see ka*
 > - *Otsused + valdkond: viimase aasta olulisemad otsuste-memod, asjad mis pole töötanud, lemmik artiklid valdkonnast või mõttesuunad ja liidrid.*
 >
 > *Mida rohkem konteksti, seda paremad failid. Samas kui sul just MAX paketti pole, siis ära tervet entsüklopeediat siia pane. Samuti ära proovi olla see kes sa pole. Alusta sealt kus sa oled ja kes sa oled ning kasvame koos."*
@@ -207,6 +207,10 @@ Liigu otse alljärgnevale küsimuste vooru — see on fallback, mitte default. A
 
 Käivitub kui kasutaja ütleb "alustame intervjuud" + valib faili, või "täida [failinimi]".
 
+**Kui kasutaja täidab 3+ faili korraga** (näiteks `alustame intervjuud` → mitu faili menüüst, või `täida ülejäänud failid`), **alusta materjalide impordiga** — vt "Materjalide import" jaotist üleval. Kasuta täieliku režiimi materjalide kutset. Pärast importi liigu kalibratsiooni-küsimustele (vt allpool), seejärel mustandid ja salvestamine.
+
+**Üksiku faili korral** (`täida [failinimi]`) jäta materjalide import vahele ja liigu otse intervjuule.
+
 **Voog igale failile:**
 
 1. **Loe template `portfolio/templates/<failinimi>` vault-kaustast** (kui võimalik) — sealt leiad selle faili täieliku intervjuu-protokolli ja väljundi struktuuri.
@@ -239,6 +243,49 @@ Need on lühikesed versioonid template'idesse sisse kirjutatud küsimustest. Kas
 **domain-knowledge.md:** valdkonna teadmised, mida üldine AI ei tea; mõisted ja terminoloogia su valdkonnas; raamistikud ja mudelid, mida kasutad; allikad, keda usaldad.
 
 **decision-log.md:** kuidas sa üldiselt otsustad; millist infot tahad enne otsust; 2-3 viimast olulist otsust ja nende tagamaid; ebakindlusega toime tulemine.
+
+---
+
+### Täieliku režiimi kalibratsiooni-küsimused
+
+Üks anchor-küsimus iga faili kohta. Esita ükshaaval pärast läbipaistvat kokkuvõtet. Smart-bypass kehtib — kui materjal juba katab anchor'i territooriumi, jäta vahele teatega.
+
+**1. identity.md:**
+> *"Mida sa lisaks või ütleksid teisiti, kui sõbrale õhtusöögil seletad? Pitch on tavaliselt poleeritud — pärisversioon on tihti teine."*
+
+**2. role-and-responsibilities.md:**
+> *"Kus su ametlik roll ja päris roll lahku lähevad? Mille eest salaja vastutad, mida CV ei näita? Ja mis jubi sa hea meelega esimesena oma laualt kellegi teise lauale tõstaks?"*
+
+**3. current-projects.md:**
+> *"Materjalides loetlesid X, Y, Z. Mis järjekorras need sinu peas tegelikult on — ja mis on see üks, mille pärast sa õudukaid näed?"*
+
+(asenda X, Y, Z reaalsete projekti-nimedega materjalidest)
+
+**4. team-and-relationships.md:**
+> *"Kes su tiimist või partneritest on selline, et kui sa ta kaotaks, kukuks pool su ettevõttest kokku ja tõmbaks peast halliks? Ja kellega peaks olema lähedasem koostöö, aga pole?"*
+
+**5. tools-and-systems.md:**
+> *"Mis on see üks tööriist või seadistus, mille kaotamine paneks su töö seisma? Ja mille pealt sa juba ammu peaksid välja kolima, aga ei viitsi või ei leia aega?"*
+
+**6. communication-style.md** — sõltub materjalist:
+
+Kui materjalides oli **päris hääle näiteid** (LinkedIn, müügimeilid, isiklikud sõnumid):
+> *"Need näited annavad sinu praegusest häälest hea pildi. Aga kas seal on midagi, mida tahaksid parandada? Või keegi/mingi tekst, mille moodi sa tahaksid rohkem kõlada?"*
+
+Kui materjalides oli **ainult turunduslik tekst:**
+> *"Materjalides on ettevõtte hääl. Sinu isiklik hääl on tihti teine — viska üks 1-2 päris sõnumit (Slack, LinkedIn DM, email), kus räägid lihtsalt iseendana."*
+
+**7. goals-and-priorities.md:**
+> *"Mis on see eesmärk, mida sa ei julge endale isegi endale tunnistada? Ja mis on see asi, mida sa teadlikult ei tee, kuigi keegi soovitab?"*
+
+**8. preferences-and-constraints.md:**
+> *"Mille peale sa viimase aasta sees liiga avalikult vihastasid? Ja mis paneb sind hommikul tundma et 'aitab küll'?"*
+
+**9. domain-knowledge.md:**
+> *"Mis on see asi su valdkonnas, mida sa pead igale inimesele uuesti seletama, sest see on intuitsioonivastane või mille kohta on väljaspool olijatel vale arusaam?"*
+
+**10. decision-log.md:**
+> *"Mis on viimase aasta otsus, mille üle sa kahtled, kas tegid õigesti? Ja mis on otsus, mida sa ei tee, sest ajab judinad peale?"*
 
 ---
 
