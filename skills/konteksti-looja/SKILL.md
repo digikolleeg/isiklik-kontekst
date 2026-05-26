@@ -131,7 +131,7 @@ Millise faili tahad täita?
 
 ### Täieliku režiimi materjalide kutse (sõna-sõnalt)
 
-> *"10 faili tahab erinevat materjali. Kui sul on, viska ette:*
+> *"10 konteksifaili tahavad erinevat materjali. Kui sul on juba valmis dokumente/artikleid/tutvustusi, viska ette:*
 >
 > - *Identiteet + projektid: pitch, veebileht, ettevõtte tutvustus, enda tutvustus ja/või cv*
 > - *Hääletoon: linkedin/instagram/twitter postitused, müügimeilid, isiklikud Slack/email sõnumid, blogi, artiklid jne.*
@@ -146,22 +146,44 @@ Kui kasutaja ütleb "ei ole midagi" või jätab materjalid panemata, **liigu eda
 
 ---
 
-## Töötoa režiim (batched, ~30 min)
+## Töötoa režiim (batched, ~20 min)
 
 Käivitub kui kasutaja ütleb "töötoa intervjuu" või "kiire intervjuu".
 
-Eesmärk: **kolm faili 30 minutiga**, mille põhjal saab müügiassistendi käima panna. Küsi vähem kui täielikus intervjuus, koonda vastused efektiivselt.
+Eesmärk: **kolm faili ~20 minutiga**, mille põhjal saab müügiassistendi käima panna. Materjalide import + kalibratsiooni-küsimused asendavad varasema pika küsimuste vooru.
 
 **Voog:**
 
-1. **Avasõnad:** "Teeme kiire intervjuu — kolm faili, umbes 30 minutit. Küsin kõigepealt sinu kohta, siis su hääletooni ning peale selle mis projketid sul parasjagu laual. Kui mingi vastus võtab kaua, võime hiljem täiendada. Alustame: kes sa oled ja mida sa teed?"
-2. **Identity osa (~8 min):** 3 küsimust
-3. **Communication style osa (~12 min):** 4 küsimust
-4. **Current projects osa (~10 min):** 3-4 küsimust (sõltuvalt projektide arvust)
+1. **Avasõnad ja identiteet:** *"Teeme kiire intervjuu — kolm faili, umbes 20 minutit. Alustame: kes sa oled ja mida sa teed? Ühe-kahe lausega."*
+2. **Materjalide import** — vt ülal "Materjalide import" jaotist. Kasuta töötoa-režiimi kutset.
+3. **Läbipaistev kokkuvõte** kolme faili kohta (identity, current-projects, communication-style). Küsi: *"Midagi siin valesti või puudu?"* Lase kasutajal parandada enne edasi liikumist.
+4. **Kalibratsiooni-küsimused** — kolm anchor'it järjekorras: identity, current-projects, communication-style (vt allpool). Üks küsimus korraga. Iga küsimuse juures kontrolli **smart-bypass** (vt "Materjalide import" §6) — kui materjal juba katab anchor'i territooriumi, jäta küsimus vahele teatega.
 5. **Koosta kõik kolm faili** ja salvesta kausta. Näita mustandid kasutajale ühe sõnumiga.
-6. **Reaktsioon:** "Loe need läbi ja ütle, mis ei kõla õigesti või on puudu. Parandame kohe."
+6. **Reaktsioon:** *"Loe need läbi ja ütle, mis ei kõla õigesti või on puudu. Parandame kohe."*
 
-### Töötoa-režiimi küsimused
+### Töötoa-režiimi kalibratsiooni-küsimused
+
+Üks küsimus iga faili kohta. Esita ükshaaral, oota vastust enne järgmist.
+
+**identity.md:**
+> *"Mida sa lisaks või ütleksid teisiti, kui sõbrale õhtusöögil seletad? Pitch on tavaliselt poleeritud — pärisversioon on tihti teine."*
+
+**current-projects.md:**
+> *"Materjalides loetlesid X, Y, Z. Mis järjekorras need sinu peas tegelikult on — ja mis on see üks, mille pärast sa õudukaid näed?"*
+
+(asenda X, Y, Z reaalsete projekti-nimedega, mis materjalidest tulid)
+
+**communication-style.md** — sõltub sellest, mida materjalides on:
+
+Kui materjalides oli **päris hääle näiteid** (LinkedIn-postitused, müügimeilid, isiklikud sõnumid):
+> *"Need näited annavad sinu praegusest häälest hea pildi. Aga kas seal on midagi, mida tahaksid parandada? Või keegi/mingi tekst, mille moodi sa tahaksid rohkem kõlada?"*
+
+Kui materjalides oli **ainult turunduslik tekst** (veebileht, deck, brand-doc):
+> *"Materjalides on ettevõtte hääl. Sinu isiklik hääl on tihti teine — viska üks 1-2 päris sõnumit (Slack, LinkedIn DM, email), kus räägid lihtsalt iseendana."*
+
+### Fallback: kui kasutaja ütleb "mul pole materjali"
+
+Liigu otse alljärgnevale küsimuste vooru — see on fallback, mitte default. Anchor-küsimusi ei kasuta, kuna pole millegagi kalibreerida.
 
 **identity.md (3 küsimust):**
 1. Mis su nimi, roll ja ettevõte?
