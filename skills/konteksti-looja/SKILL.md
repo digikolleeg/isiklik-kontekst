@@ -107,23 +107,20 @@ Millise faili tahad täita?
 
    communication-style'st sain:
    - [bullet]
-
-   Veel on vaja:
-   - [identity'st puudu olev]
-   - [projektidest puudu olev]
-   - [häälest puudu olev]
-
-   Midagi siin valesti või puudu? Kui ei, alustame esimesest.
    ```
+
+   Pärast bulletit küsi sõnasõnalt: *"Kui midagi on esmases lühiülevaates valesti, anna märku. Kui mitte, ütle 'tundub legit' ja liigume paari täpsustava küsimusega edasi ning paneme esmase konteksti selle põhjal kokku."*
 
    Täieliku režiimi puhul: bulletid kõigi 10 faili kohta sama struktuuriga.
 
-6. **Smart-bypass:** enne iga kalibratsiooni-küsimust kontrolli, kas materjal juba sisaldab kalibratsiooni-vastust. Kui jah, ütle: *"Sa juba kirjutasid selle siia, liigume edasi."* ja jäta küsimus vahele. **Vaikimisi küsi** — vahele jäta ainult kui materjal on selgelt kalibratsiooni-stiilis (näiteks isiklik märkmik kus on kirjas "mida ma teeksin teisiti", selge hääle-arenduse eesmärk, otsuste-päevik mis katab anchor'i territooriumi). **Turunduslik tekst, veebileht, poleeritud pitch ja müügimeil EI loe kalibratsiooniks** — isegi kui need käsitlevad sama teemat. Vahelejätmist ära tee kunagi vaikselt — kasutaja näeb alati, millise küsimuse ja miks vahele jätsid.
+6. **Küsi-või-kinnita reegel:** iga per-faili küsimuse juures kontrolli, kas materjalist tuli sellele küsimusele juba vastus välja. Kui jah, **kinnita** — ära küsi uuesti, vaid esita ekstrakt: *"Materjalist sain: [vastus lühidalt]. Midagi siin puudu või vale?"* Kui ei, **küsi originaalne küsimus** tavapärasel viisil. Kasutaja näeb alati, milline info on materjalist tulnud — vaikne vahelejätmine pole lubatud. Konservatiivne kalle: kui kahtled, kas materjal vastas, **küsi**. Halvem on liigne küsimine kui vajaliku konteksti puudumine. See reegel kehtib **iga küsimuse jaoks** mõlemas režiimis — mitte ainult anchor'ite jaoks.
 
 7. **Token-eelarve nügimine (ainult töötoa-režiim):** kui materjali on selgelt palju (5+ faili või ~10k sõna), nügi õrnalt:
    > *"See on hea materjal. Töötoa kontekstis võtame siit eessõnad ja jätame ülejäänu järgmiseks. Kõik salvestatud, võid kodus jätkata."*
 
    Pidurdamine, mitte keeldumine.
+
+8. **Anchor-küsimuste personaliseerimine:** iga kalibratsiooni-küsimus PEAB viitama ekstraktist või eelnevatest vastustest tulnud kontekstile. Ära küsi anchor'it tühjas vaakumis. Näiteks identity-anchor *"mida sa lisaks?"* asemel: *"Sa oled [ekstrakti taust] ja [ekstrakti roll]. Liftikõne on poleeritud — mida lisaksid või ütleksid teisiti, kui sa ise, su äripartner või sõbrad pidaksid sind õhtusöögil tutvustama?"* Kontekstita anchor on disorienteeriv ja toob nõrga vastuse.
 
 ### Töötoa-režiimi materjalide kutse (sõna-sõnalt)
 
@@ -157,7 +154,7 @@ Eesmärk: **kolm faili ~20 minutiga**, mille põhjal saab müügiassistendi käi
 1. **Avasõnad ja identiteet:** *"Teeme kiire intervjuu — kolm faili, umbes 20 minutit. Alustame: kes sa oled ja mida sa teed? Ühe-kahe lausega."*
 2. **Materjalide import** — vt ülal "Materjalide import" jaotist. Kasuta töötoa-režiimi kutset.
 3. **Läbipaistev kokkuvõte** kolme faili kohta (identity, current-projects, communication-style). Küsi: *"Midagi siin valesti või puudu?"* Lase kasutajal parandada enne edasi liikumist.
-4. **Kalibratsiooni-küsimused** — kolm anchor'it järjekorras: identity, current-projects, communication-style (vt allpool). Üks küsimus korraga. Iga küsimuse juures kontrolli **smart-bypass** (vt "Materjalide import" §6) — kui materjal juba katab anchor'i territooriumi, jäta küsimus vahele teatega.
+4. **Kalibratsiooni-küsimused** — kolm anchor'it järjekorras: identity, current-projects, communication-style (vt allpool). Üks küsimus korraga. Iga küsimuse juures kontrolli **küsi-või-kinnita reeglit** (vt "Materjalide import" §6) — kui materjal juba katab anchor'i territooriumi, kinnita ekstrakt asemel küsimuse esitamise, tavaliselt teatega.
 5. **Koosta kõik kolm faili** ja salvesta kausta. Näita mustandid kasutajale ühe sõnumiga.
 6. **Reaktsioon:** *"Loe need läbi ja ütle, mis ei kõla õigesti või on puudu. Parandame kohe."*
 
@@ -248,7 +245,7 @@ Need on lühikesed versioonid template'idesse sisse kirjutatud küsimustest. Kas
 
 ### Täieliku režiimi kalibratsiooni-küsimused
 
-Üks anchor-küsimus iga faili kohta. Esita ükshaaval pärast läbipaistvat kokkuvõtet. Smart-bypass kehtib — kui materjal juba katab anchor'i territooriumi, jäta vahele teatega.
+Üks anchor-küsimus iga faili kohta. Esita ükshaaval pärast läbipaistvat kokkuvõtet. Küsi-või-kinnita reegel kehtib — kui materjal juba katab anchor'i territooriumi, kinnita ekstrakt asemel otsese küsimuse esitamise.
 
 **1. identity.md:**
 > *"Mida sa lisaks või ütleksid teisiti, kui sõbrale õhtusöögil seletad? Pitch on tavaliselt poleeritud — pärisversioon on tihti teine."*
