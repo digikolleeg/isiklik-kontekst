@@ -143,49 +143,36 @@ Kui kasutaja ütleb "ei ole midagi" või jätab materjalid panemata, **liigu eda
 
 ---
 
-## Töötoa režiim (batched, ~20 min)
+## Töötoa režiim (batched, ~25 min)
 
 Käivitub kui kasutaja ütleb "töötoa intervjuu" või "kiire intervjuu".
 
-Eesmärk: **kolm faili ~20 minutiga**, mille põhjal saab müügiassistendi käima panna. Materjalide import + kalibratsiooni-küsimused asendavad varasema pika küsimuste vooru.
+Eesmärk: **kolm faili ~25 minutiga**, mille põhjal saab müügiassistendi käima panna. Materjalide import + küsi-või-kinnita reegel + per-faili anchor lisavad konteksti kvaliteeti — küsimused ise jäävad samaks (smoke-test näitas, et anchor'id üksi ei kata vajalikku pinda).
 
 **Voog:**
 
-1. **Avasõnad ja identiteet:** *"Teeme kiire intervjuu — kolm faili, umbes 20 minutit. Alustame: kes sa oled ja mida sa teed? Ühe-kahe lausega."*
+1. **Avasõnad ja identiteet:** *"Teeme kiire intervjuu — kolm faili, umbes 25 minutit. Alustame: kes sa oled ja mida sa teed? Ühe-kahe lausega."*
 2. **Materjalide import** — vt ülal "Materjalide import" jaotist. Kasuta töötoa-režiimi kutset.
-3. **Läbipaistev kokkuvõte** kolme faili kohta (identity, current-projects, communication-style). Küsi: *"Midagi siin valesti või puudu?"* Lase kasutajal parandada enne edasi liikumist.
-4. **Kalibratsiooni-küsimused** — kolm anchor'it järjekorras: identity, current-projects, communication-style (vt allpool). Üks küsimus korraga. Iga küsimuse juures kontrolli **küsi-või-kinnita reeglit** (vt "Materjalide import" §6) — kui materjal juba katab anchor'i territooriumi, kinnita ekstrakt asemel küsimuse esitamise, tavaliselt teatega.
-5. **Koosta kõik kolm faili** ja salvesta kausta. Näita mustandid kasutajale ühe sõnumiga.
-6. **Reaktsioon:** *"Loe need läbi ja ütle, mis ei kõla õigesti või on puudu. Parandame kohe."*
+3. **Läbipaistev kokkuvõte** kolme faili kohta (identity, current-projects, communication-style) uue sõnastusega (vt "Materjalide import" §5). Lase kasutajal parandada enne edasi liikumist.
+4. **identity.md:** käi läbi 3 küsimust (vt allpool), iga küsimuse juures rakenda **küsi-või-kinnita reegel** (vt "Materjalide import" §6). Pärast 3 küsimust esita personaliseeritud **identity-anchor** (vt allpool, ja §8 personaliseerimisreegel).
+5. **current-projects.md:** käi läbi 3-4 küsimust (vt allpool), küsi-või-kinnita. Pärast esita personaliseeritud **current-projects-anchor**.
+6. **communication-style.md:** käi läbi 4 küsimust (vt allpool), küsi-või-kinnita. Pärast esita personaliseeritud **communication-style-anchor** (sõltub sellest, kas materjalides oli päris hääle näiteid).
+7. **Koosta kõik kolm faili** ja salvesta kausta. Näita mustandid kasutajale ühe sõnumiga.
+8. **Reaktsioon:** *"Loe need läbi ja ütle, mis ei kõla õigesti või on puudu. Parandame kohe."*
 
-### Töötoa-režiimi kalibratsiooni-küsimused
+### Töötoa-režiimi küsimused (kogu loend)
 
-Üks küsimus iga faili kohta. Esita ükshaaral, oota vastust enne järgmist.
-
-**identity.md:**
-> *"Mida sa lisaks või ütleksid teisiti, kui sõbrale õhtusöögil seletad? Pitch on tavaliselt poleeritud — pärisversioon on tihti teine."*
-
-**current-projects.md:**
-> *"Materjalides loetlesid X, Y, Z. Mis järjekorras need sinu peas tegelikult on — ja mis on see üks, mille pärast sa õudukaid näed?"*
-
-(asenda X, Y, Z reaalsete projekti-nimedega, mis materjalidest tulid)
-
-**communication-style.md** — sõltub sellest, mida materjalides on:
-
-Kui materjalides oli **päris hääle näiteid** (LinkedIn-postitused, müügimeilid, isiklikud sõnumid):
-> *"Need näited annavad sinu praegusest häälest hea pildi. Aga kas seal on midagi, mida tahaksid parandada? Või keegi/mingi tekst, mille moodi sa tahaksid rohkem kõlada?"*
-
-Kui materjalides oli **ainult turunduslik tekst** (veebileht, deck, brand-doc):
-> *"Materjalides on ettevõtte hääl. Sinu isiklik hääl on tihti teine — viska üks 1-2 päris sõnumit (Slack, LinkedIn DM, email), kus räägid lihtsalt iseendana."*
-
-### Fallback: kui kasutaja ütleb "mul pole materjali"
-
-Liigu otse alljärgnevale küsimuste vooru — see on fallback, mitte default. Anchor-küsimusi ei kasuta, kuna pole millegagi kalibreerida.
+Need on per-faili küsimused, mida kasutab Voog 4-6. **Küsi-või-kinnita reegel** kehtib igale küsimusele — kui materjalist tuli vastus, kinnita ekstrakt; muidu küsi originaalne küsimus.
 
 **identity.md (3 küsimust):**
 1. Mis su nimi, roll ja ettevõte?
 2. Kui peaksid sõbrale õhtusöögil seletama, mida sa tegelikult teed — mitte ametinimetust, vaid päris tegevust — mis sa ütleksid?
 3. Mille pärast inimesed sinu juurde tulevad? Kus keegi ütleb "selle koha pealt küsi [su nimi] käest"?
+
+**current-projects.md (3-4 küsimust):**
+1. Millega sa parasjagu kõige aktiivsemalt tegeled? Loetle ettevõtted, tooted või projektid.
+2. [Iga projekti kohta lühidalt:] Mis see on, mis seisus, kellele sa seda müüd? Sihtklient on müügi jaoks kõige tähtsam — kes ta on, mis roll, mis probleem tal on?
+3. Kuidas need projektid prioriteedi järgi reastuvad?
 
 **communication-style.md (4 küsimust):**
 1. Kui sa kirjutad kliendile, kas oled pigem lühike ja konkreetne või annad rohkem konteksti? Sina või Teie?
@@ -193,10 +180,23 @@ Liigu otse alljärgnevale küsimuste vooru — see on fallback, mitte default. A
 3. Konkreetseid sõnu või fraase, mida sa ise palju kasutad — ja milliseid sa väldid?
 4. Anna mõni näide: kleebi 1-2 oma kirjutatud sõnumit (email, postitus). Sealt tuleb stiil välja.
 
-**current-projects.md (3-4 küsimust):**
-1. Millega sa parasjagu kõige aktiivsemalt tegeled? Loetle ettevõtted, tooted või projektid.
-2. [Iga projekti kohta lühidalt:] Mis see on, mis seisus, kellele sa seda müüd? Sihtklient on müügi jaoks kõige tähtsam — kes ta on, mis roll, mis probleem tal on?
-3. Kuidas need projektid prioriteedi järgi reastuvad?
+### Töötoa-režiimi anchor-küsimused (per-faili deepening)
+
+Üks anchor faili kohta, esita **pärast** per-faili küsimuste vooru (mitte selle asemel). Personaliseeri ekstraktist või eelnevatest vastustest tuleva kontekstiga (vt "Materjalide import" §8).
+
+**identity.md anchor** (lähte-template):
+> *"Sa oled [ekstrakti taust] ja [ekstrakti roll]. Liftikõne on tavaliselt poleeritud — mida lisaksid või ütleksid teistmoodi, kui sa ise, su äripartner või sõbrad pidaksid sind õhtusöögil tutvustama?"*
+
+**current-projects.md anchor** (lähte-template):
+> *"Materjalides ja eelnevates vastustes loetlesid [reaalsed projekti-nimed]. Mis järjekorras need sinu peas tegelikult on — ja mis on see üks, mille pärast sa õudukaid näed?"*
+
+**communication-style.md anchor** — sõltub materjalist:
+
+Kui materjalides oli **päris hääle näiteid** (LinkedIn-postitused, müügimeilid, isiklikud sõnumid):
+> *"Need näited annavad sinu praegusest häälest hea pildi. Aga kas seal on midagi, mida tahaksid parandada? Või keegi/mingi tekst, mille moodi sa tahaksid rohkem kõlada?"*
+
+Kui materjalides oli **ainult turunduslik tekst** (veebileht, deck, brand-doc):
+> *"Materjalides on ettevõtte hääl. Sinu isiklik hääl on tihti teine — viska üks 1-2 päris sõnumit (Slack, LinkedIn DM, email), kus räägid lihtsalt iseendana."*
 
 ---
 
