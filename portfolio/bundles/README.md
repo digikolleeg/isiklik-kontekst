@@ -24,13 +24,31 @@ Bundle'id on puuduv lüli "mul on portfooliofailid" ja "mul on päriselt tööta
 
 ## Kuidas Bundle'it kasutada
 
+Kaks teed sõltuvalt sellest, kas sul on Claude Desktop koos filesystem Connector'iga või mitte.
+
+### Tee A — Agentne (Claude Desktop + Connector)
+
+Claude loeb bundle'i ja sinu portfooliofailid ise, paneb terviku kokku ja annab sulle valmis system prompt'i.
+
+1. Ava Claude Desktop ja veendu, et filesystem Connector viitab su vault-kausta.
+2. Ütle Claude'ile:
+   > *"Lae `portfolio/bundles/client-outreach.md` ja täida kohatäitjad minu vault-failidega. Anna tagasi terve kokku pandud bundle."*
+3. Claude loeb mallis viidatud failid, asendab `[[IDENTITY]]`, `[[VOICE]]`, `[[RELATIONSHIPS]]` (vms) plokid päris sisuga ja annab sulle valmis markdown'i.
+4. Kopeeri see Project'i custom instructions lahtrisse (või kuhu iganes oma agendi prompt'i tahad panna).
+
+Bundle'i uuendamiseks, kui portfoolio muutub: lihtsalt küsi uut kokku pandud versiooni. Konteksti-looja Skill (kui installitud) teeb sama asja.
+
+### Tee B — Manuaalne (ükskõik mis chat, ükskõik mis plaan)
+
+Kui sul pole Claude Desktop'i ega Connector'it — või tahad lihtsalt ise kontrollida —, koosta bundle käsitsi.
+
 1. Ava soovitud bundle'i fail.
 2. Ava teises aknas oma täidetud portfooliofailid.
 3. Kleebi iga kohatäitja ploki juurde (nt `[[IDENTITY]]`) vastava portfooliofaili kogu sisu.
 4. Kopeeri see terviklik, kokku nõelutud markdown agendi system prompti / custom instructions lahtrisse.
 5. Valmis. Nüüd alustab agent iga vestlust tugevalt ankurdatuna sinu häälde, piirangutesse ja konteksti.
 
-**Nipp:** Kui agendi konteksti eelarve on piiratud (context budget is tight), kärbi kleebitud portfoolio sisu ainult kõige asjakohasemate osadeni. Bundle'id on kokkupandavad (composable) — kohanda sissejuhatust ja sisu oma konkreetse kasutusjuhu järgi.
+**Nipp:** kui agendi konteksti eelarve on piiratud (context budget is tight), kärbi kleebitud portfoolio sisu ainult kõige asjakohasemate osadeni. Bundle'id on kokkupandavad (composable) — kohanda sissejuhatust ja sisu oma konkreetse kasutusjuhu järgi.
 
 ---
 

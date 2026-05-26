@@ -4,7 +4,11 @@
 
 **Kellele mõeldud:** agent, kes koostab külmi e-kirju, soojasid järelkajastusi, pakkumisi, kohtumise palveid ja vastuseid potentsiaalsetele või olemasolevatele klientidele. Igasugune väljaminev suhtlus või vastamine, kus õige hääletoon ja suhete dünaamika tabamine on kogu asja tuum.
 
-**Kuidas kokku nõeluda:** kleebi iga portfooliofaili sisu allolevasse vastavasse kohatäitja plokki. Tekkiv markdown on kohe valmis kasutamiseks system promptina.
+**Kuidas kokku nõeluda:**
+- **Agentne tee** (Claude Desktop + Connector): ütle Claude'ile *"lae see bundle ja täida kohatäitjad minu vault-failidega"*. Ta annab valmis system prompt'i tagasi.
+- **Manuaalne tee:** kleebi iga portfooliofaili sisu allolevasse vastavasse kohatäitja plokki. Tekkiv markdown on kohe valmis kasutamiseks system promptina.
+
+Detailne selgitus: `portfolio/bundles/README.md`.
 
 ---
 

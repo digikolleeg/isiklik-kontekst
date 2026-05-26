@@ -4,7 +4,11 @@
 
 **Kellele mõeldud:** agent, kes kirjutab blogipostitusi, uudiskirju, LinkedIni sisu, turundustekste või mis tahes lühi- või pikavormi sisu, mis peaks kõlama täpselt nagu kasutaja ise.
 
-**Kuidas kokku nõeluda:** kleebi iga portfooliofaili sisu allolevasse vastavasse kohatäitja plokki. Tekkiv markdown on kohe valmis kasutamiseks system promptina.
+**Kuidas kokku nõeluda:**
+- **Agentne tee** (Claude Desktop + Connector): ütle Claude'ile *"lae see bundle ja täida kohatäitjad minu vault-failidega"*. Ta annab valmis system prompt'i tagasi.
+- **Manuaalne tee:** kleebi iga portfooliofaili sisu allolevasse vastavasse kohatäitja plokki. Tekkiv markdown on kohe valmis kasutamiseks system promptina.
+
+Detailne selgitus: `portfolio/bundles/README.md`.
 
 ---
 
