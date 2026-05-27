@@ -56,6 +56,7 @@ Töötame nende 10 failiga, järjekorras:
 | 8 | `preferences-and-constraints.md` | — |
 | 9 | `domain-knowledge.md` | — |
 | 10 | `decision-log.md` | — |
+| 11 | `writing-samples.md` | ✅ |
 
 **Iga sessiooni algul:** kontrolli, millised failid juba default kaustas olemas, ja näita kasutajale menüüd:
 
@@ -72,6 +73,7 @@ Sinu default kaust: ~/isiklik-kontekst/portfolio/
 [ ] preferences-and-constraints.md
 [ ] domain-knowledge.md
 [ ] decision-log.md
+[ ] writing-samples.md
 
 Millise faili tahad täita?
 ```
@@ -115,12 +117,14 @@ Millise faili tahad täita?
 
 6. **Küsi-või-kinnita reegel:** iga per-faili küsimuse juures kontrolli, kas materjalist tuli sellele küsimusele juba vastus välja. Kui jah, **kinnita** — ära küsi uuesti, vaid esita ekstrakt: *"Materjalist sain: [vastus lühidalt]. Midagi siin puudu või vale?"* Kui ei, **küsi originaalne küsimus** tavapärasel viisil. Kasutaja näeb alati, milline info on materjalist tulnud — vaikne vahelejätmine pole lubatud. Konservatiivne kalle: kui kahtled, kas materjal vastas, **küsi**. Halvem on liigne küsimine kui vajaliku konteksti puudumine. See reegel kehtib **iga küsimuse jaoks** mõlemas režiimis — mitte ainult anchor'ite jaoks.
 
-7. **Token-eelarve nügimine (ainult töötoa-režiim):** kui materjali on selgelt palju (5+ faili või ~10k sõna), nügi õrnalt:
+7. **Näidete säilitamine writing-samples.md jaoks:** kui kasutaja viskab importi LinkedIn-postitusi, müügimeile, blogi-väljavõtteid või muid täis-pikkuses kirjutamise näiteid, **säilita need sõnasõnalt** kõrvalefekt-failina `writing-samples.md`. Need on Few-Shot Prompting'i tooraine — agendid loevad neid hiljem hääle matkimiseks. Ära kasuta materjale ainult ekstraktiks; ka säilita. Pseudonümiseeri tundlikud andmed (klientide nimed, hinnad), aga jäta hääl puutumata.
+
+8. **Token-eelarve nügimine (ainult töötoa-režiim):** kui materjali on selgelt palju (5+ faili või ~10k sõna), nügi õrnalt:
    > *"See on hea materjal. Töötoa kontekstis võtame siit eessõnad ja jätame ülejäänu järgmiseks. Kõik salvestatud, võid kodus jätkata."*
 
    Pidurdamine, mitte keeldumine.
 
-8. **Anchor-küsimuste personaliseerimine:** iga kalibratsiooni-küsimus PEAB viitama ekstraktist või eelnevatest vastustest tulnud kontekstile. Ära küsi anchor'it tühjas vaakumis. Näiteks identity-anchor *"mida sa lisaks?"* asemel: *"Sa oled [ekstrakti taust] ja [ekstrakti roll]. Liftikõne on poleeritud — mida lisaksid või ütleksid teisiti, kui sa ise, su äripartner või sõbrad pidaksid sind õhtusöögil tutvustama?"* Kontekstita anchor on disorienteeriv ja toob nõrga vastuse.
+9. **Anchor-küsimuste personaliseerimine:** iga kalibratsiooni-küsimus PEAB viitama ekstraktist või eelnevatest vastustest tulnud kontekstile. Ära küsi anchor'it tühjas vaakumis. Näiteks identity-anchor *"mida sa lisaks?"* asemel: *"Sa oled [ekstrakti taust] ja [ekstrakti roll]. Liftikõne on poleeritud — mida lisaksid või ütleksid teisiti, kui sa ise, su äripartner või sõbrad pidaksid sind õhtusöögil tutvustama?"* Kontekstita anchor on disorienteeriv ja toob nõrga vastuse.
 
 ### Töötoa-režiimi materjalide kutse (sõna-sõnalt)
 
@@ -147,7 +151,7 @@ Kui kasutaja ütleb "ei ole midagi" või jätab materjalid panemata, **liigu eda
 
 Käivitub kui kasutaja ütleb "töötoa intervjuu" või "kiire intervjuu".
 
-Eesmärk: **kolm faili ~25 minutiga**, mille põhjal saab müügiassistendi käima panna. Materjalide import + küsi-või-kinnita reegel + per-faili anchor lisavad konteksti kvaliteeti — küsimused ise jäävad samaks (smoke-test näitas, et anchor'id üksi ei kata vajalikku pinda).
+Eesmärk: **neli faili ~30 minutiga**, mille põhjal saab müügiassistendi käima panna. Failid on identity + current-projects + communication-style + writing-samples. Materjalide import + küsi-või-kinnita reegel + per-faili anchor lisavad konteksti kvaliteeti — küsimused ise jäävad samaks (smoke-test näitas, et anchor'id üksi ei kata vajalikku pinda). **writing-samples.md on uus 4. core-fail** — see sisaldab tegelikke kirjutamise näiteid (Few-Shot Prompting), mille pealt agendid suudavad kasutaja häält matkida. Reeglid (communication-style) üksi ei ole piisav.
 
 **Voog:**
 
@@ -156,9 +160,10 @@ Eesmärk: **kolm faili ~25 minutiga**, mille põhjal saab müügiassistendi käi
 3. **Läbipaistev kokkuvõte** kolme faili kohta (identity, current-projects, communication-style) uue sõnastusega (vt "Materjalide import" §5). Lase kasutajal parandada enne edasi liikumist.
 4. **identity.md:** käi läbi 3 küsimust (vt allpool), iga küsimuse juures rakenda **küsi-või-kinnita reegel** (vt "Materjalide import" §6). Pärast 3 küsimust esita personaliseeritud **identity-anchor** (vt allpool, ja §8 personaliseerimisreegel).
 5. **current-projects.md:** käi läbi 3-4 küsimust (vt allpool), küsi-või-kinnita. Pärast esita personaliseeritud **current-projects-anchor**.
-6. **communication-style.md:** käi läbi 4 küsimust (vt allpool), küsi-või-kinnita. Pärast esita personaliseeritud **communication-style-anchor** (sõltub sellest, kas materjalides oli päris hääle näiteid).
-7. **Koosta kõik kolm faili** ja salvesta kausta. Näita mustandid kasutajale ühe sõnumiga.
-8. **Reaktsioon:** *"Loe need läbi ja ütle, mis ei kõla õigesti või on puudu. Parandame kohe."*
+6. **communication-style.md:** käi läbi 4 küsimust (vt allpool), küsi-või-kinnita. Pärast esita personaliseeritud **communication-style-anchor**.
+7. **writing-samples.md:** kogu 2-4 täis-pikkuses kirjutamise näidet (vt writing-samples template). Kui materjalide impordis on juba mõni näide tulnud (LinkedIn-postitus, müügimeil), kasuta neid otse; küsi puuduvad kanalid ükshaaval juurde.
+8. **Koosta kõik neli faili** ja salvesta kausta. Näita mustandid kasutajale ühe sõnumiga.
+9. **Reaktsioon:** *"Loe need läbi ja ütle, mis ei kõla õigesti või on puudu. Parandame kohe."*
 
 ### Töötoa-režiimi küsimused (kogu loend)
 
