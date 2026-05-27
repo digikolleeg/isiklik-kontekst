@@ -29,7 +29,15 @@
 ## Väljundi struktuur
 
 ```markdown
-# Preferences and Constraints
+---
+name: preferences-and-constraints
+description: Kõvad reeglid, tugevad eelistused, piirangud, mida ei delegeeri
+type: portfolio
+updated: <YYYY-MM-DD>
+tags: [portfolio]
+---
+
+# Eelistused ja piirangud
 
 ## Kõvad piirangud
 

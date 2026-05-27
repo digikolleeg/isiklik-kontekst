@@ -29,7 +29,15 @@ Mida sina tead, aga üldine AI ei tea. See fail hoiab ära selle, et agendid hak
 ## Väljundi struktuur
 
 ```markdown
-# Domain Knowledge
+---
+name: domain-knowledge
+description: Valdkonna teadmised, terminoloogia, mõttemudelid, allikad
+type: portfolio
+updated: <YYYY-MM-DD>
+tags: [portfolio]
+---
+
+# Valdkonnateadmised
 
 ## Ekspertteadmised
 

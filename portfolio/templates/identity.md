@@ -28,7 +28,15 @@ See on minimaalne, kuid piisav kontekstifail. Kui agent saaks sinu kohta lugeda 
 ## Väljundi struktuur
 
 ```markdown
-# Identity
+---
+name: identity
+description: Kes kasutaja on, mida ta teeb, mille poolest tuntud
+type: portfolio
+updated: <YYYY-MM-DD>
+tags: [portfolio]
+---
+
+# Identiteet
 
 **Nimi:** [Täisnimi]
 **Roll:** [Praegune ametinimetus või roll]

@@ -29,7 +29,15 @@ Mida sa kasutad, kuidas see on seadistatud ja mis millega ühenduses on. Agendid
 ## Väljundi struktuur
 
 ```markdown
-# Tools and Systems
+---
+name: tools-and-systems
+description: Igapäeva tööriistad, andmeallikad, mida hindab, mida väldib
+type: portfolio
+updated: <YYYY-MM-DD>
+tags: [portfolio]
+---
+
+# Tööriistad ja süsteemid
 
 ## Igapäeva tööriistad
 

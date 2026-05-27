@@ -29,7 +29,15 @@ Mida sa hetkel optimeerid — sel kvartalil, sel aastal ja pikemas plaanis. Agen
 ## Väljundi struktuur
 
 ```markdown
-# Goals and Priorities
+---
+name: goals-and-priorities
+description: Mida kasutaja optimeerib, plaanid, kompromissid, mida teadlikult ei tee
+type: portfolio
+updated: <YYYY-MM-DD>
+tags: [portfolio]
+---
+
+# Eesmärgid ja prioriteedid
 
 ## Praegused eesmärgid
 

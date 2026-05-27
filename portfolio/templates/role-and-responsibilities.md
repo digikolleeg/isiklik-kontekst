@@ -30,7 +30,15 @@ See on operatiivne kirjeldus sinu tööst — kuidas su nädalad päriselt välj
 ## Väljundi struktuur
 
 ```markdown
-# Role and Responsibilities
+---
+name: role-and-responsibilities
+description: Kasutaja roll, vastutused, nädala/kuu rütmid, mida ta toodab
+type: portfolio
+updated: <YYYY-MM-DD>
+tags: [portfolio]
+---
+
+# Roll ja vastutused
 
 ## Põhivastutused
 

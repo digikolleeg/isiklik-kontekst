@@ -30,7 +30,15 @@ Kuidas sa otsuseid teed, koos päris näidetega. See on portfoolios kõige alahi
 ## Väljundi struktuur
 
 ```markdown
-# Decision Log
+---
+name: decision-log
+description: Kuidas kasutaja otsustab, hiljutised otsused, määramatusega toime tulek
+type: portfolio
+updated: <YYYY-MM-DD>
+tags: [portfolio]
+---
+
+# Otsuste logi
 
 ## Kuidas ma otsuseid teen
 

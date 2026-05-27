@@ -31,7 +31,15 @@ Kuidas sa suhtled — et iga agent, kes sinu nimel midagi kirjutab, kõlaks nagu
 ## Väljundi struktuur
 
 ```markdown
-# Communication Style
+---
+name: communication-style
+description: Kuidas kasutaja kirjutab, häält, eelistused, mida väldib
+type: portfolio
+updated: <YYYY-MM-DD>
+tags: [portfolio]
+---
+
+# Suhtlusstiil
 
 ## Üldine stiil
 

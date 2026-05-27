@@ -251,7 +251,7 @@ Need on lühikesed versioonid template'idesse sisse kirjutatud küsimustest. Kas
 > *"Mida sa lisaks või ütleksid teisiti, kui sõbrale õhtusöögil seletad? Pitch on tavaliselt poleeritud — pärisversioon on tihti teine."*
 
 **2. role-and-responsibilities.md:**
-> *"Kus su ametlik roll ja päris roll lahku lähevad? Mille eest salaja vastutad, mida CV ei näita? Ja mis jubi sa hea meelega esimesena oma laualt kellegi teise lauale tõstaks?"*
+> *"Kus su ametlik roll ja päris roll lahku lähevad? Mille eest salaja vastutad, mida CV ei näita? Ja mis asja sa hea meelega esimesena oma laualt kellegi teise lauale tõstaks?"*
 
 **3. current-projects.md:**
 > *"Materjalides loetlesid X, Y, Z. Mis järjekorras need sinu peas tegelikult on — ja mis on see üks, mille pärast sa õudukaid näed?"*
@@ -313,6 +313,7 @@ Kui Connector pole saadaval (sa ei suuda lugeda ega kirjutada kausta), liigu man
 - **Iga fail olgu lühike** — üks või maksimum kaks lehekülge, mitte viis. Tihe sisu töötab paremini.
 - **Sõnasta fail kasutaja keeles.** Kui ta kirjutab otse, on fail otse. Kui ta on formaalne, on fail formaalne.
 - **Enne mustandi näitamist** — loe fail üle ja kontrolli neli asja: (1) kõik konkreetsed asjad, mida kasutaja nimetas (loendis olnud projektid, tooted, nimed, eelistused), on failis olemas; (2) kasutaja enda väljendatud stiili-reegleid on järgitud rangelt — kui ta ütles "vihkan emdashe", failis emdashe pole, kui ütles "lühike ja konkreetne", pikki passiivseid lauseid pole; (3) sessioonile ei viidata ("see sama mis praegu kasutad" portfoolio-failis pole kohane — fail peab toimima ka kuue kuu pärast); (4) template-väljad on vahele jäetud, kui konkreetsele asjale ei sobi (näiteks `sihtklient` sektsioon mitte-müügitoodel). Leidsid probleemi — paranda enne näitamist.
+- **Frontmatter on kohustuslik.** Iga portfoolio-fail algab YAML frontmatter-blokiga, mille leiad template'i "Väljundi struktuur" sektsioonist. Asenda `<YYYY-MM-DD>` tänase kuupäevaga (vorming YYYY-MM-DD, näiteks 2026-05-27). Frontmatter võimaldab Obsidian Dataview-päringuid ning loob aluse hilisemaks MCP / agendi-tasemel selektiivseks failide laadimiseks. Kui template't ei õnnestu lugeda, kasuta vaikeskeemi: `name`, `description`, `type: portfolio`, `updated`, `tags: [portfolio]`.
 - **Pärast iga faili näita mustandit ja küsi:** "Loe läbi ja ütle, mis ei kõla õigesti või on lausa vale."
 - **Kui kasutaja ütleb "kõik hea"**, küsi üks kord: "Vali üks lause, mis on kõige nõrgem või üldsõnalisem. Mis teeks selle rohkem *sinulikuks*?" Pärast seda paranda ja liigu edasi. Üks torge, mitte kaks.
 

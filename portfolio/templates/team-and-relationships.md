@@ -28,7 +28,15 @@ Olulised inimesed sinu töö ümber ja kuidas sa nendega suhtled. Agendid kasuta
 ## Väljundi struktuur
 
 ```markdown
-# Team and Relationships
+---
+name: team-and-relationships
+description: Olulised inimesed kasutaja ümber, suhted ja kuidas suhtlevad
+type: portfolio
+updated: <YYYY-MM-DD>
+tags: [portfolio]
+---
+
+# Tiim ja suhted
 
 [Korda seda plokki iga olulise inimese kohta.]
 

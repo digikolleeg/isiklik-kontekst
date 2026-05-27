@@ -29,7 +29,15 @@ See on fail, mis tõenäoliselt muutub kõige sagedamini. Püüab kinni aktiivse
 ## Väljundi struktuur
 
 ```markdown
-# Current Projects
+---
+name: current-projects
+description: Aktiivsed projektid, nende staatus, sihtkliendid ja prioriteedid
+type: portfolio
+updated: <YYYY-MM-DD>
+tags: [portfolio]
+---
+
+# Praegused projektid
 
 [Korda seda plokki iga aktiivse projekti jaoks, prioriteedi järjekorras.]
 
