@@ -138,3 +138,22 @@ Suggestions: <loend>
 - Ära kunagi kirjuta portfoolio-faile palumata nullist. Tee olemasolevatesse sihitud muudatusi.
 - Ära lase wiki-lehtedel vananeda ilma seda märkimata. Kui tead, et lehe väide on asendatud, märgi see kohe lehe sees.
 - Ära lase `index.md` sünkroonist välja triivida. Uuenda seda iga operatsiooni järel, mis wiki-lehti puudutab.
+
+---
+
+## Digikolleeg fork notes
+
+This is the Estonian translation of `iHeigo/personal-context-portfolio`, published as `digikolleeg/isiklik-kontekst`. It serves two purposes:
+
+1. The Estonian public fork — what attendees clone in the Digikolleeg incubator AI workshops.
+2. The upstream for Heigo's own private vault (`iHeigo/digikolleeg-kontekst`, cloned at `~/Projects/digikolleeg-kontekst/`). Heigo uses the same setup as attendees do.
+
+### Dual-clone setup
+
+Heigo never commits personal portfolio content to this public repo. His real content lives in the private fork. The two clones share `upstream = digikolleeg/isiklik-kontekst` but have different `origin` remotes. **Never push from the private clone to this public fork.** See `~/Projects/workshop/docs/decisions/2026-05-27-dual-clone-for-personal-vault.md` for the full rationale.
+
+### konteksti-looja Skill
+
+- Lives at `skills/konteksti-looja/`
+- Installation: see that folder's `README.md`
+- Workshop mode: say *"töötoa intervjuu"* — interviews for 4 core files (identity, communication-style, writing-samples, current-projects) in ≤30 min
