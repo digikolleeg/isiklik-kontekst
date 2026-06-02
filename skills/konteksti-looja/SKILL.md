@@ -187,11 +187,14 @@ Need on per-faili küsimused, mida kasutab Voog 4-6. **Küsi-või-kinnita reegel
 6. Mis vastuväiteid kuuled müügivestluses kõige sagedamini?
 7. Kirjelda klienti, kellest sa pidasid loobuma. Miks?
 
-**communication-style.md (4 küsimust):**
-1. Kui sa kirjutad kliendile, kas oled pigem lühike ja konkreetne või annad rohkem konteksti? Sina või Teie?
-2. Mis sind häirib, kui loed midagi, mis on sinu nimel kirjutatud? Mis paneb mõtlema "see ei kõla nagu mina"?
-3. Konkreetseid sõnu või fraase, mida sa ise palju kasutad — ja milliseid sa väldid?
-4. Anna mõni näide: kleebi 1-2 oma kirjutatud sõnumit (email, postitus). Sealt tuleb stiil välja.
+**communication-style.md (kanal-põhine, 5 küsimust):**
+1. Mis kanaleid sa klientidega või avalikult suheldes kasutad? Loetle ainult need mida päriselt kasutad — email, LinkedIn post, LinkedIn DM, WhatsApp, Instagram, muu.
+2. [Iga mainitud kanali kohta ükshaaval:] Viska üks päris näide — mitte turunduslik, vaid tavaline sõnum mida sa sealt saatsid. Sealt tuleb hääl välja.
+3. Sina või Teie? Kas see erineb kanali järgi?
+4. Mis sind häirib, kui loed midagi, mis on sinu nimel kirjutatud? Mis paneb mõtlema "see ei kõla nagu mina"?
+5. Konkreetseid sõnu või fraase, mida sa ise palju kasutad — ja milliseid sa väldid?
+
+**Kanali-erinevuse kinnitus (pärast näiteid):** Kui kanalite vahel on selge erinevus — märgi see communication-style failis eraldi: "emailis [X], LinkedIn postis [Y], DM-is [Z]". Kui hääl on ühtlane, märgi see samuti. Agendil peab olema selge milline kanal = milline register.
 
 ### Töötoa-režiimi anchor-küsimused (per-faili deepening)
 
@@ -205,8 +208,11 @@ Need on per-faili küsimused, mida kasutab Voog 4-6. **Küsi-või-kinnita reegel
 
 **communication-style.md anchor** — sõltub materjalist:
 
-Kui materjalides oli **päris hääle näiteid** (LinkedIn-postitused, müügimeilid, isiklikud sõnumid):
-> *"Need näited annavad sinu praegusest häälest hea pildi. Aga kas seal on midagi, mida tahaksid parandada? Või keegi/mingi tekst, mille moodi sa tahaksid rohkem kõlada?"*
+Kui materjalides oli **päris hääle näiteid mitmest kanalist:**
+> *"[Email] ja [LinkedIn] on sinu käes erinevad — [emailis oled X, LinkedIn postis Y]. Kas see vahe on teadlik? Mida tahaksid rohkem või vähem?"*
+
+Kui materjalides oli **päris hääle näiteid ühest kanalist:**
+> *"Need näited annavad [kanali] häälest hea pildi. Kas mõnes teises kanalis kõlad teisiti — või on hääl ühtlane üle kanalite?"*
 
 Kui materjalides oli **ainult turunduslik tekst** (veebileht, deck, brand-doc):
 > *"Materjalides on ettevõtte hääl. Sinu isiklik hääl on tihti teine — viska üks 1-2 päris sõnumit (Slack, LinkedIn DM, email), kus räägid lihtsalt iseendana."*
@@ -245,7 +251,7 @@ Need on lühikesed versioonid template'idesse sisse kirjutatud küsimustest. Kas
 
 **tools-and-systems.md:** igapäeva tööriistad, seadistuse kohandused, kus andmed elavad, mida hindad/plaanid, mida proovisid ja kõrvale jätsid.
 
-**communication-style.md:** lühike vs põhjalik, formaalsus (sina/Teie), mis häirib AI-tekstis, omad sõnad/fraasid, mida väldid, kuidas emaili üles ehitad, näiteid.
+**communication-style.md:** mis kanaleid kasutad (email, LinkedIn post, DM, WhatsApp, muu) — loetle ainult päriselt kasutatavad; per-kanal üks päris näide; sina/Teie ja kas see erineb kanali järgi; mis häirib AI-tekstis; omad sõnad/fraasid, mida väldid. Märgi faili kanali-erinevused selgelt: "emailis X, LinkedIn postis Y" — agendil peab olema selge milline kanal = milline register.
 
 **goals-and-priorities.md:** mida sa hetkel optimeerid, lühi- ja pikaajaline plaan, kompromissid (kiirus vs kvaliteet jne), mida sa teadlikult EI tee.
 
@@ -280,8 +286,11 @@ Need on lühikesed versioonid template'idesse sisse kirjutatud küsimustest. Kas
 
 **6. communication-style.md** — sõltub materjalist:
 
-Kui materjalides oli **päris hääle näiteid** (LinkedIn, müügimeilid, isiklikud sõnumid):
-> *"Need näited annavad sinu praegusest häälest hea pildi. Aga kas seal on midagi, mida tahaksid parandada? Või keegi/mingi tekst, mille moodi sa tahaksid rohkem kõlada?"*
+Kui materjalides oli **päris hääle näiteid mitmest kanalist:**
+> *"[Email] ja [LinkedIn] on sinu käes erinevad — [emailis oled X, LinkedIn postis Y]. Kas see vahe on teadlik? Mida tahaksid rohkem või vähem?"*
+
+Kui materjalides oli **päris hääle näiteid ühest kanalist:**
+> *"Need näited annavad [kanali] häälest hea pildi. Kas mõnes teises kanalis kõlad teisiti — või on hääl ühtlane üle kanalite?"*
 
 Kui materjalides oli **ainult turunduslik tekst:**
 > *"Materjalides on ettevõtte hääl. Sinu isiklik hääl on tihti teine — viska üks 1-2 päris sõnumit (Slack, LinkedIn DM, email), kus räägid lihtsalt iseendana."*
