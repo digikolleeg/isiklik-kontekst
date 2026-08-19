@@ -39,7 +39,13 @@
     "target_minutes": {"min": 30, "max": 40},
     "min_verbatim_writing_samples": 2,
     "owns_sections": [],
-    "required_coverage": ["offer_buyer", "icp_sector_size_region", "problem_trigger", "credibility_evidence", "message_purpose_cta", "forbidden_claims", "channel_register_length", "forbidden_mannerisms", "real_samples"]
+    "required_coverage": ["offer_buyer", "icp_sector_size_region", "problem_trigger", "credibility_evidence", "message_purpose_cta", "forbidden_claims", "channel_register_length", "forbidden_mannerisms", "real_samples"],
+    "claim_policy": {
+      "kinnitatud": "explicit-user-statement",
+      "toetatud": "derived-pattern-with-2-independent-source-artifact-or-situation-families",
+      "kandidaat": "single-observation-or-inference",
+      "later_modification_owner": "deep-modules"
+    }
   },
   "claims": {
     "statuses": [
@@ -48,11 +54,12 @@
       "kandidaat"
     ],
     "supported_min_independent_evidence": 2,
-    "evidence_id_format": "<source-family>:<observation-id>",
-    "independence_key": "source-family",
-    "confirmed_rule": "user-universal-statement-only",
+    "evidence_id_format": "<source-artifact-or-situation>:<observation-id>",
+    "independence_key": "source-artifact-or-situation",
+    "confirmed_rule": "explicit-user-statement",
     "single_observation_status": "kandidaat",
-    "markdown_format": "- <claim> <!-- claim: status=<status>; evidence=<evidence-id>,<evidence-id> -->"
+    "generic_source_families_forbidden": ["email", "linkedin", "channel", "document", "message", "situation", "interview"],
+    "markdown_format": "- <claim> <!-- claim: status=kinnitatud; basis=user-stated --> OR <!-- claim: status=<toetatud|kandidaat>; evidence=<source-artifact-or-situation>:<observation-id> -->"
   },
   "frontmatter": {
     "required": [

@@ -7,4 +7,4 @@ sensitivity: exportable
 
 # Tiim ja suhted
 
-- Irina vastutab operatsioonide eest. <!-- claim: status=kinnitatud -->
+- Irina vastutab operatsioonide eest. <!-- claim: status=kinnitatud; basis=user-stated -->

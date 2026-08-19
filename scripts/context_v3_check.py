@@ -71,15 +71,18 @@ def validate_contract(contract):
         issues.append(issue("claim_statuses", "claim statuses must be kinnitatud, toetatud and kandidaat"))
     if _get(contract, "claims", "supported_min_independent_evidence") != 2:
         issues.append(issue("supported_threshold", "toetatud must require exactly two or more independent evidence IDs"))
-    if _get(contract, "claims", "evidence_id_format") != "<source-family>:<observation-id>" or _get(
+    if _get(contract, "claims", "evidence_id_format") != "<source-artifact-or-situation>:<observation-id>" or _get(
         contract, "claims", "independence_key"
-    ) != "source-family":
+    ) != "source-artifact-or-situation":
         issues.append(issue("evidence_id_contract", "evidence IDs must encode independent source and observation IDs"))
     quick = contract.get("quick", {})
     if quick.get("commands") != ["töötoa intervjuu", "kiire intervjuu"] or quick.get("max_user_answers_after_import") != 10 or quick.get("questions_per_turn") != 1 or quick.get("max_deepeners_per_answer") != 1 or quick.get("target_minutes") != {"min": 30, "max": 40} or quick.get("min_verbatim_writing_samples") != 2 or quick.get("owns_sections") != [] or set(quick.get("required_coverage", [])) != REQUIRED_COVERAGE:
         issues.append(issue("quick_contract", "quick decision invariants are incomplete"))
-    if _get(contract, "claims", "confirmed_rule") != "user-universal-statement-only" or _get(contract, "claims", "single_observation_status") != "kandidaat":
+    if _get(contract, "claims", "confirmed_rule") != "explicit-user-statement" or _get(contract, "claims", "single_observation_status") != "kandidaat":
         issues.append(issue("claim_contract", "claim confirmation and single-observation rules are incomplete"))
+    expected_claim_policy = {"kinnitatud": "explicit-user-statement", "toetatud": "derived-pattern-with-2-independent-source-artifact-or-situation-families", "kandidaat": "single-observation-or-inference", "later_modification_owner": "deep-modules"}
+    if quick.get("claim_policy") != expected_claim_policy:
+        issues.append(issue("quick_contract", "quick claim policy is incomplete"))
 
     required_frontmatter = set(_get(contract, "frontmatter", "required", default=[]))
     if not {"updated", "review_after", "sensitivity"}.issubset(required_frontmatter):
@@ -240,8 +243,11 @@ def validate_profile(filename, text, contract):
                         f"{filename}:{line_number}",
                     )
                 )
-        if status == "kinnitatud" and "basis=user-universal" not in line:
-            issues.append(issue("confirmed_basis", "kinnitatud requires explicit user-universal basis", f"{filename}:{line_number}"))
+            forbidden_families = set(_get(contract, "claims", "generic_source_families_forbidden", default=[]))
+            if any(source_id in forbidden_families for source_id in source_ids):
+                issues.append(issue("evidence_family", "evidence family must identify a concrete artifact, message or situation", f"{filename}:{line_number}"))
+        if status == "kinnitatud" and "basis=user-stated" not in line:
+            issues.append(issue("confirmed_basis", "kinnitatud requires explicit user-stated basis", f"{filename}:{line_number}"))
     return issues
 
 
@@ -295,6 +301,22 @@ def validate_run(run, contract):
             (set(metrics.get("coverage", [])) == set(quick.get("required_coverage", [])), "quick_coverage"),
         ]
         issues.extend(issue(code, f"quick runtime invariant failed: {code}") for passed, code in checks if not passed)
+        forbidden_families = set(_get(contract, "claims", "generic_source_families_forbidden", default=[]))
+        for claim in run.get("claims", []):
+            status = claim.get("status")
+            evidence_ids = claim.get("evidence_ids", [])
+            families = {evidence_id.split(":", 1)[0] for evidence_id in evidence_ids if ":" in evidence_id}
+            valid = True
+            if status == "kinnitatud":
+                valid = claim.get("basis") == "user-stated"
+            elif status == "toetatud":
+                valid = claim.get("basis") == "derived" and len(families) >= 2 and not (families & forbidden_families)
+            elif status == "kandidaat":
+                valid = claim.get("basis") == "derived" and len(evidence_ids) <= 1
+            else:
+                valid = False
+            if not valid:
+                issues.append(issue("quick_claim_policy", "quick claim violates confirmed, supported or candidate semantics"))
     elif mode == "deep":
         owners = section_owners(contract)
         for write in run.get("writes", []):

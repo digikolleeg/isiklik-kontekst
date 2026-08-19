@@ -57,15 +57,17 @@ def valid_contract():
             "target_minutes": {"min": 30, "max": 40},
             "min_verbatim_writing_samples": 2,
             "owns_sections": [],
-            "required_coverage": ["offer_buyer", "icp_sector_size_region", "problem_trigger", "credibility_evidence", "message_purpose_cta", "forbidden_claims", "channel_register_length", "forbidden_mannerisms", "real_samples"]
+            "required_coverage": ["offer_buyer", "icp_sector_size_region", "problem_trigger", "credibility_evidence", "message_purpose_cta", "forbidden_claims", "channel_register_length", "forbidden_mannerisms", "real_samples"],
+            "claim_policy": {"kinnitatud": "explicit-user-statement", "toetatud": "derived-pattern-with-2-independent-source-artifact-or-situation-families", "kandidaat": "single-observation-or-inference", "later_modification_owner": "deep-modules"}
         },
         "claims": {
             "statuses": ["kinnitatud", "toetatud", "kandidaat"],
             "supported_min_independent_evidence": 2,
-            "evidence_id_format": "<source-family>:<observation-id>",
-            "independence_key": "source-family",
-            "confirmed_rule": "user-universal-statement-only",
+            "evidence_id_format": "<source-artifact-or-situation>:<observation-id>",
+            "independence_key": "source-artifact-or-situation",
+            "confirmed_rule": "explicit-user-statement",
             "single_observation_status": "kandidaat",
+            "generic_source_families_forbidden": ["email", "linkedin", "channel", "document", "message", "situation", "interview"],
         },
         "frontmatter": {
             "required": ["updated", "review_after", "sensitivity"],
@@ -222,9 +224,13 @@ class ProfileRuleTests(unittest.TestCase):
         codes = {issue.code for issue in checker.validate_profile("team-and-relationships.md", text, valid_contract())}
         self.assertIn("sensitivity_override", codes)
 
-    def test_confirmed_claim_requires_user_universal_basis(self):
-        text = (FIXTURES / "valid_identity.md").read_text(encoding="utf-8").replace("; basis=user-universal", "")
+    def test_confirmed_claim_requires_user_stated_basis(self):
+        text = (FIXTURES / "valid_identity.md").read_text(encoding="utf-8").replace("; basis=user-stated", "")
         self.assertIn("confirmed_basis", {issue.code for issue in checker.validate_profile("identity.md", text, valid_contract())})
+
+    def test_generic_channels_are_not_independent_source_families(self):
+        text = (FIXTURES / "invalid_generic_source.md").read_text(encoding="utf-8")
+        self.assertIn("evidence_family", {issue.code for issue in checker.validate_profile("identity.md", text, valid_contract())})
 
 
 class RunRuleTests(unittest.TestCase):
@@ -253,6 +259,12 @@ class RunRuleTests(unittest.TestCase):
     def test_quick_runtime_limits_are_enforced(self):
         codes = {issue.code for issue in checker.validate_run(self.load_run("invalid_quick_run.json"), valid_contract())}
         self.assertTrue({"quick_command", "quick_answer_limit", "questions_per_turn", "deepener_limit", "quick_duration", "writing_samples", "quick_section_ownership", "quick_coverage"}.issubset(codes))
+
+    def test_quick_claim_policy_keeps_explicit_facts_confirmed_and_single_inference_candidate(self):
+        run = self.load_run("valid_quick_run.json")
+        self.assertEqual(checker.validate_run(run, valid_contract()), [])
+        run["claims"][2]["status"] = "toetatud"
+        self.assertIn("quick_claim_policy", {issue.code for issue in checker.validate_run(run, valid_contract())})
 
     def test_deep_workflow_and_b_goal_routing(self):
         valid = self.load_run("valid_deep_run.json")
@@ -307,6 +319,12 @@ class ProjectionAndFreezeTests(unittest.TestCase):
 
 
 class RepositoryContractTests(unittest.TestCase):
+    def test_checked_in_claim_semantics_match_review(self):
+        contract = checker.load_contract(ROOT / "evals" / "context-v3-contract.json")
+        self.assertEqual(contract["claims"]["confirmed_rule"], "explicit-user-statement")
+        self.assertEqual(contract["claims"]["independence_key"], "source-artifact-or-situation")
+        self.assertEqual(contract["quick"]["claim_policy"]["later_modification_owner"], "deep-modules")
+
     def test_checked_in_contract_matches_the_validated_schema(self):
         contract = checker.load_contract(ROOT / "evals" / "context-v3-contract.json")
         self.assertEqual(checker.validate_contract(contract), [])

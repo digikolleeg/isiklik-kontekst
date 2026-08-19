@@ -16,6 +16,11 @@
     "owns_sections": [],
     "coverage": ["offer_buyer", "icp_sector_size_region", "problem_trigger", "credibility_evidence", "message_purpose_cta", "forbidden_claims", "channel_register_length", "forbidden_mannerisms", "real_samples"]
   },
+  "claims": [
+    {"status": "kinnitatud", "basis": "user-stated", "evidence_ids": []},
+    {"status": "toetatud", "basis": "derived", "evidence_ids": ["sample-01:observation-01", "sample-02:observation-01"]},
+    {"status": "kandidaat", "basis": "derived", "evidence_ids": ["situation-01:observation-01"]}
+  ],
   "imports": [
     {
       "id": "import-01",

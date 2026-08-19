@@ -7,4 +7,4 @@ sensitivity: exportable
 
 # Identiteet
 
-- Vastutan tehniliste otsuste eest. <!-- claim: status=toetatud; evidence=interview:01,interview:01 -->
+- Vastutan tehniliste otsuste eest. <!-- claim: status=toetatud; evidence=sample-01:observation-01,sample-01:observation-01 -->
