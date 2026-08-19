@@ -10,7 +10,7 @@ sensitivity: exportable
 **Kellele mõeldud:** agent, kes teeb taustakontrolli potentsiaalsetele klientidele, uurib konkurente, otsib valdkonna konteksti, teeb kohtumisteks eeltööd või paneb kokku muud taustamaterjali, mille väljund peab olema filtreeritud läbi selle, mis kasutajale päriselt korda läheb. Üldsõnaline "siin on kõik, mida selle ettevõtte kohta leidsin" uurimustöö on kasutu. Uurimustöö, mis toob välja need kolm asja, mida kasutaja päriselt küsib — see on kuld.
 
 **Kuidas kokku nõeluda:**
-- **Agentne tee** (Claude Desktop + Connector): ütle Claude'ile *"lae see bundle ja täida kohatäitjad minu kontekstifailidega"*. Ta annab valmis system prompt'i tagasi.
+- **Agentne tee** (kaustale ligipääsuga agent): ütle agendile *"lae see bundle ja täida kohatäitjad minu kontekstifailidega"*. Ta annab valmis system prompt'i tagasi.
 - **Manuaalne tee:** kleebi iga portfooliofaili sisu allolevasse vastavasse kohatäitja plokki. Tekkiv markdown on kohe valmis kasutamiseks system promptina.
 
 Detailne selgitus: `portfolio/bundles/README.md`.
@@ -23,7 +23,7 @@ See fail on **projektsioon**, mitte tõeallikas. Ta ei hoia konteksti — ta kok
 
 1. **Ainult loetletud allikad.** Ära kleebi siia sisu failist, mida `sources` ei nimeta. Kui agent vajab rohkemat, on see uue projektsiooni või uue allika küsimus.
 2. **Kandidaat-väited jäävad välja.** Allikafailides on iga rida märgistatud `kinnitatud`, `toetatud` või `kandidaat`. Kokkupanekul **jäta `kandidaat`-read välja**. Kui kandidaat on selle ülesande jaoks hädavajalik, kleebi ta sisse koos märkega ja käsitle teda oletusena, mitte faktina — mustandis ei tohi ta esineda kindla väitena.
-3. **Restricted sisu jääb vaikimisi välja.** Allikafail, mille päis ütleb `sensitivity: restricted`, ei kuulu vaikimisi projektsiooni. Kui sa ta ikkagi sisse kleebid, muutub **kogu see projektsioon** `restricted`-iks: teda ei tohi anda agendile, mis kirjutab väljapoole, ega jagada väljapoole.
+3. **Tundlikkus kandub edasi.** Päise `sensitivity: exportable` kehtib ainult siis, kui kõik kasutatud allikad on `exportable`. Kontrolli iga allika päist. Kui üks vajalik allikas on `restricted`, ära koosta vaikselt näiliselt valmis exportable-pakki: kas jäta allikas välja ja märgi tulemus mittetäielikuks, tee kasutaja kinnitatud puhastatud koopia või muuda kogu projektsioon `restricted`-iks. Restricted projektsiooni kasuta ainult enda valitud privaatses agendis, ära jaga seda ja ära lase väljundisse kolmanda isiku hinnanguid.
 4. **Ära dubleeri püsikonteksti käsitsi.** Kui sama fakt on juba mõnes kleebitud allikas, ära kirjuta teda sissejuhatusse ümber. Kaks koopiat lähevad lahku ja agent ei tea, kumb kehtib.
 
 ---
@@ -75,9 +75,9 @@ Kui kasutaja palub sult uurimustööd:
 
 ## Koostamise märkused
 
-- **Miks need kolm faili:** identity annab vaatenurga, current-projects annab filtri, domain-knowledge kalibreerib sügavuse. Eemalda ükskõik milline neist ja su uurimustöö muutub kohe üldsõnaliseks ja kasutu(maks).
+- **Miks need kolm faili:** identity annab vaatenurga, current-projects annab filtri, domain-knowledge kalibreerib sügavuse. Kui mõni neist puudub, muutub uurimistöö üldsõnaliseks või jätab olulise filtri vahele.
 - **Mida kärpida, kui konteksti on liiga palju:** mitte midagi (ka tools-and-systems faili "Proovitud ja hüljatud" ei käi siia bundle'isse). Hoia kõik kolm sektsiooni siin täies mahus.
 - **Mida lisada spetsiifilisteks olukordadeks:**
   - Potentsiaalsete klientide uurimine (prospect research): kleebi juurde ka `goals-and-priorities.md`, et agent saaks hinnata kliente vastavalt sellele, mida sa üritad saavutada.
   - Konkurentide uurimine: kleebi juurde `communication-style.md`, et raport vastaks sellele, kuidas sa oled harjunud asju lugema (lühike, struktureeritud, ilma ilukõneta).
-  - Kohtumiseks ettevalmistamine (meeting prep): kleebi juurde `team-and-relationships.md`, kui kohtumine on kellegagi sinu olemasolevast võrgustikust. See fail on `restricted` — pärast lisamist on kogu projektsioon `restricted` ja seda ei tohi anda agendile, mis kirjutab väljapoole.
+  - Kohtumiseks ettevalmistamine (meeting prep): kleebi juurde `team-and-relationships.md`, kui kohtumine on kellegagi sinu olemasolevast võrgustikust. See fail on `restricted` — pärast lisamist kasuta kogu projektsiooni ainult enda valitud privaatses agendis ning hoia hinnangud väljundist väljas.

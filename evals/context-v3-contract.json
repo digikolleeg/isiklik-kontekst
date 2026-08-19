@@ -180,7 +180,22 @@
     "saves_after_each_module": true,
     "resumes": true,
     "promotion_requires": ["visible-diff", "confirmation"],
-    "uncovered_required_visible": true
+    "uncovered_required_visible": true,
+    "synthesis_requires": ["2-independent-cases", "condition", "downstream-action", "falsifier"]
+  },
+  "learning_loop": {
+    "commands": ["õpime parandusest", "siin on lõplik versioon"],
+    "categories": [
+      "fact-correction",
+      "general-style",
+      "channel-style",
+      "addressee-exception",
+      "temporary-project-context"
+    ],
+    "same_conversation_one_paste": true,
+    "automatic_promotion": false,
+    "visible_diff_and_confirmation": true,
+    "one_edit_event_is_one_source_family": true
   },
   "candidate_ledger": {
     "required": ["id", "target_file", "target_section", "claim", "evidence_ids", "scope", "expires", "status"]
@@ -196,6 +211,7 @@
     "kind": "projection",
     "exclude_candidates": true,
     "exclude_restricted_by_default": true,
+    "sensitivity_propagation": "any-restricted-source-makes-projection-restricted",
     "required": {
       "client-outreach.md": {
         "sources": [
@@ -230,6 +246,6 @@
     "manifest": "evals/frozen-quick.json",
     "algorithm": "sha256",
     "sha256_required": true,
-    "published_sha256": null
+    "published_sha256": "e182d80306478b5cd82e214ea1d62b22a4479330c47f08a502e260e080a5eab5"
   }
 }

@@ -30,7 +30,7 @@ Bundle'id on puuduv lüli "mul on portfooliofailid" ja "mul on päriselt tööta
 
 **1. Kandidaat-väited jäävad välja.** Allikafailides on iga rida märgistatud `kinnitatud`, `toetatud` või `kandidaat`. Kokkupanekul jäetakse `kandidaat`-read välja. Kandidaat on ühe vaatluse pealt tehtud oletus; oletus, mis satub väljaminevasse sõnumisse, on täpselt see viga, mille vastu staatussüsteem on ehitatud. Kui kandidaat on mingi ülesande jaoks hädavajalik, kleebi ta sisse koos märkega ja käsitle teda oletusena.
 
-**2. Restricted sisu jääb vaikimisi välja.** `team-and-relationships.md` on ainus vaikimisi `restricted` fail — ta sisaldab hinnanguid nimeliste kolmandate isikute kohta. Ta ei ole ühegi bundle'i vaikimisi allikas. Kui sa ta ikkagi sisse kleebid, muutub **kogu see bundle** `restricted`-iks: seda ei tohi anda agendile, mis kirjutab väljapoole, ega jagada väljapoole.
+**2. Tundlikkus kandub allikast pakki.** `team-and-relationships.md` on alati `restricted`, kuid ka mõni muu fail võib selleks muutuda — näiteks `writing-samples.md`, kui päris kliendinimed jäid sisse. Päise `exportable` on malli vaikeväärtus, mitte lubadus valmis paki kohta. Kui üks kasutatud allikas on `restricted`, muutub kogu bundle `restricted`-iks. Ära jäta vajalikku allikat vaikselt välja ja nimeta tulemust valmis pakiks.
 
 Mõlemat kontrollib `python3 scripts/context_v3_check.py --rule projection --input portfolio/bundles/<fail>.md`.
 
@@ -38,19 +38,19 @@ Mõlemat kontrollib `python3 scripts/context_v3_check.py --rule projection --inp
 
 ## Kuidas Bundle'it kasutada
 
-Kaks teed sõltuvalt sellest, kas sul on Claude Desktop koos filesystem Connector'iga või mitte.
+Kaks teed sõltuvalt sellest, kas su agent saab kontekstikausta faile lugeda või mitte.
 
-### Tee A — Agentne (Claude Desktop + Connector)
+### Tee A — Agentne (kaustale ligipääsuga agent)
 
-Claude loeb bundle'i ja sinu portfooliofailid ise, paneb terviku kokku ja annab sulle valmis system prompt'i.
+Agent loeb bundle'i ja sinu portfooliofailid ise, paneb terviku kokku ja annab sulle valmis system prompt'i.
 
-1. Ava Claude Desktop ja veendu, et filesystem Connector viitab su kausta.
-2. Ütle Claude'ile:
+1. Ava kontekstikaust agendi töökaustana või anna talle nende failide lugemisõigus.
+2. Ütle agendile:
    > *"Lae `portfolio/bundles/client-outreach.md` ja täida kohatäitjad minu kontekstifailidega. Anna tagasi terve kokku pandud bundle."*
-3. Claude loeb päise `sources` all viidatud failid, asendab `[[IDENTITY]]`, `[[VOICE]]`, `[[RELATIONSHIPS]]` (vms) plokid päris sisuga ja annab sulle valmis markdown'i.
+3. Agent loeb päise `sources` all viidatud failid, asendab `[[IDENTITY]]`, `[[VOICE]]`, `[[RELATIONSHIPS]]` (vms) plokid päris sisuga ja annab sulle valmis markdown'i.
 4. Kopeeri see Project'i custom instructions lahtrisse (või kuhu iganes oma agendi prompt'i tahad panna).
 
-Bundle'i uuendamiseks, kui portfoolio muutub: lihtsalt küsi uut kokku pandud versiooni. Konteksti-looja Skill (kui installitud) teeb sama asja.
+Kui portfoolio muutub, küsi uus kokku pandud versioon. Praegu ei ole repos automaatset kompileerijat.
 
 ### Tee B — Manuaalne (ükskõik mis chat, ükskõik mis plaan)
 
@@ -86,6 +86,4 @@ Kirjuta uued bundle'id markdown-failidena siia kausta, järgides sama struktuuri
 
 Bundle'id põimivad endasse portfoolio sisu viitena (sa kleebid sisu sisse). Kui sa uuendad mingit portfooliofaili, näiteks oma kvartaalse ülevaatuse käigus, siis pead uuesti kokku nõeluma kõik bundle'id, mis seda faili kasutavad. Vastasel juhul töötab agent aegunud kontekstiga.
 
-Logimise tava on lihtne: kui uuendad portfooliofaili, pane `log.md` kirja, milliseid bundle'eid see muudatus mõjutas, et saaksid aru, mis vajab uuendamist.
-
-Teises faasis toome välja MCP tööriista (`get_bundle(agent_type)`) mis teeb selle kokkupaneku automaatselt jooksvalt (at runtime) ja võtab selle hoolduskoorma sinu õlult ära. Kuni sinnamaani tuleb asju käsitsi kokku kleepida — aga see on kiire, sest bundle'id on lühikesed.
+Praegu tuleb projektsioon pärast allikafaili muutmist uuesti kokku panna. Repos ei ole pakendatud Connectorit ega MCP-serverit, mis seda automaatselt teeks.

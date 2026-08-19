@@ -111,7 +111,15 @@ def valid_contract():
                 },
             }
         },
-        "deep_workflow": {"reads": ["existing-files", "candidates", "review_after"], "shows_coverage": True, "saves_after_each_module": True, "resumes": True, "promotion_requires": ["visible-diff", "confirmation"], "uncovered_required_visible": True},
+        "deep_workflow": {"reads": ["existing-files", "candidates", "review_after"], "shows_coverage": True, "saves_after_each_module": True, "resumes": True, "promotion_requires": ["visible-diff", "confirmation"], "uncovered_required_visible": True, "synthesis_requires": ["2-independent-cases", "condition", "downstream-action", "falsifier"]},
+        "learning_loop": {
+            "commands": ["õpime parandusest", "siin on lõplik versioon"],
+            "categories": ["fact-correction", "general-style", "channel-style", "addressee-exception", "temporary-project-context"],
+            "same_conversation_one_paste": True,
+            "automatic_promotion": False,
+            "visible_diff_and_confirmation": True,
+            "one_edit_event_is_one_source_family": True,
+        },
         "candidate_ledger": {"required": ["id", "target_file", "target_section", "claim", "evidence_ids", "scope", "expires", "status"]},
         "imports": {
             "treatment": "data",
@@ -124,6 +132,7 @@ def valid_contract():
             "kind": "projection",
             "exclude_candidates": True,
             "exclude_restricted_by_default": True,
+            "sensitivity_propagation": "any-restricted-source-makes-projection-restricted",
             "required": {
                 "client-outreach.md": {
                     "sources": ["identity.md", "current-projects.md", "communication-style.md", "writing-samples.md"],
@@ -184,6 +193,13 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(required["client-outreach.md"], {"sources": ["identity.md", "current-projects.md", "communication-style.md", "writing-samples.md"], "sensitivity": "exportable"})
         self.assertEqual(required["content-writer.md"], {"sources": ["identity.md", "communication-style.md", "writing-samples.md", "domain-knowledge.md"], "sensitivity": "exportable"})
         self.assertTrue(all("body_sha256" not in spec for spec in required.values()))
+        self.assertEqual(contract["bundles"]["sensitivity_propagation"], "any-restricted-source-makes-projection-restricted")
+
+    def test_bundle_contract_requires_sensitivity_propagation(self):
+        contract = valid_contract()
+        contract["bundles"].pop("sensitivity_propagation")
+        codes = {issue.code for issue in checker.validate_contract(contract)}
+        self.assertIn("bundle_policy", codes)
 
     def test_confirmed_deep_ownership_and_quick_invariants(self):
         contract = valid_contract()
@@ -202,6 +218,19 @@ class ContractTests(unittest.TestCase):
         contract["imports"]["preserve_verbatim_samples"] = False
         codes = {item.code for item in checker.validate_contract(contract)}
         self.assertTrue({"quick_contract", "deep_workflow", "candidate_ledger", "bundle_policy", "import_contract"}.issubset(codes))
+
+    def test_contract_rejects_an_unsafe_learning_loop(self):
+        contract = valid_contract()
+        contract["learning_loop"]["automatic_promotion"] = True
+        contract["learning_loop"]["categories"].pop()
+        codes = {item.code for item in checker.validate_contract(contract)}
+        self.assertIn("learning_loop", codes)
+
+    def test_contract_requires_an_actionable_falsifiable_deep_synthesis(self):
+        contract = valid_contract()
+        contract["deep_workflow"]["synthesis_requires"].remove("falsifier")
+        codes = {item.code for item in checker.validate_contract(contract)}
+        self.assertIn("deep_workflow", codes)
 
 
 class ProfileRuleTests(unittest.TestCase):

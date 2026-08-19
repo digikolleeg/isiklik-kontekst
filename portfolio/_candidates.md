@@ -67,7 +67,7 @@ Näide uuest kandest (ära hoia näidet ledgeris):
 - **`claim`** — väide ühe lausega, sõnastatuna nii, nagu ta sihtfaili läheks.
 - **`evidence_ids`** — `<allikas>:<vaatlus>` ID-d, komadega. Ülendamiseks `toetatud` tasemele peab siin olema kaks **erinevat** `<allikas>` osa.
 - **`scope`** — tingimus, mille all väide kehtib: `aeg`, `kanal`, `roll` või `olukord`. Enamik "vastuolusid" kahe väite vahel ei ole vastuolud, vaid kaks eri scope'i. Kui uus vaatlus räägib vanale vastu, küsi kõigepealt, mis nende scope'i eristab, ja alles siis, kumb on õige.
-- **`expires`** — kuupäev, mille järel kandidaat kas kustutatakse või küsitakse üle. Vaikimisi 90 päeva; kiiresti liikuva sisu puhul (`current-projects`) 60.
+- **`expires`** — kuupäev, mille järel kandidaat kas kustutatakse või küsitakse üle. Vaikimisi 90 päeva; kiiresti liikuva `current-projects.md` puhul 30.
 - **`status`** — `kandidaat`, kuni ta ledgeris on. Ülendamise hetkel liigub rida sihtfaili ja kaob siit. Veerg on olemas selleks, et ledger ja sihtfail räägiksid sama keelt, mitte selleks, et siin oleks mitu staatust korraga.
 
 ## Mida siin ei ole

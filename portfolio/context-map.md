@@ -25,7 +25,7 @@ Failide arv on **9 + 2**, mitte kümme või üksteist ühes hunnikus. `decision-
 
 ## Allikakiht — 9 profiilifaili
 
-| Fail | Tundlikkus | Süvarežiimi omand (moodul: sektsioonid) |
+| Fail | Vaike-tundlikkus | Süvarežiimi omand (moodul: sektsioonid) |
 |---|---|---|
 | `identity.md` | `exportable` | A: `identity-facts`, `what-i-do`, `known-for` |
 | `role-and-responsibilities.md` | `exportable` | A: `responsibilities`, `rhythms`, `decisions`, `outputs`, `reporting` |
@@ -39,7 +39,7 @@ Failide arv on **9 + 2**, mitte kümme või üksteist ühes hunnikus. `decision-
 
 ## Tõendikiht — 2 korpust
 
-| Fail | Tundlikkus | Süvarežiimi omand | Allika-ID prefiks |
+| Fail | Vaike-tundlikkus | Süvarežiimi omand | Allika-ID prefiks |
 |---|---|---|---|
 | `writing-samples.md` | `exportable` | D: `samples`, `sample-metadata` | `ws-` |
 | `decision-log.md` | `exportable` | C: `decisions`, `reasoning`, `uncertainty` | `dl-` |
@@ -62,7 +62,7 @@ Väitemärgis püsikontekstis on masinloetav HTML-kommentaar rea lõpus:
 
 Projektsioon on see, mis teeb üheksa faili kaitstavaks. Ilma temata oleks küsimus "kas üheksa ei ole liiga palju" õigustatud; temaga ei laadi ükski agent üheksat faili, vaid ainult selle lõike, mida ta ülesanne vajab.
 
-| Projektsioon | Allikad | Tundlikkus |
+| Projektsioon | Allikad | Vaike-tundlikkus |
 |---|---|---|
 | `client-outreach.md` | `identity.md`, `current-projects.md`, `communication-style.md`, `writing-samples.md` | `exportable` |
 | `client-research.md` | `identity.md`, `current-projects.md`, `domain-knowledge.md` | `exportable` |
@@ -71,7 +71,7 @@ Projektsioon on see, mis teeb üheksa faili kaitstavaks. Ilma temata oleks küsi
 Kokkupaneku reeglid, mis kehtivad igale projektsioonile:
 
 - **Kandidaadid välja.** `exclude_candidates: true` lepingus. `kandidaat`-read ei lähe projektsiooni.
-- **Restricted välja vaikimisi.** `exclude_restricted_by_default: true`. `team-and-relationships.md` on ainus vaikimisi `restricted` fail. Kui ta projektsiooni lisatakse, muutub kogu projektsioon `restricted`-iks.
+- **Restricted välja vaikimisi.** `exclude_restricted_by_default: true`. `team-and-relationships.md` on alati `restricted`, kuid ka mõni muu fail võib tundliku sisu tõttu selle märgi saada. Kui üks kasutatud allikas on `restricted`, muutub kogu projektsioon `restricted`-iks.
 - **Ei redigeerita käsitsi.** Projektsioon on tuletis. Käsitsi parandus läheb allikast lahku ja keegi ei märka.
 
 ## Kiire režiim

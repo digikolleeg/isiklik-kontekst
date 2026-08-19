@@ -125,13 +125,41 @@ def validate_contract(contract):
     if _get(contract, "imports", "preserve_verbatim_samples") is not True or _get(contract, "imports", "sensitive_third_party") != "restricted":
         issues.append(issue("import_contract", "import preservation and third-party sensitivity rules are incomplete"))
     workflow = contract.get("deep_workflow", {})
-    if set(workflow.get("reads", [])) != {"existing-files", "candidates", "review_after"} or not all(workflow.get(key) is True for key in ("shows_coverage", "saves_after_each_module", "resumes", "uncovered_required_visible")) or workflow.get("promotion_requires") != ["visible-diff", "confirmation"]:
+    if (
+        set(workflow.get("reads", [])) != {"existing-files", "candidates", "review_after"}
+        or not all(workflow.get(key) is True for key in ("shows_coverage", "saves_after_each_module", "resumes", "uncovered_required_visible"))
+        or workflow.get("promotion_requires") != ["visible-diff", "confirmation"]
+        or workflow.get("synthesis_requires")
+        != ["2-independent-cases", "condition", "downstream-action", "falsifier"]
+    ):
         issues.append(issue("deep_workflow", "deep workflow invariants are incomplete"))
+    learning_loop = contract.get("learning_loop", {})
+    expected_correction_categories = {
+        "fact-correction",
+        "general-style",
+        "channel-style",
+        "addressee-exception",
+        "temporary-project-context",
+    }
+    if (
+        learning_loop.get("commands") != ["õpime parandusest", "siin on lõplik versioon"]
+        or set(learning_loop.get("categories", [])) != expected_correction_categories
+        or learning_loop.get("same_conversation_one_paste") is not True
+        or learning_loop.get("automatic_promotion") is not False
+        or learning_loop.get("visible_diff_and_confirmation") is not True
+        or learning_loop.get("one_edit_event_is_one_source_family") is not True
+    ):
+        issues.append(issue("learning_loop", "correction learning loop invariants are incomplete or unsafe"))
     if set(_get(contract, "candidate_ledger", "required", default=[])) != {"id", "target_file", "target_section", "claim", "evidence_ids", "scope", "expires", "status"}:
         issues.append(issue("candidate_ledger", "candidate ledger schema is incomplete"))
     if _get(contract, "bundles", "kind") != "projection":
         issues.append(issue("bundle_contract", "bundles must be projections"))
-    if _get(contract, "bundles", "exclude_candidates") is not True or _get(contract, "bundles", "exclude_restricted_by_default") is not True:
+    if (
+        _get(contract, "bundles", "exclude_candidates") is not True
+        or _get(contract, "bundles", "exclude_restricted_by_default") is not True
+        or _get(contract, "bundles", "sensitivity_propagation")
+        != "any-restricted-source-makes-projection-restricted"
+    ):
         issues.append(issue("bundle_policy", "bundle exclusion policy is incomplete"))
     required_bundles = _get(contract, "bundles", "required", default={})
     if not required_bundles:
@@ -697,6 +725,7 @@ def validate_deep_reference(root, contract):
         "deep-promotion": "visible-diff+confirmation",
         "deep-uncovered-required-visible": "true",
         "deep-module-d-import-first": "true",
+        "deep-synthesis": "2-independent-cases+condition+downstream-action+falsifier",
     }
     issues = []
     if set(_marker_values(text, "deep-read")) != set(workflow["reads"]) or any(_marker_values(text, key) != [value] for key, value in expected_scalars.items()):

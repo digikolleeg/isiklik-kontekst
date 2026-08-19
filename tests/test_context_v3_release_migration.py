@@ -81,6 +81,7 @@ def write_valid_repo(root):
         "<!-- deep-promotion: visible-diff+confirmation -->",
         "<!-- deep-uncovered-required-visible: true -->",
         "<!-- deep-module-d-import-first: true -->",
+        "<!-- deep-synthesis: 2-independent-cases+condition+downstream-action+falsifier -->",
     ]
     deep_lines.extend(
         f"<!-- deep-section: {section} | owner: {owner} -->"
@@ -174,6 +175,12 @@ class MigrationReleaseTests(unittest.TestCase):
         path = self.root / "skills" / "konteksti-looja" / "references" / "deep-mode.md"
         path.write_text(path.read_text(encoding="utf-8").replace("owner: A", "owner: B", 1), encoding="utf-8")
         self.assertIn("deep_ref_ownership", {item.code for item in validate(self.root, CONTRACT)})
+
+    def test_deep_reference_requires_the_synthesis_marker(self):
+        validate = self.require("validate_deep_reference")
+        path = self.root / "skills" / "konteksti-looja" / "references" / "deep-mode.md"
+        path.write_text(path.read_text(encoding="utf-8").replace("<!-- deep-synthesis: 2-independent-cases+condition+downstream-action+falsifier -->\n", ""), encoding="utf-8")
+        self.assertIn("deep_ref_workflow", {item.code for item in validate(self.root, CONTRACT)})
 
 
 if __name__ == "__main__":
