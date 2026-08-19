@@ -546,7 +546,19 @@ def validate_candidate_ledger_file(root, contract):
     path = Path(root) / "portfolio" / "_candidates.md"
     if not path.is_file():
         return [issue("candidate_ledger_file", "candidate ledger file is missing", path)]
-    header = next((line for line in path.read_text(encoding="utf-8").splitlines() if line.strip().startswith("|")), "")
+    lines = path.read_text(encoding="utf-8").splitlines()
+    try:
+        ledger_index = next(index for index, line in enumerate(lines) if line.strip() == "## Ledger")
+    except StopIteration:
+        return [issue("candidate_ledger_fields", "candidate ledger must contain an exact ## Ledger heading", path)]
+    header = ""
+    for line in lines[ledger_index + 1 :]:
+        stripped = line.strip()
+        if stripped.startswith("## "):
+            break
+        if stripped.startswith("|"):
+            header = line
+            break
     fields = [field.strip() for field in header.strip().strip("|").split("|") if field.strip()]
     if fields != _get(contract, "candidate_ledger", "required", default=[]):
         return [issue("candidate_ledger_fields", "candidate ledger table fields differ from contract", path)]

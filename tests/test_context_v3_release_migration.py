@@ -33,7 +33,7 @@ def write_valid_repo(root):
 
     candidates = root / "portfolio" / "_candidates.md"
     fields = CONTRACT["candidate_ledger"]["required"]
-    candidates.write_text("| " + " | ".join(fields) + " |\n|" + "---|" * len(fields) + "\n", encoding="utf-8")
+    candidates.write_text("## Ledger\n\n| " + " | ".join(fields) + " |\n|" + "---|" * len(fields) + "\n", encoding="utf-8")
 
     context_map = root / "portfolio" / "context-map.md"
     lines = [f"<!-- context-file: {filename} -->" for filename in all_files]
@@ -127,6 +127,13 @@ class MigrationReleaseTests(unittest.TestCase):
         path = self.root / "portfolio" / "_candidates.md"
         path.write_text(path.read_text(encoding="utf-8").replace("| status |", "| state |"), encoding="utf-8")
         self.assertIn("candidate_ledger_fields", {item.code for item in validate(self.root, CONTRACT)})
+
+    def test_candidate_ledger_uses_first_table_after_ledger_heading(self):
+        validate = self.require("validate_candidate_ledger_file")
+        fixture = ROOT / "tests" / "fixtures" / "context_v3" / "candidates_multiple_tables.md"
+        path = self.root / "portfolio" / "_candidates.md"
+        path.write_text(fixture.read_text(encoding="utf-8"), encoding="utf-8")
+        self.assertEqual(validate(self.root, CONTRACT), [])
 
     def test_context_map_matches_files_modules_and_bundle_metadata(self):
         validate = self.require("validate_context_map")
