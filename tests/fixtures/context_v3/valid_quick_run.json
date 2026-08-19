@@ -9,6 +9,7 @@
   ],
   "metrics": {
     "user_answers_after_import": 9,
+    "soft_checkpoint_after_answer": 9,
     "max_questions_per_turn": 1,
     "max_deepeners_per_answer": 1,
     "minutes": 35,

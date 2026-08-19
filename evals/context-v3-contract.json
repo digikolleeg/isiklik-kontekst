@@ -1,5 +1,5 @@
 {
-  "version": "3.0.0",
+  "version": "3.1.0",
   "baseline": {
     "head": "dea4a2c6f29c2e7561ed5c4f3b2f1069c99b0925",
     "root_index_sha256": "6adead52bc9e6b4357255a8c671addb8a2be654c1e25b86006d74edd55c152e6",
@@ -26,14 +26,14 @@
     ]
   },
   "quick": {
-    "commands": ["töötoa intervjuu", "kiire intervjuu"],
+    "commands": ["müügiagent", "töötoa intervjuu", "kiire intervjuu"],
     "outputs": [
       "identity.md",
       "current-projects.md",
       "communication-style.md",
       "writing-samples.md"
     ],
-    "max_user_answers_after_import": 10,
+    "soft_checkpoint_after_answers": 10,
     "questions_per_turn": 1,
     "max_deepeners_per_answer": 1,
     "target_minutes": {"min": 30, "max": 40},
@@ -246,6 +246,6 @@
     "manifest": "evals/frozen-quick.json",
     "algorithm": "sha256",
     "sha256_required": true,
-    "published_sha256": "e182d80306478b5cd82e214ea1d62b22a4479330c47f08a502e260e080a5eab5"
+    "published_sha256": "38ae10bb231efecb6a41c4332a3403a965484e2d37658fc44d40491fa1f7ff5e"
   }
 }

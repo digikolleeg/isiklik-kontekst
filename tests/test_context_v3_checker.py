@@ -44,14 +44,14 @@ def valid_contract():
             "evidence": ["writing-samples.md", "decision-log.md"],
         },
         "quick": {
-            "commands": ["töötoa intervjuu", "kiire intervjuu"],
+            "commands": ["müügiagent", "töötoa intervjuu", "kiire intervjuu"],
             "outputs": [
                 "identity.md",
                 "current-projects.md",
                 "communication-style.md",
                 "writing-samples.md",
             ],
-            "max_user_answers_after_import": 10,
+            "soft_checkpoint_after_answers": 10,
             "questions_per_turn": 1,
             "max_deepeners_per_answer": 1,
             "target_minutes": {"min": 30, "max": 40},
@@ -306,9 +306,15 @@ class RunRuleTests(unittest.TestCase):
         codes = {issue.code for issue in checker.validate_run(invalid, valid_contract())}
         self.assertIn("module_d_import_order", codes)
 
-    def test_quick_runtime_limits_are_enforced(self):
+    def test_quick_runtime_rules_are_enforced(self):
         codes = {issue.code for issue in checker.validate_run(self.load_run("invalid_quick_run.json"), valid_contract())}
-        self.assertTrue({"quick_command", "quick_answer_limit", "questions_per_turn", "deepener_limit", "quick_duration", "writing_samples", "quick_section_ownership", "quick_coverage"}.issubset(codes))
+        self.assertTrue({"quick_command", "quick_checkpoint", "questions_per_turn", "deepener_limit", "quick_duration", "writing_samples", "quick_section_ownership", "quick_coverage"}.issubset(codes))
+
+    def test_quick_can_continue_past_checkpoint_when_checkpoint_was_offered(self):
+        run = self.load_run("valid_quick_run.json")
+        run["metrics"]["user_answers_after_import"] = 14
+        run["metrics"]["soft_checkpoint_after_answer"] = 10
+        self.assertEqual(checker.validate_run(run, valid_contract()), [])
 
     def test_quick_claim_policy_keeps_explicit_facts_confirmed_and_single_inference_candidate(self):
         run = self.load_run("valid_quick_run.json")

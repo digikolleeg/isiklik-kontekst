@@ -35,7 +35,7 @@ Süvenda ainult siis, kui vastus on üldine, hinnanguline või ei anna tõendit.
 
 | Režiim | Piir |
 |---|---|
-| kiire | kuni **üks** süvendus vastuse kohta, ja süvendus kulub 10 vastuse eelarvest |
+| kiire | kuni **üks** süvendus vastuse kohta; süvendus loeb vastusena ja viib 10 vastuse pehme kontrollpunkti poole |
 | süva | eelarvet vastuse kohta ei ole. Moodul kestab 8 kuni 12 vahetust ja sügavus ongi mooduli mõte. |
 
 Lubatud süvendused:
@@ -124,11 +124,11 @@ Peegel on maksimaalselt kolm punkti.
 
 ## 7. Katkestus ja eelarve
 
-**Kiires režiimis** pea vastuste arvu jooksvalt; süvendus on samuti vastus. Kui eelarve saab täis enne katvuse täitumist, lõpeta ja kirjuta failid.
+**Kiires režiimis** pea vastuste arvu jooksvalt; süvendus on samuti vastus. Kui katvus saab täis või vastuseid on kümme, näita kasutajale, mis on kaetud, ebaselge ja puudu. Paku faili kirjutamist või ühe küsimuse kaupa jätkamist. Kümme on pehme kontrollpunkt, mitte lagi.
 
 **Süvarežiimis** ei ole vastuste eelarvet. Pärast 8 kuni 12 vahetust paku mooduli lõpetamist või jätkamist ja lase kasutajal valida. Moodul lõpeb katvuse, mitte loenduri peal.
 
 Mõlemas režiimis:
 
-- Katmata kohustuslik väli jääb faili **nähtavaks**, vt `output-contract.md` §3. Ära venita eelarvet ja ära täida lünka üldsõnalise lausega.
+- Katmata kohustuslik väli jääb faili **nähtavaks**, vt `output-contract.md` §3. Ära täida lünka üldsõnalise lausega.
 - Kui kasutaja vastab kolm korda järjest ühe sõnaga või ütleb, et tahab lõpetada, **lõpeta ja salvesta see, mis on**. Pooleli jäänud moodul, mis on salvestatud, on jätkatav. Salvestamata moodul on kadunud töö.

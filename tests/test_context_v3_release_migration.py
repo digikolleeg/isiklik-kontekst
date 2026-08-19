@@ -60,9 +60,10 @@ def write_valid_repo(root):
         (refs / f"{name}.md").write_text(f"# {name}\n", encoding="utf-8")
 
     quick_lines = [
+        "<!-- quick-command: müügiagent -->",
         "<!-- quick-command: töötoa intervjuu -->",
         "<!-- quick-command: kiire intervjuu -->",
-        "<!-- quick-max-user-answers-after-import: 10 -->",
+        "<!-- quick-soft-checkpoint-after-user-answers: 10 -->",
         "<!-- quick-questions-per-turn: 1 -->",
         "<!-- quick-max-deepeners-per-answer: 1 -->",
         "<!-- quick-min-verbatim-writing-samples: 2 -->",

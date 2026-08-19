@@ -63,7 +63,7 @@ class RenderQuickInterviewTests(unittest.TestCase):
             self.assertIn(f"<!-- source: {relative} -->", text)
         for heading in ("# Kiire režiim", "# Intervjuumootor", "# Väited, tõendid ja kandidaadid", "# Väljundleping"):
             self.assertIn(heading, text)
-        for marker in ("<!-- quick-output: identity.md -->", "<!-- quick-max-user-answers-after-import: 10 -->", "<!-- section: samples | owner: D -->"):
+        for marker in ("<!-- quick-output: identity.md -->", "<!-- quick-soft-checkpoint-after-user-answers: 10 -->", "<!-- section: samples | owner: D -->"):
             self.assertIn(marker, text)
         self.assertIn("## Alati kehtiv", text)
         self.assertIn("## Eesti keele stiil", text)

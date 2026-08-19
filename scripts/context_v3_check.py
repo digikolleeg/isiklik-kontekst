@@ -76,7 +76,7 @@ def validate_contract(contract):
     ) != "source-artifact-or-situation":
         issues.append(issue("evidence_id_contract", "evidence IDs must encode independent source and observation IDs"))
     quick = contract.get("quick", {})
-    if quick.get("commands") != ["töötoa intervjuu", "kiire intervjuu"] or quick.get("max_user_answers_after_import") != 10 or quick.get("questions_per_turn") != 1 or quick.get("max_deepeners_per_answer") != 1 or quick.get("target_minutes") != {"min": 30, "max": 40} or quick.get("min_verbatim_writing_samples") != 2 or quick.get("owns_sections") != [] or set(quick.get("required_coverage", [])) != REQUIRED_COVERAGE:
+    if quick.get("commands") != ["müügiagent", "töötoa intervjuu", "kiire intervjuu"] or quick.get("soft_checkpoint_after_answers") != 10 or quick.get("questions_per_turn") != 1 or quick.get("max_deepeners_per_answer") != 1 or quick.get("target_minutes") != {"min": 30, "max": 40} or quick.get("min_verbatim_writing_samples") != 2 or quick.get("owns_sections") != [] or set(quick.get("required_coverage", [])) != REQUIRED_COVERAGE:
         issues.append(issue("quick_contract", "quick decision invariants are incomplete"))
     if _get(contract, "claims", "confirmed_rule") != "explicit-user-statement" or _get(contract, "claims", "single_observation_status") != "kandidaat":
         issues.append(issue("claim_contract", "claim confirmation and single-observation rules are incomplete"))
@@ -367,9 +367,17 @@ def validate_run(run, contract):
             issues.append(issue("quick_outputs", "quick output list must match the contract exactly"))
         quick = contract.get("quick", {})
         metrics = run.get("metrics", {})
+        answer_count = metrics.get("user_answers_after_import", -1)
+        checkpoint_after = metrics.get("soft_checkpoint_after_answer")
+        checkpoint_limit = quick.get("soft_checkpoint_after_answers", 0)
+        checkpoint_valid = (
+            isinstance(answer_count, int)
+            and isinstance(checkpoint_after, int)
+            and 1 <= checkpoint_after <= min(answer_count, checkpoint_limit)
+        )
         checks = [
             (run.get("command") in quick.get("commands", []), "quick_command"),
-            (metrics.get("user_answers_after_import", 10**9) <= quick.get("max_user_answers_after_import", 0), "quick_answer_limit"),
+            (checkpoint_valid, "quick_checkpoint"),
             (metrics.get("max_questions_per_turn") == quick.get("questions_per_turn"), "questions_per_turn"),
             (metrics.get("max_deepeners_per_answer") == quick.get("max_deepeners_per_answer"), "deepener_limit"),
             (quick.get("target_minutes", {}).get("min", 0) <= metrics.get("minutes", -1) <= quick.get("target_minutes", {}).get("max", -1), "quick_duration"),
@@ -698,7 +706,7 @@ def validate_quick_reference(root, contract):
     quick = contract["quick"]
     issues = []
     scalar_expectations = {
-        "quick-max-user-answers-after-import": str(quick["max_user_answers_after_import"]),
+        "quick-soft-checkpoint-after-user-answers": str(quick["soft_checkpoint_after_answers"]),
         "quick-questions-per-turn": str(quick["questions_per_turn"]),
         "quick-max-deepeners-per-answer": str(quick["max_deepeners_per_answer"]),
         "quick-min-verbatim-writing-samples": str(quick["min_verbatim_writing_samples"]),
