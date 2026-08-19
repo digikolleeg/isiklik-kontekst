@@ -1,0 +1,7 @@
+{
+  "persona": {"role": "[ASUTAJA]", "offer": "sünteetiline protsessiauditi teenus", "buyer": "väikese ettevõtte tegevjuht"},
+  "materials": [
+    {"id": "sample-01", "kind": "message", "synthetic": true, "text": "Tere [KONTAKT]\n\nVaatasin teie protsessi üle. Kaks kohta võtavad igal nädalal tarbetult aega. Kas teeme teisipäeval 20 minutit ja vaatan need koos teiega läbi?\n\n[ASUTAJA]"},
+    {"id": "sample-02", "kind": "message", "synthetic": true, "text": "Tere [KONTAKT]\n\nPanin kokkulepitud kolm sammu kirja. Esimese saame teha olemasolevate tööriistadega. Teise otsustame pärast nädala mõõtmist.\n\n[ASUTAJA]"}
+  ]
+}

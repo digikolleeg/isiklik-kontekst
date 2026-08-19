@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "name": "context-v3-forward-eval",
+  "contract": "../context-v3-contract.json",
+  "rubric": "human-rubric.json",
+  "rubric_markdown": "human-rubric.md",
+  "no_model_calls": true,
+  "dependencies": "python-stdlib-only",
+  "case_ids": ["01", "02", "03", "04", "05"]
+}

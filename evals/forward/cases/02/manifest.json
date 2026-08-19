@@ -1,0 +1,1 @@
+{"id":"02","title":"Napisõnaline B2C algaja materjalideta","scenario":"terse B2C novice without materials","synthetic":true,"pseudonymized":true,"contains_real_pii":false,"input_file":"input.json","expected_file":"expected.json","modes":["quick"],"tags":["b2c","novice","no-materials"]}

@@ -1,0 +1,1 @@
+{"id":"01","title":"B2B teenus kahe sõnuminäidisega","scenario":"B2B service","synthetic":true,"pseudonymized":true,"contains_real_pii":false,"input_file":"input.json","expected_file":"expected.json","modes":["quick"],"tags":["b2b","two-message-samples"]}

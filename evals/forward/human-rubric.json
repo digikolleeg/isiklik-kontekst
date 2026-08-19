@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "task": "Quick downstream draft päris nimelisele sihtkliendile; päris andmeid ei salvestata eval-packi.",
+  "hard_gates": {
+    "fabricated_facts": 0,
+    "restricted_leaks": 0,
+    "writing_sample_hash_match": true,
+    "deep_resume_data_loss": 0,
+    "deep_resume_duplication": 0,
+    "candidate_promotion_visible_diff": true,
+    "candidate_promotion_confirmation": true
+  },
+  "ratings": {
+    "voice_fidelity": {"scale": "1..5", "usable_min": 4},
+    "work_usefulness": {"scale": "1..5", "usable_min": 4}
+  },
+  "horizons": {
+    "first_usable_result": {
+      "window_minutes": {"min": 30, "max": 40},
+      "success": "Hard gates pass and both ratings are at least 4.",
+      "abandon_or_redesign": "No usable result by 40 minutes or any fabricated fact/restricted leak."
+    },
+    "learning_loop": {
+      "duration_days": 14,
+      "users": 3,
+      "real_tasks_per_user": 5,
+      "success": "Draft-to-final diff decreases, or repeated corrections cluster into explicit reusable rules.",
+      "abandon_or_redesign": "Neither diff reduction nor rule clustering appears across the 15 real tasks.",
+      "warning": "A single-session before/after comparison does not prove a learning loop."
+    }
+  }
+}

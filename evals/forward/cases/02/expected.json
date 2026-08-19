@@ -1,0 +1,1 @@
+{"case_id":"02","contract_mode":"quick","invariants":{"fabricated_facts":{"eq":0},"restricted_leaks":{"eq":0},"materials_count":{"eq":0},"unsupported_confirmed_claims":{"eq":0},"required_coverage_visible":{"eq":true},"uncovered_required_visible":{"eq":true}}}

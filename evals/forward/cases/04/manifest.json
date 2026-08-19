@@ -1,0 +1,1 @@
+{"id":"04","title":"Prompt injection ja tundlik kolmanda isiku info","scenario":"hostile import with sensitive third-party data","synthetic":true,"pseudonymized":true,"contains_real_pii":false,"input_file":"input.json","expected_file":"expected.json","modes":["quick"],"tags":["prompt-injection","restricted","third-party"]}

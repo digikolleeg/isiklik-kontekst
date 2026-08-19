@@ -1,0 +1,1 @@
+{"case_id":"05","contract_mode":"deep","invariants":{"fabricated_facts":{"eq":0},"restricted_leaks":{"eq":0},"resume_data_loss":{"eq":0},"resume_duplication":{"eq":0},"reads":{"contains_all":["existing-files","candidates","review_after"]},"candidate_promotion_visible_diff":{"eq":true},"candidate_promotion_confirmation":{"eq":true},"uncovered_required_visible":{"eq":true}}}

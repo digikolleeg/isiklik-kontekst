@@ -1,0 +1,1 @@
+{"id":"03","title":"Emaili ja LinkedIni erinev hääl","scenario":"channel-specific voice","synthetic":true,"pseudonymized":true,"contains_real_pii":false,"input_file":"input.json","expected_file":"expected.json","modes":["quick"],"tags":["email","linkedin","channel-register"]}

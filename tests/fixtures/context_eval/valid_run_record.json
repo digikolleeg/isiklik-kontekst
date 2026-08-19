@@ -1,0 +1,32 @@
+{
+  "case_id": "01",
+  "contract_run": {
+    "mode": "quick",
+    "command": "kiire intervjuu",
+    "outputs": ["identity.md", "current-projects.md", "communication-style.md", "writing-samples.md"],
+    "metrics": {
+      "user_answers_after_import": 9,
+      "max_questions_per_turn": 1,
+      "max_deepeners_per_answer": 1,
+      "minutes": 35,
+      "verbatim_writing_samples": 2,
+      "owns_sections": [],
+      "coverage": ["offer_buyer", "icp_sector_size_region", "problem_trigger", "credibility_evidence", "message_purpose_cta", "forbidden_claims", "channel_register_length", "forbidden_mannerisms", "real_samples"]
+    },
+    "claims": [
+      {"status": "kinnitatud", "basis": "user-stated", "evidence_ids": []},
+      {"status": "toetatud", "basis": "derived", "evidence_ids": ["sample-01:observation-01", "sample-02:observation-01"]}
+    ],
+    "imports": [
+      {"id": "import-01", "treated_as": "data", "embedded_instructions_executed": false, "verbatim_samples_preserved": true, "sensitive_third_party": "restricted"}
+    ]
+  },
+  "results": {
+    "fabricated_facts": 0,
+    "restricted_leaks": 0,
+    "output_files": ["identity.md", "current-projects.md", "communication-style.md", "writing-samples.md"],
+    "verbatim_sample_count": 2,
+    "writing_sample_sha256": ["36b327e7764d3faa73c373df36ed70460c663c4b3ed213d8d70a10acb5404430", "a29193f101572994a68943dcf517be70d88de18fbfc153e1e07b977fa3de0bfa"],
+    "required_coverage": ["offer_buyer", "icp_sector_size_region", "problem_trigger", "credibility_evidence", "message_purpose_cta", "forbidden_claims", "channel_register_length", "forbidden_mannerisms", "real_samples"]
+  }
+}
