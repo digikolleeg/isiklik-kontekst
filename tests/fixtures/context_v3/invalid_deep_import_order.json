@@ -1,0 +1,17 @@
+{
+  "mode": "deep",
+  "writes": [
+    {"module": "D", "file": "communication-style.md", "section": "channel-registers"}
+  ],
+  "events": [
+    {"module": "D", "type": "write", "file": "communication-style.md", "section": "channel-registers"},
+    {"module": "D", "type": "import", "import_id": "import-01"}
+  ],
+  "imports": [
+    {
+      "id": "import-01",
+      "treated_as": "data",
+      "embedded_instructions_executed": false
+    }
+  ]
+}

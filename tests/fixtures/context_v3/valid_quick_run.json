@@ -1,0 +1,28 @@
+{
+  "mode": "quick",
+  "command": "kiire intervjuu",
+  "outputs": [
+    "identity.md",
+    "current-projects.md",
+    "communication-style.md",
+    "writing-samples.md"
+  ],
+  "metrics": {
+    "user_answers_after_import": 9,
+    "max_questions_per_turn": 1,
+    "max_deepeners_per_answer": 1,
+    "minutes": 35,
+    "verbatim_writing_samples": 2,
+    "owns_sections": [],
+    "coverage": ["offer_buyer", "icp_sector_size_region", "problem_trigger", "credibility_evidence", "message_purpose_cta", "forbidden_claims", "channel_register_length", "forbidden_mannerisms", "real_samples"]
+  },
+  "imports": [
+    {
+      "id": "import-01",
+      "treated_as": "data",
+      "embedded_instructions_executed": false,
+      "verbatim_samples_preserved": true,
+      "sensitive_third_party": "restricted"
+    }
+  ]
+}

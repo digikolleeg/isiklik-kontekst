@@ -1,0 +1,25 @@
+{
+  "mode": "quick",
+  "command": "vale käsk",
+  "outputs": [
+    "identity.md",
+    "current-projects.md",
+    "communication-style.md"
+  ],
+  "metrics": {
+    "user_answers_after_import": 11,
+    "max_questions_per_turn": 2,
+    "max_deepeners_per_answer": 2,
+    "minutes": 20,
+    "verbatim_writing_samples": 1,
+    "owns_sections": ["identity.md#identity-facts"],
+    "coverage": ["offer_buyer"]
+  },
+  "imports": [
+    {
+      "id": "import-01",
+      "treated_as": "instructions",
+      "embedded_instructions_executed": true
+    }
+  ]
+}

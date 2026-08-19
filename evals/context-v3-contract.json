@@ -1,0 +1,228 @@
+{
+  "version": "3.0.0",
+  "baseline": {
+    "head": "dea4a2c6f29c2e7561ed5c4f3b2f1069c99b0925",
+    "root_index_sha256": "6adead52bc9e6b4357255a8c671addb8a2be654c1e25b86006d74edd55c152e6",
+    "known_drift": [
+      "quick-count-3-vs-4",
+      "portfolio-count-10-vs-11"
+    ]
+  },
+  "layers": {
+    "profiles": [
+      "identity.md",
+      "role-and-responsibilities.md",
+      "current-projects.md",
+      "team-and-relationships.md",
+      "tools-and-systems.md",
+      "communication-style.md",
+      "goals-and-priorities.md",
+      "preferences-and-constraints.md",
+      "domain-knowledge.md"
+    ],
+    "evidence": [
+      "writing-samples.md",
+      "decision-log.md"
+    ]
+  },
+  "quick": {
+    "commands": ["töötoa intervjuu", "kiire intervjuu"],
+    "outputs": [
+      "identity.md",
+      "current-projects.md",
+      "communication-style.md",
+      "writing-samples.md"
+    ],
+    "max_user_answers_after_import": 10,
+    "questions_per_turn": 1,
+    "max_deepeners_per_answer": 1,
+    "target_minutes": {"min": 30, "max": 40},
+    "min_verbatim_writing_samples": 2,
+    "owns_sections": [],
+    "required_coverage": ["offer_buyer", "icp_sector_size_region", "problem_trigger", "credibility_evidence", "message_purpose_cta", "forbidden_claims", "channel_register_length", "forbidden_mannerisms", "real_samples"]
+  },
+  "claims": {
+    "statuses": [
+      "kinnitatud",
+      "toetatud",
+      "kandidaat"
+    ],
+    "supported_min_independent_evidence": 2,
+    "evidence_id_format": "<source-family>:<observation-id>",
+    "independence_key": "source-family",
+    "confirmed_rule": "user-universal-statement-only",
+    "single_observation_status": "kandidaat",
+    "markdown_format": "- <claim> <!-- claim: status=<status>; evidence=<evidence-id>,<evidence-id> -->"
+  },
+  "frontmatter": {
+    "required": [
+      "updated",
+      "review_after",
+      "sensitivity"
+    ],
+    "sensitivity_values": [
+      "exportable",
+      "restricted"
+    ],
+    "overrides": {
+      "team-and-relationships.md": "restricted"
+    }
+  },
+  "deep": {
+    "modules": {
+      "A": {
+        "name": "töö-tegelikkus",
+        "sections": {
+          "identity.md": [
+            "identity-facts",
+            "what-i-do",
+            "known-for"
+          ],
+          "role-and-responsibilities.md": [
+            "responsibilities",
+            "rhythms",
+            "decisions",
+            "outputs",
+            "reporting"
+          ],
+          "current-projects.md": [
+            "active-projects-and-status",
+            "priority-order",
+            "bottleneck-and-delegable-work"
+          ],
+          "tools-and-systems.md": [
+            "core-stack",
+            "data-sources",
+            "integrations",
+            "evaluating",
+            "discarded"
+          ]
+        }
+      },
+      "B": {
+        "name": "turg-ja-ekspertiis",
+        "sections": {
+          "current-projects.md": [
+            "icp-and-best-customers",
+            "offer-and-evidence",
+            "trigger",
+            "ebia-sector-size-region",
+            "message-purpose-cta",
+            "forbidden-claims",
+            "objections-optional"
+          ],
+          "domain-knowledge.md": [
+            "expertise",
+            "terminology",
+            "domain-context",
+            "frameworks",
+            "learning-zones"
+          ]
+        }
+      },
+      "C": {
+        "name": "otsused-ja-piirid",
+        "sections": {
+          "goals-and-priorities.md": [
+            "current-goals",
+            "long-term-goals",
+            "tradeoffs",
+            "non-goals",
+            "success-criteria"
+          ],
+          "preferences-and-constraints.md": [
+            "hard-rules",
+            "preferences",
+            "constraints",
+            "delegation"
+          ],
+          "decision-log.md": [
+            "decisions",
+            "reasoning",
+            "uncertainty"
+          ]
+        }
+      },
+      "D": {
+        "name": "hääl-ja-inimesed",
+        "starts_with_import": true,
+        "sections": {
+          "communication-style.md": [
+            "general-style",
+            "channel-registers",
+            "formatting",
+            "avoid",
+            "signatures"
+          ],
+          "writing-samples.md": [
+            "samples",
+            "sample-metadata"
+          ],
+          "team-and-relationships.md": [
+            "people",
+            "relationship-context",
+            "agent-guidance"
+          ]
+        }
+      }
+    }
+  },
+  "deep_workflow": {
+    "reads": ["existing-files", "candidates", "review_after"],
+    "shows_coverage": true,
+    "saves_after_each_module": true,
+    "resumes": true,
+    "promotion_requires": ["visible-diff", "confirmation"],
+    "uncovered_required_visible": true
+  },
+  "candidate_ledger": {
+    "required": ["id", "target_file", "target_section", "claim", "evidence_ids", "scope", "expires", "status"]
+  },
+  "imports": {
+    "treatment": "data",
+    "execute_embedded_instructions": false,
+    "preserve_verbatim_samples": true,
+    "sensitive_third_party": "restricted"
+  },
+  "bundles": {
+    "directory": "portfolio/bundles",
+    "kind": "projection",
+    "exclude_candidates": true,
+    "exclude_restricted_by_default": true,
+    "required": {
+      "client-outreach.md": {
+        "sources": [
+          "identity.md",
+          "current-projects.md",
+          "communication-style.md",
+          "writing-samples.md"
+        ],
+        "sensitivity": "exportable"
+      },
+      "client-research.md": {
+        "sources": [
+          "identity.md",
+          "current-projects.md",
+          "domain-knowledge.md"
+        ],
+        "sensitivity": "exportable"
+      },
+      "content-writer.md": {
+        "sources": [
+          "identity.md",
+          "communication-style.md",
+          "writing-samples.md",
+          "domain-knowledge.md"
+        ],
+        "sensitivity": "exportable"
+      }
+    }
+  },
+  "frozen_quick": {
+    "path": "quick-interview.md",
+    "manifest": "evals/frozen-quick.json",
+    "algorithm": "sha256",
+    "sha256_required": true,
+    "published_sha256": null
+  }
+}

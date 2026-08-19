@@ -1,0 +1,7 @@
+{
+  "mode": "deep",
+  "writes": [
+    {"module": "A", "file": "goals-and-priorities.md", "section": "tradeoffs"}
+  ],
+  "imports": []
+}

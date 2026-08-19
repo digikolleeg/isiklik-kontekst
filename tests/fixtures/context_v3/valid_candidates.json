@@ -1,0 +1,12 @@
+[
+  {
+    "id": "cand-001",
+    "target_file": "goals-and-priorities.md",
+    "target_section": "current-goals",
+    "claim": "Kasv on praegu oluline.",
+    "evidence_ids": ["interview:01"],
+    "scope": "2026 Q3",
+    "expires": "2026-11-17",
+    "status": "kandidaat"
+  }
+]

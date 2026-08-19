@@ -1,0 +1,30 @@
+{
+  "mode": "deep",
+  "workflow": {
+    "read_inputs": ["existing-files", "candidates", "review_after"],
+    "coverage_shown": true,
+    "saved_modules": ["A", "B", "C", "D"],
+    "resumed": true,
+    "promotions": [{"visible_diff": true, "confirmed": true}],
+    "uncovered_required_visible": true
+  },
+  "writes": [
+    {"module": "A", "file": "identity.md", "section": "identity-facts"},
+    {"module": "B", "file": "current-projects.md", "section": "icp-and-best-customers"},
+    {"module": "C", "file": "goals-and-priorities.md", "section": "tradeoffs"},
+    {"module": "D", "file": "communication-style.md", "section": "channel-registers"}
+  ],
+  "events": [
+    {"module": "D", "type": "import", "import_id": "import-01"},
+    {"module": "D", "type": "write", "file": "communication-style.md", "section": "channel-registers"}
+  ],
+  "imports": [
+    {
+      "id": "import-01",
+      "treated_as": "data",
+      "embedded_instructions_executed": false,
+      "verbatim_samples_preserved": true,
+      "sensitive_third_party": "restricted"
+    }
+  ]
+}

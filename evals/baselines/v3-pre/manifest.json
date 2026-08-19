@@ -1,0 +1,26 @@
+{
+  "name": "v3-pre",
+  "head": "dea4a2c6f29c2e7561ed5c4f3b2f1069c99b0925",
+  "branch_at_capture": "feat/context-v3",
+  "root_index_sha256": "6adead52bc9e6b4357255a8c671addb8a2be654c1e25b86006d74edd55c152e6",
+  "known_drift": {
+    "quick-count-3-vs-4": {
+      "expected": 4,
+      "observed": [3, 4]
+    },
+    "portfolio-count-10-vs-11": {
+      "expected": {
+        "profiles": 9,
+        "evidence": 2,
+        "total": 11
+      },
+      "observed_totals": [10, 11]
+    }
+  },
+  "frozen_quick": {
+    "path": "quick-interview.md",
+    "status": "missing-before-integration",
+    "sha256": null
+  },
+  "test_harness_at_capture": false
+}
