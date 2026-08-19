@@ -186,6 +186,55 @@ def _valid_date(value):
         return False
 
 
+def _is_closing_fence(line, marker, minimum):
+    indent = len(line) - len(line.lstrip(" "))
+    if indent > 3:
+        return False
+    candidate = line[indent:]
+    count = 0
+    while count < len(candidate) and candidate[count] == marker:
+        count += 1
+    return count >= minimum and candidate[count:].strip() == ""
+
+
+def _scan_fenced_text(text):
+    non_fenced = []
+    samples = []
+    marker = None
+    minimum = 0
+    capture = False
+    buffer = []
+    opening = re.compile(r"^ {0,3}(?P<fence>`{3,}|~{3,})(?P<info>.*)$")
+    for line_number, raw_line in enumerate(text.splitlines(keepends=True), start=1):
+        line = raw_line.rstrip("\r\n")
+        if marker is None:
+            match = opening.match(line)
+            if match:
+                fence = match.group("fence")
+                marker = fence[0]
+                minimum = len(fence)
+                info = match.group("info").strip().split()
+                capture = bool(info and info[0].lower() == "text")
+                buffer = []
+            else:
+                non_fenced.append((line_number, line))
+            continue
+        if _is_closing_fence(line, marker, minimum):
+            if capture:
+                samples.append("".join(buffer))
+            marker = None
+            minimum = 0
+            capture = False
+            buffer = []
+        elif capture:
+            buffer.append(raw_line)
+    return non_fenced, samples
+
+
+def extract_verbatim_samples(text):
+    return _scan_fenced_text(text)[1]
+
+
 def validate_profile(filename, text, contract):
     issues = []
     metadata = parse_frontmatter(text)
@@ -208,7 +257,7 @@ def validate_profile(filename, text, contract):
 
     statuses = set(_get(contract, "claims", "statuses", default=[]))
     minimum = _get(contract, "claims", "supported_min_independent_evidence", default=2)
-    for line_number, line in enumerate(text.splitlines(), start=1):
+    for line_number, line in _scan_fenced_text(text)[0]:
         if not line.startswith("- "):
             continue
         match = CLAIM_RE.match(line)

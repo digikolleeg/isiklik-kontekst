@@ -232,6 +232,27 @@ class ProfileRuleTests(unittest.TestCase):
         text = (FIXTURES / "invalid_generic_source.md").read_text(encoding="utf-8")
         self.assertIn("evidence_family", {issue.code for issue in checker.validate_profile("identity.md", text, valid_contract())})
 
+    def test_verbatim_fenced_sample_bullets_are_not_claims_and_extract_byte_exactly(self):
+        text = (FIXTURES / "writing_samples_fenced.md").read_text(encoding="utf-8")
+        self.assertEqual(checker.validate_profile("writing-samples.md", text, valid_contract()), [])
+        self.assertTrue(hasattr(checker, "extract_verbatim_samples"), "fenced sample extractor not implemented")
+        expected = [
+            "- esimene paljas bullet\n- teine paljas bullet\n- kolmas paljas bullet\n",
+            "- üks muutmata rida\n- kaks muutmata rida\n- kolm muutmata rida\n",
+        ]
+        extracted = checker.extract_verbatim_samples(text)
+        self.assertEqual(extracted, expected)
+        self.assertEqual(
+            [hashlib.sha256(sample.encode("utf-8")).hexdigest() for sample in extracted],
+            [hashlib.sha256(sample.encode("utf-8")).hexdigest() for sample in expected],
+        )
+
+    def test_unfenced_bullet_still_requires_claim_metadata(self):
+        text = (FIXTURES / "writing_samples_fenced.md").read_text(encoding="utf-8")
+        text = text.replace(" <!-- claim: status=kinnitatud; basis=user-stated -->", "", 1)
+        issues = [issue for issue in checker.validate_profile("writing-samples.md", text, valid_contract()) if issue.code == "claim_missing_status"]
+        self.assertEqual(len(issues), 1)
+
 
 class RunRuleTests(unittest.TestCase):
     def load_run(self, name):
