@@ -1,40 +1,56 @@
-# Kuidas ühendada: Kasuta oma portfooliot Claude Projects'is
+# Ühendamine: Claude Projects
+
+> **Vabatahtlik samm.** Tuleb pärast seda, kui neli faili on olemas. Vt [`wiring/README.md`](README.md).
 
 ## Mida see teeb
 
-Claude Projects lubab sul manustada faile, mis püsivad üle kõigi selles projektis peetavate vestluste. Kui sa lisad oma portfooliofailid projekti, siis algab iga vestlus nii, et Claude teab juba, kes sa oled, kuidas sa töötad ja mille kallal sa töötad.
+Claude Projects lubab manustada faile, mis püsivad üle kõigi selle projekti vestluste. Kui sa lisad oma kontekstifailid projekti, algab iga vestlus nii, et Claude teab juba, kes sa oled ja mille kallal sa töötad.
 
-See on kõige lihtsam viis asju käima saada — ei mingit seadistamist, servereid ega konfigureerimist. Lihtsalt lae failid üles.
+Lihtsaim püsiv ühendus, mis üldse olemas on: ei mingit serverit, ei konfiguratsiooni. Lae failid üles.
 
-## Kuidas see töötab
+## Kuidas
 
-1. Loo uus Claude Project (või ava olemasolev).
-2. Lisa oma portfooliofailid projekti teadmusbaasi (knowledge base).
-3. Nüüd on igal selles projektis toimuval vestlusel ligipääs sinu täielikule kontekstile.
+1. Loo uus Claude Project või ava olemasolev.
+2. Lisa kontekstifailid projekti teadmusbaasi.
+3. Kirjuta projekti juhistesse, kuidas Claude neid kasutama peab (allpool).
 
 ## Milliseid faile lisada
 
-Sa ei pea lisama kõiki kümmet. Vali failid vastavalt projekti eesmärgile:
+Ära lisa kõiki. Vali projekti eesmärgi järgi.
 
-**Üldise tööassistendi projekti jaoks:** `identity.md`, `role-and-responsibilities.md`, `current-projects.md`, `communication-style.md`, `preferences-and-constraints.md`
+| Projekt | Failid |
+|---|---|
+| **Kontaktivõtt ja müük** | `identity.md`, `current-projects.md`, `communication-style.md`, `writing-samples.md` |
+| **Sisukirjutamine** | `identity.md`, `communication-style.md`, `writing-samples.md`, `domain-knowledge.md` |
+| **Üldine tööassistent** | `identity.md`, `role-and-responsibilities.md`, `current-projects.md`, `preferences-and-constraints.md` |
+| **Strateegiline nõuandja** | `identity.md`, `goals-and-priorities.md`, `current-projects.md`, `decision-log.md` |
+| **Kohtumisteks ettevalmistus** | `identity.md`, `current-projects.md`, `team-and-relationships.md` → **kogu projekt on siis `restricted`** |
 
-**Kohtumisteks ettevalmistamise projekti jaoks:** `identity.md`, `team-and-relationships.md`, `current-projects.md`
+Esimene rida on täpselt kiire intervjuu väljund. Kui sa tegid ainult kiire intervjuu, on sul juba täisvarustuses müügiprojekt.
 
-**Kirjutamisprojekti jaoks:** `identity.md`, `communication-style.md`, `domain-knowledge.md`
+Iga kirjutav projekt vajab `writing-samples.md`-i. Ilma näideteta järgib Claude reegleid ja kõlab ikkagi võõralt — reeglid ütlevad, mida vältida, näited näitavad, mida teha.
 
-**Strateegilise planeerimise projekti jaoks:** `identity.md`, `goals-and-priorities.md`, `current-projects.md`, `decision-log.md`
+## Projekti juhised
 
-**"Teab minu kohta kõike" projekti jaoks:** Kõik kümme faili.
+Kleebi custom instructions lahtrisse midagi sellist:
 
-## Nõuanded
+```
+Sul on ligipääs minu kontekstifailidele. Kasuta neid vastuste kujundamisel, aga ära viita neile otse, kui ma ei palu.
 
-- Claude Projects'il on teadmusbaasi mahupiirang. Kõik kümme faili peaksid sinna ilusti ära mahtuma, aga kui laed üles ka muid dokumente, prioriseeri kõige olulisemaid portfooliofaile.
-- Lisa projekti juhistesse midagi sellist: "Sul on ligipääs minu isikliku konteksti portfooliole. Kasuta seda oma vastuste kujundamisel, aga ära viita sellele otse, kui ma just ei palu. Lihtsalt tunne mind." See hoiab konteksti aktiivsena, ilma et Claude pidevalt seletaks, mida ta teab.
-- Kui sa uuendad mingit portfooliofaili (projektid muutuvad, prioriteedid nihkuvad), siis uuenda seda faili ka oma Claude Project'is. Aegunud kontekst on hullem kui puuduv kontekst.
-- Sa võid erinevate projektide jaoks kasutada erinevaid failide komplekte. Sinu kirjutamisassistent ei vaja sinu otsuste logi. Sinu strateegiline nõuandja ei vaja su tööriistade nimekirja.
+Enne kui kirjutad midagi minu nimel, loe communication-style.md ja writing-samples.md. Järgi reegleid ja matki näidete mustreid — lause pikkust, alustamist, struktuuri. Ära kopeeri näidet sõnasõnalt.
+
+Ära väida ühtegi fakti, numbrit ega kliendinime, mida failides ei ole. Kui current-projects.md sisaldab sektsiooni "Mida ei tohi väita", on need read kõvad keelud.
+```
 
 ## Piirangud
 
-- Claude Projects'is olevad failid on staatilised üleslaadimised. Kui tahad automaatseid uuendusi portfoolio muutumisel, kasuta hoopis MCP lähenemist.
-- Iga Claude Project on eraldi. Kui sul on viis projekti, pead sa failid igasse ühte eraldi lisama.
-- See töötab ainult Claude'iga. Teiste AI-tööriistade jaoks vaata teisi "Kuidas ühendada" juhendeid.
+- **Failid on staatilised koopiad.** Kui portfooliofail muutub, laed sa selle igasse projekti eraldi uuesti üles. Aegunud kontekst on halvem kui puuduv: puuduva puhul Claude küsib, aegunu puhul ta ei küsi.
+- **Iga projekt on eraldi.** Viis projekti tähendab viit üleslaadimist.
+- **Kandidaat-väited ei kuulu siia.** `portfolio/_candidates.md` ei lähe ühessegi projekti. Kui mõni fail sisaldab `kandidaat`-märkega ridu, on need agendi jaoks oletused; ta ei tohi neile kindla väitena toetuda.
+- **`team-and-relationships.md` teeb projekti `restricted`-iks.** Hoia kohtumiste ettevalmistus eraldi projektis, mitte samas, kus sa väljaminevaid sõnumeid kirjutad.
+
+## Test
+
+Küsi projektis: *"Koosta kahelauseline sissejuhatus uuele potentsiaalsele kliendile minu häälega."*
+
+Kui see kõlab sinuna ilma parandusteta, ühendus töötab. Kui ei, ei ole viga ühenduses — vaata `communication-style.md` ja `writing-samples.md` üle. [RUBRIC.md](../RUBRIC.md) värav 1 ütleb, kust otsida.

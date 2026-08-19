@@ -156,4 +156,6 @@ Heigo never commits personal portfolio content to this public repo. His real con
 
 - Lives at `skills/konteksti-looja/`
 - Installation: see that folder's `README.md`
-- Workshop mode: say *"töötoa intervjuu"* — interviews for 4 core files (identity, communication-style, writing-samples, current-projects) in ≤30 min
+- Quick mode: say *"töötoa intervjuu"* or *"kiire intervjuu"* — exactly four files in this order (`identity.md`, `current-projects.md`, `communication-style.md`, `writing-samples.md`), 30–40 min
+- Deep mode: four resumable modules (A töö-tegelikkus, B turg-ja-ekspertiis, C otsused-ja-piirid, D hääl-ja-inimesed) covering the full 9 profiles + 2 evidence files. Not "after the workshop" — it reads existing files and extends them.
+- Contract and section ownership: `evals/context-v3-contract.json`; human-readable map: `portfolio/context-map.md`

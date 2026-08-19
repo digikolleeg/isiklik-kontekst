@@ -1,186 +1,128 @@
-# Quick Start — AI müügiassistent 45–60 minutiga
+# Kiire algus — töötav AI-assistent ühe istumisega
 
-Selles juhendis annad Claude'ile konteksti oma ettevõtte ja hääle kohta ning paned ta kirjutama esimese kontaktivõtu emaili konkreetsele potentsiaalsele kliendile. Lõpptulemus: kolm täidetud markdown-faili sinu kohta + Claude Desktopis töötav Project, mis kirjutab sinu häälega.
+Sa annad AI-le konteksti enda ja oma ettevõtte kohta, ja paned ta tegema ühte päris tööd, mida sa niikuinii kordad.
 
-Ajakulu: 45–60 minutit.
-Vaja: üks päris sihtklient meeles + üks teedest allpool.
-
----
-
-## Vali oma tee
-
-**Tee A — Agentne (soovitatav):** Claude Desktop + Konteksti-looja Skill + filesystem Connector. Skill viib intervjuu läbi ja **kirjutab failid otse sinu kausta**. Sa lihtsalt vastad küsimustele ja vaatad, kuidas failid tekivad. Vajalik: Claude Pro/Max plaan + Claude Desktop installitud.
-
-**Tee B — Manuaalne:** mis tahes AI chat (Claude.ai, ChatGPT vms). Sa kopeerid intervjuu-prompti, vastad küsimustele ja **kopeerid failide sisu ise enda kausta**. Töötab tasuta plaaniga. Aeglasem, aga universaalne.
-
-Mõlemad teed annavad sama lõpptulemuse: kolm täidetud faili sinu vault-kaustas + Claude Desktop Project, mis kirjutab sinu hääles. Samm 3 ja edasi on mõlema tee puhul sama.
+**Ajakulu:** 30–40 minutit intervjuud + umbes 15 minutit ülejäänut.
+**Vaja:** üks päris sihtklient meeles. Ei midagi muud.
 
 ---
 
-## Tee A — Agentne (Konteksti-looja Skill)
+## Enne kui alustad: vali töö
 
-### A1. Seadista Connector (~3 min)
+Ära alusta failidest. Alusta tööst.
 
-1. Loo arvutis kaust, kus su vault hakkab elama. Soovitus: `~/isiklik-kontekst/portfolio/`. Saad kasutada ka olemasolevat kausta või selle repo `portfolio/` kausta.
-2. Ava Claude Desktop → Settings → Connectors → Add filesystem connector → vali ülaltoodud kaust.
-3. Kontroll: küsi Claude'ilt "Kas sa näed minu vault-kausta?". Ta peaks nimetama kausta tee.
+Vali **üks asi, mida sa kordad** ja mis võtab aega:
 
-Kui Connector seadistus jääb hätta, vaata `wiring/mcp-resource.md` või liigu üle Teele B.
+- külmad kontaktimeilid potentsiaalsetele klientidele
+- järelkajad, mis jäävad kirjutamata
+- LinkedIni postitused
+- pakkumiste kaaskirjad
 
-### A2. Installeeri Konteksti-looja Skill (~1 min)
+Hoia see meeles kogu intervjuu vältel. Selle järgi otsustad lõpus, kas asi töötab.
 
-1. Klooni või lae alla see repo (`digikolleeg/isiklik-kontekst`).
-2. Claude Desktop → Settings → Skills → Add skill → vali kaust `skills/konteksti-looja/`.
-3. Kontroll: uues vestluses ütle "Mis Skill-id mul installitud on?". Konteksti-looja peaks loendis olema.
-
-### A3. Käivita intervjuu (~30 min)
-
-Ava uus Claude Desktop vestlus ja ütle:
-
-> *"Alustame intervjuud."*
-
-Skill küsib sinult järjest küsimusi kolme faili kohta (identity, communication-style, current-projects). Kui üks fail on valmis, näitab Skill mustandi ja kirjutab faili **otse sinu vault-kausta**. Sa näed Finder'is või Obsidian'is, kuidas failid tekivad.
-
-Kui Connector jooksis kokku või kirjutamine ei tööta, langeb Skill tagasi koopia-kleebi režiimi (näitab faili sisu vestluses, sa salvestad ise). See on disainitud nii, et asi alati lõpule jõuab.
-
-**Liigu otse 3. sammu juurde.**
+Ülejäänud juhend eeldab, et valisid kontaktimeili. Muu töö puhul on sammud samad, ainult 3. sammu agendipakk on teine.
 
 ---
 
-## Tee B — Manuaalne (kopeeri-kleebi)
+## 1. samm — Tee intervjuu (30–40 min)
 
-### B1. Lae Claude'i intervjueerija (~35 min)
+Kaks rada. **Sama tulemus, sama neli faili.** Vali see, mis sul käepärast on.
 
-Ava Claude Desktop (või claude.ai veebis). Alusta uut vestlust. Kopeeri allolev tekst ja kleebi see esimese sõnumina. Seejärel kirjuta: *"Alustame intervjuud."*
+### Rada A — Skilliga (kiirem, kui sul on Claude Desktop)
 
-Claude küsib sinult järgemööda küsimusi kolme faili kohta: kes sa oled, kuidas sa kirjutad ja mida sa parasjagu teed. Kui mingi fail on valmis, salvesta see endale arvutisse (vt B2).
+Skill viib intervjuu läbi ja kirjutab failid ise valmis.
 
-#### Intervjueerija süsteemiprompt — kopeeri kogu allolev plokk
+1. Installi Konteksti-looja Skill — juhend: [skills/konteksti-looja/README.md](skills/konteksti-looja/README.md).
+2. Ava uus vestlus ja ütle: **"töötoa intervjuu"**.
+3. Vasta küsimustele. Skill näitab iga faili mustandit ja küsib, mis on valesti.
 
-```
-Sa oled isikliku konteksti-portfoolio intervjueerija. Su ülesanne on küsitleda kasutajat ja koostada talle kolm markdown-faili — identity.md, communication-style.md ja current-projects.md — mis kirjeldavad kes ta on, kuidas ta kirjutab ja kelle heaks ta parasjagu töötab.
+Kui sa tööd Cowork-kaustas teed, kirjutab Skill failid otse sinna ja sa näed neid tekkimas. Kui ei, näitab ta failide sisu vestluses ja sa salvestad need ise. Mõlemad toimivad.
 
-Üldreeglid:
-- Üks küsimus korraga. Mitte kunagi liitküsimusi ja mitte kunagi nimekirja.
-- Sa ei vasta muudele küsimustele. Kui kasutaja küsib midagi väljapool intervjuud, ütle seda ja suuna ta tagasi.
-- Sa ei kiida ega kommenteeri vastuseid — sa oled intervjueerija, mitte mentor.
-- Kui kasutaja räägib midagi, mis sobib hilisemasse faili, jäta meelde ja kasuta seda. Ära ütle "selle võtame hiljem".
-- Iga fail olgu lühike — üks või maksimum kaks lehekülge, mitte viis. Tihe sisu töötab paremini.
-- Sõnasta fail kasutaja keeles. Kui ta kirjutab otse, on fail otse. Kui ta on formaalne, on fail formaalne.
-- Eesti keeles kirjutades väldi: estonglishit ja inglise keelest tõlgitud kõlavaid fraase. Kirjuta otse, lühidalt, ärilikult.
-- Iga faili järel näita mustandit ja küsi: "Loe läbi ja ütle, mis ei kõla õigesti või on lausa vale."
+### Rada B — Ilma installimata
 
-────────────────────────────────────
+Töötab suvalises AI-vestluses, ka tasuta plaaniga.
 
-FAIL 1: identity.md (~5–10 min)
+1. Ava [quick-interview.md](quick-interview.md) selle repo juurest.
+2. Kopeeri kogu fail ja kleebi see uue vestluse esimeseks sõnumiks.
+3. Kirjuta: **"kiire intervjuu"**.
+4. Vasta küsimustele. Salvesta iga valmis fail ise arvutisse.
 
-Eesmärk: kes sa oled, mida sa teed, mille pärast inimesed sinu juurde tulevad. Lühike fail — paar rida fakte ja üks tugev lõik.
+> `quick-interview.md` on külmutatud fail: ta ei muutu su jala alt ära, kui sa oled intervjuu juba alustanud.
 
-Küsi järjekorras:
-1. Mis su nimi ja praegune roll on?
-2. Millises ettevõttes sa töötad?
-3. Kui peaksid sõbrale õhtusöögil seletama, mida sa tegelikult iga päev teed — mitte ametinimetust, vaid päris tegevust — mis sa ütleksid?
-4. Mille pärast inimesed sinu juurde tulevad? Kus keegi ütleb "selle koha pealt küsi [su nimi] käest"?
+### Mida intervjuu sinult ootab
 
-Kui vastused on käes (tavaliselt 3–4 küsimuse järel), koosta fail: pealkiri "# Identity", lühike faktidega sektsioon (nimi, roll, ettevõte) ja üks lõik selle kohta, mida ta teeb ja mille poolest tuntud on.
+Enne küsimusi palub ta sul olemasolev materjal sisse visata — ettevõtte tutvustus, veebilehe tekst, paar päris meili või postitust. Mida rohkem sa annad, seda vähem ta küsib.
 
-────────────────────────────────────
-
-FAIL 2: communication-style.md (~10–15 min)
-
-Eesmärk: kuidas kasutaja kirjutab, et iga AI tema nimel kirjutatud asi kõlaks tema nägu, mitte üldise AI nägu. See on intervjuu kõige olulisem osa — kui see fail on kehva, kõlavad kõik tulevased emailid kehvalt.
-
-Küsi:
-1. Kui sa kirjutad kliendile emaili, kas oled pigem lühike ja konkreetne või annad rohkem konteksti ja tausta?
-2. Kui formaalne sinu kirjutamine tööasjus on? Kasutad teietamist (Teie) või sinatamist (sina)? Kas see sõltub adressaadist?
-3. Mis sind häirib, kui loed midagi, mis on sinu nimel kirjutatud? Mis paneb mõtlema "see ei kõla nagu mina"?
-4. Kas on konkreetseid sõnu või fraase, mida sa ise kasutad — asju, mida inimesed sinu hääleks tunneksid?
-5. Kas on sõnu või fraase, mida sa väldid? Asju, mis kõlavad võltsilt või korporatiivselt?
-6. Kuidas sa tavaliselt emaili üles ehitad — kohe palve juurde, kõigepealt taust, punktid või lõigud?
-7. Jaga mõni näide oma kirjutamisstiilist. Mõni email, sotsiaalmeedia postitus või artikkel.
-
-Kui sul on 4–5 vastust koos konkreetsete näidetega, koosta fail. Pealkiri "# Communication Style", sektsioonid: Üldine stiil, Mida väldin, Mida kasutan, Vorming, Register (sina/Teie). Vajalik on konkreetsus, mitte üldsõnalisus — kui vastus oli ähmane, küsi näidet enne kui koostad.
-
-────────────────────────────────────
-
-FAIL 3: current-projects.md (~10–15 min)
-
-Eesmärk: mida kasutaja parasjagu teeb ja kelle heaks. Selle põhjal teab Claude, mis on tema toode/teenus ja kellele ta seda müüb.
-
-Küsi:
-1. Millega sa parasjagu kõige aktiivsemalt tegeled? Loetle ettevõtted, tooted või projektid.
-2. [Iga projekti kohta:] Mis see lühidalt on? Mis seisus see on (algfaasis, töös, lõpetamas, peatunud)?
-3. Mis on sinu roll selles?
-4. Kellega sa selle kallal töötad?
-5. Kellele sa seda müüd? Kes on tüüpiline klient — roll, ettevõtte suurus, mis probleem nendel on mida sinu lahendus lahendab?
-6. Kuidas need projektid prioriteedi järgi reastuvad? Mis on praegu kõige tähtsam?
-
-Kui kasutaja on katnud kõik tema mainitud projektid (eriti müügi sihtkliendi info), koosta fail. Iga projekt eraldi sektsioon: nimi, kirjeldus, seis, prioriteet, sihtklient. Müügi tarbeks on sihtklient kõige tähtsam — kui see jäi ähmaseks, küsi täpsemalt enne kui koostad.
-
-────────────────────────────────────
-
-Kui kõik kolm faili on valmis ja kasutaja on need heaks kiitnud, ütle: "Meil on nüüd kolm faili. Salvestame need arvutisse failinimedega identity.md, communication-style.md ja current-projects.md. Järgmise sammu kohta on juhendis (Samm 2 ja edasi)."
-```
-
-### B2. Salvesta failid käsitsi (~2 min)
-
-Kui Claude on iga faili koostanud ja sa oled heaks kiitnud, kopeeri faili sisu ja salvesta oma arvutisse. Loo kuhugi kaust (näiteks `~/isiklik-kontekst/portfolio/` või kui kloonisid selle repo, siis `portfolio/` repo sees) ja salvesta kolm faili sinna:
-
-- `identity.md`
-- `communication-style.md`
-- `current-projects.md`
+**Valmis kiire intervjuu vajab vähemalt kaht sõnasõnalist näidet sinu tekstist.** Mitte ümberjutustust ega poleeritud „Meist“ teksti. Päris saadetud meil, päris postitus. Enne talletamist näitab intervjuu sulle, millised kliendinimed ja tundlikud numbrid ta asendaks; sina kinnitad redaktsiooni. Kui tahad need alles jätta, märgitakse `writing-samples.md` fail `restricted`. Kui sul näiteid veel pole, teeb intervjuu kaks kalibreerimismustandit ja talletab ainult sinu parandatud versioonid.
 
 ---
 
-## 3. Samm — Pane Claude Desktopis kokku (~5 min) — mõlemad teed
+## 2. samm — Sul on neli faili
 
-1. Ava Claude Desktop.
-2. Loo uus Project — nimeta see näiteks "Minu äri" või "Minu müügiassistent".
-3. Lisa Projecti juurde fail-juurdepääs (`+ Add files` või kausta lisamine) ja vali eelmistes sammudes loodud kaust. Claude saab nüüd igas Projecti vestluses kontekstina sinu kolme faili.
-4. Lisa Projecti custom instructions sektsiooni järgmine tekst:
+| Fail | Mida ta agendile ütleb |
+|---|---|
+| `identity.md` | kes sa oled |
+| `current-projects.md` | mida sa müüd, kellele, mis päästikul, otsingu kolmik sektor/suurus/piirkond, ja mida **ei tohi** väita |
+| `communication-style.md` | kuidas sa kirjutad |
+| `writing-samples.md` | kuidas sa päriselt kõlad |
 
-```
-Sa oled kasutaja müügiassistent. Sul on kolm faili konteksti: identity.md (kes kasutaja on), communication-style.md (kuidas ta kirjutab), current-projects.md (mida ta müüb ja kellele).
+Hoia neid ühes kaustas. Nimed peavad olema täpselt need — agendipakid otsivad neid nime järgi.
 
-Kui kasutaja küsib müügisõnumit, järgi seda voogu:
-1. Loe kontekstifailid läbi ja võta sealt: kasutaja nimi, hääl/register, toode/teenus, sihtklient.
-2. Küsi kasutajalt sihtkliendi konkreetsed andmed: nimi, ettevõte, mis sa neist tead, mis on selle kontaktivõtu eesmärk.
-3. Koosta lühike, otsekohene email (8–12 lauset) sihtkliendi keeles ja kasutaja hääles. Järgi rangelt communication-style.md reegleid.
-4. Pärast emaili too välja 1–2 lauset selle kohta, miks tegid teatud valikuid (sõnastus, struktuur, kõnetlemise viis), et kasutaja saaks iteratsiooni teha.
-
-Eesti keelt kirjutades väldi: estonglishit ja inglise keelest tõlgitud kõlavaid fraase. Kirjuta otse ja ärilikult. Vali register (sina/Teie) sihtkliendi ja konteksti järgi — kahtluse korral kasutaja communication-style.md järgi.
-
-Kui sa pole milleski kindel (näiteks sihtkliendi tausta osas), küsi enne kirjutamist, ära paku.
-```
-
-> Märkus: see custom instructions tekst põhineb `portfolio/bundles/client-outreach.md` raamistikul — kui tahad seda hiljem rikastada, kasuta seda lähtepunktiks.
+Loe failid korra läbi. Paranda kohe, mis on valesti: intervjuu järel on see viie minuti töö, kuu aja pärast on see arheoloogia.
 
 ---
 
-## 4. Samm — Esimene müügiemail (~10 min) — mõlemad teed
+## 3. samm — Anna agendile päris ülesanne (~10 min)
 
-Ava Projecti vestlus. Kirjuta:
+1. Ava `portfolio/bundles/client-outreach.md`.
+2. Kontrolli failide päisest `sensitivity` väärtust. Kleebi oma nelja faili sisu vastavatesse kohtadesse (`[[IDENTITY]]`, `[[PROJECTS]]`, `[[VOICE]]`, `[[SAMPLES]]`). Pakis on kirjas, mis kuhu läheb. Kui kasvõi üks fail on `restricted`, on ka kogu kokku pandud pakk `restricted`: kasuta seda ainult enda valitud privaatses agendis ja ära jaga.
+3. Kleebi kokku pandud tekst agendi süsteemipromptiks — Claude Projecti custom instructions, Custom GPT, Gemini Gem, ükskõik mis.
+4. Küsi ühe **päris** sihtkliendi kohta sõnum:
 
-> *"Koosta müügiemail [sihtkliendi nimi] (firma: [firma nimi])."*
+> *"Koosta kontaktimeil [nimi], firma [firma]. Eesmärk: [mida sa tahad]."*
 
-Claude küsib täpsustavaid küsimusi sihtkliendi kohta (mis sa neist juba tead, mis on kontaktivõtu konkreetne eesmärk, kas on midagi, mille kohta tahad viidata). Vasta lühidalt.
+Väljamõeldud sihtklient ei ütle sulle midagi. Võta keegi, kellele sa võiksid täna päriselt kirjutada.
 
-Claude annab seejärel emaili mustandi + paar sõna selgituseks. Loe see läbi oma communication-style.md silmadega — kas kõlab sinu nägu? Kui ei, ütle Claude'ile, mis ei tööta, ja palu uuesti.
+---
 
-Kui email kõlab sinu nägu, lisa veel:
-> *"Nüüd LinkedIn DM samale inimesele."*
-> *"Nüüd järellaine-email, kui ta nädalaga ei vasta."*
+## 4. samm — Enne ja pärast (~5 min)
 
-Kolm artefakti, üks kontekst.
+See on ainus kontroll, mis loeb.
+
+1. Ava **uus vestlus ilma igasuguse kontekstita**. Küsi sama sõnum sama sihtkliendi kohta.
+2. Pane kaks tulemust kõrvuti.
+
+**Kui vahet on** — konkreetsem pakkumine, sinu sõnavara, õige pikkus, ei mingit "loodan, et see kiri leiab teid hea tervise juures" — siis kontekst töötab.
+
+**Kui vahet pole**, on failid liiga üldsõnalised. Kõige tavalisem põhjus on `writing-samples.md`, kuhu pandi poleeritud turundustekst päris kirja asemel. Teine on `current-projects.md`, kus pakkumine on kirjas kategooriana ("konsultatsiooniteenused"), mitte konkreetselt.
+
+Kontrolli veel kolme asja:
+
+- **Kas mõni fakt on välja mõeldud?** Number, sertifikaat, kliendinimi, mida sa ei andnud. Kui jah, on `current-projects.md` sektsioon "Mida ei tohi väita" tühi või liiga leebe.
+- **Kas kõlab sinuna?** Loe valjusti. Kui sa ei ütleks seda lauset elus välja, ei ole see sinu hääl.
+- **Kas sa saadaksid selle ära?** Ainus küsimus, mis päriselt loeb.
+
+Täielik kontrollnimekiri on [RUBRIC.md](RUBRIC.md).
+
+Kui toimetasid agendi mustandit ja saatsid või avaldasid lõpliku versiooni, ütle **samas vestluses** `õpime parandusest` ja kleebi ainult lõpptekst. Agent teeb enda mustandiga diffi, liigitab parandused ja küsib enne konteksti muutmist kinnituse.
+
+---
+
+## Kolm artefakti ühest kontekstist
+
+Kui esimene sõnum töötab, küsi samas vestluses juurde:
+
+> *"Nüüd LinkedIni sõnum samale inimesele."*
+> *"Nüüd järelkaja, kui ta nädalaga ei vasta."*
+
+Sama kontekst, kolm väljundit, ilma uuesti seletamata. Selle pärast see süsteem üldse on.
 
 ---
 
 ## Mis edasi
 
-Sa täitsid kolm faili kümnest. Kui tahad süsteemi laiendada — kogu töövoog, otsuste log, eelistused, tiimi info — vaata `portfolio/templates/` ülejäänud seitset faili.
+Neli faili katavad ühe töö hästi. Süsteemis on üksteist faili — 9 profiili ja 2 tõendikorpust — ja süvarežiim, mis loeb sinu olemasolevad failid sisse ja täiendab neid moodulite kaupa.
 
-**Tee A:** ütle Konteksti-looja Skill'ile: "Täida veel üks fail — `goals-and-priorities.md`" (või mis iganes valid). Skill teab juba su konteksti eelmistest failidest.
+See ei ole "kunagi hiljem". Kui sa tahad järgmisel nädalal juurde minna, on [GETTING-STARTED.md](GETTING-STARTED.md) järgmine samm.
 
-**Tee B:** ava järgmine šabloon `portfolio/templates/` kaustast, kleebi see chati ja ütle "alustame sellega". Iga šabloon sisaldab oma fookustatud intervjuud.
-
-Samuti tasub heita pilk `CLAUDE.md` faili, mis kirjeldab kogu süsteemi: portfoolio + wiki (sinu kogutud teadmised + allikad). Süsteem on mõeldud kasvama.
+Muude tööriistade ühendamine (ChatGPT, Gemini, MCP, Obsidian) on `wiring/` all. See on vabatahtlik ja tuleb pärast, mitte enne.

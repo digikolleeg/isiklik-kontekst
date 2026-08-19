@@ -1,66 +1,69 @@
-# Kuidas ühendada: ChatGPT Web
+# Ühendamine: ChatGPT
 
-Siin on kolm viisi, kuidas ChatGPT-le oma portfoolio ette sööta, lihtsamast keerulisemani. Vali see, mis sobib sellega, kuidas sa tegelikult ChatGPT-d kasutad.
+> **Vabatahtlik samm.** Tuleb pärast seda, kui neli faili on olemas. Vt [`wiring/README.md`](README.md).
 
-## 1. Custom Instructions (tähemärgipiiranguga)
+Kolm viisi, lihtsamast keerulisemani. Vali see, mis sobib sellega, kuidas sa ChatGPT-d päriselt kasutad.
 
-ChatGPT Custom Instructions (kohandatud juhised) püsivad aktiivsena üle kõigi vestluste — vahet pole, kas küsid koodi, kirjutad teksti, teed taustauuringut või midagi muud. Konks on selles: seal on tähemärgipiirang (umbes 1500 tähemärki kasti kohta), mis tähendab, et sa saad sinna mahutada ainult kõige kokkupakituma versiooni oma portfooliost.
+## 1. Custom Instructions — kitsas, aga kehtib alati
 
-**Mida sisse kopeerida:**
+Custom Instructions püsivad üle paljude vestluste. Ruum on piiratud, nii et sinna mahub ainult kõige kokkupakitum osa.
 
-Lahtrisse "What would you like ChatGPT to know about you?" (Mida sa tahaksid, et ChatGPT sinu kohta teaks?) kopeeri kokkuvõte, mis sisaldab:
+**"What would you like ChatGPT to know about you?"**
 
-- Sinu nime, rolli, organisatsiooni (failist `identity.md`).
-- "Mida ma teen" lõiku (failist `identity.md`).
-- Kolme kõige olulisemat asja "Asjad, mida ma vihkan" nimekirjast (failist `preferences-and-constraints.md`).
-- Paari-kolme "Käekirja mustrit" (failist `communication-style.md`).
+- nimi, roll, organisatsioon (`identity.md`)
+- lõik "Mida ma teen" (`identity.md`)
+- mida sa müüd ja kellele, üks lause (`current-projects.md`)
+- kaks-kolm signatuuri või vältimist (`communication-style.md`)
 
-Lahtrisse "How would you like ChatGPT to respond?" (Kuidas sa tahaksid, et ChatGPT vastaks?) kopeeri:
+**"How would you like ChatGPT to respond?"**
 
-- Sinu üldine suhtlusstiil (konkreetne/otsekohene/jne failist `communication-style.md`).
-- Sinu eelistused AI väljundi osas (failist `preferences-and-constraints.md`).
-- Üks lause: "Match my voice. Lead with the answer. No preamble, no closing summary." (Kopeeri see julgelt inglise keeles, nii on kindlam, et ta saab aru.)
+- üldine stiil ja pikkuse-eelistus (`communication-style.md`)
+- eelistused AI väljundi osas (`preferences-and-constraints.md`)
+- üks lause: *"Match my voice. Lead with the answer. No preamble, no closing summary."*
 
-Kui ruum otsa saab, lõika esimesena välja "Asjad, mida ma vihkan" nimekiri — stiilijuhised selle kohta, kuidas vastata, on tähtsamad kui nimekiri negatiivsetest asjadest.
+Kui ruum otsa saab, lõika esimesena vältimiste nimekiri. Juhis selle kohta, **kuidas** vastata, kaalub üles nimekirja sellest, mida mitte teha.
 
-## 2. Custom GPTs (täisportfoolio teadmusfailidena)
+**Selles formaadis ei mahu ükski päris kirjutamisnäide.** Custom Instructions annavad sulle reeglid; hääl jääb saamata. Kirjutamise jaoks kasuta 2. või 3. valikut.
 
-Custom GPT-d (kohandatud GPT-d) lubavad sul faile üles laadida kui teadmust (knowledge). See on õige lüke, kui tahad ChatGPT-d, mis tunneb sind süvitsi ja püsivalt.
+## 2. Custom GPT — täiskomplekt teadmusfailidena
 
-**Seadistamine:**
+Õige lüke, kui tahad püsivat assistenti, mis tunneb sind süvitsi.
 
-1. Loo uus Custom GPT (ChatGPT → Explore GPTs → Create).
-2. GPT juhistesse (instructions) kopeeri kokkuliimitud "bundle" kaustast [`portfolio/bundles/`](../portfolio/bundles/) — või kopeeri kõigi kümne portfooliofaili sisu otse, kui see GPT on mõeldud üldiseks assistendiks.
-3. Lae kogu oma portfoolio kaust üles teadmusfailidena (knowledge files). GPT saab neid sealt vajadusel pärida.
-4. GPT juhistesse kirjuta: "You have access to my personal context portfolio as knowledge files. Read the relevant file before answering any question where my role, preferences, or voice would shape the answer. Do not narrate that you're doing this."
+1. ChatGPT → Explore GPTs → Create.
+2. Lae kontekstifailid üles teadmusfailidena.
+3. Juhistesse kleebi kokku pandud pakk `portfolio/bundles/` alt, või kirjuta oma juhis (allpool).
 
-**Milliseid Custom GPT-sid tasub ehitada:**
+```
+You have my context files as knowledge. Before answering anything where my role, offer, preferences or voice shape the answer, read the relevant file.
 
-- Üks üldine "tunneb mind" GPT, kus kõik kümme faili on teadmusena kaasas.
-- Üks sisulooja GPT, mis kasutab [`portfolio/bundles/content-writer.md`](../portfolio/bundles/content-writer.md) bundle'it.
-- Üks kirjade koostaja GPT, mis kasutab [`portfolio/bundles/client-outreach.md`](../portfolio/bundles/client-outreach.md) bundle'it.
+Before writing anything in my name, read communication-style.md and writing-samples.md. Follow the rules and pattern-match the samples — sentence length, how I open, how I close. Never copy a sample verbatim.
 
-Custom GPT-sid saab jagada, nii et kui sa ehitad süsteemi tiimile või kliendile, on see parim viis anda igale inimesele tema enda spetsiifiline assistent ilma, et sa peaksid mingit rasket infra arendama.
+Never state a fact, number, or client name that is not in the files. If current-projects.md has a "must not claim" section, treat those lines as hard prohibitions.
+```
 
-## 3. Projects (failide üleslaadimine, juhistel pole märgipiirangut)
+**Mida ehitada:**
 
-ChatGPT Projects on sarnane Claude Projects'ile — sa manustad failid, mis püsivad igas selle projekti raames peetud vestluses, ja projekti juhistel (project instructions) ei ole tähemärgipiiranguid.
+- kontaktivõtu-GPT paki [`client-outreach.md`](../portfolio/bundles/client-outreach.md) põhjal
+- sisulooja-GPT paki [`content-writer.md`](../portfolio/bundles/content-writer.md) põhjal
+- taustatöö-GPT paki [`client-research.md`](../portfolio/bundles/client-research.md) põhjal
 
-**Seadistamine:**
+Pakid on projektsioonid: sa paned nad ise kokku, kleepides oma failide sisu kohatäitjate juurde. Automaatset kokkupanijat ei ole.
 
-1. Loo uus Project ChatGPT-s.
-2. Projekti juhistesse kopeeri kokkuliimitud bundle või kogu portfoolio sisu. Projektidel on helded piirangud juhiste pikkusele.
-3. Manusta oma portfooliofailid projekti failidena.
-4. Igal uuel vestlusel, mille sa selles projektis alustad, on sinu portfoolio elava kontekstina kaasas.
+**Custom GPT-sid saab jagada.** Sellepärast on siin kaks reeglit range: `team-and-relationships.md` ei lähe jagatavasse GPT-sse, ja `kandidaat`-märkega read jäävad välja. Jagatud GPT tähendab, et kontekst on väljaspool sinu kontrolli.
 
-**Millal Projects on parem kui Custom GPT-d:**
+## 3. Projects — failid pluss projekti juhised
 
-- Kui tahad oma juhiseid tihti tuunida.
-- Kui sul pole vaja tulemust kellegi teisega jagada.
-- Kui sa tahad säilitada võimaluse alustada ühekordseid vestlusi, mis ei päri projekti konteksti (lihtsalt alusta need väljaspool projekti).
+Sarnane Claude Projects'ile: manustatud failid ja projekti juhised püsivad selle projekti vestlustes.
 
-## Nõuanded kõigi kolme jaoks
+1. Loo uus Project.
+2. Manusta kontekstifailid.
+3. Projekti juhistesse kleebi kokku pandud pakk.
 
-- **Uuenda, kui portfoolio uueneb.** Aegunud kontekst on nähtamatu ja teeb märkamatult iga vestluse kvaliteedi kehvemaks. Kui teed oma kvartaalset portfoolio ülevaatust, lae uuenenud failid uuesti üles.
-- **Ära kopeeri kõiki kümmet faili Custom Instructions lahtritesse.** Tähemärgipiirang sunnib sind sisu kokku pakkima. Kohanda formaat vastavalt platvormi võimalustele.
-- **Testi diagnostilise promptiga.** Pärast seadistamist küsi: "Draft a two-sentence intro to a new prospect in my voice." (Koosta uuele potentsiaalsele kliendile minu häälega kahelauseiline sissejuhatus). Kui see kõlab nagu sina, ilma et sa peaksid midagi muutma, siis ühendus toimib. Kui ei, siis on sinu `communication-style.md` sisu liiga ümmargune — asi pole "juhtmetes".
+**Millal Projects on parem kui Custom GPT:** kui sa tuunid juhiseid tihti, kui sul pole vaja tulemust jagada, ja kui sa tahad säilitada võimaluse alustada vestlusi väljaspool projekti.
+
+## Kõigi kolme jaoks
+
+- **Uuenda, kui failid muutuvad.** ChatGPT-s olevad failid on koopiad, mitte lingid. Aegunud kontekst on nähtamatu ja tõmbab kvaliteedi vaikselt alla.
+- **Vali failid kasutusjuhu järgi**, ära kleebi kõike kõikjale. Ebaoluline kontekst lahjendab olulist.
+- **`portfolio/_candidates.md` ei lähe kunagi üles.** Seal on kinnitamata väited.
+- **Testi:** *"Draft a two-sentence intro to a new prospect in my voice."* Kui see kõlab sinuna ilma parandusteta, ühendus töötab. Kui ei, on `communication-style.md` liiga ümmargune või `writing-samples.md` täidetud poleeritud turundustekstiga — asi ei ole juhtmetes.

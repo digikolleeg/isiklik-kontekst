@@ -1,24 +1,53 @@
-# Kuidas ühendada: Obsidian
+# Ühendamine: Obsidian
 
-Obsidian on parim keskkond, kus selles repos igapäevaselt elada. See on markdown-natiivne, graafivaade (graph view) lööb särama, kui su viki kasvab, ja Dataview muudab päiste (frontmatter) reeglid reaalseteks päringuteks.
+> **Vabatahtlik samm.** Obsidian ei ole selle süsteemi eeldus — failid on tavaline markdown ja töötavad igas redaktoris. Obsidian teeb nende haldamise mugavamaks. Vt [`wiring/README.md`](README.md).
 
-## Ava repo kui Vault (hoidla)
+Obsidian on markdown-natiivne, graafivaade lööb särama, kui wiki-kiht kasvab, ja Dataview muudab päiseväljad päringuteks.
+
+## Ava repo
 
 1. Obsidian → File → Open folder as vault → vali selle repo juurkaust.
-2. Lase Obsidianil kaust indekseerida. Vikilingid (`[[wiki/.examples/concepts/foo]]`) hakkavad tööle; siselingid muutuvad klõpsatavaks.
-3. Ava graafivaade (vasak külgriba → graafi ikoon või `Ctrl/Cmd-G`). Niipea kui hakkad lehti kompileerima, näed oma vikit ühendatud võrgustikuna.
+2. Lase indekseerida. Siselingid muutuvad klõpsatavaks.
+3. Graafivaade: vasak külgriba → graafi ikoon, või `Ctrl/Cmd-G`.
 
-## Graafivaade
+Obsidiani mõistes on see kaust "vault". Selles repos mujal seda sõna ei kasutata — kontekstifailid elavad lihtsalt kaustas ja Skill ei vaja Obsidianit kuidagi.
 
-- **0 vikilehte:** graaf on tühi. Nii peabki.
-- **10 lehte (kui teed läbi `.examples/` harjutuse):** peaksid nägema väikest ühendatud kobarat. Kontseptsioonid viitavad teemadele, allikad viitavad kontseptsioonidele ja olemid (entities) tõmbuvad kontseptsioonide poole, mis neile viitavad.
-- **50+ lehte:** filtreeri graafi, et peita `portfolio/`, `raw/` ja `templates/`, nii et näha jääb ainult vikikiht. Siin hakkab graaf oma hinda õigustama.
+## Dataview päringud
 
-## Dataview päringud (frontmatteri pealt)
+Paigalda Dataview plugin. Kontekstifailide päistes on päringuteks `updated`, `review_after` ja `sensitivity`.
 
-Failis `CLAUDE.md` toodud frontmatteri reeglid on Dataview-sõbralikud. Paigalda Dataview community plugin ja saad teha selliseid päringuid:
+**Failid, mille ülevaatuse tähtaeg on möödas:**
 
-**Leia kõik ainult ühe allikaga kontseptsioonilehed (koristuskandidaadid):**
+```dataview
+TABLE updated, review_after
+FROM "portfolio"
+WHERE review_after != null AND review_after < date(today)
+SORT review_after ASC
+```
+
+See on kogu hooldusprotsess ühe päringuna. `review_after` on täpselt selleks olemas — väli, mida keegi ei loe, oleks mõttetu metaandme.
+
+**Failid, mis ei tohi väljapoole minna:**
+
+```dataview
+LIST
+FROM "portfolio"
+WHERE sensitivity = "restricted"
+```
+
+Vastus sisaldab alati `team-and-relationships.md`. Neid võib olla rohkem, näiteks kliendinimedega `writing-samples.md`. Nii näed, mida ei tohi vaikimisi jagatavasse agenti anda.
+
+**Tõendikiht eraldi:**
+
+```dataview
+LIST
+FROM "portfolio"
+WHERE file.name = "writing-samples" OR file.name = "decision-log"
+```
+
+Kaks faili: `writing-samples.md` ja `decision-log.md`. Nemad ei kirjelda sind — nad hoiavad toorainet, mille pealt profiiliväiteid kontrollitakse.
+
+**Wiki-kihi koristuskandidaadid:**
 
 ```dataview
 LIST
@@ -26,51 +55,41 @@ FROM "wiki"
 WHERE type = "concept" AND length(sources) < 2
 ```
 
-**Leia portfooliofailid, mida pole 90 päeva üle vaadatud:**
+Pane need ühte märkmikusse (nt `health.md`) ja pinn'i see ära. Saad reaalajas tervisevaate, ilma et peaksid tervet kontrolli läbi tegema.
 
-```dataview
-LIST
-FROM "portfolio"
-WHERE last_reviewed < date(today) - dur(90 days)
-```
+## Graafivaade
 
-**Kuva aegunud (stale) või uuega asendatud (superseded) vikilehed:**
+- **Alguses:** graaf on tühi. Nii peabki.
+- **Kui wiki kasvab:** filtreeri välja `portfolio/`, `raw/` ja `templates/`, nii et näha jääb ainult wiki-kiht. Seal hakkab graaf oma hinda õigustama.
 
-```dataview
-TABLE status, updated
-FROM "wiki"
-WHERE status = "stale" OR status = "superseded"
-SORT updated DESC
-```
+Kontekstifailid ei moodusta graafi ega peagi. Nemad on lame komplekt, mida agendid loevad; seosed nende vahel elavad [`portfolio/context-map.md`](../portfolio/context-map.md) failis, mitte vikilinkides.
 
-Viska need kuhugi töölaua-märkmikusse (nt `wiki-health.md`) ja pinn'i see ära — sellest saab reaalajas tervisekontrolli vaade, ilma et peaksid tervet lintimise tsüklit läbi tegema.
+## Web Clipper → `raw/`
 
-## Obsidian Web Clipper → `raw/`
+Obsidian Web Clipper lõikab artikleid otse kausta. Seadista ta `raw/` peale — artiklid maanduvad markdownina, valmis järgmiseks wiki-sissekandeks. Mida väiksem hõõrdumine allika lisamisel, seda kiiremini wiki kasvab.
 
-Ametlik Obsidian Web Clipper laiendus suudab artikleid otse õigesse kausta lõigata. Seadista ta nii, et asjad lendaksid otse `raw/` kausta — artiklid maanduvad seal markdownina, valmis järgmiseks ingest'i tsükliks. See on vikikihi jaoks kõige odavam ja lühem sissevõtutee. Mida madalam on allikate lisamise hõõrdumine, seda kiiremini viki kasvab.
+See puudutab ainult wiki-kihti. Kontekstifailid tulevad intervjuust, mitte lõikamisest.
 
-## Kiirklahv piltide allalaadimiseks
+## Sünkroniseerimine üle seadmete
 
-Kui lõikad või kleebid sisu koos piltidega, seadista kiirklahv (hotkey) valikule "Download all images" (olenevalt Obsidiani versioonist on see kas plugin või sisse ehitatud). Lokaalselt salvestatud pildid elavad linkide kõdunemise (link rot) üle, URL-idena kleebitud pildid aga mitte.
+Kui tahad sama kausta mitmes masinas ilma Obsidian Synci eest maksmata, pane repo Google Drive'i, iCloudi või Dropboxi.
 
-## Sünkroniseerimine üle seadmete (Google Drive / iCloud)
+Kaks hoiatust:
 
-Kui tahad sama vault'i mitmes masinas ilma Obsidian Synci eest maksmata, pane see repo Google Drive'i, iCloudi või Dropboxi. Iga masin avab kausta kui sama vault'i ja muudatused jooksevad pilve kaudu laiali.
+- Sünkroonikonfliktid tulevad kergesti, kui muudad asju kahes masinas korraga. Obsidian saab enamasti hakkama, aga puhtam lahendus on Obsidian Sync.
+- Symlingid lähevad pilvesünkroonis katki. Hoia kausta füüsiliselt sünkroonikaustas.
 
-Tähelepanu!
-
-- Sünkroniseerimise konfliktid on kerged tulema, kui muudad asju kahes masinas samal ajal. Obsidian saab sellega enamasti kenasti hakkama, aga hardcore kasutajad peaksid puhtama lahendusena kaaluma siiski Obsidian Synci.
-- Symlink'id (sümbollingid) lähevad pilvesüncis kergelt katki. Hoia vault'i juurkausta füüsiliselt sünc-kaustas, mitte ära tee sinna symlink'i.
+**Enne kui sa selle kausta pilve paned:** seal võib olla `team-and-relationships.md` (hinnangud nimeliste inimeste kohta), tundlikke kirjutamisnäiteid ja `_candidates.md` (kinnitamata väited). Kontrolli ise pilvekonto ligipääse; jagatud kettale ära pane kogu kausta.
 
 ## Kasulikud pluginad
 
-- **Dataview** — frontmatteri päringud (vt ülevalt).
-- **Obsidian Web Clipper** — allikate püüdmine.
-- **Templater** — et uutel viki-/portfooliofailidel frontmatteri plokk automaatselt ära täita (pole kohustuslik, aga teeb asja kiiremaks).
-- **Text Generator** või **Claude/ChatGPT pluginad** — juhuks, kui tahad ingest / compile / query operatsioone teha otse Obsidianis, ilma kuskile mujale minemata.
+- **Dataview** — päringud päiseväljade pealt.
+- **Obsidian Web Clipper** — allikate püüdmine `raw/` kausta.
+- **Templater** — täidab uue faili päise automaatselt. `updated`, `review_after` ja `sensitivity` peavad igal juhul olemas olema; Templater säästab kirjutamist.
 
 ## Töövoolised märkmed
 
-- Hoia `CLAUDE.md` koguaeg ühes tabis pinned (kinnitatud). Viska sellele pilk peale, kui sina või mõni AI agent hakkab siin vault'is asjatama.
-- `log.md` on ainult lisamiseks (append-only). Ära lase Obsidiani auto-formatil seda ringi tõsta.
-- Kui jagad seda vault'i terve tiimiga (isikliku konteksti repo puhul ebatavaline, aga võimalik), kasuta millegi tundliku jaoks kausta `.private/` (Faas 2). Ära looda sellele, et "ma lihtsalt ei ava seda faili, kui teised näevad."
+- Ära redigeeri `portfolio/templates/` faile käsitsi. Šabloonid kannavad masinloetavaid markereid (`<!-- section: ... -->`, `<!-- quick-coverage: ... -->`), mida kontroll loeb. Kustutatud marker läheb märkamatult katki.
+- `log.md` on ainult lisamiseks. Ära lase automaatvormindusel seda ringi tõsta.
+- Hoia [`portfolio/context-map.md`](../portfolio/context-map.md) ühes tabis lahti, kui sa süsteemi ise kohendad. Seal on kirjas, mis fail mida hoiab ja kes teda kirjutab.
+- **Jagamise kohta:** kui see kaust läheb kellegi teisega jagatuks, ei aita see, et sa mõnda faili lihtsalt ei ava. Ainus toimiv piir on faili sealt välja jätta. `sensitivity` väli on märgistus sinu ja sinu agentide jaoks, mitte ligipääsukontroll.

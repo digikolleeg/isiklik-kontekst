@@ -1,36 +1,44 @@
-# Kuidas ühendada: Süsteemiprompti mustrid (System Prompt Patterns)
+# Ühendamine: süsteemiprompti mustrid
+
+> **Vabatahtlik samm.** Tuleb pärast seda, kui neli faili on olemas. Vt [`wiring/README.md`](README.md).
 
 ## Mis see on
 
-Copy-paste mustrid, mille abil saad süstida oma portfoolio konteksti mistahes AI tööriista süsteemiprompti (system prompt) või kohandatud juhistesse (custom instructions). See on kõige lihtsam, "low-tech" ja universaalsem ühendamise (wiring) viis — see töötab nii Claude'i, ChatGPT, Gemini kui ka ükskõik mille muuga, mis laseb sul süsteemiprompti seadistada.
+Kopeeri-kleebi mustrid konteksti süstimiseks suvalise AI tööriista süsteemiprompti või kohandatud juhistesse. Kõige lihtsam ja universaalsem ühendus — töötab Claude'i, ChatGPT, Gemini ja kõigega, kus saab süsteemiprompti seadistada.
 
 ## Baasmuster
 
-Kopeeri asjakohane portfoolio sisu oma süsteemiprompti ja mähi see selgete markerite vahele:
-
 ```
 <user_context>
-[kleebi oma identity.md sisu siia]
-[kleebi muud asjakohased failid siia]
+[kleebi identity.md sisu siia]
+[kleebi ülejäänud asjakohased failid siia]
 </user_context>
 
-You have context about the user above. Use it to inform your responses — their role, their projects, their communication style, their preferences. Don't reference this context explicitly unless asked. Just know them.
+Sul on eespool kontekst kasutaja kohta. Kasuta seda vastuste kujundamisel — tema roll, projektid, kirjutamisstiil, eelistused. Ära viita sellele kontekstile otse, kui sinult ei küsita.
+
+Ära väida ühtegi fakti, numbrit ega nime, mida kontekstis ei ole.
 ```
+
+Viimane rida ei ole kaunistus. Ilma selleta täidab mudel lüngad ise ja teeb seda enesekindlalt.
 
 ## Mustrid kasutusjuhtude kaupa
 
-### Üldine tööassistent
+### Kontaktivõtt ja müük
 
 ```
 <user_context>
 [identity.md]
-[role-and-responsibilities.md]
+[current-projects.md]
 [communication-style.md]
-[preferences-and-constraints.md]
+[writing-samples.md]
 </user_context>
 
-You are a work assistant for the person described above. Match their communication style in your responses. Respect their stated preferences and constraints. When making suggestions, consider their current role and responsibilities.
+Sa koostad sõnumeid, mis lähevad päris inimestele. Järgi communication-style reegleid ja matki writing-samples mustreid: lause pikkust, kuidas algab, kuidas lõpeb, struktuuri. Ära kopeeri ühtegi näidet sõnasõnalt.
+
+current-projects sektsioon "Mida ei tohi väita" on kõva keelunimekiri. Mustand, mis rikub ühtki selle rida, on ebaõnnestunud mustand. Ära mõtle välja ühiseid tuttavaid, varasemaid kohtumisi ega jagatud kogemusi.
 ```
+
+Need neli faili on täpselt kiire intervjuu väljund.
 
 ### Kirjutamisassistent
 
@@ -38,22 +46,13 @@ You are a work assistant for the person described above. Match their communicati
 <user_context>
 [identity.md]
 [communication-style.md]
+[writing-samples.md]
 [domain-knowledge.md]
 </user_context>
 
-You are a writing assistant. Your job is to produce drafts that sound like the person described above — their vocabulary, their sentence structure, their tone. Use their domain knowledge to calibrate the level of explanation. Avoid every word and pattern they've listed under "what I dislike." When in doubt, be more concise rather than more thorough.
-```
+Sa toodad sisu kasutaja nimel. Väldi iga sõna ja mustrit, mille ta on kirja pannud sektsiooni "Mida ma väldin" — need on reeglid, mitte soovitused. Matki writing-samples näiteid, ära kopeeri neid.
 
-### Koosolekuks ettevalmistus
-
-```
-<user_context>
-[identity.md]
-[team-and-relationships.md]
-[current-projects.md]
-</user_context>
-
-You help prepare for meetings. When given a meeting topic and attendees, use the team context above to understand the relationships and dynamics, and use the project context to identify relevant workstreams. Produce a brief prep document with: key topics to cover, potential questions to expect, and any context from the relationship notes that's relevant.
+Kirjuta tema valdkonna tasemel: kasuta termineid ilma neid defineerimata, välja arvatud siis, kui auditoorium on selgelt võhiklik. Kui pead fakti või numbri ära arvama, ütle seda otse.
 ```
 
 ### Strateegiline nõuandja
@@ -66,13 +65,33 @@ You help prepare for meetings. When given a meeting topic and attendees, use the
 [decision-log.md]
 </user_context>
 
-You are a strategic thinking partner. Use the goals and priorities context to understand what the person is optimizing for. Use the decision log to understand how they think through decisions — match their reasoning style. When presenting options, frame tradeoffs the way they think about tradeoffs (see their stated preferences). Be direct and concise.
+Sa oled mõttepartner. Kasuta goals-and-priorities sektsiooni, et mõista, mida kasutaja optimeerib, ja sektsiooni "Mis EI OLE praegu prioriteet", et mitte pakkuda asju, mille ta on teadlikult ootele pannud.
+
+decision-log on tõendikorpus: päris otsused ja nende käik. Kasuta seda, et sobitada oma arutluskäik tema omaga. Ole otsekohene ja lühike.
 ```
+
+### Kohtumisteks ettevalmistus — `restricted`
+
+```
+<user_context>
+[identity.md]
+[current-projects.md]
+[team-and-relationships.md]
+</user_context>
+
+Sa valmistad ette kohtumisi. team-and-relationships sektsioon "Kontekst agentidele" on agendile reeglid, mitte taust: kui rida ütleb "ei loe pikki kirju", on pikk kokkuvõte ebaõnnestunud töö.
+```
+
+**See prompt sisaldab kolmandate isikute andmeid.** Ta ei kuulu tööriista, mis kirjutab väljapoole, ega jagatud agenti. Hoia teda eraldi sellest promptist, millega sa kontaktivõttu teed.
 
 ## Nõuanded
 
-- Ära kleebi kõiki kümmet faili süsteemiprompti. Enamikul tööriistadel on kontekstipiirangud ja ebaoluline kontekst lahjendab kasuliku konteksti mõju. Vali 2-4 faili, mis vastavad konkreetsele kasutusjuhule.
-- Juhiste lõik kontekstiploki järel on sama oluline kui kontekst ise. Ütle AI-le spetsiifiliselt, kuidas seda konteksti kasutada — ära eelda, et ta ise ära arvab.
-- Kui kasutad tööriistu, kus on kohandatud juhistele tähemärgipiirangud (nagu ChatGPT Custom Instructions), kasuta ainult faile `identity.md` ja `communication-style.md`. Need kaks katavad kõige suurema väärtusega konteksti kõige väiksemas mahus.
-- Testi süsteemi nii: palu AI-l teha midagi, millega ta tavaliselt ilma kontekstita puusse paneks — näiteks kirjutada e-kiri sinu stiilis või valmistuda kohtumiseks väga konkreetse inimesega. Kui tulemus on parem, siis ühendus (wiring) toimib.
-- Kui su portfooliofailid muutuvad, uuenda ka kleebitud sisu. Aegunud kontekst süsteemipromptis on nähtamatu, aga tõmbab vaikselt ja kindlalt väljundi kvaliteedi alla.
+- **Vali 2–4 faili kasutusjuhu kohta.** Ebaoluline kontekst lahjendab olulist. Kõigi failide kleepimine ühte prompti teeb tulemuse halvemaks, mitte paremaks.
+- **Kui tähemärgipiirang on kitsas**, kasuta `identity.md` ja `communication-style.md` ning lisa üks lühike päris kirjutamisnäide. Näide üksi teeb häälele rohkem kui kolm rida stiilireegleid.
+- **Juhiste lõik konteksti järel on sama tähtis kui kontekst.** Ütle otse, kuidas konteksti kasutada. Ära eelda, et mudel arvab ära.
+- **Jäta `kandidaat`-märkega read välja.** Need on ühe vaatluse pealt tehtud oletused ja ootavad teist tõendit. `portfolio/_candidates.md` ei lähe promptidesse üldse.
+- **Uuenda, kui failid muutuvad.** Aegunud kontekst süsteemipromptis on nähtamatu ja tõmbab väljundi vaikselt alla.
+
+## Test
+
+Palu midagi, millega mudel ilma kontekstita puusse paneks: kiri sinu stiilis, ettevalmistus konkreetse inimesega kohtumiseks. Võrdle sama päringuga tühjas vestluses. Kui vahet pole, ei ole viga ühenduses — failid on liiga üldsõnalised.

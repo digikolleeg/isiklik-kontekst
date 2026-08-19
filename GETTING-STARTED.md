@@ -1,101 +1,146 @@
-# Alustamine
+# Süvenemine
 
-Kaks süsteemi. Ehita need järjekorras — portfoolio enne, wiki pärast.
+Neli faili kiirest intervjuust katavad ühe töö. See juhend viib sealt edasi.
 
----
-
-## Samm 1: ehita oma portfoolio
-
-Portfoolio on vundament. See ütleb wikile, kelle jaoks teda ehitatakse.
-
-Sa saad portfoolio ehitada **kahel teel**. Mõlemad annavad sama lõpptulemuse: täidetud markdown-failid kaustas `portfolio/`.
-
-### Tee A — Agentne (Claude Desktop + Konteksti-looja Skill)
-
-Soovituslik, kui sul on Claude Pro/Max ja Claude Desktop. Skill viib intervjuu läbi ja **kirjutab failid otse sinu vault-kausta** läbi filesystem Connector'i. Sa lihtsalt vastad küsimustele.
-
-1. Seadista Claude Desktopis filesystem Connector, mis viitab sinu vault-kaustale (näiteks `portfolio/` selles repos või `~/isiklik-kontekst/portfolio/`). Detailne juhend: `wiring/mcp-resource.md`.
-2. Installeeri Konteksti-looja Skill: Claude Desktop → Settings → Skills → Add → vali `skills/konteksti-looja/` selles repos.
-3. Uues vestluses ütle "alustame intervjuud" (või "täida `identity.md`" konkreetse faili jaoks).
-4. Skill küsib küsimusi, näitab mustandit ja salvestab faili otse kausta. Korda iga šablooni jaoks.
-
-Kui Connector või Skill ei toimi, langeb Skill ise tagasi Tee B režiimi.
-
-### Tee B — Manuaalne (mis tahes AI chat)
-
-Töötab kõigi tasuta plaanidega — Claude.ai, ChatGPT, Gemini, ükskõik mis. Aeglasem, aga universaalne.
-
-1. Ava ükskõik milline šabloon `portfolio/templates/` kaustast.
-2. Kleebi terve fail Claude'i või ChatGPT-sse.
-3. Ütle "alustame sellega".
-4. Su AI ehituspartner loeb sissekirjutatud intervjuu-protokolli ja hakkab küsima.
-5. Kui tal on piisavalt infot, siis ta koostab faili. Loe see üle ja paranda, mis on valesti.
-6. Kopeeri faili sisu vestlusest ja salvesta käsitsi `portfolio/` kausta (või enda valitud alamkausta).
-7. Korda sama ülejäänud šabloonidega.
-
-### Mõlema tee jaoks
-
-**Soovituslik järjekord:** alusta `identity.md` ja `role-and-responsibilities.md` failidega — kõik ülejäänu ehitub neile kahele.
-
-**Täielik järjestus:**
-1. `identity.md`
-2. `role-and-responsibilities.md`
-3. `current-projects.md`
-4. `team-and-relationships.md`
-5. `tools-and-systems.md`
-6. `communication-style.md`
-7. `goals-and-priorities.md`
-8. `preferences-and-constraints.md`
-9. `domain-knowledge.md`
-10. `decision-log.md`
-
-**Näpunäited:**
-- Ole konkreetne, mitte ihaldav. Su agentidele on vaja päris tõde, mitte kuidas sa sooviks, et töötaksid.
-- Ära unusta parandada. Kui su ehituspartner faili koostab, loe see üle ja paranda, mis on valesti. Sealt tuleb see päris signaal.
-- Lühem on parem kui pikem. Üks või kaks lehekülge faili kohta, mitte viis. Tihe kontekst töötab paremini kui laialivalguv.
+Kui sa pole veel intervjuud teinud, alusta [quick-start.md](quick-start.md) juurest. See leht eeldab, et sul on juba `identity.md`, `current-projects.md`, `communication-style.md` ja `writing-samples.md`.
 
 ---
 
-## Samm 2: seadista wiki
+## Miks üldse edasi minna
 
-Ava selles repos uus Claude Code sessioon ja ütle:
+Neli faili teenindavad üht agenti hästi: seda, kes kirjutab sinu häälega väljapoole. Nad ei tee muud.
 
-> "Loe CLAUDE.md, siis loe minu portfoolio-failid kaustast portfolio/. Sa oled minu LLM wiki agent. Kinnita, et saad aru sissekande, päringu ja kontrolli töövoogudest, ning ütle, mida vajad esimese allika sissekandeks."
+Mine edasi siis, kui sul on konkreetne teine töö, mida sa tahad ära anda:
 
-Seejärel pane oma esimene allikas `raw/` kausta ja ütle "tee sissekanne".
+| Sa tahad, et agent... | Vajab lisaks |
+|---|---|
+| valmistaks ette kohtumisi ja kirjutaks tuttavatele | `team-and-relationships.md` |
+| kirjutaks sisu, mis su valdkonnas ka sisuliselt seisab | `domain-knowledge.md` |
+| soovitaks asju, mis su päris töövoogu sobivad | `tools-and-systems.md`, `role-and-responsibilities.md` |
+| kaaluks valikuid nii, nagu sina kaalud | `goals-and-priorities.md`, `preferences-and-constraints.md`, `decision-log.md` |
 
-LLM loeb allikat, loob wiki-lehed, uuendab indeksi ja lisab logisse. Seejärel lisa järgmine allikas.
-
-**Mis teeb hea esimese allika:**
-- Midagi, mida oled juba lugenud ja väärtuslikuks pidanud
-- Artikkel, transkriptsioon, koosolekumärkmed või uurimistöö
-- Tekstipõhine (PDF-id sobivad; piltide jaoks eraldi LLM appi võtta)
-
-**Pärast esimest sissekannet:** ava Obsidian selles kaustal. Graafikut vaates näed, mis info tekkis ja kuidas need omavahel seotud on.
+Kui ükski rida ei kirjelda praegust vajadust, ära ehita. Täidetud aga kasutamata fail on lihtsalt hooldusvõlg.
 
 ---
 
-## Samm 3: ühenda see kõik kokku
+## Süsteemi kuju: 9 + 2
 
-Wiki ja portfoolio on kõige kasulikumad siis, kui need on ligipääsetavad ka teistele AI tööriistadele — mitte ainult Claude Code sessioonidele selles repos.
+**9 profiilifaili** — mida sinu kohta teatakse:
 
-Vaata `wiring/` kausta:
-- **`mcp-resource.md`** — too mõlemad kihid välja MCP ressurssidena (kõige automaatsem)
-- **`system-prompt-patterns.md`** — kopeeri-kleebi mustrid Claude'i, ChatGPT ja Gemini jaoks
-- **`claude-projects.md`** — kasuta oma portfooliot Claude Projects'is
-- **`api-layer.md`** — ehita API kiht, kui tahad programmilist juurdepääsu
+`identity.md` · `role-and-responsibilities.md` · `current-projects.md` · `team-and-relationships.md` · `tools-and-systems.md` · `communication-style.md` · `goals-and-priorities.md` · `preferences-and-constraints.md` · `domain-knowledge.md`
 
-Alusta sellest tööriistast, mida kõige rohkem kasutad.
+**2 tõendifaili** — mille pealt seda teatakse:
+
+`writing-samples.md` · `decision-log.md`
+
+Tõendifail ei kirjelda sind. Ta hoiab toorainet: päris tekste ja päris otsuseid. Profiilifail väidab, tõendifail tõestab. `decision-log.md` ei ütle "ma otsustan analüütiliselt" — ta näitab kaht otsust, mille pealt seda näeb.
+
+Kaart, mis fail mida hoiab ja kuhu ta edasi läheb, on `portfolio/context-map.md`.
 
 ---
 
-## Pidev hooldus
+## Süvarežiim: neli moodulit
 
-**Portfoolio:** vaata kord kvartalis üle või siis, kui midagi olulist muutub (uus töö, uued projektid, suur prioriteedimuutus).
+Süvarežiim ei ole eraldi süsteem ega "pärast töötuba" tehtav asi. Ta on sama süsteemi järgmine sügavus ja ta ei alusta nullist: ta loeb, mis sul olemas on, ja täiendab.
 
-- **Tee A:** ütle Konteksti-looja Skill'ile: "Uuendame `current-projects.md` — siin on, mis on muutunud."
-- **Tee B:** ava fail ise, vaata üle, küsi Claude'ilt parandussoovitusi.
+Ta ei küsi faili kaupa, sest inimene ei mõtle faili kaupa. Ta küsib teema kaupa ja kirjutab tulemuse mitmesse faili korraga.
 
-**Wiki:** lisa allikaid alati, kui loed midagi, mis tasub säilitada. Tee kontrollkäik kord kuus: "Tee wikile tervisekontroll — otsi vastuolusid, orvuks jäänud lehti, vananenud väiteid ja puuduvaid ristviiteid."
+| Moodul | Nimi | Mida katab |
+|---|---|---|
+| **A** | töö-tegelikkus | roll, vastutused, rütmid, aktiivsed projektid, tööriistad |
+| **B** | turg-ja-ekspertiis | ICP, pakkumine, käivitaja, otsingusisend, valdkonnateadmised |
+| **C** | otsused-ja-piirid | eesmärgid, kompromissid, kõvad reeglid, otsuste logi |
+| **D** | hääl-ja-inimesed | kirjutamisstiil, kirjutamisnäited, suhted |
 
-**Logi:** käivita `grep "^## \[" log.md | tail -10`, et näha viimast aktiivsust.
+### Kolm asja, mis moodulid kasutatavaks teevad
+
+**Iga moodul salvestab lõpus.** Sa võid ühe mooduli teha teisipäeval ja järgmise kahe nädala pärast. Pooleli tööd ei kao.
+
+**Iga sektsioon kuulub täpselt ühele moodulile.** Kaks moodulit ei kirjuta üksteist üle. Kui moodul B märkab midagi, mis kuulub mooduli C sektsiooni, läheb see tähelepanek kandidaadiregistrisse, mitte otse faili.
+
+**Moodul D algab impordist, mitte küsimusest.** Häält ei intervjueerita. Küsimusele "kuidas sa kirjutad" vastab inimene mälu järgi ja ilustab. Süvarežiim küsib päris tekste ja loeb hääle nendest välja.
+
+### Kuidas käivitada
+
+Ütle Skillile **"süvaintervjuu"**. Ta küsib, millest moodulist alustada, ja käib selle läbi.
+
+Üks moodul on üks istung, umbes 30–45 minutit. Sa ei pea neid järjest tegema ega ühes järjekorras läbima — vali see, mille tulemust sul kõige rohkem vaja on.
+
+Enne küsimist loeb süvarežiim kolm asja: olemasolevad failid (ei küsi üle, mis on kaetud), kandidaadiregistri (seal ootab kiire režiimi üks vaatlus oma teist tõendit) ja `review_after` kuupäevad (pakub aegunud faili üle vaadata).
+
+**Kui sul on puudu konkreetne fail:** ütle `täida goals-and-priorities.md` või `uuendame current-projects.md`. Skill suunab sind faili omanikmoodulisse; `current-projects.md` puhul küsib ta, kas vajad töö-tegelikkuse (A) või turu-ja-ekspertiisi (B) osa. Ilma Skillita ava šabloon `portfolio/templates/` kaustast, kleebi see AI-vestlusesse ja ütle „alustame sellega“.
+
+`decision-log.md` on kõige mõttekam siis, kui sul on kaks päris otsust, mida kirjeldada. Ilma nendeta jääb ta abstraktseks ja kasutuks.
+
+---
+
+## Väited, tõendid ja kandidaadid
+
+Iga püsiv väide kannab staatust:
+
+| Staatus | Millal | Kas agent tohib toetuda |
+|---|---|---|
+| `kinnitatud` | sa ütlesid seda ise | jah |
+| `toetatud` | muster, mida katab kaks **sõltumatut** näidet | jah |
+| `kandidaat` | üks vaatlus või AI-tuletus | ei |
+
+**Sõltumatu** tähendab kahte eri allikat: kaks eri meili, kaks eri otsust. Kaks lõiku samast meilist on üks allikas ja ei tõesta midagi. Kaks eri meili on kaks allikat ja tõestavad, ka siis kui kanal on sama.
+
+Kandidaadid elavad `portfolio/_candidates.md` registris koos sihtfaili, sektsiooni ja aegumiskuupäevaga. Nad ei lähe ühessegi agendipakki. Süvarežiimi konkreetne töö on need üles tõsta või maha kanda — ja ta teeb seda nähtava muudatusega, mille sa kinnitad, mitte vaikselt.
+
+---
+
+## Agendipakid
+
+`portfolio/bundles/` all on kolm valmis pakki: outreach, kliendi-uurija, sisukirjutaja.
+
+Pakk on **projektsioon**. Ta ei hoia konteksti — ta paneb selle kokku failidest, mis on tema päises `sources` all kirjas. Kolm reeglit kehtivad igaühele:
+
+- kandidaat-väited jäetakse kokkupanekul välja
+- `restricted` failid jäävad vaikimisi välja
+- kui allikafail muutub, nõelu pakk uuesti; ära paranda pakki käsitsi, sest siis läheb ta allikast lahku ja keegi ei märka
+
+Kui vajalik allikas on `restricted`, kandub see märge kogu pakile. Näiteks kliendinimedega `writing-samples.md` tähendab, et valmis kirjutamispakk ei ole enam `exportable`.
+
+Uue paki tegemine: kopeeri olemasolev, vaheta allikad ja sissejuhatus. Kolm kuni neli allikafaili on tavaliselt õige maht.
+
+---
+
+## Privaatsus
+
+`team-and-relationships.md` on alati `restricted`. Ta sisaldab hinnanguid nimeliste inimeste kohta — see on kolmandate isikute andmed, mitte sinu omad.
+
+Ta ei kuulu ühegi paki vaikimisi koosseisu. Kui sa ta lisad, muutub kogu pakk `restricted`-iks: kasuta seda ainult enda valitud privaatses tööriistas, ära jaga pakki ega anna agendile autonoomset saatmisõigust.
+
+Ülejäänud on vaikimisi `exportable`. Iga faili päises on `sensitivity` väli, mille sa võid ise ümber panna.
+
+---
+
+## Hooldus
+
+Iga faili päises on kaks kuupäeva: `updated` ja `review_after`. Süvarežiim loeb `review_after` välja ja pakub aegunud faili üle vaadata, enne kui uute küsimuste juurde läheb.
+
+| Fail | Vaata üle |
+|---|---|
+| `current-projects.md` | kuu aja tagant |
+| kõik ülejäänud | kvartali tagant või kui midagi olulist muutub |
+
+Uuendamine Skilliga: *"uuendame `current-projects.md` — siin on, mis muutus."* Skill loeb vana faili, küsib ainult vahet ja näitab muudatust enne salvestamist.
+
+Kui parandad AI mustandit enne päris kasutust, ütle samas vestluses `õpime parandusest` ja kleebi ainult lõpptekst. Skill teeb algse mustandiga diffi, klassifitseerib parandused ja küsib enne konteksti muutmist kinnituse. Üks parandussündmus ei muutu automaatselt üldreegliks.
+
+Kui portfooliofail muutub, vajavad seda kasutavad agendipakid uut kokkupanekut. Vastasel juhul töötab agent vana kontekstiga ja sa ei saa sellest teada enne, kui midagi läheb valesti.
+
+Kas asi ikka töötab — [RUBRIC.md](RUBRIC.md).
+
+---
+
+## Kaks valikulist laiendust
+
+Kumbki ei ole vajalik ja kumbagi ei ole mõtet enne teha, kui põhirada töötab.
+
+**Ühendused teiste tööriistadega** — `wiring/` all on juhendid ChatGPT, Gemini, Claude Projects, MCP ja Obsidiani jaoks. Alusta sellest tööriistast, mida sa kõige rohkem kasutad.
+
+**Wiki-kiht** — eraldi süsteem sinu loetud materjali jaoks: pane allikas `raw/` kausta, LLM loeb selle ja ehitab lehed `wiki/` alla. Portfoolio töötab ilma selleta täielikult. Töövood on [CLAUDE.md](CLAUDE.md).
+
+Juurkausta `index.md` kuulub wiki-kihile. Portfoolio oma kaart on `portfolio/context-map.md` — need on eri asjad ja neid ei sünkroonita.

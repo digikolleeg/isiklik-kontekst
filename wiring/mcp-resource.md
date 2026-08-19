@@ -1,40 +1,46 @@
-# Kuidas ühendada: Tee oma portfooliost MCP ressurss
+# Ühendamine: kontekst MCP ressursina
+
+> **Vabatahtlik transport, mitte eeltöö.** MCP ei ole selle süsteemi eeldus ega põhitee. Ei intervjuu ega Skill vaja teda. Ta lahendab ühe kitsa probleemi: sul on mitu tööriista ja sa ei taha sama sisu mitmesse kohta kleepida.
+>
+> Kui sa alles alustad, jäta vahele. [`wiring/README.md`](README.md) loetleb lihtsamad teed.
 
 ## Mida see teeb
 
-MCP (Model Context Protocol) lubab AI tööriistadel ligi pääseda välistele andmeallikatele. Kui sa teed oma kontekstiportfooliost MCP ressursi, saab iga MCP-toega tööriist sinu faile käigu pealt (on demand) lugeda — agent ise tõmbab seda, mida tal vaja on, selle asemel, et sina peaksid otsustama, mida talle sisse kleepida.
+MCP (Model Context Protocol) lubab AI tööriistadel lugeda väliseid andmeallikaid. Kui su kontekstikaust on MCP kaudu kättesaadav, loeb agent sealt vajaliku ise, selle asemel et sina otsustaksid, mida sisse kleepida.
 
-See on kõige võimsam ühendamise (wiring) valik, sest see teeb sinu portfoolio automaatselt kättesaadavaks igale agendile, mis MCP-d toetab, ilma et sa peaksid ise midagi copy-paste'ima.
+Selle eeliseks on üks allikas: sa uuendad faili kaustas ja iga ühendatud tööriist näeb uut versiooni ilma uuesti üleslaadimiseta.
 
-## Kuidas see töötab
+**Pakendatud MCP serverit selles repos ei ole.** Sa kasutad üldist failisüsteemi-serverit või kirjutad enda oma.
 
-Sinu portfoolio on lihtsalt kaustatäis markdowni faile. MCP server serveerib seda kausta kui ressurssi. Iga MCP klient (Claude Desktop, Claude Code, OpenClaw jne) ühendub serveriga ja saab lugeda mis tahes faili sinu portfooliost.
+## Seadistus
 
-## Baasseadistus
+**Lokaalne failisüsteemi server.** Hoia kontekstifaile kindlas kaustas (nt `~/isiklik-kontekst/portfolio/`) ja seadista oma MCP klient nii, et ta seda kausta näeb. Täpsed sammud sõltuvad kliendist — vaata oma tööriista dokumentatsiooni.
 
-**Valik 1: Lokaalne MCP server (failisüsteem)**
+**Kaugserver.** Kui sa tahad ligipääsu mitmest seadmest, pead faile serveerima mujalt: pilveserverist või enda kirjutatud MCP serverist. See on tarkvaraprojekt, mitte seadistus. Ära alusta siit.
 
-Kui sinu portfoolio elab su isiklikus arvutis, kasuta MCP failisüsteemi (filesystem) serverit, et see kaust välja jagada.
+## Mida sa välja jagad — loe see läbi
 
-1. Hoia oma portfooliofaile kindlas kaustas (nt `~/context-portfolio/`).
-2. Konfigureeri oma MCP klient nii, et see ühenduks failisüsteemi serveriga, mis näitab otse sinna kausta.
-3. Iga ühendatud AI-tööriist suudab nüüd su portfooliofaile lugeda.
+Kaust ei ole komplekt. **Kausta jagamine jagab kõike, mis seal on**, ja kaks asja seal ei tohi liikuda:
 
-Täpne seadistus sõltub sinu MCP kliendist. Vaata oma tööriista dokumentatsioonist, kuidas lisada MCP failisüsteemi ressurssi.
+| Fail | Miks mitte |
+|---|---|
+| `team-and-relationships.md` | `restricted` — hinnangud nimeliste kolmandate isikute kohta |
+| `_candidates.md` | kinnitamata väited, mis ootavad teist sõltumatut tõendit |
 
-**Valik 2: Kaug-MCP server (remote)**
+Kui sa jagad kogu kausta, saab iga ühendatud agent mõlemad kätte, sealhulgas see, mis kirjutab väljapoole. Kaks lahendust:
 
-Kui tahad, et su portfoolio oleks kättesaadav mitmest seadmest või kaug-agentidele (remote agents), pead sa seda serveerima kuskilt mujalt — pilveserverist, üle MCP jagatud GitHubi repost või enda kirjutatud custom MCP serverist.
+1. **Hoia jagatavaid faile eraldi kaustas** ja suuna server sinna. Lihtsaim ja kõige raskemini eksitav.
+2. **Piira serveri lugemisõigust failinimede kaupa**, kui su klient seda toetab.
 
-See on juba keerulisem seadistus. Kui ehitad Claude Code'iga, võid tal paluda aidata sul ehitada lihtne MCP server, mis sinu portfooliofaile serveerib.
+Kaugserveri puhul lisandub ligipääsukontroll. Kontekstifailid on isiklikud ja tööalased — need ei kuulu avalikku internetti.
 
 ## Nõuanded
 
-- Kui sa alles proovid asja, alusta failisüsteemi lähenemisega. Serverisse saad alati hiljem kolida.
-- Sa ei pea välja jagama kõiki kümmet faili. Alusta kolmega: identity, role ja current projects — need katavad suurema osa vajadustest.
-- Kui sa uuendad faile oma kaustas, uueneb ka MCP ressurss automaatselt. Mingit uuesti deploy'mist pole vaja.
-- Kui sa serveerid faile remote serverist, mõtle ligipääsukontrollile. Sinu portfoolio sisaldab isiklikku ja tööalast infot, mida sa tõenäoliselt ei taha kogu maailmale avalikult serveerida.
+- Alusta failisüsteemist. Serverisse kolimine on alati hiljem võimalik.
+- Ära jaga kõiki üksteist faili korraga. Alusta kiire intervjuu neljast: `identity.md`, `current-projects.md`, `communication-style.md`, `writing-samples.md`. Need katavad enamiku vajadustest.
+- Kirjuta agendi juhisesse, **millist faili millal lugeda**. MCP annab ligipääsu, mitte otsustusvõimet. Ilma juhiseta loeb agent kas liiga vähe või kõike.
+- `kandidaat`-märkega read jäävad oletusteks ka MCP kaudu loetuna. Ligipääs ei ülenda väidet.
 
-## Mida järgmiseks ehitada
+## Mida edasi ehitada
 
-Kui su portfoolio on läbi MCP kättesaadav, on loogiline järgmine samm hakata ehitama agente, mis loevad oma töövoo alguses spetsiifilisi faile. Koosolekuteks valmistuv agent loeb faile `team-and-relationships.md` ja `current-projects.md`. Kirjutamisassistent loeb faili `communication-style.md`. Planeerimisagent loeb faili `goals-and-priorities.md`. Portfooliost saab see kontekstikiht, millest iga agent asju ammutab.
+Kui kontekst on MCP kaudu käes, on järgmine samm agendid, mis loevad oma töövoo alguses nimeliselt õigeid faile. Kirjutamisassistent loeb `communication-style.md` ja `writing-samples.md`. Planeerimisagent loeb `goals-and-priorities.md` ja `current-projects.md`. Kohtumiste ettevalmistaja loeb `team-and-relationships.md` — ja on seetõttu eraldi agent, mitte sama, mis kirjutab kliendile.

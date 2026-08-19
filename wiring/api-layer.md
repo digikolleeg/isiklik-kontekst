@@ -1,56 +1,54 @@
-# Kuidas ühendada: Ehita API kiht
+# Ühendamine: API kiht
 
-## Mis see on
+> **Kõige keerulisem valik, ja enamikul pole teda vaja.** Claude Projects, MCP või süsteemiprompti kleepimine katavad peaaegu kõik kasutusjuhud lihtsamalt. Vt [`wiring/README.md`](README.md).
 
-Kõige arenenum ühendamise (wiring) valik. Sa ehitad lihtsa API, mis serveerib su portfoolio faile, nii et iga agent või rakendus saab sinu konteksti pärida otse koodist. See on mõeldud inimestele, kes ehitavad rätsepatööna valminud agente või rakendusi, millel on vaja konteksti käigu pealt (on demand) tõmmata.
+## Millal seda ehitada
 
-## Millal sul seda vaja läheb
+- sul on mitu enda kirjutatud agenti, mis kõik vajavad sama konteksti
+- sa tahad serveerida eri agentidele eri alamhulki
+- sa ehitad agente teistele inimestele ja vajad skaleeritavat viisi
+- sa tahad konteksti **pärida** ("mis on tema praegused projektid?"), mitte lihtsalt tervet faili tõmmata
 
-Enamikul inimestel polegi vaja. Kui kasutad Claude Projects'it, MCP-d või süsteemiprompti süstimist (system prompt injection), siis need lähenemised on lihtsamad ja katavad suurema osa kasutusjuhtudest.
+Kui ükski rida ei kirjelda sinu olukorda, ära ehita.
 
-Ehita API kiht siis, kui:
+## Lihtne versioon
 
-- Sul on mitu rätsepatööna valminud agenti (mitte lihtsalt valmis tööriistad karbist), mis kõik vajavad sinu konteksti.
-- Sa tahad serveerida erinevatele agentidele failidest erinevaid alamhulki, vastavalt sellele, mida nad küsivad.
-- Sa ehitad agente teistele inimestele ja vajad skaleeritavat viisi isikliku konteksti serveerimiseks.
-- Sa tahad, et su portfoolio oleks päritav (queryable) — mitte lihtsalt "anna mulle kogu fail", vaid "mis on selle inimese praegused projektid?".
-
-## Arhitektuur
-
-Kõige lihtsam versioon:
-
-1. Salvesta oma portfooliofailid andmebaasi või failisüsteemi.
-2. Ehita kergekaaluline API, kus igal failil on oma endpoint (või üks endpoint, mis võtab faili nime parameetrina).
-3. Lisa baastasemel autentimine, et su failid poleks avalikult kättesaadavad.
-4. Su agendid kutsuvad API-t oma töövoo alguses, et tõmmata neile vajalik kontekst.
+1. Hoia kontekstifaile failisüsteemis või andmebaasis.
+2. Ehita kerge API: üks endpoint faili kohta, või üks endpoint failinime parameetriga.
+3. Lisa autentimine.
+4. Agendid pärivad konteksti oma töövoo alguses.
 
 ```
-GET /api/portfolio/identity
-GET /api/portfolio/current-projects
-GET /api/portfolio/communication-style
-GET /api/portfolio?files=identity,current-projects,team
+GET /api/context/identity
+GET /api/context/current-projects
+GET /api/context?files=identity,current-projects,writing-samples
 ```
+
+## Kolm asja, mis API kihis on lihtsam kui mujal
+
+API on ainus koht, kus staatuste ja tundlikkuse reeglid saab **jõustada**, mitte ainult dokumenteerida.
+
+**1. Filtreeri kandidaadid välja.** Iga väiterida kannab märget `<!-- claim: status=... -->`. Vaikimisi ei tohiks vastus sisaldada `kandidaat`-ridu. Tee sellest päringuparameeter, mitte tarbija otsus:
+
+```
+GET /api/context/communication-style              → kinnitatud + toetatud
+GET /api/context/communication-style?include=all  → kõik, koos märgetega
+```
+
+**2. Jõusta tundlikkust.** Iga faili päises on `sensitivity: exportable | restricted`. `restricted` fail ei tohi tulla ilma eraldi õiguseta. `team-and-relationships.md` on ainus, mis on vaikimisi `restricted` — ja just tema on see, mille tahtmatu väljastamine on pöördumatu.
+
+**3. Ära ehita automaatset pakikokkupanijat, enne kui üks pakk töötab käsitsi.** `portfolio/bundles/` all olevad pakid on projektsioonid: allikate loend päises, kohatäitjad kehas. Neid pannakse täna kokku käsitsi. Kokkupanija on tehtav — loe päisest `sources`, tõmba failid, jäta kandidaadid välja, keeldu `restricted` failist — aga ta on tarkvara, mida keegi peab hooldama. Kontrolli enne käsitsi, kas pakk üldse annab paremat tulemust.
 
 ## Keerulisem versioon
 
-Kui tahad, et su portfoolio oleks päritav, mitte ei jagaks lihtsalt toorfaile:
+Struktureeritud andmebaas ja loomuliku keele päringukiht, kus "mis on mu aktiivsed projektid?" toob tagasi õige sektsiooni, mitte terve faili. Sektsioonid on failides juba märgistatud — `<!-- section: <id> | owner: <moodul> -->` — nii et sektsioonitasandi päring on parsimise, mitte äraarvamise küsimus.
 
-1. Salvesta portfoolio sisu struktureeritud andmebaasi (mitte lihtsalt lamedatesse failidesse).
-2. Lisa loomuliku keele päringukiht (natural language query layer) — küsimus "mis on mu aktiivsed projektid?" toob tagasi vastava lõigu current-projects failist, mitte kogu faili.
-3. Lisa uuendamise (update) API, et su agendid saaksid portfooliosse ka tagasi kirjutada (agent, mis märkab, et sa alustasid uut projekti, saab selle ise current-projects faili lisada).
-
-See hakkab juba meenutama isiklikku teadmusgraafi (personal knowledge graph). See on võimas asi, aga see on juba päris tarkvaraarenduse projekt. Ära ehita seda enne, kui lihtsamatest lähenemistest enam ei piisa.
+Kirjutamise API (agent lisab ise uue projekti) tundub loogilise järgmise sammuna. Ole ettevaatlik: kaks agenti, mis uuendavad sama faili korraga, kaotavad andmeid. Ja agendi kirjutatud väide on definitsiooni järgi `kandidaat`, mitte `kinnitatud` — kirjutamise API peab seda jõustama, muidu laguneb kogu tõendisüsteem esimese automaatse kirjutuse peale.
 
 ## Märkused teostuse kohta
 
-- Kui kasutad Supabase'i, salvesta iga faili sisu tabelisse, kus on `user_id`, `file_name`, `content` ja `updated_at`. Lihtne, päritav (queryable) ja sa saad reatasemel turvalisuse (row-level security) tasuta kaasa.
-- Kui sa ehitad asju Claude Code'iga, siis võid tal paluda see API sulle valmis ehitada. Anna talle see dokument ja su portfooliofailid ette ja ütle: "Ehita mulle lihtne API, mis neid faile serveerib."
-- Autentimine on oluline. Sinu portfoolio sisaldab isiklikku ja tööalast infot. Miinimumina kasuta API võtme autentimist. Kui lähed toodangusse (production), kasuta OAuth-i või JWT-d.
-- Versiooni oma faile. Kui portfoolio sisu muutub, hoia eelmine versioon alles. Nii saad jälgida, kuidas sinu kontekst ajas areneb, ja teha roll-back'i, kui mingi uuendus läks puusse.
-
-## Nõuanded
-
-- Alusta lamedate failide serveerimisega (valik 1) ja lisa päringute võimekus ainult siis, kui sul tekib selleks reaalne vajadus (use case).
-- Vaikimisi peaks API tagastama toore markdowni. Las agent, kes seda tarbib, otsustab, kuidas seda parsida ja kasutada.
-- Lisa `GET /api/portfolio/summary` endpoint, mis tagastab ainult `identity.md` faili — minimaalne töötav kontekst. Agendid, mis vajavad kiiret, kerget konteksti, saavad lüüa seda endpointi, selle asemel et mitu faili alla sikutada.
-- Kui sa ehitad agente, mis kirjutavad portfooliosse asju tagasi, ole konfliktide osas ettevaatlik. Kaks agenti, mis uuendavad `current-projects.md` faili samal ajal, võivad viia andmekaoni. Kasuta ajatempleid (timestamps) ja konfliktide tuvastamist.
+- **Autentimine ei ole valikuline.** Kontekst on isiklik ja tööalane. Miinimum on API võti; toodangus OAuth või JWT.
+- **Tagasta toores markdown.** Las tarbija otsustab, kuidas parsida. Frontmatter tuleb kaasa — seal on `sensitivity` ja `review_after`, mida tarbija vajab.
+- **Versiooni faile.** Hoia eelmine versioon alles, et näha, kuidas kontekst areneb, ja saada roll-back, kui uuendus läks valesti.
+- **Lisa `GET /api/context/summary`**, mis tagastab ainult `identity.md`. Minimaalne töötav kontekst agendile, mis vajab kerget vastust.
+- Supabase'iga: tabel `user_id`, `file_name`, `content`, `sensitivity`, `updated_at`, `review_after`. Jõusta igal tabelil reatasandi turve; nii muutub `sensitivity` päritavaks väljaks, mitte kommentaariks.
