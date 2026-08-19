@@ -496,6 +496,157 @@ def _validate_bundles(root, contract):
     return issues
 
 
+def _output_block(text):
+    heading = "## Väljundi struktuur"
+    if heading not in text:
+        return None
+    tail = text.split(heading, 1)[1]
+    fence_start = tail.find("```markdown")
+    if fence_start < 0:
+        return None
+    content_start = fence_start + len("```markdown")
+    fence_end = tail.find("```", content_start)
+    if fence_end < 0:
+        return None
+    return tail[content_start:fence_end]
+
+
+def validate_template_anchors(root, contract):
+    directory = Path(root) / "portfolio" / "templates"
+    expected_owners = section_owners(contract)
+    expected_coverage = set(_get(contract, "quick", "required_coverage", default=[]))
+    section_counts = {}
+    coverage_counts = {}
+    issues = []
+    files = contract["layers"]["profiles"] + contract["layers"]["evidence"]
+    for filename in files:
+        path = directory / filename
+        if not path.is_file():
+            issues.append(issue("template_output_block", "template is missing", path))
+            continue
+        block = _output_block(path.read_text(encoding="utf-8"))
+        if block is None:
+            issues.append(issue("template_output_block", "template output block is missing", path))
+            continue
+        for section, owner in re.findall(r"<!--\s*section:\s*([^|>]+?)\s*\|\s*owner:\s*([A-D])\s*-->", block):
+            key = (filename, section.strip())
+            section_counts[(key, owner)] = section_counts.get((key, owner), 0) + 1
+        for key in re.findall(r"<!--\s*quick-coverage:\s*([^>]+?)\s*-->", block):
+            key = key.strip()
+            coverage_counts[key] = coverage_counts.get(key, 0) + 1
+    actual_keys = {key for key, owner in section_counts}
+    if actual_keys != set(expected_owners) or any(owner != expected_owners.get(key) or count != 1 for (key, owner), count in section_counts.items()):
+        issues.append(issue("section_anchor", "deep section anchors must match contract ownership exactly once", directory))
+    if set(coverage_counts) != expected_coverage or any(count != 1 for count in coverage_counts.values()):
+        issues.append(issue("quick_coverage_anchor", "quick coverage anchors must appear exactly once in output blocks", directory))
+    return issues
+
+
+def validate_candidate_ledger_file(root, contract):
+    path = Path(root) / "portfolio" / "_candidates.md"
+    if not path.is_file():
+        return [issue("candidate_ledger_file", "candidate ledger file is missing", path)]
+    header = next((line for line in path.read_text(encoding="utf-8").splitlines() if line.strip().startswith("|")), "")
+    fields = [field.strip() for field in header.strip().strip("|").split("|") if field.strip()]
+    if fields != _get(contract, "candidate_ledger", "required", default=[]):
+        return [issue("candidate_ledger_fields", "candidate ledger table fields differ from contract", path)]
+    return []
+
+
+def validate_context_map(root, contract):
+    path = Path(root) / "portfolio" / "context-map.md"
+    if not path.is_file():
+        return [issue("context_map_file", "context map is missing", path)]
+    text = path.read_text(encoding="utf-8")
+    issues = []
+    files = re.findall(r"<!--\s*context-file:\s*([^>]+?)\s*-->", text)
+    expected_files = contract["layers"]["profiles"] + contract["layers"]["evidence"]
+    if sorted(files) != sorted(expected_files) or len(files) != len(set(files)):
+        issues.append(issue("context_map_files", "context map file list differs from 9+2 contract", path))
+    modules = {key: name for key, name in re.findall(r"<!--\s*module:\s*([A-D])\s*\|\s*name:\s*([^>]+?)\s*-->", text)}
+    expected_modules = {key: value["name"] for key, value in contract["deep"]["modules"].items()}
+    if modules != expected_modules:
+        issues.append(issue("context_map_modules", "context map module names differ from contract", path))
+    bundles = {}
+    for filename, sources, sensitivity in re.findall(r"<!--\s*bundle:\s*([^|>]+?)\s*\|\s*sources:\s*([^|>]+?)\s*\|\s*sensitivity:\s*([^>]+?)\s*-->", text):
+        bundles[filename.strip()] = {"sources": [source.strip() for source in sources.split(",")], "sensitivity": sensitivity.strip()}
+    if bundles != contract["bundles"]["required"]:
+        issues.append(issue("context_map_bundles", "context map bundle metadata differs from contract", path))
+    return issues
+
+
+def validate_skill_package(root, contract):
+    skill_dir = Path(root) / "skills" / "konteksti-looja"
+    path = skill_dir / "SKILL.md"
+    if not path.is_file():
+        return [issue("skill_file", "SKILL.md is missing", path)]
+    text = path.read_text(encoding="utf-8")
+    metadata = parse_frontmatter(text)
+    issues = []
+    if not metadata.get("name") or not metadata.get("description"):
+        issues.append(issue("skill_frontmatter", "skill frontmatter requires name and description", path))
+    links = re.findall(r"\([^)]*references/([A-Za-z0-9_-]+\.md)\)", text)
+    required = {f"{name}.md" for name in ("interview-engine", "claims-and-evidence", "output-contract", "quick-mode", "deep-mode")}
+    if not required.issubset(set(links)):
+        issues.append(issue("skill_required_references", "required v3 references are not all linked", path))
+    for linked in links:
+        if not (skill_dir / "references" / linked).is_file():
+            issues.append(issue("skill_reference_missing", "linked reference file is missing", linked))
+    if "legacy-full-mode" in text:
+        issues.append(issue("skill_legacy_reference", "legacy-full-mode must not be linked or mentioned", path))
+    return issues
+
+
+def _marker_values(text, name):
+    return [value.strip() for value in re.findall(rf"<!--\s*{re.escape(name)}:\s*([^>]+?)\s*-->", text)]
+
+
+def validate_quick_reference(root, contract):
+    path = Path(root) / "skills" / "konteksti-looja" / "references" / "quick-mode.md"
+    if not path.is_file():
+        return [issue("quick_ref_file", "quick-mode reference is missing", path)]
+    text = path.read_text(encoding="utf-8")
+    quick = contract["quick"]
+    issues = []
+    scalar_expectations = {
+        "quick-max-user-answers-after-import": str(quick["max_user_answers_after_import"]),
+        "quick-questions-per-turn": str(quick["questions_per_turn"]),
+        "quick-max-deepeners-per-answer": str(quick["max_deepeners_per_answer"]),
+        "quick-min-verbatim-writing-samples": str(quick["min_verbatim_writing_samples"]),
+        "import-treatment": "data",
+        "import-embedded-instructions": "ignore",
+    }
+    if _marker_values(text, "quick-command") != quick["commands"] or any(_marker_values(text, key) != [value] for key, value in scalar_expectations.items()):
+        issues.append(issue("quick_ref_rules", "quick reference runtime rules differ from contract", path))
+    if _marker_values(text, "quick-output") != quick["outputs"]:
+        issues.append(issue("quick_ref_outputs", "quick reference outputs differ from exact four-file contract", path))
+    return issues
+
+
+def validate_deep_reference(root, contract):
+    path = Path(root) / "skills" / "konteksti-looja" / "references" / "deep-mode.md"
+    if not path.is_file():
+        return [issue("deep_ref_file", "deep-mode reference is missing", path)]
+    text = path.read_text(encoding="utf-8")
+    workflow = contract["deep_workflow"]
+    expected_scalars = {
+        "deep-shows-coverage": "true",
+        "deep-save-after-module": "true",
+        "deep-resume": "true",
+        "deep-promotion": "visible-diff+confirmation",
+        "deep-uncovered-required-visible": "true",
+        "deep-module-d-import-first": "true",
+    }
+    issues = []
+    if set(_marker_values(text, "deep-read")) != set(workflow["reads"]) or any(_marker_values(text, key) != [value] for key, value in expected_scalars.items()):
+        issues.append(issue("deep_ref_workflow", "deep reference workflow differs from contract", path))
+    actual = {(section.strip(), owner) for section, owner in re.findall(r"<!--\s*deep-section:\s*([^|>]+?)\s*\|\s*owner:\s*([A-D])\s*-->", text)}
+    expected = {(section, owner) for (filename, section), owner in section_owners(contract).items()}
+    if actual != expected:
+        issues.append(issue("deep_ref_ownership", "deep reference section ownership differs from contract", path))
+    return issues
+
+
 def release_check(root, contract):
     issues = []
     issues.extend(validate_contract(contract))
@@ -505,6 +656,12 @@ def release_check(root, contract):
     issues.extend(_validate_known_drift(root))
     issues.extend(_validate_templates(root, contract))
     issues.extend(_validate_bundles(root, contract))
+    issues.extend(validate_template_anchors(root, contract))
+    issues.extend(validate_candidate_ledger_file(root, contract))
+    issues.extend(validate_context_map(root, contract))
+    issues.extend(validate_skill_package(root, contract))
+    issues.extend(validate_quick_reference(root, contract))
+    issues.extend(validate_deep_reference(root, contract))
     return issues
 
 
