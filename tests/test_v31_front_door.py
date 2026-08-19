@@ -36,6 +36,10 @@ class TwoFrontDoors(unittest.TestCase):
         self.assertIn("quick-mode.md", self.modes)
         self.assertIn("expand-mode.md", self.modes)
 
+    def test_exact_extension_command_routes_to_generic_expand_mode(self):
+        self.assertIn('"laienda konteksti uue agendi jaoks"', self.modes)
+        self.assertIn("laienda konteksti uue agendi jaoks", self.text.split("---", 2)[1])
+
     def test_choice_dialog_offers_exactly_two_paths_without_deep(self):
         start = self.modes.index("### Valiku küsimine")
         dialog = self.modes[start:]

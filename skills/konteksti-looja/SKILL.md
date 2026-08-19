@@ -1,6 +1,6 @@
 ---
 name: konteksti-looja
-description: "Intervjueerib kasutajat, koostab tema ettevõtte konteksti-failid ja õpib kasutaja parandatud lõpptekstist. Käivita kui kasutaja ütleb 'müügiagent', 'muu töö või agent', 'töötoa intervjuu', 'kiire intervjuu', 'süvaintervjuu', 'alustame intervjuud', 'õpime parandusest', 'siin on lõplik versioon' või palub abi oma konteksti kokkupanemisel."
+description: "Intervjueerib kasutajat, koostab tema ettevõtte konteksti-failid ja õpib kasutaja parandatud lõpptekstist. Käivita kui kasutaja ütleb 'müügiagent', 'muu töö või agent', 'laienda konteksti uue agendi jaoks', 'töötoa intervjuu', 'kiire intervjuu', 'süvaintervjuu', 'alustame intervjuud', 'õpime parandusest', 'siin on lõplik versioon' või palub abi oma konteksti kokkupanemisel."
 ---
 
 # Konteksti-looja
@@ -20,7 +20,7 @@ See fail on orkestreerija. Detailsed reeglid on `references/` failides. **Loe va
 | Kasutaja ütleb | Rada | Tee |
 |---|---|---|
 | "müügiagent", "töötoa intervjuu", "kiire intervjuu" | **müügiagent** | loe [quick-mode.md](references/quick-mode.md) ja järgi seda |
-| "muu töö või agent" | **muu töö või agent** | loe [expand-mode.md](references/expand-mode.md) ja järgi seda |
+| "muu töö või agent", "laienda konteksti uue agendi jaoks" | **muu töö või agent** | loe [expand-mode.md](references/expand-mode.md) ja järgi seda |
 | "alustame intervjuud" | **küsi valik** | vt allpool |
 | "süvaintervjuu" | power-käsk | loe [deep-mode.md](references/deep-mode.md) ja järgi seda |
 | "täida [failinimi]", "uuendame [failinimi]" | power-käsk | loe `deep-mode.md`, leia faili omanikmoodul ja paku selle käivitamist |

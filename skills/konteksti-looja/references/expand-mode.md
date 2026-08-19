@@ -1,6 +1,6 @@
 # Muu töö või agent
 
-Käivitub: **"muu töö või agent"**.
+Käivitub: **"muu töö või agent"** või **"laienda konteksti uue agendi jaoks"**.
 
 See rada on üldine. Ta ei tea ette, mis tööd kasutaja agendile annab, ja **ei tohi seda arvata**. Valdkond tuleb kasutaja esimesest vastusest.
 
