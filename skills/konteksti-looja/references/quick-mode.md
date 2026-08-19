@@ -131,6 +131,10 @@ Müügiraam (§3.1) ei ütle, kes kasutaja on ega mida tema ettevõte päriselt 
 
    Pärast iga vastust otsusta, kas vaja on üht süvendust või on järgmine katvuslüngas väärtuslikum. Lühike vastus ei sunni automaatselt süvendama; ebaselge või vastuoluline vastus sunnib.
 
+   **Valikuabi.** Kui kasutaja ei tea veel sihtrühma, ostupäästikut või muud olulist valikut, ära jäta teda üksi tühja välja vaatama. Paku tema materjali ja kogemuse põhjal kuni kolm põhjendatud varianti, aruta temaga nende vahet ja suru vestlus ühe kasutatava valikuni. Ära esita oma soovitust kontrollitud turufaktina.
+
+   Enne soovitatud variandi faili kirjutamist küsi täpselt: *"Kas paneme selle praegu valikuna kirja?"* Kui kasutaja kinnitab, sõnasta see otsuse või tööhüpoteesina, näiteks *"Testime esimesena logistikaettevõtteid"*. Ära muuda seda lauseks *"Logistika on parim sihtturg"*, kui seda pole eraldi uuritud.
+
 6. **Näidised.** Küsi vähemalt kaks päris sõnumit, eri kanalitest, kui neid on. Kui impordist tuli päris sõnum, loeb see näidiseks. Võta vastu ka kolmas, kümnes või kahekümnes näidis; rohkem tõendeid ei ole viga.
 
    **Kui kasutajal näidiseid ei ole:** koosta kalibreerimismustand, lase parandada, ja kasutaja parandatud versioon läheb näidiseks. Sinu enda parandamata mustand **ei lähe kunagi** `writing-samples.md` faili.

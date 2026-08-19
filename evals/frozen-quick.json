@@ -2,7 +2,7 @@
   "schema_version": 1,
   "path": "quick-interview.md",
   "algorithm": "sha256",
-  "sha256": "38ae10bb231efecb6a41c4332a3403a965484e2d37658fc44d40491fa1f7ff5e",
+  "sha256": "4a98893a87b1eda70751e3566c66d6793f6aef89b72a8f25693a29c58b063d1d",
   "generated_on": "2026-08-19",
   "generator": "scripts/render_quick_interview.py",
   "sources": [
@@ -13,12 +13,12 @@
     },
     {
       "path": "skills/konteksti-looja/references/quick-mode.md",
-      "sha256": "f40bca5f9508612537c7c2e7b557b0e14b5c40b13c819fa9675de7057bc70dd9",
+      "sha256": "b0382848cdefe7edf2b498e459bdbe3d3e227d0fbaf0e7e1859deedba0f1171e",
       "selection": "full"
     },
     {
       "path": "skills/konteksti-looja/references/interview-engine.md",
-      "sha256": "277382ea4113e716308eeaac935dea5d28bf4d944f1f8b53e79d7a11024e491f",
+      "sha256": "42cf93626507a639c312640736d4e4047feae27ef5a0f4b313e0cb48f3f03b5b",
       "selection": "full"
     },
     {
@@ -28,7 +28,7 @@
     },
     {
       "path": "skills/konteksti-looja/references/output-contract.md",
-      "sha256": "a96e43153ea40129a64176b0ec6b6878f1168c7f955c19765ba36f98845817d9",
+      "sha256": "a0cf0d3fe665d71fb37920356231211d2912bdb435136d37440043590e5a6763",
       "selection": "full"
     }
   ]

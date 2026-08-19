@@ -205,7 +205,14 @@ Põhjus: skelett teeb faili kohe jätkatavaks. Järgmine moodul leiab oma ankru 
 
 Pärast kirjutamist ütle, kuhu salvestasid.
 
-Kui kausta ei saa kirjutada, näita iga faili sisu vestluses koodiplokis koos selge päisega, kuhu see salvestada.
+Kui kausta ei saa kirjutada, väljasta failid ükshaaval selles järjekorras ja pane iga faili ette täpne silt:
+
+1. `FAILINIMI: identity.md`
+2. `FAILINIMI: current-projects.md`
+3. `FAILINIMI: communication-style.md`
+4. `FAILINIMI: writing-samples.md`
+
+Näita kogu faili sisu sildi järel ühes koodiplokis. Kasuta välimise ploki jaoks nelja tagasirõhuga piiret, sest `writing-samples.md` sisaldab ise kolme tagasirõhuga näidiseplokke. Nii ei poolita vestlusliides faili kaheks artefaktiks. Kui liides annab allalaadimisel automaatse nime, ütle kasutajale kohe, millise ülaltoodud nime ta peab failile panema.
 
 ---
 

@@ -25,6 +25,8 @@ Kui kaks lünka on võrdsed, küsi seda, mille vastus toidab rohkem kui üht kat
 
 Kui vastus kattis lünga, mille kohta sa kavatsesid küsida, **ära küsi seda enam**. Kinnita lühidalt ekstrakt ja liigu edasi.
 
+Kui kasutaja kõhkleb stiilivaliku, registri või muu reegli juures, aita tal variante võrrelda, aga ei muuda seda kõvaks reegliks enne selgesõnalist kinnitust. Kui ta tahab proovida, kirjuta tingimus nähtavalt sisse: *"Katsetame külmas logistika-kirjas sinatamist; vaata pärast esimesi vastuseid üle."* Ebaselge *"võibolla"* ei tähenda *"kasuta alati"*.
+
 ---
 
 ## 3. Süvendus

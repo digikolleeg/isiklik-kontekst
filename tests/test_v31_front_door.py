@@ -10,6 +10,8 @@ REPO = Path(__file__).resolve().parents[1]
 SKILL = REPO / "skills" / "konteksti-looja" / "SKILL.md"
 REFS = REPO / "skills" / "konteksti-looja" / "references"
 QUICK = REFS / "quick-mode.md"
+ENGINE = REFS / "interview-engine.md"
+OUTPUT = REFS / "output-contract.md"
 EXPAND = REFS / "expand-mode.md"
 CONTRACT = REPO / "evals" / "context-v3-contract.json"
 
@@ -121,6 +123,22 @@ class SalesFirstQuickFlow(unittest.TestCase):
     def test_output_is_still_exactly_four_markdown_files(self):
         invariants = _section(self.text, "## 5. Invariandid sessiooni lõpus")
         self.assertIn("täpselt neli", invariants)
+
+    def test_interviewer_may_help_compare_options_and_confirm_a_working_choice(self):
+        self.assertIn("Valikuabi", self.flow)
+        self.assertIn("tööhüpotees", self.flow)
+        self.assertIn("Kas paneme selle praegu valikuna kirja?", self.flow)
+
+    def test_uncertain_register_is_not_hardened_without_confirmation(self):
+        engine = ENGINE.read_text(encoding="utf-8")
+        self.assertIn("Kui kasutaja kõhkleb", engine)
+        self.assertIn("ei muuda seda kõvaks reegliks", engine)
+
+    def test_manual_fallback_labels_exact_filenames_and_protects_nested_fences(self):
+        output = OUTPUT.read_text(encoding="utf-8")
+        for filename in ("identity.md", "current-projects.md", "communication-style.md", "writing-samples.md"):
+            self.assertIn(f"FAILINIMI: {filename}", output)
+        self.assertIn("nelja tagasirõhuga", output)
 
 
 class GenericExpandMode(unittest.TestCase):
