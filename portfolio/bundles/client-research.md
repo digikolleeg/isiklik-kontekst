@@ -1,3 +1,8 @@
+---
+projection: true
+sources: [identity.md, current-projects.md, domain-knowledge.md]
+sensitivity: exportable
+---
 # Bundle: Client Research
 
 **Millest koosneb:** `portfolio/identity.md` + `portfolio/current-projects.md` + `portfolio/domain-knowledge.md`
@@ -5,10 +10,21 @@
 **Kellele mõeldud:** agent, kes teeb taustakontrolli potentsiaalsetele klientidele, uurib konkurente, otsib valdkonna konteksti, teeb kohtumisteks eeltööd või paneb kokku muud taustamaterjali, mille väljund peab olema filtreeritud läbi selle, mis kasutajale päriselt korda läheb. Üldsõnaline "siin on kõik, mida selle ettevõtte kohta leidsin" uurimustöö on kasutu. Uurimustöö, mis toob välja need kolm asja, mida kasutaja päriselt küsib — see on kuld.
 
 **Kuidas kokku nõeluda:**
-- **Agentne tee** (Claude Desktop + Connector): ütle Claude'ile *"lae see bundle ja täida kohatäitjad minu vault-failidega"*. Ta annab valmis system prompt'i tagasi.
+- **Agentne tee** (Claude Desktop + Connector): ütle Claude'ile *"lae see bundle ja täida kohatäitjad minu kontekstifailidega"*. Ta annab valmis system prompt'i tagasi.
 - **Manuaalne tee:** kleebi iga portfooliofaili sisu allolevasse vastavasse kohatäitja plokki. Tekkiv markdown on kohe valmis kasutamiseks system promptina.
 
 Detailne selgitus: `portfolio/bundles/README.md`.
+
+---
+
+## Projektsiooni reeglid (jäta nagu on)
+
+See fail on **projektsioon**, mitte tõeallikas. Ta ei hoia konteksti — ta kokku paneb selle allikafailidest, mis on päises `sources` all loetletud. Kui allikas muutub, nõelu projektsioon uuesti; ära paranda seda faili käsitsi.
+
+1. **Ainult loetletud allikad.** Ära kleebi siia sisu failist, mida `sources` ei nimeta. Kui agent vajab rohkemat, on see uue projektsiooni või uue allika küsimus.
+2. **Kandidaat-väited jäävad välja.** Allikafailides on iga rida märgistatud `kinnitatud`, `toetatud` või `kandidaat`. Kokkupanekul **jäta `kandidaat`-read välja**. Kui kandidaat on selle ülesande jaoks hädavajalik, kleebi ta sisse koos märkega ja käsitle teda oletusena, mitte faktina — mustandis ei tohi ta esineda kindla väitena.
+3. **Restricted sisu jääb vaikimisi välja.** Allikafail, mille päis ütleb `sensitivity: restricted`, ei kuulu vaikimisi projektsiooni. Kui sa ta ikkagi sisse kleebid, muutub **kogu see projektsioon** `restricted`-iks: teda ei tohi anda agendile, mis kirjutab väljapoole, ega jagada väljapoole.
+4. **Ära dubleeri püsikonteksti käsitsi.** Kui sama fakt on juba mõnes kleebitud allikas, ära kirjuta teda sissejuhatusse ümber. Kaks koopiat lähevad lahku ja agent ei tea, kumb kehtib.
 
 ---
 
@@ -64,4 +80,4 @@ Kui kasutaja palub sult uurimustööd:
 - **Mida lisada spetsiifilisteks olukordadeks:**
   - Potentsiaalsete klientide uurimine (prospect research): kleebi juurde ka `goals-and-priorities.md`, et agent saaks hinnata kliente vastavalt sellele, mida sa üritad saavutada.
   - Konkurentide uurimine: kleebi juurde `communication-style.md`, et raport vastaks sellele, kuidas sa oled harjunud asju lugema (lühike, struktureeritud, ilma ilukõneta).
-  - Kohtumiseks ettevalmistamine (meeting prep): kleebi juurde `team-and-relationships.md`, et kui kohtumine on kellegagi sinu olemasolevast võrgustikust, saaks agent arvesse võtta ka suhete konteksti.
+  - Kohtumiseks ettevalmistamine (meeting prep): kleebi juurde `team-and-relationships.md`, kui kohtumine on kellegagi sinu olemasolevast võrgustikust. See fail on `restricted` — pärast lisamist on kogu projektsioon `restricted` ja seda ei tohi anda agendile, mis kirjutab väljapoole.
