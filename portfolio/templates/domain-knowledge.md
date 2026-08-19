@@ -1,3 +1,14 @@
+---
+name: domain-knowledge
+description: Valdkonna teadmised, terminoloogia, mõttemudelid, algaja-tsoonid
+layer: profile
+type: portfolio
+updated: <YYYY-MM-DD>
+review_after: <YYYY-MM-DD>
+sensitivity: exportable
+tags: [portfolio]
+---
+
 # Domain Knowledge
 
 ## Mille jaoks see fail on
@@ -28,34 +39,64 @@ Mida sina tead, aga üldine AI ei tea. See fail hoiab ära selle, et agendid hak
 
 ## Väljundi struktuur
 
+**Väitemärgised.** Iga loendirida (`- `) selles failis kannab lõpus masinloetavat märget:
+
+`- <väide> <!-- claim: status=<staatus>; evidence=<allikas>:<vaatlus>,... -->`
+
+| Staatus | Millal | Mida märge nõuab |
+|---|---|---|
+| `kinnitatud` | kasutaja sõnastas selle ise üldreeglina | `basis=user-stated` |
+| `toetatud` | muster, mida katab vähemalt **kaks sõltumatut** allikas | `evidence=` kahe eri `<allikas>` osaga |
+| `kandidaat` | üks vaatlus või oletus | `evidence=` ühe ID-ga |
+
+Sõltumatust loetakse `<allikas>` järgi. **Allikas on üks konkreetne artefakt või olukord** — üks e-kiri, üks postitus, üks otsusejuhtum. Kaks vaatlust *samast* e-kirjast on üks allikas ja ei ülenda midagi. Kaks *eri* e-kirja on kaks allikat ja ülendavad, ka siis kui kanal on sama.
+
+**Allika ID nimetab konkreetset asja, mitte kategooriat.** Leping keelab üldnimed: `email`, `linkedin`, `channel`, `document`, `message`, `situation`, `interview`. `sample-01` ja `dl-hinnamuutus` on lubatud; `email` ja `message` ei ole. Kategooria-ID lubaks kaks vaatlust ühest kirjatükist esitleda kahe sõltumatu allikana.
+
+**Iga rida, mis algab `- `, peab kandma märget.** Kui loetelu ei ole väidete loetelu (näiteks vaatlused ühe juhtumi sees), vormista ta tabelina, mitte loendina. Kandidaat ei lähe projektsiooni; ta kantakse `portfolio/_candidates.md` ledgerisse. Vormingut kontrollib `scripts/context_v3_check.py --rule profile`.
+
+**Sektsioonimärgised.** `<!-- section: <id> -->` read on sektsioonitasandi omandi ankrud. Ära kustuta neid: nende peal seisab reegel, et süvarežiimi moodul kirjutab ainult oma sektsiooni ega kirjuta teise mooduli oma üle.
+
+**`review_after`.** Süvarežiim loeb selle avangus. Kui kuupäev on möödas, küsib ta enne uute küsimuste juurde liikumist selle faili üle. Ilma selle tarbijata oleks väli mõttetu metaandme.
+
+Märgise `owner` väli ütleb, milline süvarežiimi moodul seda sektsiooni **omab**. Teine moodul võib sama teema jutuks võtta, aga tema leid läheb `portfolio/_candidates.md` ledgerisse, mitte otse siia. Nii ei kirjuta kaks moodulit teineteist üle.
+
 ```markdown
 ---
 name: domain-knowledge
-description: Valdkonna teadmised, terminoloogia, mõttemudelid, allikad
+description: Valdkonna teadmised, terminoloogia, mõttemudelid, algaja-tsoonid
+layer: profile
 type: portfolio
 updated: <YYYY-MM-DD>
+review_after: <YYYY-MM-DD>
+sensitivity: exportable
 tags: [portfolio]
 ---
 
 # Valdkonnateadmised
 
+<!-- section: expertise | owner: B -->
 ## Ekspertteadmised
 
 [Valdkonnad, tööstusharud, distsipliinid, mida sa tunned süvitsi. Asjad, kus sa ei vaja tausta lahtiseletamist — sa vajad, et AI opereeriks sinu tasemel.]
 
+<!-- section: terminology | owner: B -->
 ## Põhiterminoloogia
 
-[Žargoon, mida sa kasutad ilma, et vajaksid definitsioone. Valdkonna terminid, lühendid, kontseptsioonid, mida AI peaks kasutama loomulikult, mitte hakkama neid defineerima või vältima.]
+[Žargoon, mida sa kasutad ilma definitsioonideta. Valdkonna terminid, lühendid, kontseptsioonid, mida AI peaks kasutama loomulikult, mitte hakkama defineerima või vältima.]
 
+<!-- section: domain-context | owner: B -->
 ## Valdkonna kontekst
 
-[Asjad, mida kõrvaltvaataja ei teaks, aga mis kujundavad sinu tööd — regulatiivne keskkond, turudünaamika, kultuurinormid, ajalooline taust. See taustsüsteem, mis teeb sinu valdkonna teistsuguseks sellest, kuidas mingi generalist seda ette kujutaks.]
+[Asjad, mida kõrvaltvaataja ei teaks, aga mis kujundavad sinu tööd — regulatiivne keskkond, turudünaamika, kultuurinormid, ajalooline taust.]
 
+<!-- section: frameworks | owner: B -->
 ## Raamistikud ja mõttemudelid
 
 [Konkreetsed raamistikud või mõttetööriistad, mida sa regulaarselt kasutad. Kuidas sa lähened probleemidele, organiseerid infot või mõtestad keerulisi olukordi.]
 
+<!-- section: learning-zones | owner: B -->
 ## Kus ma olen algaja
 
-[Valdkonnad, kus sa tahad pikemat selgitust, mitte lühemat. Teemad, kus sa alles õpid ja tahad, et AI pigem õpetaks, mitte ei eeldaks, et sa juba tead.]
+[Valdkonnad, kus sa tahad pikemat selgitust, mitte lühemat. Teemad, kus sa alles õpid ja tahad, et AI pigem õpetaks.]
 ```

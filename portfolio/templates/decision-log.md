@@ -1,3 +1,14 @@
+---
+name: decision-log
+description: Tõendikorpus: päris otsused, nende käik ja mida nad kasutaja kohta näitavad
+layer: evidence
+type: portfolio
+updated: <YYYY-MM-DD>
+review_after: <YYYY-MM-DD>
+sensitivity: exportable
+tags: [portfolio]
+---
+
 # Decision Log
 
 ## Mille jaoks see fail on
@@ -29,46 +40,83 @@ Kuidas sa otsuseid teed, koos päris näidetega. See on portfoolios kõige alahi
 
 ## Väljundi struktuur
 
+**Väitemärgised.** Iga loendirida (`- `) selles failis kannab lõpus masinloetavat märget:
+
+`- <väide> <!-- claim: status=<staatus>; evidence=<allikas>:<vaatlus>,... -->`
+
+| Staatus | Millal | Mida märge nõuab |
+|---|---|---|
+| `kinnitatud` | kasutaja sõnastas selle ise üldreeglina | `basis=user-stated` |
+| `toetatud` | muster, mida katab vähemalt **kaks sõltumatut** allikas | `evidence=` kahe eri `<allikas>` osaga |
+| `kandidaat` | üks vaatlus või oletus | `evidence=` ühe ID-ga |
+
+Sõltumatust loetakse `<allikas>` järgi. **Allikas on üks konkreetne artefakt või olukord** — üks e-kiri, üks postitus, üks otsusejuhtum. Kaks vaatlust *samast* e-kirjast on üks allikas ja ei ülenda midagi. Kaks *eri* e-kirja on kaks allikat ja ülendavad, ka siis kui kanal on sama.
+
+**Allika ID nimetab konkreetset asja, mitte kategooriat.** Leping keelab üldnimed: `email`, `linkedin`, `channel`, `document`, `message`, `situation`, `interview`. `sample-01` ja `dl-hinnamuutus` on lubatud; `email` ja `message` ei ole. Kategooria-ID lubaks kaks vaatlust ühest kirjatükist esitleda kahe sõltumatu allikana.
+
+**Iga rida, mis algab `- `, peab kandma märget.** Kui loetelu ei ole väidete loetelu (näiteks vaatlused ühe juhtumi sees), vormista ta tabelina, mitte loendina. Kandidaat ei lähe projektsiooni; ta kantakse `portfolio/_candidates.md` ledgerisse. Vormingut kontrollib `scripts/context_v3_check.py --rule profile`.
+
+**Sektsioonimärgised.** `<!-- section: <id> -->` read on sektsioonitasandi omandi ankrud. Ära kustuta neid: nende peal seisab reegel, et süvarežiimi moodul kirjutab ainult oma sektsiooni ega kirjuta teise mooduli oma üle.
+
+**`review_after`.** Süvarežiim loeb selle avangus. Kui kuupäev on möödas, küsib ta enne uute küsimuste juurde liikumist selle faili üle. Ilma selle tarbijata oleks väli mõttetu metaandme.
+
+Märgise `owner` väli ütleb, milline süvarežiimi moodul seda sektsiooni **omab**. Teine moodul võib sama teema jutuks võtta, aga tema leid läheb `portfolio/_candidates.md` ledgerisse, mitte otse siia. Nii ei kirjuta kaks moodulit teineteist üle.
+
+**See on tõendifail, mitte profiilifail.** Ta ei kirjelda, *kuidas sa otsustad* — ta hoiab **juhtumeid**, mille pealt seda näeb. Üldistus ("ma otsustan alati üle öö") kuulub profiilifaili `preferences-and-constraints.md`, ja tal peab siit tulema tõend.
+
+Iga otsus saab `<allikas>` ID kujul `dl-<lühinimi>`. Üksikvaatlused selle sees saavad `<vaatlus>` ID. Kaks vaatlust **samast** otsusest ei ole sõltumatud — need ei ülenda väidet `toetatud` tasemele. Selleks on vaja kahte erinevat `dl-` allikat või ühte `dl-` juhtumit ja ühte kirjutamisnäidist (`sample-NN`).
+
 ```markdown
 ---
 name: decision-log
-description: Kuidas kasutaja otsustab, hiljutised otsused, määramatusega toime tulek
+description: Tõendikorpus: päris otsused, nende käik ja mida nad kasutaja kohta näitavad
+layer: evidence
 type: portfolio
 updated: <YYYY-MM-DD>
+review_after: <YYYY-MM-DD>
+sensitivity: exportable
 tags: [portfolio]
 ---
 
 # Otsuste logi
 
-## Kuidas ma otsuseid teen
+<!-- section: decisions | owner: C -->
+## Otsused
 
-[Sinu üldine lähenemine — analüütiline, intuitiivne, konsulteeriv, kaalutlev, kiire. Kuidas sa tavaliselt olulisi valikuid läbi töötad.]
-
-## Mida ma vajan enne otsustamist
-
-[Info, sisendid või tingimused, mis tekitavad sinus valmisoleku otsus lukku lüüa. Mida sa otsid, enne kui end seod.]
-
-## Hiljutised otsused
-
-[2-3 päris näidet olulistest otsustest, mis sa teinud oled. Igaühe kohta: mis oli otsus, mis olid valikud, kuidas sa selle läbi mõtlesid, ja mida sa lõpuks otsustasid. Need peaksid olema piisavalt detailsed, et agent saaks sellest arutlusmustrist midagi õppida.]
+[2–3 päris otsust. Iga otsus on üks allikas. Ära üldista siin — kirjelda, mis päriselt juhtus.]
 
 ### [1. Otsuse pealkiri]
 
-[Mis see oli, mis olid valikud, kuidas sa asja läbi mõtlesid, mida sa otsustasid.]
+**allikas:** `dl-<lühinimi>`
+**Millal:** [YYYY-MM]
+**Olukord:** [Mis oli laual.]
+**Valikud:** [Mille vahel sa valisid.]
+**Mida sa otsustasid:** [Otsus ise.]
+**Kuidas sa selleni jõudsid:** [Käik, mitte tulemus. See on osa, millest tõend tuleb.]
+
+Vaatlused sellest juhtumist:
+
+| vaatlus-ID | Mida see juhtum näitab |
+|---|---|
+| `kiirus` | [üks konkreetne asi] |
+| `konsult` | [teine konkreetne asi] |
 
 ### [2. Otsuse pealkiri]
 
-[Mis see oli, mis olid valikud, kuidas sa asja läbi mõtlesid, mida sa otsustasid.]
+[Sama struktuur.]
 
-## Kuidas ma tulen toime määramatusega
+<!-- section: reasoning | owner: C -->
+## Mida need juhtumid näitavad
 
-[Mida sa teed, kui sul pole piisavalt infot, aga sa pead siiski otsustama. Sinu suhe puuduliku info ja ebaselgusega.]
+[Tuletatud mustrid. Iga rida vajab tõendit. Ühe allika pealt on rida `kandidaat`, kahe sõltumatu allika pealt `toetatud`.]
 
-## Kellega ma konsulteerin
+- [Muster, mida kaks eri juhtumit näitavad.] <!-- claim: status=toetatud; evidence=dl-<lühinimi>:kiirus,dl-<teine>:kiirus -->
+- [Muster, mida näeb praegu ainult ühest juhtumist.] <!-- claim: status=kandidaat; evidence=dl-<lühinimi>:konsult -->
 
-[Inimesed, kellega sa räägid enne suuri otsuseid, ja mida sa neilt ootad. Kas sa otsid kinnitust, vastuvaidlemist, infot või midagi muud?]
+<!-- section: uncertainty | owner: C -->
+## Määramatus ja lahtised otsused
 
-## Praegu lahtised otsused
+[Mida sa teed, kui infot pole piisavalt, aga otsustada tuleb. Ja: millega sa praegu pead murrad.]
 
-[Kõik asjad, millega sa hetkel pead murrad. Vabatahtlik — aga kasulik agentidele, kes võiksid aidata sul aktiivseid valikuid läbi mõelda.]
+Inimesed, kellega sa enne suuri otsuseid räägid, käivad `team-and-relationships.md` faili — nemad on isikuandmed, mitte otsusemuster.
 ```
