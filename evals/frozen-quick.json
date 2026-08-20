@@ -2,7 +2,7 @@
   "schema_version": 1,
   "path": "quick-interview.md",
   "algorithm": "sha256",
-  "sha256": "4a98893a87b1eda70751e3566c66d6793f6aef89b72a8f25693a29c58b063d1d",
+  "sha256": "ccecb8a49ebfdd1e0de124d1f7c07be844b29c1524f5c14477bc8021631edd5a",
   "generated_on": "2026-08-19",
   "generator": "scripts/render_quick_interview.py",
   "sources": [
@@ -13,7 +13,7 @@
     },
     {
       "path": "skills/konteksti-looja/references/quick-mode.md",
-      "sha256": "b0382848cdefe7edf2b498e459bdbe3d3e227d0fbaf0e7e1859deedba0f1171e",
+      "sha256": "6176e6d4bfdf0e7706080893d50e787b15c73f77b4b454a4b1637ef3e81caacd",
       "selection": "full"
     },
     {

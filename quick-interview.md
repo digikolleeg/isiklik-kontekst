@@ -177,72 +177,86 @@ Müügiraam (§3.1) ei ütle, kes kasutaja on ega mida tema ettevõte päriselt 
 
 ## 3. Voog
 
+<!-- quick-import-first: true -->
+<!-- quick-adaptive-questions: true -->
+<!-- quick-soft-checkpoint: minimum-coverage -->
+<!-- quick-max-verbatim-writing-samples: none -->
+<!-- quick-samples-one-message-one-answer: true -->
+
 0. **Loe olemasolev seis enne esimest küsimust.** Ava kontekstikaustast neli väljundfaili, kui need on olemas, ja vaata, millised sektsiooniankrud juba sisu kannavad.
 
    See maksab null vastust ja hoiab ära kaks viga: sa ei küsi seda, mis on juba kirjas, ja sa ei kirjuta üle tööd, mille tegi omanikmoodul.
 
    Ütle leitu ühe lausega välja: *"Sul on `current-projects.md` juba olemas, ICP ja pakkumine on täidetud. Neid ma üle ei küsi."*
 
-1. **Ütle müügiraam välja.** Ära küsi, mis tööd kasutaja tahab ära anda. Selle raja töö on juba teada: müügiagent uurib sihtklienti ja kirjutab talle kasutaja ettevõtte nimel.
+1. **Ütle raam, ära küsi tööd.** See rada ehitab **müügiagenti**: agenti, kes leiab sihtkliendi ja kirjutab talle kasutaja häälega. Töö on teada, seda ei küsita.
 
-   > *"Paneme kokku konteksti müügiagendile, kes uurib sihtklienti ja kirjutab talle sinu ettevõtte nimel."*
+   > *"Ehitame müügiagendi. Ta leiab sihtkliendi ja kirjutab talle sinu häälega. Selleks on mul vaja teada, mida sa müüd ja kellele, ning kuidas sa kirjutad."*
 
-   See samm ei kulu vastuste arvestusse.
+   Kui kasutaja ütleb, et tahab hoopis muud tööd agendile anda, ära suru müügiraami peale. Ütle üks lause ja mine üle teisele rajale: *"Siis läheme teist teed."*
 
-2. **Anna privaatsusjuhis enne materjalide küsimist.** Kasutaja peab tundliku info eemaldama või pseudonümiseerima **enne**, kui ta selle vestlusse kleebib:
+   See samm ei kulu eelarvest.
 
-   - päris inimene → `[kliendi tegevjuht]`;
-   - ettevõte → `[üks e-pood]`;
-   - hind → `[neljakohaline summa]`;
-   - e-post, telefon, isikukood ja lepingutingimused jäta välja.
+2. **Privaatsusjuhis enne materjali sisestust.** Ütle see **enne**, kui kasutaja midagi kleebib. Pärast on hilja.
 
-   Ütle ühe lausega, et kasutaja vaataks enne kleepimist materjali üle. Ära väida, et tasuline AI-pakett muudab tundliku info sisestamise automaatselt turvaliseks.
+   <!-- quick-privacy-before-import: true -->
 
-3. **Materjalide kutse enne sisulisi küsimusi.** Küsi olemasolevaid materjale ja päris sõnumeid. Kasutaja võib lisada nii palju autentseid, enda kirjutatud või enda poolt üle tehtud näidiseid, kui tal on. Vähemalt kaks on vaja, ülempiiri ei ole. Ühes sõnumis kleebitud materjalid ja näidised loevad üheks vastuseks. Import ei kulu küsimuste arvestusse. Vt allpool osa „Intervjuumootor“ §4.
+   > *"Enne kui kleebid: võta materjalist välja e-post, telefon, isikukood ja lepingutingimused. Nimed asenda lihtsalt — `[kliendi tegevjuht]`, `[üks e-pood]`, summa `[neljakohaline summa]`. Hääl jääb alles, ainult andmed lähevad välja."*
 
-4. **Tõlgenda importi müügiagendi töö järgi.** Sa ei ehita üldist profiili. Loe materjalist välja see, mis aitab sihtklienti valida, uurida ja talle kirjutada, ning ütle välja, mida sa kõrvale jätsid.
+   Reeglid:
 
-   Läbipaistev kokkuvõte: mida sain selle töö jaoks, mis on veel puudu. Lase parandada.
+   - Eemalda alati: **e-post**, **telefon**, **isikukood**, **lepingutingimused**.
+   - Asenda lihtsa sildiga: `[kliendi tegevjuht]`, `[üks e-pood]`, `[neljakohaline summa]`.
+   - **Ära kirjuta lauseid ümber.** Pseudonümiseerimine puudutab andmeid, mitte häält. Ümberkirjutatud näidis ei ole enam näidis.
+   - Kui kasutaja jätab tundliku info teadlikult alles, on see tema otsus. Märgi fail siis `sensitivity: restricted` ja ütle see välja.
 
-5. **Adaptiivsed küsimused.** Vali järgmine küsimus alati suurima katvuslünga ja otsustusväärtuse järgi. Ära kasuta jäika küsimuste arvu ega küsi midagi, mis tuli juba impordist või olemasolevatest failidest.
+3. **Materjalide kutse.** Küsi olemasolevaid materjale ja päris sõnumeid. Import ei kulu eelarvest. Vt allpool osa „Intervjuumootor“ §4.
 
-   Kui import ei katnud midagi, liigu tavaliselt selles sisulises järjekorras, aga jäta kaetud osa vahele:
+4. **Tõlgenda importi müügitöö järgi.** Sa ei ehita üldist profiili. Loe materjalist välja see, mis müügiagenti teenindab, ja ütle välja, mida sa kõrvale jätsid.
 
-   | Küsimus | Katab |
-   |---|---|
-   | 1 | nimi, roll, ettevõte (`identity-facts`) |
-   | 2 | pakkumine ja ostja |
-   | 3 | ICP sektor / suurus / piirkond |
-   | 4 | probleem ja päästik |
-   | 5 | usaldusväärsuse tõend |
-   | 6 | sõnumi eesmärk ja CTA, keelatud väited |
-   | 7 | kanal, register, pikkus, keelatud maneerid |
+   Läbipaistev kokkuvõte: mida sain, mis on veel puudu. Lase parandada.
 
-   Pärast iga vastust otsusta, kas vaja on üht süvendust või on järgmine katvuslüngas väärtuslikum. Lühike vastus ei sunni automaatselt süvendama; ebaselge või vastuoluline vastus sunnib.
+5. **Adaptiivsed küsimused, mitte fikseeritud arv.** Kindlat küsimuste arvu ei ole. Iga küsimus valitakse **katvuslünga ja otsustusväärtuse järgi**: küsi seda, mis on veel katmata ja mis kõige rohkem muudab agendi väljundit.
 
-   **Valikuabi.** Kui kasutaja ei tea veel sihtrühma, ostupäästikut või muud olulist valikut, ära jäta teda üksi tühja välja vaatama. Paku tema materjali ja kogemuse põhjal kuni kolm põhjendatud varianti, aruta temaga nende vahet ja suru vestlus ühe kasutatava valikuni. Ära esita oma soovitust kontrollitud turufaktina.
+   Kui import kattis välja, **ära küsi seda uuesti** — kinnita ekstrakt ühe lausega ja liigu edasi. Kui import kattis palju, võib sisulisi küsimusi jääda kolm. Kui import oli tühi, tuleb neid rohkem.
 
-   Enne soovitatud variandi faili kirjutamist küsi täpselt: *"Kas paneme selle praegu valikuna kirja?"* Kui kasutaja kinnitab, sõnasta see otsuse või tööhüpoteesina, näiteks *"Testime esimesena logistikaettevõtteid"*. Ära muuda seda lauseks *"Logistika on parim sihtturg"*, kui seda pole eraldi uuritud.
+   Prioriteet, kui midagi ei ole kaetud: nimi ja roll → pakkumine ja ostja → ICP sektor/suurus/piirkond → probleem ja päästik → sõnumi eesmärk ja CTA → keelatud väited → kanal, register, pikkus → keelatud maneerid → usaldusväärsuse tõend.
 
-6. **Näidised.** Küsi vähemalt kaks päris sõnumit, eri kanalitest, kui neid on. Kui impordist tuli päris sõnum, loeb see näidiseks. Võta vastu ka kolmas, kümnes või kahekümnes näidis; rohkem tõendeid ei ole viga.
+   ICP kolmik ja keelatud väited on need, mille udune vastus maksab kõige rohkem. Kui eelarve lubab ainult üht süvendust, kuluta see sinna.
 
-   **Kui kasutajal näidiseid ei ole:** koosta kalibreerimismustand, lase parandada, ja kasutaja parandatud versioon läheb näidiseks. Sinu enda parandamata mustand **ei lähe kunagi** `writing-samples.md` faili.
+   **Pehme checkpoint.** Niipea kui **minimaalne katvus** on koos — pakkumine ja ostja, ICP kolmik, kanal ja register, kaks näidist — peatu ja küsi:
 
-   Miinimum on kaks näidist ka siin. Tee **kaks kalibreerimismustandit eri olukorra kohta** (näiteks külm esimene kontakt ja vastus huvilisele) ja lase mõlemad parandada. Üks parandatud näidis ei täida nõuet ega anna hääle kohta teist sõltumatut perekonda.
+   > *"Mul on põhi koos. Kas kirjutan failid valmis, või tahad veel paar küsimust, et täpsem oleks?"*
 
-7. **Pehme kontrollpunkt.** Kui kõik üheksa katvusvõtit ja kaks näidist on olemas, või kasutaja on pärast importi vastanud kümme korda, näita kolme rida: kaetud / ebaselge / puudu. Küsi üks valik:
+   See on **pakkumine, mitte lõpp**. Kasutaja otsustab. Ära venita eelarvet lihtsalt selleks, et katvus täis saaks, ja ära lõpeta vaikselt ära, kui kasutaja tahtis edasi minna.
 
-   > *"Põhi on koos. Kas kirjutan neli faili praegu või täpsustame veel kõige olulisemat lünka?"*
+   **Valikuabi.** Kui kasutaja ei oska vastata, sest ta kaalub kahe variandi vahel, ära jäta teda üksi ja ära vali tema eest. Pane variandid kõrvuti ühe lausega kummagi kohta ja küsi, kumb praegu töötab:
 
-   Kümme ei ole lagi. Kui kasutaja tahab jätkata või kriitiline müügilünk on puudu, jätka ühe küsimuse kaupa. Kui ta tahab lõpetada, jäta puuduv failis nähtavalt katmata.
+   > *"Sa kaalud kahte ostjat. `[üks e-pood]` tähendab lühemat müügitsüklit ja väiksemat tehingut; teine tähendab pikemat tsüklit ja suuremat. Kumb neist on see, kelle peale sa järgmise kuu kirjad saadad?"*
 
-8. **Peegel.** Kuni kolm punkti, ainult tõendatud pinge. Vt allpool osa „Intervjuumootor“ §5.
+   Kui kasutaja valib, **kinnita valik ühe lausega ja kirjuta see nii, nagu ta ütles.** Valik on `kinnitatud`, mitte tuletus.
 
-9. **Kirjuta neli faili.** Järgi allpool osa „Väljundleping“.
+   Kui ta ei suuda valida, ära jäta välja katmata ja ära vali tema eest. Paku **tööhüpotees**: praegu töötav variant, mis on kirjas ja mida saab muuta.
 
-10. **Kandidaadid.** Kirjuta tuletused, mis kuuluvad süvasektsioonidesse, faili `portfolio/_candidates.md`.
+   > *"Kas paneme selle praegu valikuna kirja? Sa saad seda hiljem muuta, aga agent vajab midagi, mille peale kirjutada."*
 
-11. **Näita mustandid** ühe sõnumiga ja küsi: "Loe läbi ja ütle, mis ei kõla õigesti või on puudu. Parandame kohe."
+   Tööhüpotees läheb faili `kandidaat` staatusega ja teine variant kandidaadiregistrisse. Nii ei blokeeri pooleli otsus tervet sessiooni.
+
+6. **Näidised: miinimum kaks, ülempiiri ei ole.** Küsi päris sõnumeid, eri kanalitest, kui neid on. Impordist tulnud päris sõnum loeb näidiseks.
+
+   **Eelarve:** ühes sõnumis kleebitud näidised loevad **üheks vastuseks**, ükskõik mitu neid on. Kolm näidist ühes sõnumis maksab sama palju kui üks. Ütle see kasutajale välja, kui tal on rohkem materjali: *"Kleebi need kõik ühte sõnumisse, siis ei kuluta see eelarvet."*
+
+   Rohkem näidiseid on parem. Ära keeldu neljandast ega viiendast.
+
+   **Kui kasutajal näidiseid ei ole:** koosta kalibreerimismustand, lase parandada, ja kasutaja parandatud versioon läheb näidiseks. Sinu enda parandamata mustand **ei lähe kunagi** `writing-samples.md` faili. Miinimum on kaks ka siin: tee kaks kalibreerimismustandit eri olukorra kohta (külm esimene kontakt ja vastus huvilisele) ja lase mõlemad parandada.
+
+7. **Peegel.** Kuni kolm punkti, ainult tõendatud pinge. Vt allpool osa „Intervjuumootor“ §5.
+
+8. **Kirjuta neli faili.** Järgi allpool osa „Väljundleping“.
+
+9. **Kandidaadid.** Kirjuta tuletused, mis kuuluvad süvasektsioonidesse, faili `portfolio/_candidates.md`.
+
+10. **Näita mustandid** ühe sõnumiga ja küsi: "Loe läbi ja ütle, mis ei kõla õigesti või on puudu. Parandame kohe."
 
 ---
 
