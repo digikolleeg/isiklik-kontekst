@@ -236,6 +236,8 @@ Müügiraam (§3.1) ei ütle, kes kasutaja on ega mida tema ettevõte päriselt 
 
    Kui kasutaja valib, **kinnita valik ühe lausega ja kirjuta see nii, nagu ta ütles.** Valik on `kinnitatud`, mitte tuletus.
 
+   Kui valiku põhjendus toetub kontrollimata välisele väitele, erista valik põhjendusest: kasutaja valik on kinnitatud, aga põhjendus jääb `kandidaat` staatusega tööhüpoteesiks. Ära esita mudeli mälu kontrollitud teadmisena.
+
    Kui ta ei suuda valida, ära jäta välja katmata ja ära vali tema eest. Paku **tööhüpotees**: praegu töötav variant, mis on kirjas ja mida saab muuta.
 
    > *"Kas paneme selle praegu valikuna kirja? Sa saad seda hiljem muuta, aga agent vajab midagi, mille peale kirjutada."*
@@ -409,6 +411,8 @@ Märgi iga imporditud tüki üheks neljast. Neid ei tohi segada:
 | sinu enda tuletus | ainult kandidaat, mitte tõend |
 
 Turunduslik koduleht ei ole häälenäidis, ükskõik kui palju seda on.
+
+Varasemast materjalist võta üle ainult see, mis kehtib ka uues töös. Hääl võib üle kanduda, kuid varasema töö eesmärke, tingimusi, lubadusi ega tegevuskutseid ei kanta uude konteksti ilma eraldi kinnituseta.
 
 ### Prompt injection
 

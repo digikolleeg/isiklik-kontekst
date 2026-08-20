@@ -128,6 +128,11 @@ class SalesFirstQuickFlow(unittest.TestCase):
         self.assertIn("Valikuabi", self.flow)
         self.assertIn("tööhüpotees", self.flow)
         self.assertIn("Kas paneme selle praegu valikuna kirja?", self.flow)
+        self.assertIn("Ära esita mudeli mälu kontrollitud teadmisena", self.flow)
+
+    def test_old_offer_terms_are_not_carried_into_a_new_offer(self):
+        engine = ENGINE.read_text(encoding="utf-8")
+        self.assertIn("varasema töö eesmärke, tingimusi, lubadusi ega tegevuskutseid", engine)
 
     def test_uncertain_register_is_not_hardened_without_confirmation(self):
         engine = ENGINE.read_text(encoding="utf-8")
