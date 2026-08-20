@@ -5,7 +5,7 @@ Claude Desktop / Claude Code Skill, mis intervjueerib sind ja koostab automaatse
 ## Installeerimine
 
 1. Klooni või lae alla see repo (`digikolleeg/isiklik-kontekst`).
-2. Claude Desktop → Settings → Skills → Add Skill → vali kaust `skills/konteksti-looja/`.
+2. Claude Desktop → Settings → Skills → Add Skill → Upload a skill → lohista Skill aknasse või vali see üleslaadimise nupust.
 3. Kontroll: uues vestluses ütle "mis Skill-id mul installitud on?". Konteksti-looja peaks loendis olema.
 
 Rohkem pole vaja. Ei mingit Connectorit, ei mingit eelseadistust.
