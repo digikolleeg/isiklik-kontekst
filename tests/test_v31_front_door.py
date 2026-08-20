@@ -32,6 +32,11 @@ class TwoFrontDoors(unittest.TestCase):
                         "## Alati kehtiv", "## Süvarežiim", "## Eesti keele stiil", "## Reference'id"):
             self.assertIn(heading, self.text, heading)
 
+    def test_open_folder_receives_the_four_files_directly(self):
+        folder = _section(self.text, "## Kontekstikaust")
+        self.assertNotIn("`portfolio/` alamkausta", folder)
+        self.assertIn("otse sinna kausta", folder)
+
     def test_modes_table_names_both_front_doors(self):
         self.assertIn("müügiagent", self.modes)
         self.assertIn("muu töö või agent", self.modes)

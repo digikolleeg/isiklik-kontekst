@@ -68,8 +68,8 @@ Kiire režiim vajab esimest nelja. Süvarežiim vajab `deep-mode.md`, `interview
 Enne kirjutamist leia kaust, kuhu failid lähevad.
 
 1. Proovi järjekorras: `~/isiklik-kontekst/portfolio/`, `~/Projects/isiklik-kontekst/portfolio/`, `./portfolio/`.
-2. Kui neid pole, vaata, kas kasutajal on mõni kaust juba lahti (Cowork session vms), ja paku seda:
-   > *"Default kausta ei leidnud. Sul on lahti `<kaust>`. Salvestan failid sinna `portfolio/` alamkausta?"*
+2. Kui neid pole, vaata, kas kasutajal on mõni kaust juba lahti (Cowork session vms) või kas ta on kausta nimetanud, ja kirjuta failid **otse sinna kausta**, ilma alamkausta tegemata:
+   > *"Default kausta ei leidnud. Kirjutan neli faili otse kausta `<kaust>`."*
 3. Kui ka seda pole, küsi otse: *"Kuhu ma failid salvestan? Anna täielik tee."*
 4. Salvesta valik sessiooni jaoks ja kasuta seda kõigi failide puhul.
 

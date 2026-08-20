@@ -246,6 +246,6 @@
     "manifest": "evals/frozen-quick.json",
     "algorithm": "sha256",
     "sha256_required": true,
-    "published_sha256": "b68bf309092d6499d75b836868bf7549f697be7879033c3ef4b2cb71342d812e"
+    "published_sha256": "b8e7f328465072af668f476ce01e5c8ae0d8463ba46666c11045d0c3cc5bea66"
   }
 }
